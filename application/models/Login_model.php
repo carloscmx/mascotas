@@ -16,13 +16,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  */
 
-class Login_model extends CI_Model {
+class Login_model extends CI_Model  {
 
   // ------------------------------------------------------------------------
 
   public function __construct()
   {
     parent::__construct();
+    $this->db = $this->load->database('default', true);
   }
 
   // ------------------------------------------------------------------------
@@ -32,10 +33,17 @@ class Login_model extends CI_Model {
   public function selectUsuarios()
   {
     
-    $get=$this->db->get('usuarios');
-    return $get->result_array();
+    $this->db->get('usuarios');
+    
 
 
+  }
+   
+
+  public function insertarUsuarios($data)
+  {
+ 
+ $this->db->insert("usuarios",$data);
   }
 
   // ------------------------------------------------------------------------

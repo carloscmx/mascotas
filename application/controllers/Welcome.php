@@ -18,10 +18,14 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct(){
+		parent::__construct();
+		$this->load->model("Login_model","lg");
+
+	}
 	public function index()
 	{
 
-		$this->load->model("Login_model","lg");
 		
 		$usuarios = $this->lg->selectUsuarios();
 		$data["usuarios"] = $usuarios;
@@ -42,6 +46,26 @@ class Welcome extends CI_Controller {
 	{
 		$this->template->set("titulo","registro");
 		$this->template->load("template/LoginTemplate_view","contenido","paginas/registroView");
+
+	//	$this->db->insert('usuarios',$data);
+	//	redirect("welcome/login");  
 	
+	}
+	public function recibirparametrosregistro(){
+		$nombre=$this->input->post("nombre",TRUE);
+		$correo=$this->input->post("correo",TRUE);
+		$password=$this->input->post("password",TRUE);
+		$this->lg->insertarUsuarios([
+			'nombre'=>$nombre,
+			'correo'=>$correo,
+			'contrasena'=>sha1($password),
+			'activo'=>0,
+			'tipousarioid'=>2
+		]);
+
+
+
+		//echo json_encode($_POST);
+
 	}
 }

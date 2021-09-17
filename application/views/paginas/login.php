@@ -10,12 +10,12 @@
                                 </a>
                             </h2>
 
-                            <form class="" action="#">
+                            <form class="" action="#" method="post" id="IdFormLogin">
 
                                 <div class="form-group m-b-20 row">
                                     <div class="col-12">
                                         <label for="emailaddress">Email address</label>
-                                        <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                        <input class="form-control" type="email" id="email" name="email" required="" placeholder="Enter your email">
                                     </div>
                                 </div>
 
@@ -23,7 +23,7 @@
                                     <div class="col-12">
                                         <a href="page-recoverpw.html" class="text-muted float-right"><small>Forgot your password?</small></a>
                                         <label for="password">Password</label>
-                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                        <input class="form-control" type="password" required="" id="password" name="password" placeholder="Enter your password">
                                     </div>
                                 </div>
 
@@ -59,3 +59,5 @@
 
                 </div>
             </div>
+
+            

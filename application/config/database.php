@@ -74,10 +74,10 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'pgsql:host=localhost;port=5432;dbname=petboys',
+	//'dsn'	=> 'pgsql:host=localhost;port=5432;dbname=petboys',
 	'hostname' => 'localhost',
-	'username' => 'postgres',
-	'password' => 'root',
+	'username' => 'root',
+	'password' => '',
 	'database' => 'petboys',
     'dbdriver' => 'mysqli',
 	'dbprefix' => '',
