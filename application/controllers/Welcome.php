@@ -21,7 +21,8 @@ class Welcome extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("Login_model","lg");
-		$this->load->library('correo');
+		$this->load->library('Correo');
+		$this->load->library('Utilerias');
 
 
 	}
@@ -102,9 +103,21 @@ class Welcome extends CI_Controller {
 
 
 	}
+
+
 	public function recibirparametrosregistrocorreo(){
 $correo=$this->input->post("email",true);
-		$this->correo->enviar_correo($correo);
+$token = $this->utilerias->generateToken();
+		$this->correo->enviar_correo($correo,$token);
+
+		$token=$this->input->post("token");
+		$correo=$this->input->post("correoregistro",TRUE);
+		$this->lg->insertarUsuarios([
+			'correoregistro'=>$correo,
+			'token'=>$token,
+			'activo'=>0,
+			
+		
 	}
 
 

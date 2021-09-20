@@ -46,6 +46,12 @@ class Login_model extends CI_Model  {
  $this->db->insert("usuarios",$data);
   }
 
+  public function activacion($data)
+  {
+ 
+ $this->db->insert("activacion",$data);
+  }
+
   // ------------------------------------------------------------------------
 
 }

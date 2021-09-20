@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   // ------------------------------------------------------------------------
 
-  public function enviar_correo($correosalida)
+  public function enviar_correo($correosalida,$token)
   {
 //Indicamos el protocolo a utilizar
 $config['protocol'] = 'smtp';
@@ -75,7 +75,6 @@ $this->CI->email->to(trim($correosalida), 'EJEMPLO');
 $this->CI->email->subject("CORREO TEST");
 
 //Definimos el mensaje a enviar
-$token=rand(0,1999999);
 $this->CI->email->message("TOKEN: {$token}");
 
 //Enviamos el email y si se produce bien o mal que avise con una flasdata
