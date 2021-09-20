@@ -42,6 +42,8 @@ if (!isset($_SERVER['ORIG_SCRIPT_NAME'])) {
 |
 */
 $config['index_page'] = '';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@\=';
+
 
 /*
 |--------------------------------------------------------------------------

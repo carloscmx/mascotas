@@ -56,8 +56,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['inicio'] = 'welcome/index';
 $route['login'] = 'welcome/login';
-$route['registro'] = 'welcome/registro';
-$route['registros'] = 'welcome/correo';
+$route['registro/activaciones/(:any)'] = 'welcome/registro';
+$route['activacion'] = 'welcome/correo';
 
 
 

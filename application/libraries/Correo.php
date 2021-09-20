@@ -32,13 +32,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   // ------------------------------------------------------------------------
 
-  public function enviar_correo($correosalida,$token)
+  public function enviar_correo($cabecera,$correosalida,$html)
   {
 //Indicamos el protocolo a utilizar
 $config['protocol'] = 'smtp';
          
 //El servidor de correo que utilizaremos
  $config["smtp_host"] = 'ssl://mail.blazar.com.mx';
+
+ $config["mailtype"] = 'html';
+
   
 //Nuestro usuario
  $config["smtp_user"] = 'pruebas@blazar.com.mx';
@@ -62,20 +65,22 @@ $config['validate'] = true;
 //Establecemos esta configuración
 $this->CI->email->initialize($config);
 //Ponemos la dirección de correo que enviará el email y un nombre
-$this->CI->email->from('pruebas@blazar.com.mx', 'MANUEL RAZ');
+$this->CI->email->from('pruebas@blazar.com.mx', 'NOREPLY');
   
 /*
 * Ponemos el o los destinatarios para los que va el email
 * en este caso al ser un formulario de contacto te lo enviarás a ti
 * mismo
 */
-$this->CI->email->to(trim($correosalida), 'EJEMPLO');
+$this->CI->email->to(trim($correosalida),"NOREPLY");
 
 //Definimos el asunto del mensaje
-$this->CI->email->subject("CORREO TEST");
+$this->CI->email->subject($cabecera);
 
 //Definimos el mensaje a enviar
-$this->CI->email->message("TOKEN: {$token}");
+$this->CI->email->set_newline("\r\n");
+
+$this->CI->email->message($html);
 
 //Enviamos el email y si se produce bien o mal que avise con una flasdata
 if($this->CI->email->send()){

@@ -108,11 +108,10 @@ class Welcome extends CI_Controller {
 	public function recibirparametrosregistrocorreo(){
 $correo=$this->input->post("email",true);
 $token = $this->utilerias->generateToken();
-		$this->correo->enviar_correo($correo,$token);
-
-		$token=$this->input->post("token");
-		$correo=$this->input->post("correoregistro",TRUE);
-		$this->lg->insertarUsuarios([
+$url=base_url("registro/activaciones/{$token}");
+$bodyhtml="<h4>Bienvenido  completa tu registro</h4><br><a src='{$url}'>Confirmar Correo</a>";
+		$this->correo->enviar_correo("Registro de usuario",$correo,$bodyhtml);
+		$this->lg->activacion([
 			'correoregistro'=>$correo,
 			'token'=>$token,
 			'activo'=>0,
