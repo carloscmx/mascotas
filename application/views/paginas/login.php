@@ -10,7 +10,7 @@
                                 </a>
                             </h2>
 
-                            <form class="" action="#" method="post" id="IdFormLogin">
+                            <form class="" action="#" method="POST" id="">
 
                                 <div class="form-group m-b-20 row">
                                     <div class="col-12">
@@ -42,7 +42,7 @@
 
                                 <div class="form-group row text-center m-t-10">
                                     <div class="col-12">
-                                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign In</button>
+                                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">iniciar cesion</button>
                                     </div>
                                 </div>
 
@@ -50,7 +50,7 @@
 
                             <div class="row m-t-50">
                                 <div class="col-sm-12 text-center">
-                                    <p class="text-muted">Don't have an account? <a href="page-register.html" class="text-dark m-l-5"><b>Sign Up</b></a></p>
+                                    <p class="text-muted">Don't have an account? <a href="page-register.html" class="text-dark m-l-5" name="btnlogin"><b>Sign Up</b></a></p>
                                 </div>
                             </div>
 
@@ -59,5 +59,6 @@
 
                 </div>
             </div>
+
 
             
