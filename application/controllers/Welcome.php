@@ -41,32 +41,16 @@ class Welcome extends CI_Controller {
 		$this->template->set("titulo","Iniciar sesion");
 		$this->template->load("template/LoginTemplate_view","contenido","paginas/login");
 
-		$username = $_POST['correo'];
-		$password=sha1($_POST['contrasena']);
-
-		$this->db->select('*');
-		$this->db->from('usuarios');
-		$this->db->where(array('correo'=> $usarname, 'contrasena' => $password));
-		$query = $this->db->get();
-
-		$user = $query->row();
-
-		if($user->email){
-			$this->session->set_flashdata("estas conectado");
-
-			$_SESSION["user_logged"] = true;
-			$_SESSION["usuario"] = $user->correo;
-
-			redirect("user/profile", "refresh");
+		$correo=$this->input->post("correo",TRUE);
+		$password=$this->input->post("password",TRUE);
+		$this->lg->verificar([
+			'correo'=>$correo,
+			'contrasena'=>$password
 
 
-		}else{
-
-			$this->session->set_flashdata("error", "no existe la cuenta");
-			redirect("welcome/login", "refresh");
-
-		}
-
+			
+		]);
+		
 		$this->load->view('login');
 
 		
@@ -75,8 +59,16 @@ class Welcome extends CI_Controller {
 	}
 	public function registro()
 	{
-		$this->template->set("titulo","registro");
-		$this->template->load("template/LoginTemplate_view","contenido","paginas/registroView");
+		$token=$this->uri->segment(3);
+		$respuesta=$this->lg->validartoken($token);
+		if($respuesta['action']){
+			$this->template->set("titulo","registro");
+			$this->template->load("template/LoginTemplate_view","contenido","paginas/registroView");
+
+		}else{
+			show_error("ERROR",403,"HA OCURRIDO UN ERROR");
+		}
+
 
 	//	$this->db->insert('usuarios',$data);
 	//	redirect("welcome/login");  
@@ -88,7 +80,6 @@ class Welcome extends CI_Controller {
 		$password=$this->input->post("password",TRUE);
 		$this->lg->insertarUsuarios([
 			'nombre'=>$nombre,
-			'correo'=>$correo,
 			'contrasena'=>sha1($password),
 			'activo'=>0,
 			'tipousarioid'=>2
@@ -109,14 +100,46 @@ class Welcome extends CI_Controller {
 $correo=$this->input->post("email",true);
 $token = $this->utilerias->generateToken();
 $url=base_url("registro/activaciones/{$token}");
-$bodyhtml="<h4>Bienvenido  completa tu registro</h4><br><a src='{$url}'>Confirmar Correo</a>";
-		$this->correo->enviar_correo("Registro de usuario",$correo,$bodyhtml);
-		$this->lg->activacion([
+$bodyhtml="<h4>Bienvenido  completa tu registro</h4><br><a target='_blank' href='{$url}'>Confirmar Correo</a>";
+		if($this->correo->enviar_correo("Registro de usuario",$correo,$bodyhtml)){
+		if(	$this->lg->activacion([
 			'correoregistro'=>$correo,
 			'token'=>$token,
 			'activo'=>0,
-		]);
-		
+		])){
+			echo json_encode(['status'=>'success','message'=>'Correo registrado']);
+		}else{
+			echo json_encode(['status'=>'error','message'=>'El correo ya se ha registrado']);
+
+		}
+		}else{
+			echo json_encode(['status'=>'error','message'=>'Correo invalido']);
+
+		}
+	}
+
+
+	public function registroFinal(){
+
+		$token=$this->input->post("txtToken");
+
+		$respuesta=$this->lg->validartoken($token);
+		if($respuesta['action']){
+			$txtNombre=$this->input->post("txtNombre",true);
+			$txtApepat=$this->input->post("txtApepat",true);
+			$txtAmater=$this->input->post("txtAmater",true);
+			$dttFechanan=$this->input->post("dttFechanan",true);
+			$txtPassword=$this->input->post("txtPassword",true);
+
+		$data=['nombre'=>$txtNombre,'contrasena'=>$txtPassword,'activo'=>1,'tipousarioid'=>2,'apellidopat'=>$txtApepat,'apellidomat'=>$txtAmater,'correo'=>$respuesta['correo']];
+		$this->lg->insertarUsuarios($data);
+
+		}else{
+			echo json_encode(['status'=>'error','message'=>'Ha ocurrido un error']);
+		}
+
+
+
 	}
 
 

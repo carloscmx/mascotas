@@ -10,7 +10,7 @@
                                 </a>
                             </h2>
 
-                            <form class="" action="#" method="POST" id="">
+                            <form class="" action="#" method="POST" id="idFormLogin">
 
                                 <div class="form-group m-b-20 row">
                                     <div class="col-12">
@@ -42,7 +42,7 @@
 
                                 <div class="form-group row text-center m-t-10">
                                     <div class="col-12">
-                                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">iniciar cesion</button>
+                                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:validarusuario()">iniciar cesion</button>
                                     </div>
                                 </div>
 
@@ -60,5 +60,27 @@
                 </div>
             </div>
 
+            <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
-            
+            <script>
+    function validarusuario() {
+        $paramts=$("#idFormRegistro").serialize();
+        $.ajax({
+            url: "<?=base_url("Welcome/login")?>",
+            data:$paramts,
+            type:"post",
+        }).done(function() {
+          alert("hokokdsad");
+        });
+    }
+    
+</script>
+            <script>
+    // A $( document ).ready() block.
+$(document).ready(function() { 
+    $("#idFormLogin").submit(function(event){
+        event.preventDefault();
+});
+});
+ 
+</script>

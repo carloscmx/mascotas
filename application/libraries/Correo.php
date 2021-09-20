@@ -82,12 +82,13 @@ $this->CI->email->set_newline("\r\n");
 
 $this->CI->email->message($html);
 
+$estado=false;
 //Enviamos el email y si se produce bien o mal que avise con una flasdata
 if($this->CI->email->send()){
-echo "OK";
-}else{
-echo "ERROR";
+  $estado=true;
+
 }
+return $estado;
   }
 
   // ------------------------------------------------------------------------

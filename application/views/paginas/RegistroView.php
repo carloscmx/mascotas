@@ -9,32 +9,63 @@
                         <span><img src="assets/images/logo.png" alt="" height="26"></span>
                     </a>
                 </h2>
-
                 <form class="" action="" method="post" id="idFormRegistro">
 
                     <div class="form-group m-b-20 row">
                         <div class="col-12">
                             <label for="text">Nombre</label>
-                            <input class="form-control" type="text" id="nombre" required="" placeholder="Enter your email" name="nombre">
+                            <input class="form-control" type="text" name="txtNombre" required="" placeholder="Enter your email">
                         </div>
                     </div>
 
-                    <form class="" action="" method="post">
+                    <div class="form-group m-b-20 row">
+                        <div class="col-12">
+                            <label for="text">Apellido paterno</label>
+                            <input class="form-control" type="text" name="txtApepat" required="" placeholder="Enter your email" >
+                        </div>
+                    </div>
 
-                        <div class="form-group m-b-20 row">
-                            <div class="col-12">
-                                <label for="emailaddress">correo</label>
-                                <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email"  name="correo">
-                            </div>
+                    <div class="form-group m-b-20 row">
+                        <div class="col-12">
+                            <label for="text">Apellido materno</label>
+                            <input class="form-control" type="text" name="txtAmater" required="" placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                    <div class="form-group m-b-20 row">
+                        <div class="col-12">
+                        <label for="start">Fecha nacimiento:</label>
+
+<input type="date" id="start" name="dttFechanan"
+       value="2018-07-22"
+        >
+
                         </div>
 
-                        <div class="form-group row m-b-20">
-                            <div class="col-12">
-                                <a href="page-recoverpw.html" class="text-muted float-right"><small>Forgot your password?</small></a>
-                                <label for="password">contraseña</label>
-                                <input class="form-control" type="password" required="" name="password" placeholder="Enter your password">
-                            </div>
+                    </div>
+
+                    
+                    <div class="form-group m-b-20 row">
+                    <input class="form-control" type="text" name="txtToken" value="<?=$this->uri->segment(3)?>">
+
                         </div>
+                        
+                    </div>
+
+
+                    <div class="form-group m-b-20 row">
+                        <div class="col-12">
+                            <label for="text">Password</label>
+                            <input class="form-control" type="text" name="txtPassword" id="txtPassword" required="" placeholder="Enter your email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group m-b-20 row">
+                        <div class="col-12">
+                            <label for="text">Repite tu password</label>
+                            <input class="form-control" type="text" name="txtPassword1"  id="txtPassword1" required="" placeholder="Enter your email">
+                        </div>
+                    </div>
 
                         <div class="form-group row m-b-20">
                             <div class="col-12">
@@ -56,26 +87,36 @@
 
     </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js" integrity="sha512-XZEy8UQ9rngkxQVugAdOuBRDmJ5N4vCuNXCh8KlniZgDKTvf7zl75QBtaVG1lEhMFe2a2DuA22nZYY+qsI2/xA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/localization/messages_es.min.js" integrity="sha512-Ou4GV0BYVfilQlKiSHUNrsoL1nznkcZ0ljccGeWYSaK2CaVzof2XaZ5VEm5/yE/2hkzjxZngQHVwNUiIRE8yLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
     function enviarparemetrosregistro() {
-        $paramts=$("#idFormRegistro").serialize();
+        if($("#txtPassword").val()===$("#txtPassword1").val() &&  $("#txtPassword").val().length>6){
+            $paramts=$("#idFormRegistro").serialize();
         $.ajax({
-            url: "<?=base_url("Welcome/recibirparametrosregistro")?>",
+            url: "<?=base_url("Welcome/registroFinal")?>",
             data:$paramts,
             type:"post",
         }).done(function() {
-          alert("hokokdsad");
         });
+        }else{
+            alert("PENDEJO PON BIEN TU PASSWORD");
+        }
+       
     }
     
 </script>
 <script>
     // A $( document ).ready() block.
 $(document).ready(function() { 
+   
     $("#idFormRegistro").submit(function(event){
         event.preventDefault();
+       
 });
 });
  
