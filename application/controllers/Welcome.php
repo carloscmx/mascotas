@@ -116,7 +116,7 @@ $token = $this->utilerias->generateToken();
 			'correoregistro'=>$correo,
 			'token'=>$token,
 			'activo'=>0,
-			
+		]);
 		
 	}
 
