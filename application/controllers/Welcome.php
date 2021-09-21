@@ -64,7 +64,7 @@ class Welcome extends CI_Controller
 			$this->template->set("titulo", "registro");
 			$this->template->load("template/LoginTemplate_view", "contenido", "paginas/registroView");
 		} else {
-			show_error("ERROR", 403, "HA OCURRIDO UN ERROR");
+			show_error("No se pudo procesar esta peticion.", 403, "Ha ocurrido un error.");
 		}
 	}
 	public function recibirparametrosregistro()
@@ -122,8 +122,12 @@ class Welcome extends CI_Controller
 			$dttFechanan = $this->input->post("dttFechanan", true);
 			$txtPassword = $this->input->post("txtPassword", true);
 
-			$data = ['nombre' => $txtNombre, 'contrasena' => sha1($txtPassword), 'activo' => 1, 'tipousarioid' => 2, 'apellidopat' => $txtApepat, 'apellidomat' => $txtAmater, 'correo' => $respuesta['correo']];
+			$data = ['nombre' => $txtNombre, 'contrasena' => sha1($txtPassword), 'activo' => 1, 'tipousarioid' => 2, 'apellidopat' => $txtApepat, 'apellidomat' => $txtAmater, 'correo' => $respuesta['correo'], 'fechanan' => $dttFechanan];
 			$this->lg->insertarUsuarios($data);
+			$this->lg->actualizarregistro([
+				'activo' => 1,
+			], ['idregistro' => $respuesta['idactivacion']]);
+			echo	json_encode(['idregistro' => $respuesta['idactivacion']]);
 		} else {
 			echo json_encode(['status' => 'error', 'message' => 'Ha ocurrido un error']);
 		}
