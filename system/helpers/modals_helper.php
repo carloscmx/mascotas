@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CodeIgniter
  *
@@ -35,7 +36,7 @@
  * @since	Version 1.0.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * CodeIgniter URL Helpers
@@ -49,8 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // ------------------------------------------------------------------------
 
-if ( ! function_exists('modal_simple'))
-{
+if (!function_exists('modal_simple')) {
 	/**
 	 * Modal simple
 	 *
@@ -61,14 +61,15 @@ if ( ! function_exists('modal_simple'))
 	 * @return	string  $textobody
 	 * @return	bool  $cancelbutton
 	 */
-	function modal_simple($idmodal,$titulo,$textobody,$cancelbutton=true)
+	function modal_simple($idmodal, $titulo, $textobody, $cancelbutton = true, $modalsize = "")
 	{
-		$button="";
-		if($cancelbutton){
-			$button="<button type='button' class='btn btn-default' data-dismiss='modal'>Cerrar</button>";
+
+		$button = "";
+		if ($cancelbutton) {
+			$button = "<button type='button' class='btn btn-default' data-dismiss='modal'>Cerrar</button>";
 		}
-		return $modal="<div class='modal fade' tabindex='-1' role='dialog' id='{$idmodal}'>
-		<div class='modal-dialog' role='document'>
+		return $modal = "<div class='modal fade' tabindex='-1' role='dialog' id='{$idmodal}'>
+		<div class='modal-dialog {$modalsize}' role='document'>
 		  <div class='modal-content'>
 			<div class='modal-header'>
 			
@@ -84,6 +85,5 @@ if ( ! function_exists('modal_simple'))
 		</div><!-- /.modal-dialog -->
 	  </div><!-- /.modal -->
 	  ";
-
 	}
 }

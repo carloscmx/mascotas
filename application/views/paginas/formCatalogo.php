@@ -14,6 +14,7 @@
 
 <body>
     <h1>nuevo</h1>
+    <?= var_dump($_SESSION) ?>
 
 
     <div class="col-5">
@@ -28,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="<?= $_SESSION['user_client']->apellidomat ?>">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">

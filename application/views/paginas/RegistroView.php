@@ -49,19 +49,27 @@
                     <div class="form-group m-b-20 row">
                         <div class="col-12">
                             <label for="text">Contraseña</label>
-                            <input class="form-control" type="text" name="txtPassword" id="txtPassword" required="" placeholder="Contraseña">
+                            <input class="form-control" name="txtPassword" id="txtPassword" required="" placeholder="Contraseña" type="password">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group m-b-20 row" style="display: none;">
+                        <div class="col-12">
+                            <label for="text">Contraseña</label>
+                            <input class="form-control" type="text" value="<?= $this->uri->segment(3) ?>" name="txtToken" id="txtToken" required="" placeholder="">
                         </div>
                     </div>
 
                     <div class="form-group m-b-20 row">
                         <div class="col-12">
                             <label for="text">Repite contraseña</label>
-                            <input class="form-control" type="text" name="txtPassword1" id="txtPassword1" required="" placeholder="Contraseña">
+                            <input class="form-control" name="txtPassword1" id="txtPassword1" required="" placeholder="Contraseña" type="password">
                         </div>
                     </div>
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:enviarparemetrosregistro()">Registrar
+                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:enviarparemetrosregistro()" id="btnSubmitButtom">Registrar
                             </button>
                         </div>
                     </div>
@@ -76,6 +84,10 @@
 </div>
 </div>
 
+
+<?= modal_simple("modal1", "Registro exitoso", "Gracias tu registro ha sido satisfactorio, espere un momento.") ?>
+<?= modal_simple("modal2", "error", "Las contrasenas no son iguales, verifique sus datos.") ?>
+
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js" integrity="sha512-XZEy8UQ9rngkxQVugAdOuBRDmJ5N4vCuNXCh8KlniZgDKTvf7zl75QBtaVG1lEhMFe2a2DuA22nZYY+qsI2/xA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -89,9 +101,22 @@
                 url: "<?= base_url("Welcome/registroFinal") ?>",
                 data: $paramts,
                 type: "post",
-            }).done(function() {});
+                beforeSend: function(xhr) {
+                    $("#btnSubmitButtom").prop('disabled', true);
+                }
+            }).done(function() {
+                $("#modal1").modal("show");
+
+                setTimeout(function() {
+                    window.location.href = "<?= base_url("inicio") ?>";
+                }, 2000);
+
+            });
+
         } else {
-            alert("PENDEJO PON BIEN TU PASSWORD");
+            $("#modal2").modal("show");
+            $("#btnSubmitButtom").prop('disabled', false);
+
         }
 
     }

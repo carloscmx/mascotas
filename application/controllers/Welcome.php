@@ -123,11 +123,13 @@ class Welcome extends CI_Controller
 			$txtPassword = $this->input->post("txtPassword", true);
 
 			$data = ['nombre' => $txtNombre, 'contrasena' => sha1($txtPassword), 'activo' => 1, 'tipousarioid' => 2, 'apellidopat' => $txtApepat, 'apellidomat' => $txtAmater, 'correo' => $respuesta['correo'], 'fechanan' => $dttFechanan];
-			$this->lg->insertarUsuarios($data);
+			$idusuario = $this->lg->insertarUsuarios($data);
 			$this->lg->actualizarregistro([
 				'activo' => 1,
 			], ['idregistro' => $respuesta['idactivacion']]);
 			echo	json_encode(['idregistro' => $respuesta['idactivacion']]);
+			$user = $this->lg->login(['id' => $idusuario])->row();
+			$_SESSION['user_client'] = $user;
 		} else {
 			echo json_encode(['status' => 'error', 'message' => 'Ha ocurrido un error']);
 		}

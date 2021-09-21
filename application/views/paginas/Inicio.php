@@ -14,6 +14,7 @@
 
 <body>
   <h1>inicio</h1>
+  <?= var_dump($_SESSION) ?>
 
   <a href="<?= base_url("Catalogo/index") ?>">registro</a>
   <a href="url">catalogo</a>
