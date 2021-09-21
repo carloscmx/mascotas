@@ -9,6 +9,9 @@
                         <span><img src="assets/images/logo.png" alt="" height="26"></span>
                     </a>
                 </h2>
+
+                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Registro</h3>
+
                 <form class="" action="" method="post" id="idFormRegistro">
 
                     <div class="form-group m-b-20 row">
@@ -35,7 +38,7 @@
                     <div class="form-group m-b-20 row">
                         <div class="col-12">
                             <label for="start">Fecha nacimiento:</label>
-
+                            <br>
                             <input type="date" id="start" name="dttFechanan" value="2018-07-22">
 
                         </div>
@@ -44,38 +47,25 @@
 
 
                     <div class="form-group m-b-20 row">
-                        <input class="form-control" type="text" name="txtToken" value="<?= $this->uri->segment(3) ?>">
-
+                        <div class="col-12">
+                            <label for="text">Contraseña</label>
+                            <input class="form-control" type="text" name="txtPassword" id="txtPassword" required="" placeholder="Contraseña">
+                        </div>
                     </div>
 
-            </div>
+                    <div class="form-group m-b-20 row">
+                        <div class="col-12">
+                            <label for="text">Repite contraseña</label>
+                            <input class="form-control" type="text" name="txtPassword1" id="txtPassword1" required="" placeholder="Contraseña">
+                        </div>
+                    </div>
+                    <div class="form-group row text-center m-t-10">
+                        <div class="col-12">
+                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:enviarparemetrosregistro()">Registrar
+                            </button>
+                        </div>
+                    </div>
 
-
-            <div class="form-group m-b-20 row">
-                <div class="col-12">
-                    <label for="text">Contraseña</label>
-                    <input class="form-control" type="text" name="txtPassword" id="txtPassword" required="" placeholder="Contraseña">
-                </div>
-            </div>
-
-            <div class="form-group m-b-20 row">
-                <div class="col-12">
-                    <label for="text">Repite contraseña</label>
-                    <input class="form-control" type="text" name="txtPassword1" id="txtPassword1" required="" placeholder="Contraseña">
-                </div>
-            </div>
-
-            <div class="form-group row m-b-20">
-                <div class="col-12">
-
-                </div>
-            </div>
-
-            <div class="form-group row text-center m-t-10">
-                <div class="col-12">
-                    <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:enviarparemetrosregistro()">Registrar
-                    </button>
-                </div>
             </div>
 
             </form>

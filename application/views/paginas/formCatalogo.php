@@ -19,6 +19,14 @@
     <div class="col-5">
         <form>
             <div class="form-group">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -27,6 +35,12 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
+            <div class="form-group">
+                <label class="form-label" for="customFile">Default file input example</label>
+                <input type="file" class="form-control" id="customFile" />
+            </div>
+
+
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
