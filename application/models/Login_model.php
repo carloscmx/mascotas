@@ -34,7 +34,18 @@ class Login_model extends CI_Model  {
   {
     
     $this->db->get('usuarios');
-    
+  
+
+  }
+
+  public function login($where)
+  {
+ 
+ $this->db->select("*");
+ $this->db->from("usuarios");
+ $this->db->where($where);
+ return $this->db->get();
+
 
 
   }

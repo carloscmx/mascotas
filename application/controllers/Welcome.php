@@ -41,21 +41,25 @@ class Welcome extends CI_Controller {
 		$this->template->set("titulo","Iniciar sesion");
 		$this->template->load("template/LoginTemplate_view","contenido","paginas/login");
 
-		$correo=$this->input->post("correo",TRUE);
+
+	//	$this->load->view('paginas/login');
+
+	
+	}
+	public function varificarLogin(){
+		
+		$correo=$this->input->post("email",TRUE);
 		$password=$this->input->post("password",TRUE);
-		$this->lg->verificar([
+		$result=$this->lg->login([
 			'correo'=>$correo,
-			'contrasena'=>$password
+			'contrasena'=>sha1($password)
+	]);
+	$respuesta=['status'=>'error','message'=>'Usuario no entrado '];
+	if($result->num_rows()>0){
+		$respuesta=['status'=>'success','message'=>'Iniciando sesion.'];
 
-
-			
-		]);
-		
-		$this->load->view('login');
-
-		
-	
-	
+	}
+	echo json_encode($respuesta);
 	}
 	public function registro()
 	{
@@ -131,7 +135,7 @@ $bodyhtml="<h4>Bienvenido  completa tu registro</h4><br><a target='_blank' href=
 			$dttFechanan=$this->input->post("dttFechanan",true);
 			$txtPassword=$this->input->post("txtPassword",true);
 
-		$data=['nombre'=>$txtNombre,'contrasena'=>$txtPassword,'activo'=>1,'tipousarioid'=>2,'apellidopat'=>$txtApepat,'apellidomat'=>$txtAmater,'correo'=>$respuesta['correo']];
+		$data=['nombre'=>$txtNombre,'contrasena'=>sha1($txtPassword),'activo'=>1,'tipousarioid'=>2,'apellidopat'=>$txtApepat,'apellidomat'=>$txtAmater,'correo'=>$respuesta['correo']];
 		$this->lg->insertarUsuarios($data);
 
 		}else{

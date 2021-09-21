@@ -64,13 +64,13 @@
 
             <script>
     function validarusuario() {
-        $paramts=$("#idFormRegistro").serialize();
+        $paramts=$("#idFormLogin").serialize();
         $.ajax({
-            url: "<?=base_url("Welcome/login")?>",
+            url: "<?=base_url("Welcome/varificarLogin")?>",
             data:$paramts,
             type:"post",
         }).done(function() {
-          alert("hokokdsad");
+       //   alert("");
         });
     }
     
