@@ -26,23 +26,11 @@ class Welcome extends CI_Controller {
 
 
 	}
-	public function index()
-	{
 
-		
-		$usuarios = $this->lg->selectUsuarios();
-		$data["usuarios"] = $usuarios;
-		$this->template->set("titulo","inicio");
-		$this->template->load("template/Template_view","contenido","paginas/Inicio_view",$data);
-
-	}
 	public function login()
 	{
 		$this->template->set("titulo","Iniciar sesion");
 		$this->template->load("template/LoginTemplate_view","contenido","paginas/login");
-
-
-	//	$this->load->view('paginas/login');
 
 	
 	}
@@ -94,7 +82,9 @@ class Welcome extends CI_Controller {
 	public function correo()
 	{
 
-		$this->load->view('paginas/correo');
+		
+		$this->template->set("titulo","Iniciar sesion");
+		$this->template->load("template/LoginTemplate_view","contenido","paginas/correo");
 
 
 	}
