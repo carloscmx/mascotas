@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -58,7 +58,4 @@ $route['inicio'] = 'welcome/index';
 $route['login'] = 'welcome/login';
 $route['registro/activaciones/(:any)'] = 'welcome/registro';
 $route['registro'] = 'welcome/correo';
-
-
-
-
+$route['catalogo'] = 'catalogo/index';
