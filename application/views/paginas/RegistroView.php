@@ -14,21 +14,21 @@
                     <div class="form-group m-b-20 row">
                         <div class="col-12">
                             <label for="text">Nombre</label>
-                            <input class="form-control" type="text" name="txtNombre" required="" placeholder="Enter your email">
+                            <input class="form-control" type="text" name="txtNombre" required="" placeholder="Correo">
                         </div>
                     </div>
 
                     <div class="form-group m-b-20 row">
                         <div class="col-12">
                             <label for="text">Apellido paterno</label>
-                            <input class="form-control" type="text" name="txtApepat" required="" placeholder="Enter your email" >
+                            <input class="form-control" type="text" name="txtApepat" required="" placeholder="Apellido paterno" >
                         </div>
                     </div>
 
                     <div class="form-group m-b-20 row">
                         <div class="col-12">
                             <label for="text">Apellido materno</label>
-                            <input class="form-control" type="text" name="txtAmater" required="" placeholder="Enter your email">
+                            <input class="form-control" type="text" name="txtAmater" required="" placeholder="Apellido materno">
                         </div>
                     </div>
 
@@ -55,15 +55,15 @@
 
                     <div class="form-group m-b-20 row">
                         <div class="col-12">
-                            <label for="text">Password</label>
-                            <input class="form-control" type="text" name="txtPassword" id="txtPassword" required="" placeholder="Enter your email">
+                            <label for="text">Contraseña</label>
+                            <input class="form-control" type="text" name="txtPassword" id="txtPassword" required="" placeholder="Contraseña">
                         </div>
                     </div>
                     
                     <div class="form-group m-b-20 row">
                         <div class="col-12">
-                            <label for="text">Repite tu password</label>
-                            <input class="form-control" type="text" name="txtPassword1"  id="txtPassword1" required="" placeholder="Enter your email">
+                            <label for="text">Repite contraseña</label>
+                            <input class="form-control" type="text" name="txtPassword1"  id="txtPassword1" required="" placeholder="Contraseña">
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@
 
                         <div class="form-group row text-center m-t-10">
                             <div class="col-12">
-                                <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:enviarparemetrosregistro()">Sign In
+                                <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:enviarparemetrosregistro()">Registrar
                                     </button >
                             </div>
                         </div>

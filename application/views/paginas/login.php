@@ -10,32 +10,28 @@
                                 </a>
                             </h2>
 
+                            <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Inicia sesion</h5>
+
                             <form class="" action="#" method="POST" id="idFormLogin">
 
                                 <div class="form-group m-b-20 row">
                                     <div class="col-12">
-                                        <label for="emailaddress">Email address</label>
-                                        <input class="form-control" type="email" id="email" name="email" required="" placeholder="Enter your email">
+                                        <label for="emailaddress">Correo</label>
+                                        <input class="form-control" type="email" id="email" name="email" required="" placeholder="Email">
                                     </div>
                                 </div>
 
                                 <div class="form-group row m-b-20">
                                     <div class="col-12">
-                                        <a href="page-recoverpw.html" class="text-muted float-right"><small>Forgot your password?</small></a>
-                                        <label for="password">Password</label>
-                                        <input class="form-control" type="password" required="" id="password" name="password" placeholder="Enter your password">
+                                        <a href="page-recoverpw.html" class="text-muted float-right"><small>Olvidaste tu contraseña?</small></a>
+                                        <label for="password">Contraseña</label>
+                                        <input class="form-control" type="password" required="" id="password" name="password" placeholder="Contraseña">
                                     </div>
                                 </div>
 
                                 <div class="form-group row m-b-20">
                                     <div class="col-12">
 
-                                        <div class="checkbox checkbox-custom">
-                                            <input id="remember" type="checkbox" checked="">
-                                            <label for="remember">
-                                                Remember me
-                                            </label>
-                                        </div>
 
                                     </div>
                                 </div>
@@ -50,7 +46,7 @@
 
                             <div class="row m-t-50">
                                 <div class="col-sm-12 text-center">
-                                    <p class="text-muted">Don't have an account? <a href="page-register.html" class="text-dark m-l-5" name="btnlogin"><b>Sign Up</b></a></p>
+                                    <p class="text-muted">Notienes cuentat? <a href="<?=base_url("Welcome/correo")?>" class="text-dark m-l-5" name="btnlogin"><b>Registrate</b></a></p>
                                 </div>
                             </div>
 
@@ -59,6 +55,14 @@
 
                 </div>
             </div>
+
+
+<?=modal_simple("modal1","Error","Por favor valida las credenciales")?>
+<?=modal_simple("modal2","Espere un momento","Redirigiendo")?>
+
+
+
+
 
             <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
@@ -69,14 +73,22 @@
             url: "<?=base_url("Welcome/varificarLogin")?>",
             data:$paramts,
             type:"post",
-        }).done(function() {
-       //   alert("");
+        }).done(function(result) {
+       var resultarray = JSON.parse(result);
+            if (resultarray.status == "success") {
+                $("#modal2").modal("show");
+
+                
+                window.location.href="<?=base_url("Welcome/index")?>";
+                }else{
+                   $("#modal1").modal("show");
+                }
+            
         });
     }
     
 </script>
             <script>
-    // A $( document ).ready() block.
 $(document).ready(function() { 
     $("#idFormLogin").submit(function(event){
         event.preventDefault();
