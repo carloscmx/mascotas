@@ -87,3 +87,41 @@ if ( ! function_exists('modal_simple'))
 
 	}
 }
+
+if ( ! function_exists('large_modal'))
+{
+	/**
+	 * Modal Largo
+	 *
+	 * Este helper sirve para generar un modal largo utilizado parametros basicos.
+	 *
+	 * @param	string	$idmodal
+	 * @param	string	$titulo
+	 * @return	string  $textobody
+	 * @return	bool  $cancelbutton
+	 */
+	function large_modal($idmod,$titul,$texto,$cancelbtn=true)
+	{
+		$button="";
+		if($cancelbtn){
+			$button="<button type='button' class='btn btn-primary' data-toggle='modal' data-target='.bs-example-modal-lg'>Large modal</button>";
+		}
+		return $modal="<div class='modal fade' bs-example-modal-lg' tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' id='{$idmod}'>
+		  <div class='modal-dialog modal-lg' role='document'>
+			<div class='modal-content'>
+			<div class='modal-header'>
+			
+			<h4 class='modal-title'>{$titul}</h4>
+		  </div>
+		  <div class='modal-body'>
+			<p>{$texto}</p>
+		  </div>
+		  <div class='modal-footer'>
+		  {$cancelbtn}
+		  </div>
+		  </div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	  </div><!-- /.modal -->
+	  ";
+	}
+}
