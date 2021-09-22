@@ -35,7 +35,8 @@ class Catalogo_model extends CI_Model
 
   public function catalogocrear($data)
   {
-
+    // $sql = $this->db->set($data)->get_compiled_insert('mascota');
+    // echo $sql;
     $this->db->insert('mascota', $data);
   }
 

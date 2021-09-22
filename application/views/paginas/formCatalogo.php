@@ -23,38 +23,36 @@
 
             <div class="form-group">
                 <label for="exampleInputEmail1">nombre</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nombre" name="nombrre">
+                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="nombre" name="txtNombrepet" id="txtNombrepet">
 
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">edad</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="edad" name="edad">
+                <label for="exampleInputPassword1">Fecha de nacimiento</label>
+                <input class="form-control" placeholder="edad" name="ddtFechanan" id="ddtFechanan" type="date">
             </div>
 
             <div class="form-group">
-                <label for="exampleInputEmail1">color</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="color" name="color">
+                <label for="exampleInputEmail1">Color de pelaje</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="color" name="txtColor" id="txtColor">
 
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">genero</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="genero" name="genero">
+                <label for="exampleInputPassword1">Sexo</label>
+                <input type="text" class="form-control" placeholder="genero" name="">
             </div>
 
             <div class="form-group">
                 <label class="form-label" for="customFile">Default file input example</label>
-                <input type="file" class="form-control" id="" name="ubicacionimagen" />
+                <input type="file" class="form-control" name="imapFoto" id="imapImg" />
 
             </div>
 
-            <button type="submit" class="btn btn-primary" name="guardar">Submit</button>
+            <button type="submit" class="btn btn-primary" onclick="javascript:crearmascotas()">Submit</button>
         </form>
 
     </div>
 
-    <?= large_modal("modal1", "registro", "formulario gardado") ?>
 
-    <?= large_modal("modal2", "Error", "no se guardo") ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -69,10 +67,22 @@
 
 <script>
     function crearmascotas() {
-        $paramts = $("#idCrearcatalogo").serialize();
+        var form_data = new FormData();
+        var file_data = $('#imapImg').prop('files')[0];
+        form_data.append('image', file_data);
+        form_data.append('txtNombrepet', $("#txtNombrepet").val());
+        form_data.append('ddtFechanan', $("#ddtFechanan").val());
+        form_data.append('txtColor', $("#txtColor").val());
+
+
+
         $.ajax({
-            url: "<?= base_url("Catalogo/catalogocrear") ?>",
-            data: $paramts,
+            url: "<?= base_url("Catalogo/guardarAnimal") ?>",
+            data: form_data,
+            dataType: 'text', // what to expect back from the server
+            cache: false,
+            contentType: false,
+            processData: false,
             type: "post",
         }).done(function(result) {
             var resultarray = JSON.parse(result);

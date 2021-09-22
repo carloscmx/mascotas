@@ -28,6 +28,16 @@
                             <input class="form-control" type="password" required="" id="password" name="password" placeholder="Contraseña">
                         </div>
                     </div>
+                    <div class="form-group row m-b-20" style="display: none;">
+                        <div class="col-12">
+                            <?php
+                            if (isset($_GET['route'])) {
+                                $url = $_GET['route'];
+                                echo "<input type='text' name='route' value='{$url}'>";
+                            }
+                            ?>
+                        </div>
+                    </div>
 
                     <div class="form-group row m-b-20">
                         <div class="col-12">
@@ -79,7 +89,7 @@
                 $("#modal2").modal("show");
 
 
-                window.location.href = "<?= base_url("Welcome/index") ?>";
+                window.location.href = resultarray.route;
             } else {
                 $("#modal1").modal("show");
             }

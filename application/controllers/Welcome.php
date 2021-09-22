@@ -50,9 +50,17 @@ class Welcome extends CI_Controller
 		]);
 		$respuesta = ['status' => 'error', 'message' => 'Usuario no entrado '];
 		if ($result->num_rows() > 0) {
-			$respuesta = ['status' => 'success', 'message' => 'Iniciando sesion.'];
+			$_SESSION['user_client'] = $result->row();
+			$redirect = base_url("inicio");
+			if (isset($_POST['route'])) {
+				if ($this->utilerias->is_base64_encoded($_POST['route'])) {
+					$redirect = base64_decode($_POST['route']);
+				}
+			}
+			$respuesta = ['status' => 'success', 'message' => 'Iniciando sesion.', 'route' => $redirect];
 		}
 		echo json_encode($respuesta);
+		//	var_dump($respuesta);
 	}
 
 
@@ -127,11 +135,17 @@ class Welcome extends CI_Controller
 			$this->lg->actualizarregistro([
 				'activo' => 1,
 			], ['idregistro' => $respuesta['idactivacion']]);
+
 			echo	json_encode(['idregistro' => $respuesta['idactivacion']]);
 			$user = $this->lg->login(['id' => $idusuario])->row();
+
 			$_SESSION['user_client'] = $user;
 		} else {
 			echo json_encode(['status' => 'error', 'message' => 'Ha ocurrido un error']);
 		}
+	}
+	public function logout()
+	{
+		session_destroy();
 	}
 }

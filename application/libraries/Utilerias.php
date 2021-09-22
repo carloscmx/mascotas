@@ -116,6 +116,20 @@ class Utilerias
 
 		return $respuesta;
 	}
+	function is_base64_encoded($data)
+	{
+		// Check if there are valid base64 characters
+		if (!preg_match('/^[a-zA-Z0-9\/\r\n+]*={0,2}$/', $data)) return false;
+
+		// Decode the string in strict mode and check the results
+		$decoded = base64_decode($data, true);
+		if (false === $decoded) return false;
+
+		// Encode the string again
+		if (base64_encode($decoded) != $data) return false;
+
+		return true;
+	}
 	function usuariosFactura()
 	{
 	}
