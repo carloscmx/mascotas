@@ -17,7 +17,7 @@
   <?= var_dump($_SESSION) ?>
 
   <a href="<?= base_url("Catalogo/index") ?>">registro</a>
-  <a href="url">catalogo</a>
+  <a href="<?= base_url("Catalogo/mostrarcatalogo") ?>">catalogo</a>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

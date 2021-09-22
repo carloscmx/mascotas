@@ -59,3 +59,4 @@ $route['login'] = 'welcome/login';
 $route['registro/activaciones/(:any)'] = 'welcome/registro';
 $route['registro'] = 'welcome/correo';
 $route['catalogo'] = 'catalogo/index';
+$route['catalogo/ver'] = 'catalogo/mostrarcatalogo';
