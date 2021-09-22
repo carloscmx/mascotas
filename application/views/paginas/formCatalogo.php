@@ -17,38 +17,44 @@
     <?= var_dump($_SESSION) ?>
 
 
+
     <div class="col-5">
-        <form>
+        <form action="" method="post" id="idCrearcatalogo" enctype="multipart/form-data">
+
             <div class="form-group">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
+                <label for="exampleInputEmail1">nombre</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nombre" name="nombrre">
+
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="<?= $_SESSION['user_client']->apellidomat ?>">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="exampleInputPassword1">edad</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="edad" name="edad">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">color</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="color" name="color">
+
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="exampleInputPassword1">genero</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="genero" name="genero">
             </div>
+
             <div class="form-group">
                 <label class="form-label" for="customFile">Default file input example</label>
-                <input type="file" class="form-control" id="customFile" />
+                <input type="file" class="form-control" id="" name="ubicacionimagen" />
+
             </div>
 
-
-
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" name="guardar">Submit</button>
         </form>
 
     </div>
 
+    <?= large_modal("modal1", "registro", "formulario gardado") ?>
 
+    <?= large_modal("modal2", "Error", "no se guardo") ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -58,3 +64,35 @@
 </body>
 
 </html>
+
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script>
+    function crearmascotas() {
+        $paramts = $("#idCrearcatalogo").serialize();
+        $.ajax({
+            url: "<?= base_url("Catalogo/catalogocrear") ?>",
+            data: $paramts,
+            type: "post",
+        }).done(function(result) {
+            var resultarray = JSON.parse(result);
+            if (resultarray.status == "success") {
+                $("#modal1").modal("show");
+
+
+                window.location.href = "<?= base_url("Catalogo/index") ?>";
+            } else {
+                $("#modal2").modal("show");
+            }
+
+        });
+    }
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#idCrearcatalogo").submit(function(event) {
+            event.preventDefault();
+        });
+    });
+</script>

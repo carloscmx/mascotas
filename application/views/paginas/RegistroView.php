@@ -84,14 +84,15 @@
 </div>
 </div>
 
+<?= large_modal("modal1", "Bienvenido", "Muchas gracias por formar parte de.....") ?>
 
-<?= modal_simple("modal1", "Registro exitoso", "Gracias tu registro ha sido satisfactorio, espere un momento.") ?>
-<?= modal_simple("modal2", "error", "Las contrasenas no son iguales, verifique sus datos.") ?>
+<?= large_modal("modal2", "Error", "PENDEJO PON BIEN TU PASSWORD.") ?>
 
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js" integrity="sha512-XZEy8UQ9rngkxQVugAdOuBRDmJ5N4vCuNXCh8KlniZgDKTvf7zl75QBtaVG1lEhMFe2a2DuA22nZYY+qsI2/xA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/localization/messages_es.min.js" integrity="sha512-Ou4GV0BYVfilQlKiSHUNrsoL1nznkcZ0ljccGeWYSaK2CaVzof2XaZ5VEm5/yE/2hkzjxZngQHVwNUiIRE8yLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
 <script>
     function enviarparemetrosregistro() {
@@ -121,6 +122,7 @@
 
     }
 </script>
+
 <script>
     $(document).ready(function() {
 
