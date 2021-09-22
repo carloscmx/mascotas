@@ -16,28 +16,7 @@
     <h1>inicio</h1>
     <?= var_dump($_SESSION) ?>
 
-    <?php foreach ($data as $contenido) { ?>
-
-
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $contenido->nombremascota; ?></h5>
-                            <p class="card-text"><?php echo $contenido->fechanan; ?></p>
-                            <a href="<?= base_url("Catalogo/detallesCatalogo") ?>" class="btn btn-primary">detalles</a>
-                            <a href="#" class="btn btn-secondary">detalles</a>
-                            <a href="#" class="btn btn-danger">detalles</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    <?php } ?>
+    <h1>datalles mascotas</h1>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

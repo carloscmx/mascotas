@@ -90,6 +90,12 @@ class Catalogo extends CI_Controller
 		$result['data'] = $this->mc->catalogover();
 		$this->load->view('paginas/vistacatalogo', $result);
 	}
+
+	public function detallesCatalogo()
+	{
+		$result['data'] = $this->mc->catalogover();
+		$this->load->view('paginas/detallesmascotas', $result);
+	}
 }
 
 
