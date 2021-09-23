@@ -86,7 +86,7 @@
 
 <?= large_modal("modal1", "Bienvenido", "Muchas gracias por formar parte de.....") ?>
 
-<?= large_modal("modal2", "Error", "PENDEJO PON BIEN TU PASSWORD.") ?>
+<?= large_modal("modal2", "Error", "LLENA TODOS LOS CAMPOS.") ?>
 
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

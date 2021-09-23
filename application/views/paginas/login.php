@@ -48,7 +48,7 @@
 
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:validarusuario()">iniciar cesion</button>
+                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:validarusuario()">iniciar sesion</button>
                         </div>
                     </div>
 
@@ -56,7 +56,7 @@
 
                 <div class="row m-t-50">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">Notienes cuentat? <a href="<?= base_url("Welcome/correo") ?>" class="text-dark m-l-5" name="btnlogin"><b>Registrate</b></a></p>
+                        <p class="text-muted">No tienes una cuenta? <a href="<?= base_url("Welcome/correo") ?>" class="text-dark m-l-5" name="btnlogin"><b>Registrate</b></a></p>
                     </div>
                 </div>
 

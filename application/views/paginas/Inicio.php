@@ -13,11 +13,13 @@
 </head>
 
 <body>
-  <h1>inicio</h1>
+  <h1>BIENVENIDO A LA PAGINA</h1>
   <?= var_dump($_SESSION) ?>
 
-  <a href="<?= base_url("Catalogo/index") ?>">registro</a>
-  <a href="<?= base_url("Catalogo/mostrarcatalogo") ?>">catalogo</a>
+  <a href="<?= base_url("Catalogo/index") ?>">Registrar una mascota</a>
+  <a href="<?= base_url("Catalogo/mostrarcatalogo") ?>">Ver el Catalogo</a>
+  <a href="<?= base_url("welcome/login") ?>">Salir de Sesion</a>
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
