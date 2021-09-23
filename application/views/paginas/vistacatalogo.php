@@ -28,7 +28,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $contenido->nombremascota; ?></h5>
                             <p class="card-text"><?php echo $contenido->fechanan; ?></p>
-                            <a href="<?= base_url("Catalogo/detallesCatalogo") ?>" class="btn btn-primary">detalles</a>
+                            <a href="<?= base_url("Catalogo/detallesCatalogo?detalle={$contenido->idmascota}") ?>" class="btn btn-primary">detalles</a>
                             <a href="#" class="btn btn-secondary">editar</a>
                             <a href="#" class="btn btn-danger">eliminar</a>
                         </div>

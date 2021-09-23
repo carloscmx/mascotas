@@ -93,8 +93,10 @@ class Catalogo extends CI_Controller
 
 	public function detallesCatalogo()
 	{
-		$result['data'] = $this->mc->catalogover();
-		$this->load->view('paginas/detallesmascotas', $result);
+		$idmascota =$_GET['detalle'];
+		$data['mascota'] = $this->mc->detallemascotas(['idmascota'=>$idmascota])->row();
+		//0echo json_encode($data);
+		$this->load->view('paginas/detallesmascotas', $data);
 	}
 }
 

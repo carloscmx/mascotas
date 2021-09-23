@@ -14,7 +14,7 @@
 
 <body>
     <h1>nuevo</h1>
-    <?= var_dump($_SESSION) ?>
+    
 
 
 
