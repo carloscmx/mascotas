@@ -18,6 +18,27 @@
 
     <h1>datalles mascotas</h1>
 
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <p><?php echo $mascota->nombremascota; ?></p>
+                    <p><?php echo $mascota->fechanan; ?></p>
+                    <p><?php echo $mascota->color; ?></p>
+                    <p><?php echo $mascota->genero; ?></p>
+                    <img src="<?php echo base_url($mascota->ubicacionimagen); ?>" alt="">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

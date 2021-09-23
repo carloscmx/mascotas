@@ -31,7 +31,7 @@ class Welcome extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view("paginas/inicio");
+		$this->load->view("paginas/Inicio");
 	}
 
 	public function login()
@@ -70,7 +70,7 @@ class Welcome extends CI_Controller
 		$respuesta = $this->lg->validartoken($token);
 		if ($respuesta['action']) {
 			$this->template->set("titulo", "registro");
-			$this->template->load("template/LoginTemplate_view", "contenido", "paginas/registroView");
+			$this->template->load("template/LoginTemplate_view", "contenido", "paginas/RegistroView");
 		} else {
 			show_error("No se pudo procesar esta peticion.", 403, "Ha ocurrido un error.");
 		}

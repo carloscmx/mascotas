@@ -46,7 +46,24 @@ class Catalogo_model extends CI_Model
     return $query->result();
   }
 
+  function deleterecords($id)
+  {
+    $this->db->where("id", $id);
+    $this->db->delete("crud");
+    return true;
+  }
 
+  function detallemascotas($where = NULL)
+  {
+    if ($where != NULL) {
+      $this->db->where($where);
+
+    }
+    $this->db->select("*");
+    $this->db->from("mascota");
+
+    return  $this->db->get();
+  }
 
 
 

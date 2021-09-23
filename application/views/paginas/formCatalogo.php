@@ -13,8 +13,13 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <h1>Completa los campos</h1>
     <?= var_dump($_SESSION) ?>
+=======
+    <h1>nuevo</h1>
+    
+>>>>>>> 572b8a9585e44bc81f8e40e23c810e54d112cb18
 
 
 
