@@ -132,7 +132,7 @@
                         <p>Con <span class="main-color"><b>BOXNI</b></span> podrás tener a tu alcance el registro completo del historial médico de tus mascotas. <br>
                             Si eres veterinario podrás acceder a esta información de manera rápida en un solo lugar. <br><b>COMPLETAMENTE GRATIS</b></p>
                         <a href="<?= base_url("registro") ?>" class="btn btn-large btn-rounded btn-purple mr-2 mt-2">Registrarme</a>
-                        <a href="<?= base_url("login") ?>" class="btn btn-large btn-rounded btn-transparent-black mt-2">Iniciar Sesion</a>
+                        <a href="<?= base_url("login") ?>" class="btn btn-large btn-rounded btn-transparent-black mt-2">Iniciar Sesión</a>
                     </div>
                 </div>
 
