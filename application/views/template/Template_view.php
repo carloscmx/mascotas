@@ -37,10 +37,10 @@
                     <div class="topbar-left">
                         <a href="index.html" class="logo">
                             <span>
-                                <img src="assets/images/logo.png" alt="" height="22">
+                                <img src="<?=base_url("resources/assets/images/logo.png")?>" alt="" height="22">
                             </span>
                             <i>
-                                <img src="assets/images/logo_sm.png" alt="" height="28">
+                                <img src="<?=base_url("resources/assets/images/logo_sm.png")?>" alt="" height="28">
                             </i>
                         </a>
                     </div>
@@ -48,10 +48,10 @@
                     <!-- User box -->
                     <div class="user-box">
                         <div class="user-img">
-                            <img src="assets/images/users/avatar-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
+                            <img src="<?=base_url("resources/assets/images/users/avatar-1.jpg")?>" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
                         </div>
-                        <h5><a href="#">Maxine Kennedy</a> </h5>
-                        <p class="text-muted">Admin Head</p>
+                        <h5><a href="#"><?="{$_SESSION['user_client']->nombre} {$_SESSION['user_client']->apellidopat}"?></a> </h5>
+                        <p class="text-muted" style="display: none;"> Admin Head</p>
                     </div>
 
                     <!--- Sidemenu -->
@@ -190,7 +190,7 @@
                                 </ul>
                             </li>
 
-                            <li>
+                            <li> 
                                 <a href="javascript: void(0);"><i class="fi-paper-stack"></i><span> Pages </span> <span class="menu-arrow"></span></a>
                                 <ul class="nav-second-level" aria-expanded="false">
                                     <li><a href="page-starter.html">Starter Page</a></li>
@@ -264,17 +264,17 @@
 
                         <ul class="list-unstyled topbar-right-menu float-right mb-0">
 
-                            <li class="hide-phone app-search">
+                            <li class="hide-phone app-search"  style="display: none;">
                                 <form>
                                     <input type="text" placeholder="Search..." class="form-control">
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                 </form>
                             </li>
 
-                            <li class="dropdown notification-list">
+                            <li class="dropdown notification-list"  style="display: none;">
                                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
-                                    <i class="fi-bell noti-icon"></i>
+                                    <i class="fi-bell noti-icon" ></i>
                                     <span class="badge badge-danger badge-pill noti-icon-badge">4</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
@@ -331,7 +331,7 @@
                                 </div>
                             </li>
 
-                            <li class="dropdown notification-list">
+                            <li class="dropdown notification-list"  style="display: none;">
                                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
                                     <i class="fi-speech-bubble noti-icon"></i>
@@ -348,7 +348,9 @@
                                     <div class="slimscroll" style="max-height: 230px;">
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                        
+
+                                            <div class="notify-icon"><img src="<?=base_url("resources/assets/images/users/avatar-2.jpg")?>" class="img-fluid rounded-circle" alt="" /> </div>
                                             <p class="notify-details">Cristina Pride</p>
                                             <p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
                                         </a>
@@ -393,12 +395,14 @@
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1">Maxine K <i class="mdi mdi-chevron-down"></i> </span>
+
+                                   
+                                    <img src="<?=base_url("resources/assets/images/users/avatar-1.jpg")?>" alt="user" class="rounded-circle"> <span class="ml-1"><?="{$_SESSION['user_client']->nombre} {$_SESSION['user_client']->apellidopat}"?><i class="mdi mdi-chevron-down"></i> </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
                                     <!-- item-->
                                     <div class="dropdown-item noti-title">
-                                        <h6 class="text-overflow m-0">Welcome !</h6>
+                                        <h6 class="text-overflow m-0">Bienvenido!</h6>
                                     </div>
 
                                     <!-- item-->
@@ -438,7 +442,7 @@
                                 </button>
                             </li>
                             <li>
-                                <div class="page-title-box">
+                                <div class="page-title-box"  style="display: none;">
                                     <h4 class="page-title">Starter </h4>
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#">Highdmin</a></li>
