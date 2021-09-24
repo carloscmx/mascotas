@@ -23,7 +23,7 @@
 
                     <div class="form-group row m-b-20">
                         <div class="col-12">
-                            <a href="page-recoverpw.html" class="text-muted float-right"><small>Olvidaste tu contraseña?</small></a>
+                            <!-- <a href="page-recoverpw.html" class="text-muted float-right"><small>Olvidaste tu contraseña?</small></a> -->
                             <label for="password">Contraseña</label>
                             <input class="form-control" type="password" required="" id="password" name="password" placeholder="Contraseña">
                         </div>
@@ -56,7 +56,7 @@
 
                 <div class="row m-t-50">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">No tienes una cuenta? <a href="<?= base_url("Welcome/correo") ?>" class="text-dark m-l-5" name="btnlogin"><b>Registrate</b></a></p>
+                        <p class="text-muted">No tienes una cuenta? <a href="<?= base_url("registro") ?>" class="text-dark m-l-5" name="btnlogin"><b>Registrate</b></a></p>
                     </div>
                 </div>
 

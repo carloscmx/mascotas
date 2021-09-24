@@ -5,7 +5,7 @@
 	</div>
 	<div class="col-md-2">
 
-		<a href="<?= base_url("mascotas/registro") ?>"><button type="button" class="btn btn-success">
+		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button type="button" class="btn btn-success">
 				Registrar mascota
 			</button></a>
 	</div>
@@ -38,9 +38,7 @@ if (empty($mascotas)) {
 					</p>
 				</div>
 				<div class="card-footer">
-					<a href="<?= base_url("mascotas/detalle?detalle={$mascota->idmascota}") ?>">Ver detalles</a>
-					<a href="<?= base_url("mascotas/actualisar?detalle={$mascota->idmascota}") ?>">Actualizar</a>
-					<a href="<?= base_url("mascotas/detalle?detalle={$mascota->idmascota}") ?>">Eliminar</a>
+					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>">Ver detalles</a>
 				</div>
 			</div>
 		</div>

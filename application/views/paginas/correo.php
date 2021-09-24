@@ -10,7 +10,7 @@
                     </a>
                 </h2>
 
-                <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">verifica tu correo</h5>
+                <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Verifica tu correo</h5>
 
                 <form class="" action="#" method="POST" id="frmCorreo">
 
@@ -27,6 +27,11 @@
 
                 </form>
 
+                <div class="row m-t-50">
+                    <div class="col-sm-12 text-center">
+                        <p class="text-muted">Ya tienes una cuenta? <a href="<?= base_url("login") ?>" class="text-dark m-l-5" name="btnlogin"><b>Iniciar Sesion</b></a></p>
+                    </div>
+                </div>
 
 
             </div>

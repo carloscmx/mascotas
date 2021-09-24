@@ -6,7 +6,7 @@
             <div class="card-box p-5">
                 <h2 class="text-uppercase text-center pb-4">
                     <a href="index.html" class="text-success">
-                        <span><img src="assets/images/logo.png" alt="" height="26"></span>
+                        <span><img src="<?= base_url("resources/assets/images/logo.png") ?>" alt="" height="26"></span>
                     </a>
                 </h2>
 
@@ -74,17 +74,21 @@
                         </div>
                     </div>
 
+
             </div>
 
             </form>
 
         </div>
+
     </div>
 
-</div>
+
 </div>
 
-<?= modal_simple("modal1", "Bienvenido", "Muchas gracias por formar parte de.....") ?>
+</div>
+
+<?= modal_simple("modal1", "Bienvenido", "Muchas gracias por formar parte de boxni") ?>
 
 <?= modal_simple("modal2", "Error", "LLENA TODOS LOS CAMPOS.") ?>
 
@@ -109,7 +113,7 @@
                 $("#modal1").modal("show");
 
                 setTimeout(function() {
-                    window.location.href = "<?= base_url("inicio") ?>";
+                    window.location.href = "<?= base_url("cliente/inicio") ?>";
                 }, 2000);
 
             });

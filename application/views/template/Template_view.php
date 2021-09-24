@@ -435,7 +435,7 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="javascript:void(0);" onclick="javascript:closeSesion()" class="dropdown-item notify-item">
                                     <i class="fi-power"></i> <span>Logout</span>
                                 </a>
 
@@ -501,12 +501,12 @@
     <script>
         $.LoadingOverlay("show", {
             image: "",
-            text: "Loading..."
+            text: "Cargando..."
         });
         // A $( document ).ready() block.
         $(document).ready(function() {
             setTimeout(function() {
-                $.LoadingOverlay("text", "Yep, still loading...");
+                $.LoadingOverlay("text", "Procesando la informacion...");
             }, 1000);
             setTimeout(function() {
                 $.LoadingOverlay("hide");
@@ -515,7 +515,34 @@
     </script>
     <script src="<?= base_url("resources/plugins/block.js") ?>"></script>
 
+    <script>
+        function closeSesion() {
+            $.ajax({
+                url: "<?= base_url("Welcome/logout") ?>",
+                type: "post",
+                beforeSend: function(xhr) {
+                    $.LoadingOverlay("show", {
+                        image: "",
+                        text: "Cerrando sesion..."
+                    });
 
+                }
+            }).done(function() {
+
+                setTimeout(function() {
+                    window.location.href = "<?= base_url() ?>";
+
+
+                }, 2000);
+
+            }).fail(function() {
+                $.LoadingOverlay("text", "Ha ocurrido un error..");
+                $.LoadingOverlay("hide");
+
+
+            });
+        }
+    </script>
 </body>
 
 

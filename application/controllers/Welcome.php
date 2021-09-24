@@ -32,6 +32,15 @@ class Welcome extends CI_Controller
 
 		$this->load->library('Utilerias');
 	}
+	public function PaginaPrincipal()
+	{
+		if (isset($_SESSION['user_client'])) {
+			$url = base_url("cliente/inicio");
+			header("Location: $url");
+		} else {
+			$this->load->view("landing");
+		}
+	}
 
 	public function index()
 	{
@@ -59,7 +68,7 @@ class Welcome extends CI_Controller
 		$respuesta = ['status' => 'error', 'message' => 'Usuario no entrado '];
 		if ($result->num_rows() > 0) {
 			$_SESSION['user_client'] = $result->row();
-			$redirect = base_url("inicio");
+			$redirect = base_url("cliente/inicio");
 			if (isset($_POST['route'])) {
 				if ($this->utilerias->is_base64_encoded($_POST['route'])) {
 					$redirect = base64_decode($_POST['route']);
