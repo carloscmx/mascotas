@@ -1,19 +1,6 @@
 <h3>Bienvenido</h3>
 
-<div class="row">
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">
-		</div>
-		<div class="col-md-4">
-			 <a href="<?=base_url("mascotas/registro")?>">
-			 <button type="button" class="btn btn-sm btn-success">
-				Agregar mascota
-			</button>
-			</a>
-		
-		</div>
-	</div>
+
 <div class="row">
 	<!--	<div class="col-md-4 mt-4">
 			<div class="card">
@@ -33,59 +20,27 @@
 -->
 
 
-<?php 
-if(empty($mascotas)){
-echo "	<div class='row'>
+	<?php
+	if (empty($mascotas)) {
+		echo "	<div class='row'>
 		<div class='col-md-12'>
 			<p>
 				Muchas gracias por registrarte, ahora puedes agregar a tus mascotas.
 			</p>
 		</div>
 	</div>";
-}
-?>
-		<?php foreach($mascotas as $mascota): ?>
+	}
+	?>
+	<?php foreach ($mascotas as $mascota) : ?>
 
-<<<<<<< HEAD
-			<div class="col-md-4 mt-4">
-=======
-<<<<<<< HEAD
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-  <title>inicio</title>
-</head>
-
-<body>
-  <h1>BIENVENIDO A LA PAGINA</h1>
-  <?= var_dump($_SESSION) ?>
-  
-
-  <a href="<?= base_url("Catalogo/index") ?>">Registrar una mascota</a>
-  <a href="<?= base_url("Catalogo/mostrarcatalogo") ?>">Ver Catalogo</a>
-  <a href="logout.php" class="btn btn-default btn-flat" >Sign out</a>
-
-  
-
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-
-</html>
-=======
-    <div class="col-md-4 mt-4">
->>>>>>> 492fda30b7bbcede83af1730edf0fd1666d30f46
+		<div class="col-md-4 mt-4">
 			<div class="card">
 				<h5 class="card-header">
-		ID: <?=$mascota->idmascota?>
-			</h5>
+					ID: <?= $mascota->idmascota ?>
+				</h5>
 				<div class="card-body">
 					<p class="card-text">
-				Nombre: <?=$mascota->nombremascota?>
+						Nombre: <?= $mascota->nombremascota ?>
 					</p>
 				</div>
 				<div class="card-footer">
@@ -93,7 +48,6 @@ echo "	<div class='row'>
 				</div>
 			</div>
 		</div>
-    <?php endforeach; ?>
-	
-	</div>
->>>>>>> d153131a8167a0dcb35f5072a65ba8cde548e9ff
+	<?php endforeach; ?>
+
+</div>
