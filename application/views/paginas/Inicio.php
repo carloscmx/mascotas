@@ -1,8 +1,21 @@
 <h3>Bienvenido</h3>
-<?=var_dump($_SESSION)?>
 
 <div class="row">
-		<div class="col-md-4 mt-4">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+			 <a href="<?=base_url("mascotas/registro")?>">
+			 <button type="button" class="btn btn-sm btn-success">
+				Agregar mascota
+			</button>
+			</a>
+		
+		</div>
+	</div>
+<div class="row">
+	<!--	<div class="col-md-4 mt-4">
 			<div class="card">
 				<h5 class="card-header">
 					Card title
@@ -17,51 +30,37 @@
 				</div>
 			</div>
 		</div>
-    <div class="col-md-4 mt-4">
-			<div class="card">
-				<h5 class="card-header">
-					Card title
-				</h5>
-				<div class="card-body">
-					<p class="card-text">
-						Card content
-					</p>
-				</div>
-				<div class="card-footer">
-					Card footer
-				</div>
-			</div>
-		</div>
-    <div class="col-md-4 mt-4">
-			<div class="card">
-				<h5 class="card-header">
-					Card title
-				</h5>
-				<div class="card-body">
-					<p class="card-text">
-						Card content
-					</p>
-				</div>
-				<div class="card-footer">
-					Card footer
-				</div>
-			</div>
-		</div>
+-->
 
-    <div class="col-md-4 mt-4">
+
+<?php 
+if(empty($mascotas)){
+echo "	<div class='row'>
+		<div class='col-md-12'>
+			<p>
+				Muchas gracias por registrarte, ahora puedes agregar a tus mascotas.
+			</p>
+		</div>
+	</div>";
+}
+?>
+		<?php foreach($mascotas as $mascota): ?>
+
+			<div class="col-md-4 mt-4">
 			<div class="card">
 				<h5 class="card-header">
-					Card title
-				</h5>
+		ID: <?=$mascota->idmascota?>
+			</h5>
 				<div class="card-body">
 					<p class="card-text">
-						Card content
+				Nombre: <?=$mascota->nombremascota?>
 					</p>
 				</div>
 				<div class="card-footer">
-					Card footer
+					Ver detalles
 				</div>
 			</div>
 		</div>
+    <?php endforeach; ?>
 	
 	</div>

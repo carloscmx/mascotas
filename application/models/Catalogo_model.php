@@ -39,8 +39,11 @@ class Catalogo_model extends CI_Model
     $this->db->insert('mascota', $data);
   }
 
-  public function catalogover()
+  public function catalogover($where = null)
   {
+    if ($where != NULL) {
+      $this->db->where($where);
+    }
 
     $query = $this->db->query("select * from mascota");
     return $query->result();
@@ -57,7 +60,6 @@ class Catalogo_model extends CI_Model
   {
     if ($where != NULL) {
       $this->db->where($where);
-
     }
     $this->db->select("*");
     $this->db->from("mascota");

@@ -30,6 +30,8 @@ class Catalogo extends CI_Controller
 		$this->load->model("Catalogo_model", "mc");
 		$this->load->library('upload');
 		$this->load->library('session');
+		$this->load->helper('modals');
+
 
 		$this->session->validarSesionCliente();
 	}
@@ -37,6 +39,11 @@ class Catalogo extends CI_Controller
 	public function index()
 	{
 		$this->load->view("paginas/formCatalogo");
+	}
+	public function registromascota()
+	{
+		$this->template->set("titulo", "Registro mascotas");
+		$this->template->load("template/Template_view", "contenido", "paginas/mascotas/ViewRegistro");
 	}
 
 
@@ -58,12 +65,16 @@ class Catalogo extends CI_Controller
 					$txtNombrepet = $this->input->post("txtNombrepet", true);
 					$ddtFechanan = $this->input->post("ddtFechanan", true);
 					$txtColor = $this->input->post("txtColor", true);
+					$cboSexo = $this->input->post("cboSexo", true);
+
+
 					$data = [
 						'nombremascota' => $txtNombrepet,
-						'fechanan' => date("m-d-Y", strtotime($ddtFechanan)),
+						'fechanan' => date("Y-m-d", strtotime($ddtFechanan)),
 						'color' => $txtColor,
-						'genero' => 0,
-						'ubicacionimagen' => $path
+						'genero' => $cboSexo,
+						'ubicacionimagen' => $path,
+						'iduser' => $_SESSION['user_client']->id
 					];
 					$this->mc->catalogocrear($data);
 					echo json_encode(['status' => 'success', 'message' => 'Exito se ha guardado correctamente']);
@@ -93,15 +104,14 @@ class Catalogo extends CI_Controller
 
 	public function detallesCatalogo()
 	{
-		$idmascota =$_GET['detalle'];
-		$data['mascota'] = $this->mc->detallemascotas(['idmascota'=>$idmascota])->row();
+		$idmascota = $_GET['detalle'];
+		$data['mascota'] = $this->mc->detallemascotas(['idmascota' => $idmascota])->row();
 		//0echo json_encode($data);
 		$this->load->view('paginas/detallesmascotas', $data);
 	}
 
 	public function logout()
 	{
-		
 	}
 }
 

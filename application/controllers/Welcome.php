@@ -26,6 +26,8 @@ class Welcome extends CI_Controller
 		$this->load->library('Correo');
 		$this->load->helper('modals');
 		$this->load->library('session');
+		$this->load->model("Catalogo_model", "mc");
+
 
 
 		$this->load->library('Utilerias');
@@ -34,9 +36,10 @@ class Welcome extends CI_Controller
 	public function index()
 	{
 		$this->session->validarSesionCliente();
+		$data['mascotas'] = $this->mc->detallemascotas(['iduser' => $_SESSION['user_client']->id, 'activo' => 1])->result();
 
-				$this->template->set("titulo", "Bienvenido");
-		$this->template->load("template/Template_view", "contenido", "paginas/Inicio");
+		$this->template->set("titulo", "Bienvenido");
+		$this->template->load("template/Template_view", "contenido", "paginas/Inicio", $data);
 	}
 
 	public function login()
