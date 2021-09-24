@@ -63,4 +63,4 @@ $route['catalogo/ver'] = 'catalogo/mostrarcatalogo';
 $route['catalogo/ver/detalles'] = 'catalogo/detallesCatalogo';
 
 $route['mascotas/registro'] = 'catalogo/registromascota';
-
+$route['mascotas/detalle'] = 'catalogo/detallesCatalogo';

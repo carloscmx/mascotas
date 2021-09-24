@@ -13,30 +13,30 @@
 </head>
 
 <body>
-    <h1>inicio</h1>
-    <?= var_dump($_SESSION) ?>
+
+
 
     <h1>datalles mascotas</h1>
 
 
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-4">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <p><?php echo $mascota->nombremascota; ?></p>
-                    <p><?php echo $mascota->fechanan; ?></p>
-                    <p><?php echo $mascota->color; ?></p>
-                    <p><?php echo $mascota->genero; ?></p>
-                    <img src="<?php echo base_url($mascota->ubicacionimagen); ?>" alt="">
-                    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <p><?php echo $mascota->nombremascota; ?></p>
+                        <p><?php echo $mascota->fechanan; ?></p>
+                        <p><?php echo $mascota->color; ?></p>
+                        <p><?php echo $mascota->genero; ?></p>
+                        <img src="<?php echo base_url($mascota->ubicacionimagen); ?>" alt="">
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
     <!-- Optional JavaScript -->

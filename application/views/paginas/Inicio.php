@@ -1,36 +1,30 @@
 <h3>Bienvenido</h3>
 
-
 <div class="row">
-	<!--	<div class="col-md-4 mt-4">
-			<div class="card">
-				<h5 class="card-header">
-					Card title
-				</h5>
-				<div class="card-body">
-					<p class="card-text">
-						Card content
-					</p>
-				</div>
-				<div class="card-footer">
-					Card footer
-				</div>
-			</div>
-		</div>
--->
+	<div class="col-md-10">
+	</div>
+	<div class="col-md-2">
+
+		<a href="<?= base_url("mascotas/registro") ?>"><button type="button" class="btn btn-success">
+				Registrar mascota
+			</button></a>
+	</div>
+</div>
 
 
-	<?php
-	if (empty($mascotas)) {
-		echo "	<div class='row'>
+
+<?php
+if (empty($mascotas)) {
+	echo "	<div class='row'>
 		<div class='col-md-12'>
 			<p>
 				Muchas gracias por registrarte, ahora puedes agregar a tus mascotas.
 			</p>
 		</div>
 	</div>";
-	}
-	?>
+}
+?>
+<div class="row">
 	<?php foreach ($mascotas as $mascota) : ?>
 
 		<div class="col-md-4 mt-4">
@@ -44,7 +38,7 @@
 					</p>
 				</div>
 				<div class="card-footer">
-					Ver detalles
+					<a href="<?= base_url("mascotas/detalle?detalle={$mascota->idmascota}") ?>">Ver detalles</a>
 				</div>
 			</div>
 		</div>
