@@ -39,6 +39,8 @@ if (empty($mascotas)) {
 				</div>
 				<div class="card-footer">
 					<a href="<?= base_url("mascotas/detalle?detalle={$mascota->idmascota}") ?>">Ver detalles</a>
+					<a href="<?= base_url("mascotas/actualisar?detalle={$mascota->idmascota}") ?>">Actualizar</a>
+					<a href="<?= base_url("mascotas/detalle?detalle={$mascota->idmascota}") ?>">Eliminar</a>
 				</div>
 			</div>
 		</div>

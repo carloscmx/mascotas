@@ -1,49 +1,95 @@
-<!doctype html>
-<html lang="en">
+    <div class="row">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>inicio</title>
-</head>
-
-<body>
-
-
-
-    <h1>datalles mascotas</h1>
-
-
-
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <p><?php echo $mascota->nombremascota; ?></p>
-                        <p><?php echo $mascota->fechanan; ?></p>
-                        <p><?php echo $mascota->color; ?></p>
-                        <p><?php echo $mascota->genero; ?></p>
-                        <img src="<?php echo base_url($mascota->ubicacionimagen); ?>" alt="">
-
-                    </div>
+        <div class="col-md-6">
+            <div class="card">
+                <h5 class="card-header">
+                    Nombre: <?= $mascota->nombremascota; ?> ID: <?= $mascota->idmascota; ?></h5>
+                <div class="card-body">
+                    <p class="card-text">
+                        <center>
+                            <img class="img-fluid" alt="Responsive image" src="<?php echo base_url($mascota->ubicacionimagen); ?>" style="width: 250px; height: 200px;" />
+                        </center>
+                    </p>
                 </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <h5 class="card-header"> Reseña</h5>
+                <div class=" card-body">
+                    <p class="card-text">
+                    <p>Fecha de nacimiento: <?= $mascota->fechanan; ?></p>
+                    <p>Color de pelaje: <?= $mascota->color; ?></p>
+
+                    <?php
+                    $genero = "";
+                    switch ($mascota->genero) {
+                        case 0:
+                            $genero = "Otro";
+                            break;
+                        case 1:
+                            $genero = "Macho";
+                            break;
+                        case 2:
+                            $genero = "Hembra";
+                            break;
+                        default:
+                            $genero = "No definido";
+                            break;
+                    }
+                    ?>
+
+                    <p>Sexo: <?= $genero ?></p>
+                    <p>Fecha de registro: <?= $mascota->fecharegistro ?></p>
+                    <p>Especie: Felino</p>
+                    </p>
+                </div>
+
             </div>
         </div>
     </div>
 
+    <!--Expediente medico-->
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <h5 class="card-header">
+                    Expediente medico
+                </h5>
+                <div class="card-body">
+                    <p class="card-text">
+                    <div class="col-md-12">
+                        <div id="card-716615">
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-716615" href="#card-element-303795">Collapsible Group Item #1</a>
+                                </div>
+                                <div id="card-element-303795" class="collapse">
+                                    <div class="card-body">
+                                        Anim pariatur cliche...
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-716615" href="#card-element-997027">Collapsible Group Item #2</a>
+                                </div>
+                                <div id="card-element-997027" class="collapse">
+                                    <div class="card-body">
+                                        Anim pariatur cliche...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </p>
+                </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+            </div>
+        </div>
 
-</html>
+
+    </div>

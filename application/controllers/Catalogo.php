@@ -104,14 +104,40 @@ class Catalogo extends CI_Controller
 
 	public function detallesCatalogo()
 	{
-		$idmascota = $_GET['detalle'];
-		$data['mascota'] = $this->mc->detallemascotas(['idmascota' => $idmascota])->row();
-		//0echo json_encode($data);
-		$this->load->view('paginas/detallesmascotas', $data);
+		$home = base_url();
+
+		if (isset($_GET['detalle'])) {
+			$idmascota = $_GET['detalle'];
+			if ($this->mc->detallemascotas(['idmascota' => $idmascota, 'iduser' => $_SESSION['user_client']->id, 'activo' => 1])->num_rows() > 0) {
+				$data['mascota'] = $this->mc->detallemascotas(['idmascota' => $idmascota])->row();
+
+				$this->template->set("titulo", "Detalles");
+				$this->template->load("template/Template_view", "contenido", "paginas/detallesmascotas", $data);
+			} else {
+				show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
+			}
+		} else {
+			show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
+		}
 	}
 
-	public function logout()
+	public function actualisarCatalogo()
 	{
+		$home = base_url();
+
+		if (isset($_GET['detalle'])) {
+			$idmascota = $_GET['detalle'];
+			if ($this->mc->detallemascotas(['idmascota' => $idmascota, 'iduser' => $_SESSION['user_client']->id, 'activo' => 1])->num_rows() > 0) {
+				$data['mascota'] = $this->mc->detallemascotas(['idmascota' => $idmascota])->row();
+
+				$this->template->set("titulo", "Detalles");
+				$this->template->load("template/Template_view", "contenido", "paginas/detallesmascotas", $data);
+			} else {
+				show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
+			}
+		} else {
+			show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
+		}
 	}
 }
 

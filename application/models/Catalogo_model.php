@@ -67,6 +67,17 @@ class Catalogo_model extends CI_Model
     return  $this->db->get();
   }
 
+  function actualisarmascotas($where = NULL)
+  {
+    if ($where != NULL) {
+      $this->db->where($where);
+    }
+    $this->db->select("*");
+    $this->db->from("mascota");
+
+    return  $this->db->get();
+  }
+
 
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 24, 2021 at 02:16 AM
+-- Generation Time: Sep 24, 2021 at 10:54 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -72,32 +72,27 @@ CREATE TABLE `especie` (
 CREATE TABLE `mascota` (
   `idmascota` int(11) NOT NULL,
   `nombremascota` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
-  `fechanan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `fechanan` date NOT NULL,
   `color` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
   `genero` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
-  `ubicacionimagen` text COLLATE utf8_spanish_ci NOT NULL
+  `ubicacionimagen` text COLLATE utf8_spanish_ci NOT NULL,
+  `iduser` int(11) NOT NULL,
+  `fecharegistro` timestamp NOT NULL DEFAULT current_timestamp(),
+  `activo` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `mascota`
 --
 
-INSERT INTO `mascota` (`idmascota`, `nombremascota`, `fechanan`, `color`, `genero`, `ubicacionimagen`) VALUES
-(10, 'mimama', '0000-00-00 00:00:00', 'negro te gusta', '0', 'resources/uploads/img/704155capture001.png'),
-(11, 'eqweq', '0000-00-00 00:00:00', 'eqweqw', '0', 'resources/uploads/img/474277screenshot from 2021-09-23 12-50-02.png'),
-(12, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/947765vivi.jpg'),
-(13, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/719241vivi.jpg'),
-(14, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/716758vivi.jpg'),
-(15, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/394346vivi.jpg'),
-(16, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/291519vivi.jpg'),
-(17, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/425965vivi.jpg'),
-(18, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/132413vivi.jpg'),
-(19, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/879143vivi.jpg'),
-(20, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/991513vivi.jpg'),
-(21, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/393537vivi.jpg'),
-(22, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/574843vivi.jpg'),
-(23, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/394961vivi.jpg'),
-(24, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0000-00-00 00:00:00', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '0', 'resources/uploads/img/140627vivi.jpg');
+INSERT INTO `mascota` (`idmascota`, `nombremascota`, `fechanan`, `color`, `genero`, `ubicacionimagen`, `iduser`, `fecharegistro`, `activo`) VALUES
+(27, 'quexo', '0000-00-00', 'sdasd', '2', 'resources/uploads/img/811182screenshot from 2021-09-23 12-50-02.png', 32, '2021-09-24 16:10:05', 0),
+(28, 'eqweq', '2021-09-06', 'sdasd', '2', 'resources/uploads/img/132125screenshot from 2021-09-23 12-50-02.png', 32, '2021-09-24 16:10:05', 1),
+(29, 'this', '2021-09-06', 'sdasd', '2', 'resources/uploads/img/986438screenshot from 2021-09-23 12-50-02.png', 32, '2021-09-24 16:10:13', 0),
+(30, 'Pinole', '2021-08-31', 'Verde', '2', 'resources/uploads/img/416466screenshot from 2021-09-23 12-50-02.png', 32, '2021-09-24 16:29:59', 0),
+(31, 'PINIL', '2021-09-09', 'CACA', '2', 'resources/uploads/img/116968screenshot from 2021-09-23 12-50-02.png', 32, '2021-09-24 16:42:25', 0),
+(32, 'fsdfsdf', '2021-09-23', 'sfsfs', '2', 'resources/uploads/img/178504screenshot from 2021-09-23 12-50-02.png', 32, '2021-09-24 17:43:04', 1),
+(33, 'qewqe', '2021-09-24', 'qweqweqw', '2', 'resources/uploads/img/315911screenshot from 2021-09-23 12-50-02.png', 32, '2021-09-24 20:25:29', 1);
 
 -- --------------------------------------------------------
 
@@ -157,7 +152,7 @@ INSERT INTO `usuarios` (`id`, `nombre`, `correo`, `contrasena`, `activo`, `tipou
 (29, 'edwin', 'cancalderonedwin@gmail.com', '20eabe5d64b0e216796e834f52d61fd0b70332fc', 1, 2, 'can', 'calderon', '2021-09-23 18:55:48', '2018-07-22 05:00:00'),
 (30, 'susan', 'akuhicf_u130g@gexik.com', '20eabe5d64b0e216796e834f52d61fd0b70332fc', 1, 2, 'lara', 'gomez', '2021-09-23 18:56:47', '2018-07-04 05:00:00'),
 (31, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', 'joxesos230@tmednews.com', 'f954eacd8e91b0b2e08800b30745da79510d5977', 1, 2, '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '[removed]alert&#40;\"PENDEJO\"&#41;[removed]', '2021-09-23 20:51:57', '2008-02-15 06:00:00'),
-(32, 'Carlos', 'ywesta_v514p@gexik.com', '20eabe5d64b0e216796e834f52d61fd0b70332fc', 1, 2, 'Cauich', 'calderon', '2021-09-23 23:48:15', '1996-11-20 06:00:00');
+(32, 'Carlos', 'ywesta_v514p@gexik.com', 'd07aa21918f40bebfe39865f74e1d1c2bfac173b', 1, 2, 'Cauich', 'calderon', '2021-09-24 15:28:17', '1996-11-20 06:00:00');
 
 --
 -- Indexes for dumped tables
@@ -179,7 +174,8 @@ ALTER TABLE `especie`
 -- Indexes for table `mascota`
 --
 ALTER TABLE `mascota`
-  ADD PRIMARY KEY (`idmascota`);
+  ADD PRIMARY KEY (`idmascota`),
+  ADD KEY `fk_userid` (`iduser`);
 
 --
 -- Indexes for table `raza`
@@ -220,7 +216,7 @@ ALTER TABLE `especie`
 -- AUTO_INCREMENT for table `mascota`
 --
 ALTER TABLE `mascota`
-  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `raza`
@@ -243,6 +239,12 @@ ALTER TABLE `usuarios`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `mascota`
+--
+ALTER TABLE `mascota`
+  ADD CONSTRAINT `fk_userid` FOREIGN KEY (`iduser`) REFERENCES `usuarios` (`id`);
 
 --
 -- Constraints for table `usuarios`
