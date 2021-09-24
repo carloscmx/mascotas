@@ -25,13 +25,18 @@ class Welcome extends CI_Controller
 		$this->load->model("Login_model", "lg");
 		$this->load->library('Correo');
 		$this->load->helper('modals');
+		$this->load->library('session');
+
 
 		$this->load->library('Utilerias');
 	}
 
 	public function index()
 	{
-		$this->load->view("paginas/Inicio");
+		$this->session->validarSesionCliente();
+
+				$this->template->set("titulo", "Bienvenido");
+		$this->template->load("template/Template_view", "contenido", "paginas/Inicio");
 	}
 
 	public function login()

@@ -1,44 +1,67 @@
-<!doctype html>
-<html lang="en">
+<h3>Bienvenido</h3>
+<?=var_dump($_SESSION)?>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<div class="row">
+		<div class="col-md-4 mt-4">
+			<div class="card">
+				<h5 class="card-header">
+					Card title
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Card content
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+    <div class="col-md-4 mt-4">
+			<div class="card">
+				<h5 class="card-header">
+					Card title
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Card content
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+    <div class="col-md-4 mt-4">
+			<div class="card">
+				<h5 class="card-header">
+					Card title
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Card content
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="<?= base_url("/login") ?>">inicio cesion</a>
-      <a class="nav-item nav-link" href="">cerrar cesion</a>
-    </div>
-  </div>
-</nav>
-</head>
-
-<body>
-  <h1>BIENVENIDO A LA PAGINA</h1>
-  <?= var_dump($_SESSION) ?>
-
-  <a href="<?= base_url("Catalogo/index") ?>">Registrar una mascota</a>
-  <a href="<?= base_url("Catalogo/mostrarcatalogo") ?>">Ver el Catalogo</a>
-  <a href="<?= base_url("welcome/login") ?>">Salir de Sesion</a>
-
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-
-</html>
+    <div class="col-md-4 mt-4">
+			<div class="card">
+				<h5 class="card-header">
+					Card title
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+						Card content
+					</p>
+				</div>
+				<div class="card-footer">
+					Card footer
+				</div>
+			</div>
+		</div>
+	
+	</div>
