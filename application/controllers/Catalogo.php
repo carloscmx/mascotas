@@ -83,7 +83,7 @@ class Catalogo extends CI_Controller
 					$this->mc->catalogocrear($data);
 					echo json_encode(['status' => 'success', 'message' => 'Exito se ha guardado correctamente']);
 				} else {
-					echo json_encode(['status' => 'error', 'message' => "No se pudo copiar la imagen verifique la ruta de destino {$_FILES["image"]["error"]}"]);
+					echo json_encode(['status' => 'error', 'message' => "No se pudo copiar la imagen verifique la ruta de destino {$path}"]);
 				}
 			} else {
 				echo json_encode(['status' => 'error', 'message' => 'Extension invalida del archivo']);
