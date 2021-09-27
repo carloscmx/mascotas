@@ -43,7 +43,7 @@
 
                     <p>Sexo: <?= $genero ?></p>
                     <p>Fecha de registro: <?= $mascota->fecharegistro ?></p>
-                    <p>Especie: Felino</p>
+                    <p>Especie: <?= $especie->nombrespecie ?></p>
                     </p>
                 </div>
 

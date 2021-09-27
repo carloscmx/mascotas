@@ -51,9 +51,9 @@ class Catalogo_model extends CI_Model
 
   function borrarmascota($idmascota)
   {
-		$this->db->where('id', $idmascota);
-		$this->db->set('activo', '0');
-		return $this->db->update('mascotas');
+    $this->db->where('id', $idmascota);
+    $this->db->set('activo', '0');
+    return $this->db->update('mascotas');
   }
 
   function detallemascotas($where = NULL)
@@ -74,6 +74,17 @@ class Catalogo_model extends CI_Model
     }
     $this->db->select("*");
     $this->db->from("mascota");
+
+    return  $this->db->get();
+  }
+
+  function obtenerEspecies($where = NULL)
+  {
+    if ($where != NULL) {
+      $this->db->where($where);
+    }
+    $this->db->select("*");
+    $this->db->from("especie");
 
     return  $this->db->get();
   }

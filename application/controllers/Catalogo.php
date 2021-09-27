@@ -42,8 +42,10 @@ class Catalogo extends CI_Controller
 	}
 	public function registromascota()
 	{
+		$data['especies'] = $this->mc->obtenerEspecies(['activo' => 1])->result();
+
 		$this->template->set("titulo", "Registro mascotas");
-		$this->template->load("template/Template_view", "contenido", "paginas/mascotas/ViewRegistro");
+		$this->template->load("template/Template_view", "contenido", "paginas/mascotas/ViewRegistro", $data);
 	}
 
 
@@ -63,6 +65,7 @@ class Catalogo extends CI_Controller
 				$path = $path . strtolower($final_image);
 				if (move_uploaded_file($tmp, $path)) {
 					$txtNombrepet = $this->input->post("txtNombrepet", true);
+					$cbEspecie = $this->input->post("cbEspecie", true);
 					$ddtFechanan = $this->input->post("ddtFechanan", true);
 					$txtColor = $this->input->post("txtColor", true);
 					$cboSexo = $this->input->post("cboSexo", true);
@@ -70,6 +73,7 @@ class Catalogo extends CI_Controller
 
 					$data = [
 						'nombremascota' => $txtNombrepet,
+						'idespecie' => $cbEspecie,
 						'fechanan' => date("Y-m-d", strtotime($ddtFechanan)),
 						'color' => $txtColor,
 						'genero' => $cboSexo,
@@ -109,7 +113,10 @@ class Catalogo extends CI_Controller
 		if (isset($_GET['detalle'])) {
 			$idmascota = $_GET['detalle'];
 			if ($this->mc->detallemascotas(['idmascota' => $idmascota, 'iduser' => $_SESSION['user_client']->id, 'activo' => 1])->num_rows() > 0) {
-				$data['mascota'] = $this->mc->detallemascotas(['idmascota' => $idmascota])->row();
+				$detallemascota = $this->mc->detallemascotas(['idmascota' => $idmascota])->row();
+				$data['mascota'] = $detallemascota;
+				$data['especie'] = $this->mc->obtenerEspecies(['idespecie' => $detallemascota->idespecie])->row();
+
 
 				$this->template->set("titulo", "Detalles");
 				$this->template->load("template/Template_view", "contenido", "paginas/detallesmascotas", $data);

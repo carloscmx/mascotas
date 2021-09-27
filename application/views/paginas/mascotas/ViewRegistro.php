@@ -14,6 +14,18 @@
 
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputPassword1">especie</label>
+                        <select name="cbEspecie" class="form-control" id="cbEspecie">
+
+                            <?php foreach ($especies as $especie) : ?>
+                                <option value="<?= $especie->idespecie ?>"><?= $especie->nombrespecie ?></option>
+
+                            <?php endforeach; ?>
+
+
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputPassword1">Fecha de nacimiento</label>
                         <input class="form-control" placeholder="edad" name="ddtFechanan" id="ddtFechanan" type="date">
                     </div>
@@ -64,6 +76,7 @@
         var file_data = $('#imapImg').prop('files')[0];
         form_data.append('image', file_data);
         form_data.append('txtNombrepet', $("#txtNombrepet").val());
+        form_data.append('cbEspecie', $("#cbEspecie").val());
         form_data.append('ddtFechanan', $("#ddtFechanan").val());
         form_data.append('txtColor', $("#txtColor").val());
         form_data.append('cboSexo', $("#cboSexo").val());
