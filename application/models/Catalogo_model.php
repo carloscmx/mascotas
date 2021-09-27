@@ -84,7 +84,7 @@ class Catalogo_model extends CI_Model
       $this->db->where($where);
     }
     $this->db->select("*");
-    $this->db->from("especie");
+    $this->db->from("especies");
 
     return  $this->db->get();
   }
