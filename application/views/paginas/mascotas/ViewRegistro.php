@@ -18,7 +18,7 @@
                         <select name="cbEspecie" class="form-control" id="cbEspecie">
 
                             <?php foreach ($especies as $especie) : ?>
-                                <option value="<?= $especie->idespecie ?>"><?= $especie->nombrespecie ?></option>
+                                <option value="<?= $especie->idespecie ?>"><?= $especie->nombreespecie ?></option>
 
                             <?php endforeach; ?>
 
