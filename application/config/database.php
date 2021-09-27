@@ -76,8 +76,8 @@ $query_builder = TRUE;
 $db['default'] = array(
 	//'dsn'	=> 'pgsql:host=localhost;port=5432;dbname=petboys',
 	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'username' => 'Gears481',
+	'password' => '@Geniux481',
 	'database' => 'petboys',
     'dbdriver' => 'mysqli',
 	'dbprefix' => '',
