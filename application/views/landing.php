@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1540,5 +1539,4 @@ Blog End-->
 
 </body>
 
->>>>>>> 38403ac63be56fe7d03fa6ac51834c37af80ce7a
 </html>
