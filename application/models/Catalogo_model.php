@@ -49,11 +49,11 @@ class Catalogo_model extends CI_Model
     return $query->result();
   }
 
-  function deleterecords($id)
+  function borrarmascota($idmascota)
   {
-    $this->db->where("id", $id);
-    $this->db->delete("crud");
-    return true;
+		$this->db->where('id', $idmascota);
+		$this->db->set('activo', '0');
+		return $this->db->update('mascotas');
   }
 
   function detallemascotas($where = NULL)

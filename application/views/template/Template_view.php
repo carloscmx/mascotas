@@ -17,25 +17,15 @@
     <link href="<?= base_url("resources/assets/css/icons.css") ?>" rel="stylesheet" type="text/css" />
     <link href="<?= base_url("resources/assets/css/metismenu.min.css") ?>" rel="stylesheet" type="text/css" />
     <link href="<?= base_url("resources/assets/css/style.css") ?>" rel="stylesheet" type="text/css" />
-    <script src="<?= base_url("resources/assets/js/metisMenu.min.js") ?>"></script>
+
+    <script src="<?= base_url("resources/assets/js/modernizr.min.js") ?>"></script>
 
 
-
-    <!-- jQuery  -->
-    <script src="<?= base_url("resources/assets/js/jquery.min.js") ?>"></script>
-    <script src="<?= base_url("resources/plugins/block.js") ?>"></script>
-
-    <script src="<?= base_url("resources/assets/js/bootstrap.bundle.min.js") ?>"></script>
-    <script src="<?= base_url("resources/assets/js/waves.js") ?>"></script>
-    <script src="<?= base_url("resources/assets/js/jquery.slimscroll.js") ?>"></script>
-
-    <!-- App js -->
-    <script src="<?= base_url("resources/assets/js/jquery.core.js") ?>"></script>
-    <script src="<?= base_url("resources/assets/js/jquery.app.js") ?>"></script>
 </head>
 
 
 <body>
+
 
     <!-- Begin page -->
     <div id="wrapper">
@@ -270,6 +260,8 @@
         <div class="content-page">
 
             <!-- Top Bar Start -->
+
+
             <div class="topbar">
 
                 <nav class="navbar-custom">
@@ -469,6 +461,7 @@
             <!-- Top Bar End -->
 
 
+            <script src="<?= base_url("resources/assets/js/jquery.min.js") ?>"></script>
 
             <!-- Start Page content -->
             <div class="content">
@@ -495,6 +488,18 @@
     </div>
     <!-- END wrapper -->
 
+    <!-- jQuery  -->
+    <script src="<?= base_url("resources/assets/js/jquery.min.js") ?>"></script>
+    <script src="<?= base_url("resources/assets/js/bootstrap.bundle.min.js") ?>"></script>
+    <script src="<?= base_url("resources/assets/js/metisMenu.min.js") ?>"></script>
+    <script src="<?= base_url("resources/assets/js/waves.js") ?>"></script>
+    <script src="<?= base_url("resources/assets/js/jquery.slimscroll.js") ?>"></script>
+
+    <!-- App js -->
+    <script src="<?= base_url("resources/assets/js/jquery.core.js") ?>"></script>
+    <script src="<?= base_url("resources/assets/js/jquery.app.js") ?>"></script>
+    <script src="<?= base_url("resources/plugins/block.js") ?>"></script>
+
 
 
 
@@ -513,7 +518,6 @@
             }, 2000);
         });
     </script>
-    <script src="<?= base_url("resources/plugins/block.js") ?>"></script>
 
     <script>
         function closeSesion() {

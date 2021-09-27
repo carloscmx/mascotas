@@ -121,22 +121,33 @@ class Catalogo extends CI_Controller
 		}
 	}
 
-	public function actualisarCatalogo()
+	public function actialisarCatalogo()
 	{
 		$home = base_url();
 
 		if (isset($_GET['detalle'])) {
 			$idmascota = $_GET['detalle'];
-			if ($this->mc->detallemascotas(['idmascota' => $idmascota, 'iduser' => $_SESSION['user_client']->id, 'activo' => 1])->num_rows() > 0) {
-				$data['mascota'] = $this->mc->detallemascotas(['idmascota' => $idmascota])->row();
+			if ($this->mc->actualisarmascotas(['idmascota' => $idmascota, 'iduser' => $_SESSION['user_client']->id, 'activo' => 1])->num_rows() > 0) {
+				$data['mascota'] = $this->mc->actualisarmascotas(['idmascota' => $idmascota])->row();
 
-				$this->template->set("titulo", "Detalles");
-				$this->template->load("template/Template_view", "contenido", "paginas/detallesmascotas", $data);
+				$this->template->set("titulo", "actualisar");
+				$this->template->load("template/Template_view", "contenido", "paginas/actualisar", $data);
 			} else {
 				show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
 			}
 		} else {
 			show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
+		}
+	}
+
+	public function borrarCatalogo()
+	{
+		$idmascotas = $this->uri->segment(3);
+		$respuesta = $this->lg->borrarmascota($idmascota);
+		if ($respuesta['action']) {
+			$this->load->view('paginas/vistacatalogo');
+		} else {
+			show_error("No se pudo procesar esta peticion.", 403, "Ha ocurrido un error.");
 		}
 	}
 }
