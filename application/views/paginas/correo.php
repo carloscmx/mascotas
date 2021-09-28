@@ -40,9 +40,11 @@
     </div>
 </div>
 
-<?= modal_simple("modal1", "Exito", "Muchas gracias por registrarse recibira un correo electronico para completar su registro") ?>
+<?= modal_simple("modal1", "Exito", "Gracias por su registro, en unos minutos recibira un correo electronico
+                con la liga de confirmación de su cuenta. Haga clic en este enlace para finalizar con su registro.") ?>
 
-<?= modal_simple("modal2", "Error", "Ya se ha registrado este correo electronico anterioirmente.") ?>
+<?= modal_simple("modal2", "Error", "Este correo electrónico ha sido utilizado en otra cuenta, por favor ingrese
+                un correo electrónico diferente. Si usted ha perdido su contraseña, pude recuperarla haciendo clic aqui") ?>
 
 
 
@@ -86,3 +88,4 @@
         });
     }
 </script>
+
