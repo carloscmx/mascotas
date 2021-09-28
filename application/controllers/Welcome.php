@@ -113,6 +113,22 @@ class Welcome extends CI_Controller
 		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/correo");
 	}
 
+	public function correocontrasena()
+	{
+
+
+		$this->template->set("titulo", "recuperarcontraseña");
+		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/recuperarcontrasena");
+	}
+
+	public function actualisarcontrasena()
+	{
+
+
+		$this->template->set("titulo", "actualisarcontraseña");
+		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/actualisarcontrasena");
+	}
+
 
 	public function recibirparametrosregistrocorreo()
 	{
@@ -164,5 +180,21 @@ class Welcome extends CI_Controller
 	public function logout()
 	{
 		session_destroy();
+	}
+	public function recuperarcontrasena()
+	{
+		$correo = $this->input->post("email", true);
+		$url = base_url("actualisarcontrasena");
+		$bodyhtml = "<h4>Bienvenido  completa tu registro</h4><br><a target='_blank' href='{$url}'>restablecer contraseña</a>";
+
+		if ($this->lg->contrasena([
+			'correo' => $correo,
+			'activo' => 0,
+		])) {
+			$this->correo->enviar_correo("Registro de usuario", $correo, $bodyhtml);
+			echo json_encode(['status' => 'success', 'message' => 'Correo registrado']);
+		} else {
+			echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
+		}
 	}
 }

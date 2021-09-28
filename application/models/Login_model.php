@@ -95,6 +95,27 @@ class Login_model extends CI_Model
     return $result;
   }
 
+	public function correoregistrado($correo)
+  {
+    $registro = false;
+
+    $this->db->select('*');
+    $this->db->from('usuarios');
+    $this->db->where(['correo' => $correo]);
+    if ($this->db->get()->num_rows() > 0) {
+      $registro = true;
+    }
+    return $registro;
+  }
+  public function contrasena($data)
+  {
+    $bool = false;
+    if (!$this->correoregistrado($data['correo'])) {
+      $this->db->update("usuarios", $data);
+      $bool = true;
+    }
+    return $bool;
+  }
 
 
 

@@ -10,22 +10,25 @@
                     </a>
                 </h2>
 
-                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Inicia sesion</h3>
+                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">actualisar contraseña</h3>
 
                 <form class="" action="#" method="POST" id="idFormLogin">
 
-                    <div class="form-group m-b-20 row">
-                        <div class="col-12">
-                            <label for="emailaddress">Correo</label>
-                            <input class="form-control" type="email" id="email" name="email" required="" placeholder="Email">
-                        </div>
-                    </div>
+                
 
                     <div class="form-group row m-b-20">
                         <div class="col-12">
                             <!-- <a href="page-recoverpw.html" class="text-muted float-right"><small>Olvidaste tu contraseña?</small></a> -->
                             <label for="password">Contraseña</label>
                             <input class="form-control" type="password" required="" id="password" name="password" placeholder="Contraseña">
+                        </div>
+                    </div>
+
+					<div class="form-group row m-b-20">
+                        <div class="col-12">
+                            <!-- <a href="page-recoverpw.html" class="text-muted float-right"><small>Olvidaste tu contraseña?</small></a> -->
+                            <label for="password">repite contraseña</label>
+                            <input class="form-control" type="password" required="" id="password2" name="password2" placeholder="Contraseña">
                         </div>
                     </div>
                     <div class="form-group row m-b-20" style="display: none;">
@@ -54,14 +57,7 @@
 
                 </form>
 
-                <div class="row m-t-50">
-                    <div class="col-sm-12 text-center">
-                        <p class="text-muted">No tienes una cuenta? <a href="<?= base_url("registro") ?>" class="text-dark m-l-5" name="btnlogin"><b>Registrate</b></a></p>
-                    </div>
-					<div class="col-sm-12 text-center">
-                        <p class="text-muted">Olvidaste tu contraseña? <a href="<?= base_url("registro") ?>" class="text-dark m-l-5" name="btnlogin"><b>Recuperar</b></a></p>
-                    </div>
-                </div>
+              
 
             </div>
         </div>
