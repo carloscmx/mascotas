@@ -66,5 +66,5 @@ $route['cliente/catalogo/ver/detalles'] = 'catalogo/detallesCatalogo';
 $route['cliente/mascotas/registro'] = 'catalogo/registromascota';
 $route['cliente/mascotas/detalle'] = 'catalogo/detallesCatalogo';
 $route['cliente/mascotas/actualisar'] = 'catalogo/actualisarmascotas';
-$route['recuperarcontrasena'] = 'welcome/correocontrasena';
-$route['actualisarcontrasena'] = 'welcome/actualisarcontrasena';
+$route['recuperarcontrasena'] = 'welcome/recuperarcontrasenavista';
+$route['actualisarcontrasena/(:any)'] = 'welcome/actualisarcontrasenavista';

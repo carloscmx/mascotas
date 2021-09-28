@@ -59,7 +59,7 @@
                         <p class="text-muted">No tienes una cuenta? <a href="<?= base_url("registro") ?>" class="text-dark m-l-5" name="btnlogin"><b>Registrate</b></a></p>
                     </div>
 					<div class="col-sm-12 text-center">
-                        <p class="text-muted">Olvidaste tu contraseña? <a href="<?= base_url("registro") ?>" class="text-dark m-l-5" name="btnlogin"><b>Recuperar</b></a></p>
+                        <p class="text-muted">Olvidaste tu contraseña? <a href="<?= base_url("recuperarcontrasena") ?>" class="text-dark m-l-5" name="btnlogin"><b>Recuperar</b></a></p>
                     </div>
                 </div>
 

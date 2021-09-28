@@ -16,20 +16,23 @@
 
                 
 
-                    <div class="form-group row m-b-20">
+                <div class="form-group m-b-20 row">
                         <div class="col-12">
-                            <!-- <a href="page-recoverpw.html" class="text-muted float-right"><small>Olvidaste tu contraseña?</small></a> -->
-                            <label for="password">Contraseña</label>
-                            <input class="form-control" type="password" required="" id="password" name="password" placeholder="Contraseña">
+                            <label for="text">Contraseña</label>
+                            <input class="form-control" name="txtPassword1" id="txtPassword" required="" placeholder="Contraseña" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group m-b-20 row">
+                        <div class="col-12">
+                            <label for="text">repetir contraseña</label>
+                            <input class="form-control" name="txtPassword2" id="txtPassword" required="" placeholder="Contraseña" type="password">
                         </div>
                     </div>
 
+                 
+
 					<div class="form-group row m-b-20">
-                        <div class="col-12">
-                            <!-- <a href="page-recoverpw.html" class="text-muted float-right"><small>Olvidaste tu contraseña?</small></a> -->
-                            <label for="password">repite contraseña</label>
-                            <input class="form-control" type="password" required="" id="password2" name="password2" placeholder="Contraseña">
-                        </div>
+                      
                     </div>
                     <div class="form-group row m-b-20" style="display: none;">
                         <div class="col-12">
@@ -51,7 +54,7 @@
 
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:validarusuario()">iniciar sesion</button>
+                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:actualisarcontrasena()">actualisar contraseña</button>
                         </div>
                     </div>
 
@@ -73,33 +76,41 @@
 
 
 
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-
 <script>
-    function validarusuario() {
-        $paramts = $("#idFormLogin").serialize();
-        $.ajax({
-            url: "<?= base_url("Welcome/varificarLogin") ?>",
-            data: $paramts,
-            type: "post",
-        }).done(function(result) {
-            var resultarray = JSON.parse(result);
-            if (resultarray.status == "success") {
-                $("#modal2").modal("show");
-
-
-                window.location.href = resultarray.route;
-            } else {
+    function actualisarcontrasena() {
+        if ($("#txtPassword1").val() === $("#txtPassword2").val() && $("#txtPassword").val().length > 6) {
+            $paramts = $("#idFormRegistro").serialize();
+            $.ajax({
+                url: "<?= base_url("Welcome/registroFinal") ?>",
+                data: $paramts,
+                type: "post",
+                beforeSend: function(xhr) {
+                    $("#btnSubmitButtom").prop('disabled', true);
+                }
+            }).done(function() {
                 $("#modal1").modal("show");
-            }
 
-        });
+                setTimeout(function() {
+                    window.location.href = "<?= base_url("cliente/inicio") ?>";
+                }, 2000);
+
+            });
+
+        } else {
+            $("#modal2").modal("show");
+            $("#btnSubmitButtom").prop('disabled', false);
+
+        }
+
     }
 </script>
+
 <script>
     $(document).ready(function() {
-        $("#idFormLogin").submit(function(event) {
+
+        $("#idFormRegistro").submit(function(event) {
             event.preventDefault();
+
         });
     });
 </script>

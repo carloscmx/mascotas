@@ -88,7 +88,7 @@
         $.ajax({
             url: "<?= base_url("Catalogo/guardarAnimal") ?>",
             data: form_data,
-            dataType: 'text', // what to expect back from the server
+            dataType: 'text', 
             cache: false,
             contentType: false,
             processData: false,

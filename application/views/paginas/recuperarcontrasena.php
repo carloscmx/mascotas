@@ -63,7 +63,7 @@
     function enviarrecuperacion() {
         $paramts = $("#frmCorreo").serialize();
         $.ajax({
-            url: "<?= base_url("Welcome/recuperarcontrasena") ?>",
+            url: "<?= base_url("Welcome/correocontrasena") ?>",
             data: $paramts,
             type: "post",
             beforeSend: function(xhr) {
@@ -73,7 +73,8 @@
             resultobj = JSON.parse(result);
             if (resultobj.status == "success") {
                 $("#frmCorreo").trigger("reset");
-                $("#modal1").modal("show");
+               // $("#modal1").modal("show");
+               alert("correo enviado");
                 $("#btnSubmitButtom").prop('disabled', false);
 
             } else {

@@ -82,6 +82,7 @@ class Welcome extends CI_Controller
 
 
 	public function registro()
+
 	{
 		$token = $this->uri->segment(3);
 		$respuesta = $this->lg->validartoken($token);
@@ -113,7 +114,7 @@ class Welcome extends CI_Controller
 		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/correo");
 	}
 
-	public function correocontrasena()
+	public function recuperarcontrasenavista()
 	{
 
 
@@ -121,13 +122,44 @@ class Welcome extends CI_Controller
 		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/recuperarcontrasena");
 	}
 
-	public function actualisarcontrasena()
+	public function actualisarcontrasenavista()
 	{
+		$
+		$token = $this->uri->segment(2);
+		$where=array('token'=>$token);
+		$respuesta = $this->lg->validartokencontrasena($where);
+		var_dump($respuesta);
+		/* if($respuesta){
+			
+			$this->template->set("titulo", "recuperarcontraseña");
+			$this->template->load("template/LoginTemplate_view", "contenido", "paginas/actualisarcontrasena");
+		}else{
+			echo $token;
+			/* "Oh50qFlMhBMWHwekLPZXyzOesjSv3l7OHkU14ee2647dba50a4751cc2221c66c3aa0"
+			show_error('NOT-FOUND',404); */
+		}
+			
 
 
-		$this->template->set("titulo", "actualisarcontraseña");
-		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/actualisarcontrasena");
+		//echo json_encode($respuesta);
+
+		
 	}
+
+
+	public function actualisarcontrasenavista(Type $var = null)
+	{
+		$token=$_GET['token;']
+		if(empty($token)){
+			show_404();
+		}else{
+
+			
+
+		}
+	}
+	
+
 
 
 	public function recibirparametrosregistrocorreo()
@@ -181,14 +213,16 @@ class Welcome extends CI_Controller
 	{
 		session_destroy();
 	}
-	public function recuperarcontrasena()
-	{
-		$correo = $this->input->post("email", true);
-		$url = base_url("actualisarcontrasena");
-		$bodyhtml = "<h4>Bienvenido  completa tu registro</h4><br><a target='_blank' href='{$url}'>restablecer contraseña</a>";
+public function correocontrasena(){
+
+	$correo = $this->input->post("email", true);
+		$token = $this->utilerias->generateToken();
+		$url = base_url("actualisarcontrasena/{$token}");
+		$bodyhtml = "<h4>Actualisa tu contraseña</h4><br><a target='_blank' href='{$url}'>Restablece contraseña</a>";
 
 		if ($this->lg->contrasena([
-			'correo' => $correo,
+			'correorecuperacion' => $correo,
+			'token' => $token,
 			'activo' => 0,
 		])) {
 			$this->correo->enviar_correo("Registro de usuario", $correo, $bodyhtml);
@@ -196,5 +230,6 @@ class Welcome extends CI_Controller
 		} else {
 			echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
 		}
-	}
+}
+
 }
