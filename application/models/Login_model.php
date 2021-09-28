@@ -50,7 +50,13 @@ class Login_model extends CI_Model
     $insert_id = $this->db->insert_id();
     return  $insert_id;
   }
+  public function actualizarUsuarios($data, $where)
+  {
+    $this->db->where($where);
 
+
+    $this->db->update("usuarios", $data);
+  }
   public function actualizarregistro($data, $where)
   {
     $this->db->where($where);

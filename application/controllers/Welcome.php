@@ -41,7 +41,65 @@ class Welcome extends CI_Controller
 			$this->load->view("landing");
 		}
 	}
+	public function restablecerPassword()
+	{
+		# code...
+		$this->template->set("titulo", "Reestabler Password");
+		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/restablecer");
+	}
+	public function restablecerPassword_view()
+	{
+		$token = $this->uri->segment(4);
+		$result = $this->lg->login([
+			'login_token_reset' => $token,
+			'login_reset' => 1
+		]);
+		if ($result->num_rows() > 0) {
+			# code...
+			$this->template->set("titulo", "Reestabler Password");
+			$this->template->load("template/LoginTemplate_view", "contenido", "paginas/restablecer_password");
+			//	$_SESSION['user_client'] = $datos;
+		} else {
+			show_error("No se ha podido procesar esta peticion, o ha expirado este enlace.", 403, "Ha ocurrido un error.");
+		}
+	}
+	public function updatePassword()
+	{
+		$mesaje = ['status' => 'error', 'message' => 'Ha ocurrido un error', 'title' => 'Ha ocurrido un error.'];
+		$password = $this->input->post("password");
+		$token = $this->input->post("token");
+		$result = $this->lg->login([
+			'login_token_reset' => $token,
+			'login_reset' => 1
+		]);
+		if ($result->num_rows() > 0) {
+			$datos = $result->row();
+			$this->lg->actualizarUsuarios(['login_reset' => 0, 'login_token_reset' => "", "contrasena" => sha1($password)], ['id' => $datos->id]);
+			$mesaje = ['status' => 'success', 'message' => 'Contrasena Modificada', 'title' => 'Cuenta recuperada.'];
+			$_SESSION['user_client'] = $datos;
+		}
 
+		echo json_encode($mesaje);
+	}
+
+	public function restablecerPasswordEmail()
+	{
+		$correo = $this->input->post("email", TRUE);
+		$result = $this->lg->login([
+			'correo' => $correo
+		]);
+		if ($result->num_rows() > 0) {
+			$datos = $result->row();
+			$token = $this->utilerias->generateToken();
+			$url = base_url("login/restablecer/user/{$token}");
+			$bodyhtml = "<h4>Reestablece tu cuenta</h4><br><a target='_blank' href='{$url}'>Reestablecer cuenta.</a>";
+			$this->lg->actualizarUsuarios(['login_reset' => 1, 'login_token_reset' => $token], ['id' => $datos->id]);
+			$this->correo->enviar_correo("Reestablcer cuenta", $correo, $bodyhtml);
+
+
+			//	$_SESSION['user_client'] = $datos;
+		}
+	}
 	public function index()
 	{
 		$this->session->validarSesionCliente();

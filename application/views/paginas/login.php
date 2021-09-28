@@ -53,6 +53,11 @@
                     </div>
 
                 </form>
+                <div class="row m-t-50">
+                    <div class="col-sm-12 text-center">
+                        <p class="text-muted">Has olvidado tu contrasena? <a href="<?= base_url("login/recuperar") ?>" class="text-dark m-l-5" name=""><b>Reestablecer contrasena</b></a></p>
+                    </div>
+                </div>
 
                 <div class="row m-t-50">
                     <div class="col-sm-12 text-center">
