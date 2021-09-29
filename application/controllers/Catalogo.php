@@ -147,16 +147,7 @@ class Catalogo extends CI_Controller
 		}
 	}
 
-	public function borrarCatalogo()
-	{
-		$idmascotas = $this->uri->segment(3);
-		$respuesta = $this->lg->borrarmascota($idmascota);
-		if ($respuesta['action']) {
-			$this->load->view('paginas/vistacatalogo');
-		} else {
-			show_error("No se pudo procesar esta peticion.", 403, "Ha ocurrido un error.");
-		}
-	}
+
 }
 
 

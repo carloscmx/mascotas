@@ -53,9 +53,7 @@ class Login_model extends CI_Model
   public function actualizarUsuarios($data, $where)
   {
     $this->db->where($where);
-
-
-    $this->db->update("usuarios", $data);
+		$this->db->update("usuarios", $data);
   }
   public function actualizarregistro($data, $where)
   {

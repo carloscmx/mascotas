@@ -109,6 +109,15 @@ class Welcome extends CI_Controller
 		$this->template->load("template/Template_view", "contenido", "paginas/Inicio", $data);
 	}
 
+	public function indexmedico()
+	{
+		$this->session->validarSesionCliente();
+		$data['mascotas'] = $this->mc->detallemascotas(['iduser' => $_SESSION['user_client']->id, 'activo' => 1])->result();
+
+		$this->template->set("titulo", "Bienvenido");
+		$this->template->load("template/Template_view", "contenido", "paginas/iniciomedico", $data);
+	}
+
 	public function login()
 	{
 		$this->template->set("titulo", "Iniciar sesion");
@@ -122,6 +131,8 @@ class Welcome extends CI_Controller
 		$result = $this->lg->login([
 			'correo' => $correo,
 			'contrasena' => sha1($password)
+			
+			
 		]);
 		$respuesta = ['status' => 'error', 'message' => 'Usuario no entrado '];
 		if ($result->num_rows() > 0) {
