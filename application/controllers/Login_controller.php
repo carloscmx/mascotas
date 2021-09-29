@@ -103,13 +103,34 @@ class Login_controller extends CI_Controller
 
 	{
 		$token = $this->uri->segment(3);
-		$respuesta = $this->lg->validartoken($token);
-		if ($respuesta['action']) {
-			$this->template->set("titulo", "registro");
-			$this->template->load("template/LoginTemplate_view", "contenido", "paginas/RegistroView");
+		/* $respuesta = $this->lg->validartoken($token);
+		if ($respuesta['action'] == true) { */
+
+		$respTipoUsuario = $this->lg->getTipoUsuario($token);
+		echo ($respTipoUsuario);
+		if ($respTipoUsuario != false) {
+
+			switch ($respTipoUsuario) {
+				case 2:
+					$this->template->set("titulo", "registro");
+					$this->template->load("template/LoginTemplate_view", "contenido", "paginas/RegistroView");
+					break;
+
+				case 3:
+					$this->template->set("titulo", "registro");
+					$this->template->load("template/LoginTemplate_view", "contenido", "paginas/recuperarcontrasena");
+					break;
+
+				default:
+					show_404();
+					break;
+			}
 		} else {
-			show_error("No se pudo procesar esta peticion.", 403, "Ha ocurrido un error.");
+			show_404();
 		}
+		/* } else {
+			show_404();
+		} */
 	}
 	public function recibirparametrosregistro()
 	{
@@ -166,18 +187,23 @@ class Login_controller extends CI_Controller
 	public function recibirparametrosregistrocorreo()
 	{
 		$correo = $this->input->post("email", true);
+		$tipousuario = $this->input->post("cbtipousuario");
 		$token = $this->utilerias->generateToken();
 		$url = base_url("registro/activaciones/{$token}");
+
 		$bodyhtml = "<h4>Bienvenido  completa tu registro</h4><br><a target='_blank' href='{$url}'>Confirmar Correo</a>";
+
 
 		if ($this->lg->activacion([
 			'correoregistro' => $correo,
+			'idtipousuario' => $tipousuario,
 			'token' => $token,
 			'activo' => 0,
 		])) {
 			$this->correo->enviar_correo("Registro de usuario", $correo, $bodyhtml);
 			echo json_encode(['status' => 'success', 'message' => 'Correo registrado']);
 		} else {
+			$this->correo->enviar_correo("Registro de usuario", $correo, $bodyhtml);
 			echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
 		}
 	}

@@ -157,6 +157,13 @@ class Catalogo extends CI_Controller
 			show_error("No se pudo procesar esta peticion.", 403, "Ha ocurrido un error.");
 		}
 	}
+
+	public function agendarcitamascota()
+	{
+
+		$this->template->set("titulo", "Detalles");
+		$this->template->load("template/Template_view", "contenido", "paginas/citasmacota");
+	}
 }
 
 

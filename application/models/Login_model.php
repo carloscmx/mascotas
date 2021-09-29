@@ -64,7 +64,9 @@ class Login_model extends CI_Model
     $bool = false;
     if (!$this->existecorreo($data['correoregistro'])) {
       $this->db->insert("activacion", $data);
-      $bool = true;
+      if ($this->db->insert_id()) {
+        $bool = true;
+      }
     }
     return $bool;
   }
@@ -84,9 +86,11 @@ class Login_model extends CI_Model
   function validartoken($token)
   {
     $result = ['status' => 'error', 'action' => false, 'correo' => ''];
-    $this->db->select('*');
+
+    $this->db->where(['activo', 0]);
+    $this->db->where('token', $token);
+    $this->db->select();
     $this->db->from('activacion');
-    $this->db->where(['token' => $token, 'activo' => 0]);
     $query = $this->db->get();
     if ($query->num_rows() > 0) {
       $queryrow = $query->row();
@@ -95,7 +99,7 @@ class Login_model extends CI_Model
     return $result;
   }
 
-	public function correoregistrado($correo)
+  public function correoregistrado($correo)
   {
     $registro = false;
 
@@ -115,6 +119,20 @@ class Login_model extends CI_Model
       $bool = true;
     }
     return $bool;
+  }
+
+  public function getTipoUsuario($token)
+  {
+    $this->db->where('token', "$token");
+    $this->db->select('idtipousuario');
+    $this->db->from('activacion');
+    $get = $this->db->get();
+    if ($get->num_rows() > 0) {
+      $row = $get->row();
+      return $row->idtipousuario;
+    } else {
+      return false;
+    }
   }
 
 

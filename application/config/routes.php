@@ -69,3 +69,4 @@ $route['cliente/mascotas/detalle'] = 'catalogo/detallesCatalogo';
 $route['cliente/mascotas/actualisar'] = 'catalogo/actualisarmascotas';
 $route['recuperarcontrasena'] = 'Login_controller/recuperarcontrasenavista';
 $route['actualisarcontrasena/(:any)'] = 'Login_controller/actualisarcontrasenavista';
+$route['cliente/mascotas/cita'] = 'catalogo/agendarcitamascota';

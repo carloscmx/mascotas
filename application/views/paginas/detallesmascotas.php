@@ -47,6 +47,8 @@
                     </p>
                 </div>
 
+                <a href="<?= base_url("Catalogo/agendarcitamascota={$contenido->idmascota}") ?>" class="btn btn-primary">agendar cita</a>
+
             </div>
         </div>
     </div>

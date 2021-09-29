@@ -21,6 +21,16 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Tipo de usuario</label>
+                        <select name="cbtipousuario" class="form-control" id="cbtipousuario">
+
+                            <option value="2">cliente</option>
+                            <option value="3">Veterinario</option>
+
+                        </select>
+                    </div>
+
                     <div class="form-group  text-center m-t-10">
                         <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:enviarparemetrosregistro()" id="btnSubmitButtom">Registrar</button>
                     </div>
@@ -88,4 +98,3 @@
         });
     }
 </script>
-
