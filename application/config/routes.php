@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['cliente/inicio'] = 'Login_controller/index';
+$route['medico/inicioveterinario'] = 'Login_controller/index';
 $route['login'] = 'Login_controller/login';
 $route['registro/activaciones/(:any)'] = 'Login_controller/registro';
 $route['registro'] = 'Login_controller/correo';

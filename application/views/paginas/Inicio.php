@@ -1,5 +1,4 @@
 <h3>Bienvenido</h3>
-
 <div class="row">
 	<div class="col-md-10">
 	</div>
@@ -41,7 +40,7 @@ if (empty($mascotas)) {
 					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>">Ver detalles</a>
 					<a href="<?= base_url("cliente/mascotas/actualisarmascotas?detalle={$mascota->idmascota}") ?>">actualisar</a>
 					<a href="<?= base_url("cliente/mascotas/borrarmascota?detalle={$mascota->idmascota}") ?>">eliminar</a>
-				
+
 				</div>
 			</div>
 		</div>

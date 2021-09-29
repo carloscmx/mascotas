@@ -20,11 +20,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Login_controller extends CI_Controller
 {
-    
-  public function __construct()
-  {
-    parent::__construct();
-    $this->load->model("Login_model", "lg");
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model("Login_model", "lg");
 		$this->load->library('Correo');
 		$this->load->helper('modals');
 		$this->load->library('session');
@@ -33,9 +33,9 @@ class Login_controller extends CI_Controller
 
 
 		$this->load->library('Utilerias');
-  }
+	}
 
-  public function PaginaPrincipal()
+	public function PaginaPrincipal()
 	{
 		if (isset($_SESSION['user_client'])) {
 			$url = base_url("cliente/inicio");
@@ -45,22 +45,38 @@ class Login_controller extends CI_Controller
 		}
 	}
 
-  public function index()
+	public function index()
 	{
-		$this->session->validarSesionCliente();
-		$data['mascotas'] = $this->mc->detallemascotas(['iduser' => $_SESSION['user_client']->id, 'activo' => 1])->result();
 
-		$this->template->set("titulo", "Bienvenido");
-		$this->template->load("template/Template_view", "contenido", "paginas/Inicio", $data);
+		$this->session->validarSesionCliente();
+		$tiposuaurio = $_SESSION['user_client']->tipousarioid;
+		$data['mascotas'] = $this->mc->detallemascotas(['iduser' => $_SESSION['user_client']->id, 'activo' => 1])->result();
+		switch ($tiposuaurio) {
+			case 3:
+				$this->template->set("titulo", "Bienvenido");
+				$this->template->load("template/Template_view", "contenido", "paginas/inicioveterinario", $data);
+				break;
+			case 2:
+				$this->template->set("titulo", "Bienvenido");
+				$this->template->load("template/Template_view", "contenido", "paginas/Inicio", $data);
+
+				break;
+
+			default:
+				# code...
+				break;
+		}
 	}
 
-  public function login()
+	public function login()
 	{
 		$this->template->set("titulo", "Iniciar sesion");
 		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/login");
 	}
 	public function varificarLogin()
 	{
+
+
 
 		$correo = $this->input->post("email", TRUE);
 		$password = $this->input->post("password", TRUE);
@@ -83,7 +99,7 @@ class Login_controller extends CI_Controller
 		//	var_dump($respuesta);
 	}
 
-  public function registro()
+	public function registro()
 
 	{
 		$token = $this->uri->segment(3);
@@ -108,7 +124,7 @@ class Login_controller extends CI_Controller
 		]);
 	}
 
-  public function correo()
+	public function correo()
 	{
 
 
@@ -124,30 +140,30 @@ class Login_controller extends CI_Controller
 		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/recuperarcontrasena");
 	}
 
-  public function actualisarcontrasenavista()
+	public function actualisarcontrasenavista()
 	{
 		$token = $this->uri->segment(2);
-		$where=array('token'=>$token);
+		$where = array('token' => $token);
 		$respuesta = $this->lg->validartokencontrasena($where);
 		var_dump($respuesta);
-		if($respuesta){
-			
+		if ($respuesta) {
+
 			$this->template->set("titulo", "recuperarcontraseña");
 			$this->template->load("template/LoginTemplate_view", "contenido", "paginas/actualisarcontrasena");
-		}else{
+		} else {
 			echo $token;
 			/* "Oh50qFlMhBMWHwekLPZXyzOesjSv3l7OHkU14ee2647dba50a4751cc2221c66c3aa0"
 			show_error('NOT-FOUND',404); */
 		}
-			
+
 
 
 		//echo json_encode($respuesta);
 
-		
+
 	}
 
-  public function recibirparametrosregistrocorreo()
+	public function recibirparametrosregistrocorreo()
 	{
 		$correo = $this->input->post("email", true);
 		$token = $this->utilerias->generateToken();
@@ -166,7 +182,7 @@ class Login_controller extends CI_Controller
 		}
 	}
 
-  public function registroFinal()
+	public function registroFinal()
 	{
 
 		$token = $this->input->post("txtToken");
@@ -194,31 +210,30 @@ class Login_controller extends CI_Controller
 		}
 	}
 
-  public function logout()
+	public function logout()
 	{
 		session_destroy();
 	}
 
-  public function correocontrasena(){
+	public function correocontrasena()
+	{
 
-    $correo = $this->input->post("email", true);
-      $token = $this->utilerias->generateToken();
-      $url = base_url("actualisarcontrasena/{$token}");
-      $bodyhtml = "<h4>Actualisa tu contraseña</h4><br><a target='_blank' href='{$url}'>Restablece contraseña</a>";
-  
-      if ($this->lg->contrasena([
-        'correorecuperacion' => $correo,
-        'token' => $token,
-        'activo' => 0,
-      ])) {
-        $this->correo->enviar_correo("Registro de usuario", $correo, $bodyhtml);
-        echo json_encode(['status' => 'success', 'message' => 'Correo registrado']);
-      } else {
-        echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
-      }
-  }
+		$correo = $this->input->post("email", true);
+		$token = $this->utilerias->generateToken();
+		$url = base_url("actualisarcontrasena/{$token}");
+		$bodyhtml = "<h4>Actualisa tu contraseña</h4><br><a target='_blank' href='{$url}'>Restablece contraseña</a>";
 
-
+		if ($this->lg->contrasena([
+			'correorecuperacion' => $correo,
+			'token' => $token,
+			'activo' => 0,
+		])) {
+			$this->correo->enviar_correo("Registro de usuario", $correo, $bodyhtml);
+			echo json_encode(['status' => 'success', 'message' => 'Correo registrado']);
+		} else {
+			echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
+		}
+	}
 }
 
 
