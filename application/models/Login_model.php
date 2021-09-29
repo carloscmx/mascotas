@@ -107,54 +107,16 @@ class Login_model extends CI_Model
     }
     return $registro;
   }
-  public function verificarcorreocontrasena($data)
-  {
-    $registro = false;
-
-    $this->db->select('*');
-    $this->db->from('usuarios');
-    $this->db->where(['correo' => $correo]);
-    if ($this->db->get()->num_rows() > 0) {
-      $registro = true;
-    }
-    return $registro;
-  }
-  
   public function contrasena($data)
   {
     $bool = false;
-    if (!$this->existecorreo($data['correo'])) {
-      $this->db->insert("recuperarcontrasena", $data);
+    if (!$this->correoregistrado($data['correo'])) {
+      $this->db->update("usuarios", $data);
       $bool = true;
     }
     return $bool;
   }
 
-  function validartokencontrasena($token)
-  {
-    $this->db->where('token'=>$token)
-    $this->db->select();
-    $this->db->from('recuperarcontrasena');
-    $get=$this->db->get();
-    return $get->result_array();
-    /* if($get->num_rows()>0){
-      return true;
-    }else{
-      return false;
-    } */
-    
-   
-  }
-
-  function actualisarcontrasena($where)
-  {
-    
-    $this->db->update('contrasena');
-  
-    $this->db->where($where);
-    return $this->db->get();
-
-  }
 
 
   // ------------------------------------------------------------------------

@@ -519,7 +519,7 @@
     <script>
         function closeSesion() {
             $.ajax({
-                url: "<?= base_url("Welcome/logout") ?>",
+                url: "<?= base_url("Login_controller/logout") ?>",
                 type: "post",
                 beforeSend: function(xhr) {
                     $.LoadingOverlay("show", {

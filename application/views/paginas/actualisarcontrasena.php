@@ -81,7 +81,7 @@
         if ($("#txtPassword1").val() === $("#txtPassword2").val() && $("#txtPassword").val().length > 6) {
             $paramts = $("#idFormRegistro").serialize();
             $.ajax({
-                url: "<?= base_url("Welcome/registroFinal") ?>",
+                url: "<?= base_url("Login_controller/registroFinal") ?>",
                 data: $paramts,
                 type: "post",
                 beforeSend: function(xhr) {

@@ -65,7 +65,7 @@
     function enviarparemetrosregistro() {
         $paramts = $("#frmCorreo").serialize();
         $.ajax({
-            url: "<?= base_url("Welcome/recibirparametrosregistrocorreo") ?>",
+            url: "<?= base_url("Login_controller/recibirparametrosregistrocorreo") ?>",
             data: $paramts,
             type: "post",
             beforeSend: function(xhr) {

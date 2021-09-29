@@ -83,7 +83,7 @@
     function validarusuario() {
         $paramts = $("#idFormLogin").serialize();
         $.ajax({
-            url: "<?= base_url("Welcome/varificarLogin") ?>",
+            url: "<?= base_url("Login_controller/varificarLogin") ?>",
             data: $paramts,
             type: "post",
         }).done(function(result) {

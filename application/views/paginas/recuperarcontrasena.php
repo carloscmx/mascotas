@@ -63,7 +63,7 @@
     function enviarrecuperacion() {
         $paramts = $("#frmCorreo").serialize();
         $.ajax({
-            url: "<?= base_url("Welcome/correocontrasena") ?>",
+            url: "<?= base_url("Login_controller/correocontrasena") ?>",
             data: $paramts,
             type: "post",
             beforeSend: function(xhr) {

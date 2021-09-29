@@ -49,7 +49,7 @@
 <body>
   <h3>Para regresar presiona aqui</h3>
   <?= var_dump($_SESSION) ?>
-  <a href="<?= base_url("welcome/index") ?>">Regresar al inicio</a>
+  <a href="<?= base_url("Login_controller/index") ?>">Regresar al inicio</a>
 </body>
 
 </html>

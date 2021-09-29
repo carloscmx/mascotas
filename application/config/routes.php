@@ -50,15 +50,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome/PaginaPrincipal';
+$route['default_controller'] = 'Login_controller/PaginaPrincipal';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['cliente/inicio'] = 'welcome/index';
-$route['login'] = 'welcome/login';
-$route['registro/activaciones/(:any)'] = 'welcome/registro';
-$route['registro'] = 'welcome/correo';
+$route['cliente/inicio'] = 'Login_controller/index';
+$route['login'] = 'Login_controller/login';
+$route['registro/activaciones/(:any)'] = 'Login_controller/registro';
+$route['registro'] = 'Login_controller/correo';
 $route['cliente/catalogo'] = 'catalogo/index';
 $route['clioente/catalogo/ver'] = 'catalogo/mostrarcatalogo';
 $route['cliente/catalogo/ver/detalles'] = 'catalogo/detallesCatalogo';
@@ -66,5 +66,5 @@ $route['cliente/catalogo/ver/detalles'] = 'catalogo/detallesCatalogo';
 $route['cliente/mascotas/registro'] = 'catalogo/registromascota';
 $route['cliente/mascotas/detalle'] = 'catalogo/detallesCatalogo';
 $route['cliente/mascotas/actualisar'] = 'catalogo/actualisarmascotas';
-$route['recuperarcontrasena'] = 'welcome/recuperarcontrasenavista';
-$route['actualisarcontrasena/(:any)'] = 'welcome/actualisarcontrasenavista';
+$route['recuperarcontrasena'] = 'Login_controller/recuperarcontrasenavista';
+$route['actualisarcontrasena/(:any)'] = 'Login_controller/actualisarcontrasenavista';
