@@ -39,7 +39,6 @@ class Correo
 
     //El servidor de correo que utilizaremos
     $config["smtp_host"] = 'ssl://mail.blazar.com.mx';
-    //  $config["smtp_host"] = 'mail.blazar.com.mx';
 
     $config["mailtype"] = 'html';
 
@@ -51,7 +50,7 @@ class Correo
     $config["smtp_pass"] = 'a.HD7pV?C_Wf';
 
     //El puerto que utilizará el servidor smtp
-    $config["smtp_port"] = '587';
+    $config["smtp_port"] = '465';
 
     //El juego de caracteres a utilizar
     $config['charset'] = 'utf-8';
