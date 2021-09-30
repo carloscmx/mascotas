@@ -52,7 +52,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 */
 $route['default_controller'] = 'Login_controller/PaginaPrincipal';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['translate_uri_dashes'] = false;
 
 
 $route['cliente/inicio'] = 'Login_controller/index';
@@ -70,3 +70,4 @@ $route['cliente/mascotas/actualisar'] = 'catalogo/actualisarmascotas';
 $route['recuperarcontrasena'] = 'Login_controller/recuperarcontrasenavista';
 $route['actualisarcontrasena/(:any)'] = 'Login_controller/actualisarcontrasenavista';
 $route['cliente/mascotas/cita'] = 'catalogo/agendarcitamascota';
+$route['modal'] = 'Catalogo/modalejemplo';
