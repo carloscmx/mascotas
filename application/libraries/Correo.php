@@ -43,7 +43,6 @@ class Correo
 
     $config["mailtype"] = 'html';
 
-
     //Nuestro usuario
     $config["smtp_user"] = 'pruebas@blazar.com.mx';
 
