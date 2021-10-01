@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  *
@@ -16,15 +16,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  */
 
- class Correo
+class Correo
 {
 
   // ------------------------------------------------------------------------
   protected $CI;
-   function __construct()
+  function __construct()
   {
-  $this-> CI =& get_instance();
-   $this->CI->load->library('email');
+    $this->CI = &get_instance();
+    $this->CI->load->library('email');
   }
 
   // ------------------------------------------------------------------------
@@ -32,63 +32,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   // ------------------------------------------------------------------------
 
-  public function enviar_correo($cabecera,$correosalida,$html)
+  public function enviar_correo($cabecera, $correosalida, $html)
   {
-//Indicamos el protocolo a utilizar
-$config['protocol'] = 'smtp';
-         
-//El servidor de correo que utilizaremos
- $config["smtp_host"] = 'ssl://mail.blazar.com.mx';
+    //Indicamos el protocolo a utilizar
+    $config['protocol'] = 'smtp';
 
- $config["mailtype"] = 'html';
+    //El servidor de correo que utilizaremos
+    $config["smtp_host"] = 'mail.blazar.com.mx';
 
-  
-//Nuestro usuario
- $config["smtp_user"] = 'pruebas@blazar.com.mx';
-  
-//Nuestra contraseña
- $config["smtp_pass"] = 'a.HD7pV?C_Wf';   
-  
-//El puerto que utilizará el servidor smtp
- $config["smtp_port"] = '465';
- 
-//El juego de caracteres a utilizar
- $config['charset'] = 'utf-8';
+    $config["mailtype"] = 'html';
 
-//Permitimos que se puedan cortar palabras
- $config['wordwrap'] = TRUE;
-  
-//El email debe ser valido 
-$config['validate'] = true;
 
- 
-//Establecemos esta configuración
-$this->CI->email->initialize($config);
-//Ponemos la dirección de correo que enviará el email y un nombre
-$this->CI->email->from('pruebas@blazar.com.mx', 'NOREPLY');
-  
-/*
+    //Nuestro usuario
+    $config["smtp_user"] = 'pruebas@blazar.com.mx';
+
+    //Nuestra contraseña
+    $config["smtp_pass"] = 'a.HD7pV?C_Wf';
+
+    //El puerto que utilizará el servidor smtp
+    $config["smtp_port"] = '587';
+
+    //El juego de caracteres a utilizar
+    $config['charset'] = 'utf-8';
+
+    //Permitimos que se puedan cortar palabras
+    $config['wordwrap'] = TRUE;
+
+    //El email debe ser valido 
+    $config['validate'] = true;
+
+
+    //Establecemos esta configuración
+    $this->CI->email->initialize($config);
+    //Ponemos la dirección de correo que enviará el email y un nombre
+    $this->CI->email->from('pruebas@blazar.com.mx', 'NOREPLY');
+
+    /*
 * Ponemos el o los destinatarios para los que va el email
 * en este caso al ser un formulario de contacto te lo enviarás a ti
 * mismo
 */
-$this->CI->email->to(trim($correosalida),"NOREPLY");
+    $this->CI->email->to(trim($correosalida), "NOREPLY");
 
-//Definimos el asunto del mensaje
-$this->CI->email->subject($cabecera);
+    //Definimos el asunto del mensaje
+    $this->CI->email->subject($cabecera);
 
-//Definimos el mensaje a enviar
-$this->CI->email->set_newline("\r\n");
+    //Definimos el mensaje a enviar
+    $this->CI->email->set_newline("\r\n");
 
-$this->CI->email->message($html);
+    $this->CI->email->message($html);
 
-$estado=false;
-//Enviamos el email y si se produce bien o mal que avise con una flasdata
-if($this->CI->email->send()){
-  $estado=true;
-
-}
-return $estado;
+    $estado = false;
+    //Enviamos el email y si se produce bien o mal que avise con una flasdata
+    if ($this->CI->email->send()) {
+      $estado = true;
+    }
+    return $estado;
   }
 
   // ------------------------------------------------------------------------

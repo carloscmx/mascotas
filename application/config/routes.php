@@ -66,5 +66,11 @@ $route['cliente/catalogo/ver/detalles'] = 'catalogo/detallesCatalogo';
 $route['cliente/mascotas/registro'] = 'catalogo/registromascota';
 $route['cliente/mascotas/detalle'] = 'catalogo/detallesCatalogo';
 $route['cliente/mascotas/actualisar'] = 'catalogo/actualisarmascotas';
+<<<<<<< HEAD
 $route['recuperarcontrasena'] = 'welcome/recuperarcontrasenavista';
 $route['actualisarcontrasena/(:any)'] = 'welcome/actualisarcontrasenavista';
+=======
+
+$route['login/recuperar'] = 'welcome/restablecerPassword';
+$route['login/restablecer/user/(:any)'] = 'welcome/restablecerPassword_view';
+>>>>>>> ca420253a7984022e8d5dce737261c44002e6d00
