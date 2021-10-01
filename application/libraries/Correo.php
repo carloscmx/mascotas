@@ -38,7 +38,7 @@ class Correo
     $config['protocol'] = 'smtp';
 
     //El servidor de correo que utilizaremos
-    $config["smtp_host"] = 'ssl://mail.blazar.com.mx';
+    $config["smtp_host"] = 'ssl://iron.blazar.com.mx';
 
     $config["mailtype"] = 'html';
 
