@@ -76,10 +76,27 @@ class Welcome extends CI_Controller
 			$datos = $result->row();
 			$this->lg->actualizarUsuarios(['login_reset' => 0, 'login_token_reset' => "", "contrasena" => sha1($password)], ['id' => $datos->id]);
 			$mesaje = ['status' => 'success', 'message' => 'Contrasena Modificada', 'title' => 'Cuenta recuperada.'];
-			$_SESSION['user_client'] = $datos;
+			$user = $datos;
+
+
+			switch ($user->tipousarioid) {
+				case 2:
+					$redirect = base_url("cliente/inicio");
+
+					$_SESSION['user_client'] = $user;
+
+					break;
+				case 3:
+					$redirect = base_url("veterinario/inicio");
+
+					$_SESSION['user_vet'] = $user;
+
+					break;
+			}
+			$respuesta = ['status' => 'success', 'message' => 'Contrasena Modificada', 'route' => $redirect];
 		}
 
-		echo json_encode($mesaje);
+		echo json_encode($respuesta);
 	}
 
 	public function restablecerPasswordEmail()
@@ -90,6 +107,9 @@ class Welcome extends CI_Controller
 		]);
 		if ($result->num_rows() > 0) {
 			$datos = $result->row();
+
+
+
 			$token = $this->utilerias->generateToken();
 			$url = base_url("login/restablecer/user/{$token}");
 			$bodyhtml = "<h4>Reestablece tu cuenta</h4><br><a target='_blank' href='{$url}'>Reestablecer cuenta.</a>";
@@ -125,12 +145,30 @@ class Welcome extends CI_Controller
 		]);
 		$respuesta = ['status' => 'error', 'message' => 'Usuario no entrado '];
 		if ($result->num_rows() > 0) {
-			$_SESSION['user_client'] = $result->row();
-			$redirect = base_url("cliente/inicio");
-			if (isset($_POST['route'])) {
-				if ($this->utilerias->is_base64_encoded($_POST['route'])) {
-					$redirect = base64_decode($_POST['route']);
-				}
+			$user = $result->row();
+
+
+			switch ($user->tipousarioid) {
+				case 2:
+					$redirect = base_url("cliente/inicio");
+					if (isset($_POST['route'])) {
+						if ($this->utilerias->is_base64_encoded($_POST['route'])) {
+							$redirect = base64_decode($_POST['route']);
+						}
+					}
+					$_SESSION['user_client'] = $user;
+
+					break;
+				case 3:
+					$redirect = base_url("veterinario/inicio");
+					if (isset($_POST['route'])) {
+						if ($this->utilerias->is_base64_encoded($_POST['route'])) {
+							$redirect = base64_decode($_POST['route']);
+						}
+					}
+					$_SESSION['user_vet'] = $user;
+
+					break;
 			}
 			$respuesta = ['status' => 'success', 'message' => 'Iniciando sesion.', 'route' => $redirect];
 		}
@@ -204,17 +242,29 @@ class Welcome extends CI_Controller
 			$txtAmater = $this->input->post("txtAmater", true);
 			$dttFechanan = $this->input->post("dttFechanan", true);
 			$txtPassword = $this->input->post("txtPassword", true);
+			$tusuario = $this->input->post("cboTusario", true);
 
-			$data = ['nombre' => $txtNombre, 'contrasena' => sha1($txtPassword), 'activo' => 1, 'tipousarioid' => 2, 'apellidopat' => $txtApepat, 'apellidomat' => $txtAmater, 'correo' => $respuesta['correo'], 'fechanan' => $dttFechanan];
+
+			$data = ['nombre' => $txtNombre, 'contrasena' => sha1($txtPassword), 'activo' => 1, 'tipousarioid' => $tusuario, 'apellidopat' => $txtApepat, 'apellidomat' => $txtAmater, 'correo' => $respuesta['correo'], 'fechanan' => $dttFechanan];
 			$idusuario = $this->lg->insertarUsuarios($data);
 			$this->lg->actualizarregistro([
 				'activo' => 1,
 			], ['idregistro' => $respuesta['idactivacion']]);
 
-			echo	json_encode(['idregistro' => $respuesta['idactivacion']]);
 			$user = $this->lg->login(['id' => $idusuario])->row();
 
-			$_SESSION['user_client'] = $user;
+			switch ($tusuario) {
+				case 2:
+					$_SESSION['user_client'] = $user;
+					echo	json_encode(['url' => base_url("cliente/inicio")]);
+
+					break;
+				case 3:
+					$_SESSION['user_vet'] = $user;
+					echo	json_encode(['url' => base_url("veterinario/inicio")]);
+
+					break;
+			}
 		} else {
 			echo json_encode(['status' => 'error', 'message' => 'Ha ocurrido un error']);
 		}

@@ -48,6 +48,17 @@
 
                     <div class="form-group m-b-20 row">
                         <div class="col-12">
+                            <label for="text">Tipo de usuario</label>
+                            <select name="cboTusario" class="form-control">
+                                <option value="2">Cliente</option>
+                                <option value="3">Veterinario</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group m-b-20 row">
+                        <div class="col-12">
                             <label for="text">Contraseña</label>
                             <input class="form-control" name="txtPassword" id="txtPassword" required="" placeholder="Contraseña" type="password">
                         </div>
@@ -109,11 +120,12 @@
                 beforeSend: function(xhr) {
                     $("#btnSubmitButtom").prop('disabled', true);
                 }
-            }).done(function() {
+            }).done(function(response) {
+                $resonseJson = JSON.parse(response);
                 $("#modal1").modal("show");
 
                 setTimeout(function() {
-                    window.location.href = "<?= base_url("cliente/inicio") ?>";
+                    window.location.href = $resonseJson.url;
                 }, 2000);
 
             });

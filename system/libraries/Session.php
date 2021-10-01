@@ -91,4 +91,13 @@ class CI_Session
 			die();
 		}
 	}
+	public function validarSesionVeterinario()
+	{
+		$urlaccess = base64_encode(base_url(uri_string()));
+		if (!isset($_SESSION['user_vet'])) {
+			$url_login = url_login();
+			header("Location: {$url_login}?route={$urlaccess}");
+			die();
+		}
+	}
 }

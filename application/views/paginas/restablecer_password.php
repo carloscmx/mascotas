@@ -80,7 +80,7 @@
                 $array = JSON.parse(result);
                 alert($.trim($array.message));
 
-                window.location.href = "<?= base_url("cliente/inicio"); ?>";
+                window.location.href = $array.route;
 
             });
 

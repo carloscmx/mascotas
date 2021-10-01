@@ -69,3 +69,7 @@ $route['cliente/mascotas/actualisar'] = 'catalogo/actualisarmascotas';
 
 $route['login/recuperar'] = 'welcome/restablecerPassword';
 $route['login/restablecer/user/(:any)'] = 'welcome/restablecerPassword_view';
+
+
+
+$route['veterinario/inicio'] = 'Controllers_Vet/Vetcontroller/indexveterinario';
