@@ -6,29 +6,30 @@
 
             <div class="card-body">
                 <p class="card-text">
-                <form action="" method="post" id="idCrearcatalogo" enctype="multipart/form-data">
+                <form action="" method="post" id="idcrearveterinario" enctype="multipart/form-data">
 
                     <div class="container">
                         <div class="row">
                             <div class="col col-6">
                                 <label for="exampleInputEmail1">Nombre(s)</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nombre del veterinario" name="txtNombrevet" id="txtNombrevet">
+                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nombre del veterinario" name="txtNombrevet" id="txtNombrevet" value="<?= $_SESSION['user_vet']->nombre ?>">
                             </div>
                         </div>
                     </div>
 
-                    <div class="container">
+                    <div class=" container">
                         <div class="row">
                             <div class="col col-6">
                                 <label for="exampleInputEmail1">Apellido Paterno</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Apellido paterno del veterinario" name="txtApellidopvet" id="txtApellidopvet">
+                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Apellido paterno del veterinario" name="txtApellidopvet" id="txtApellidopvet" value="<?= $_SESSION['user_vet']->apellidopat ?>">
                             </div>
                             <div class="col col-6">
                                 <label for="exampleInputEmail1">Apellido Materno</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Apellido materno del veterinario" name="txtApellidomvet" id="txtApellidomvet">
+                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Apellido materno del veterinario" name="txtApellidomvet" id="txtApellidomvet" value="<?= $_SESSION['user_vet']->apellidomat ?>">
                             </div>
                         </div>
                     </div>
+
 
                     <div class="container">
                         <div class="row">
@@ -80,12 +81,15 @@
     </div>
 </div>
 
+<script src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/js/jquery.min.js"></script>
+
+
 <?= modal_simple("modal1", "Exito", "Los datos se han registrado perfectamente") ?>
 <?= modal_simple("modal2", "Error", "Ocurrio un error verifica que todos los campos se encuentren") ?>
 
 <script>
     $(document).ready(function() {
-        $("#idCrearcatalogo").submit(function(event) {
+        $("#idcrearveterinario").submit(function(event) {
             event.preventDefault();
         });
     });
@@ -115,7 +119,7 @@
             var resultarray = JSON.parse(result);
             if (resultarray.status == "success") {
                 $("#modal1").modal("show");
-                $('#idCrearcatalogo').trigger("reset");
+                $('#idcrearveterinario').trigger("reset");
                 // window.location.href = "<?= base_url("Controllers_Vet/Vetcontroller/indexveterinario") ?>";
             } else {
                 $("#modal2").modal("show");

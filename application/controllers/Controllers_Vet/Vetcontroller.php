@@ -27,6 +27,7 @@ class Vetcontroller extends CI_Controller
         $this->load->helper('modals');
         $this->load->library('session');
         $this->load->model("Catalogo_model", "mc");
+        $this->load->model("models_veterinario/Veterinario_model", "vm");
 
 
 
@@ -35,7 +36,6 @@ class Vetcontroller extends CI_Controller
     public function indexveterinario()
     {
         $this->session->validarSesionVeterinario();
-        $data['veterinarios'] = $this->mc->detalleveterinarios(['idusuario' => $_SESSION['user_vet']->id, 'activo' => 1])->result();
 
         $this->template->set("titulo", "Bienvenido veterinario");
         $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Inicioveterinario");
@@ -82,7 +82,7 @@ class Vetcontroller extends CI_Controller
                         'ubicacionimagen' => $path,
                         'iduser' => $_SESSION['user_vet']->id
                     ];
-                    $this->mc->catalogocrear($data);
+                    $this->mc->veterinariomodelcrear($data);
                     echo json_encode(['status' => 'success', 'message' => 'Exito se ha guardado correctamente']);
                 } else {
                     echo json_encode(['status' => 'error', 'message' => "No se pudo copiar la imagen verifique la ruta de destino {$path}"]);

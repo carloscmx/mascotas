@@ -27,6 +27,7 @@ class Welcome extends CI_Controller
 		$this->load->helper('modals');
 		$this->load->library('session');
 		$this->load->model("Catalogo_model", "mc");
+		$this->load->model("Veterinario_model", "mc");
 
 
 
