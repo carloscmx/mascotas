@@ -150,7 +150,7 @@ class Catalogo extends CI_Controller
 	public function borrarCatalogo()
 	{
 		$idmascotas = $this->uri->segment(3);
-		$respuesta = $this->lg->borrarmascota($idmascota);
+		$respuesta = $this->lg->borrarmascota($idmascotas);
 		if ($respuesta['action']) {
 			$this->load->view('paginas/vistacatalogo');
 		} else {

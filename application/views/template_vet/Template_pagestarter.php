@@ -38,7 +38,7 @@
                     <!-- Image Logo -->
                     <a href="index.html" class="logo">
                         <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/logo_sm.png" alt="" height="26" class="logo-small">
-                        <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/logo.png" alt="" height="22" class="logo-large">
+                        <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/Logob.png" alt="" height="22" class="logo-large">
                     </a>
 
                 </div>
@@ -60,7 +60,7 @@
                             </a>
                             <!-- End mobile menu toggle-->
                         </li>
-                        <li class="dropdown notification-list hide-phone">
+                        <li style="display: none;" class="dropdown notification-list hide-phone">
                             <a class="nav-link dropdown-toggle waves-effect nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="mdi mdi-earth"></i> English <i class="mdi mdi-chevron-down"></i>
                             </a>
@@ -89,7 +89,7 @@
                             </div>
                         </li>
 
-                        <li class="dropdown notification-list">
+                        <li style="display: none;" class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="fi-bell noti-icon"></i>
                                 <span class="badge badge-danger badge-pill noti-icon-badge">4</span>
@@ -147,7 +147,7 @@
                             </div>
                         </li>
 
-                        <li class="dropdown notification-list">
+                        <li style="display: none;" class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <i class="fi-speech-bubble noti-icon"></i>
                                 <span class="badge badge-dark badge-pill noti-icon-badge">6</span>
@@ -211,32 +211,32 @@
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
                                 <!-- item-->
                                 <div class="dropdown-item noti-title">
-                                    <h6 class="text-overflow m-0">Welcome !</h6>
+                                    <h6 class="text-overflow m-0">Bienvenido !</h6>
                                 </div>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fi-head"></i> <span>My Account</span>
+                                    <i class="fi-head"></i> <span>Mi cuenta</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a style="display: none;" href="javascript:void(0);" class="dropdown-item notify-item">
                                     <i class="fi-cog"></i> <span>Settings</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a style="display: none;" href="javascript:void(0);" class="dropdown-item notify-item">
                                     <i class="fi-help"></i> <span>Support</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a style="display: none;" href="javascript:void(0);" class="dropdown-item notify-item">
                                     <i class="fi-lock"></i> <span>Lock Screen</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fi-power"></i> <span>Logout</span>
+                                <a href="javascript:void(0);" onclick="javascript:closeSesion()" class="dropdown-item notify-item">
+                                    <i class="fi-power"></i> <span>Cerrar sesión</span>
                                 </a>
 
                             </div>
@@ -258,10 +258,10 @@
                     <ul class="navigation-menu">
 
                         <li class="has-submenu">
-                            <a href="index.html"><i class="icon-speedometer"></i>Dashboard</a>
+                            <a href="<?= base_url() ?>"><i class="icon-speedometer"></i>Inicio</a>
                         </li>
 
-                        <li class="has-submenu">
+                        <li style="display: none;" class="has-submenu">
                             <a href="#"><i class="icon-layers"></i>Apps</a>
                             <ul class="submenu">
                                 <li><a href="apps-calendar.html">Calendar</a></li>
@@ -275,7 +275,7 @@
                             </ul>
                         </li>
 
-                        <li class="has-submenu">
+                        <li style="display: none;" class="has-submenu">
                             <a href="#"><i class="icon-briefcase"></i>UI Elements</a>
                             <ul class="submenu megamenu">
                                 <li>
@@ -308,7 +308,7 @@
                             </ul>
                         </li>
 
-                        <li class="has-submenu">
+                        <li style="display: none;" class="has-submenu">
                             <a href="#"><i class="icon-fire"></i>Components</a>
                             <ul class="submenu">
                                 <li class="has-submenu">
@@ -382,7 +382,7 @@
                             </ul>
                         </li>
 
-                        <li class="has-submenu">
+                        <li style="display: none;" class="has-submenu">
                             <a href="#"><i class="icon-docs"></i>Pages</a>
                             <ul class="submenu megamenu">
                                 <li>
@@ -406,7 +406,7 @@
                             </ul>
                         </li>
 
-                        <li class="has-submenu">
+                        <li style="display: none;" class="has-submenu">
                             <a href="#"><i class="icon-present"></i>Extra Pages</a>
                             <ul class="submenu megamenu">
                                 <li>
@@ -497,7 +497,7 @@
     <script>
         function closeSesion() {
             $.ajax({
-                url: "<?= base_url("Welcome/logout") ?>",
+                url: "<?= base_url("Controllers_Vet/Vetcontroller/logoutvet") ?>",
                 type: "post",
                 beforeSend: function(xhr) {
                     $.LoadingOverlay("show", {

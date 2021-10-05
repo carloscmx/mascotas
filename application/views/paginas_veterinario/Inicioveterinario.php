@@ -1,3 +1,16 @@
+<h3>Bienvenido al veterinario</h3>
+
+<div class="row">
+	<div class="col-md-10">
+	</div>
+	<div class="col-md-2">
+
+		<a href="<?= base_url("veterinario/registro") ?>"><button type="button" class="btn btn-success">
+				Registrar veterinario
+			</button></a>
+	</div>
+</div>
+
 <div class="row">
 	<div class="col-md-12">
 		<div class="alert alert-success alert-dismissable">

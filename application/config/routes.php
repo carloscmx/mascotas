@@ -60,7 +60,7 @@ $route['login'] = 'welcome/login';
 $route['registro/activaciones/(:any)'] = 'welcome/registro';
 $route['registro'] = 'welcome/correo';
 $route['cliente/catalogo'] = 'catalogo/index';
-$route['clioente/catalogo/ver'] = 'catalogo/mostrarcatalogo';
+$route['cliente/catalogo/ver'] = 'catalogo/mostrarcatalogo';
 $route['cliente/catalogo/ver/detalles'] = 'catalogo/detallesCatalogo';
 
 $route['cliente/mascotas/registro'] = 'catalogo/registromascota';
@@ -70,6 +70,5 @@ $route['cliente/mascotas/actualisar'] = 'catalogo/actualisarmascotas';
 $route['login/recuperar'] = 'welcome/restablecerPassword';
 $route['login/restablecer/user/(:any)'] = 'welcome/restablecerPassword_view';
 
-
-
 $route['veterinario/inicio'] = 'Controllers_Vet/Vetcontroller/indexveterinario';
+$route['veterinario/registro'] = 'Controllers_Vet/Vetcontroller/registroveterinario';

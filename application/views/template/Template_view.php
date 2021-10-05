@@ -39,7 +39,7 @@
                 <div class="topbar-left">
                     <a href="index.html" class="logo">
                         <span>
-                            <img src="<?= base_url("resources/assets/images/logo.png") ?>" alt="" height="22">
+                            <img src="<?= base_url("resources/assets/images/Logob.png") ?>" alt="" height="22">
                         </span>
                         <i>
                             <img src="<?= base_url("resources/assets/images/logo_sm.png") ?>" alt="" height="28">
@@ -65,13 +65,13 @@
 
                         <li>
                             <a href="<?= base_url() ?>">
-                                <i class="fi-air-play"></i><span class="badge badge-danger badge-pill float-right">7</span> <span> Dashboard </span>
+                                <i class="fi-air-play"></i><span class="badge badge-danger badge-pill float-right">7</span> <span> Inicio </span>
                             </a>
                         </li>
 
-                        <li>
-                            <a href="javascript: void(0);"><i class="fi-layers"></i> <span> Apps </span> <span class="menu-arrow"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
+                        <li style="display: none;">
+                            <a href="javascript: void(0);"><i class="fi-layers"></i> <span> Apps </span> <span class="menu-arrow" style="display: none;"></span></a>
+                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
                                 <li><a href="apps-calendar.html">Calendar</a></li>
                                 <li><a href="apps-tickets.html">Tickets</a></li>
                                 <li><a href="apps-taskboard.html">Task Board</a></li>
@@ -83,18 +83,18 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="javascript: void(0);"><i class="fi-mail"></i><span> Email </span> <span class="menu-arrow"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
+                        <li style="display: none;">
+                            <a href="javascript: void(0);"><i class="fi-mail"></i><span> Email </span> <span class="menu-arrow" style="display: none;"></span></a>
+                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
                                 <li><a href="email-inbox.html">Inbox</a></li>
                                 <li><a href="email-read.html">Read Email</a></li>
                                 <li><a href="email-compose.html">Compose Email</a></li>
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="javascript: void(0);"><i class="fi-layout"></i><span> Layouts </span> <span class="menu-arrow"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
+                        <li style="display: none;">
+                            <a href="javascript: void(0);"><i class="fi-layout"></i><span> Layouts </span> <span class="menu-arrow" style="display: none;"></span></a>
+                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
                                 <li><a href="layouts-menucollapsed.html">Menu Collapsed</a></li>
                                 <li><a href="layouts-small-menu.html">Small Menu</a></li>
                                 <li><a href="layouts-dark-lefbar.html">Dark Leftbar</a></li>
@@ -102,9 +102,9 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="javascript: void(0);"><i class="fi-briefcase"></i> <span> UI Elements </span> <span class="menu-arrow"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
+                        <li style="display: none;">
+                            <a href="javascript: void(0);"><i class="fi-briefcase"></i> <span> UI Elements </span> <span class="menu-arrow" style="display: none;"></span></a>
+                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
                                 <li><a href="ui-typography.html">Typography</a></li>
                                 <li><a href="ui-cards.html">Cards</a></li>
                                 <li><a href="ui-buttons.html">Buttons</a></li>
@@ -123,15 +123,15 @@
                             </ul>
                         </li>
 
-                        <li>
+                        <li style="display: none;">
                             <a href="widgets.html">
                                 <i class="fi-command"></i> <span> Widgets </span>
                             </a>
                         </li>
 
-                        <li>
-                            <a href="javascript: void(0);"><i class="fi-bar-graph-2"></i><span> Charts </span> <span class="menu-arrow"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
+                        <li style="display: none;">
+                            <a href="javascript: void(0);"><i class="fi-bar-graph-2"></i><span> Charts </span> <span class="menu-arrow" style="display: none;"></span></a>
+                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
                                 <li><a href="chart-flot.html">Flot Chart</a></li>
                                 <li><a href="chart-morris.html">Morris Chart</a></li>
                                 <li><a href="chart-google.html">Google Chart</a></li>
@@ -142,10 +142,10 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="javascript: void(0);"><i class="fi-disc"></i><span class="badge badge-info float-right">10</span> <span> Forms </span></a>
+                        <li style="display: none;">
+                            <a href="javascript: void(0);"><i class="fi-disc"></i><span class="badge badge-info float-right" style="display: none;">10</span> <span> Forms </span></a>
 
-                            <ul class="nav-second-level" aria-expanded="false">
+                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
                                 <li><a href="form-elements.html">Form Elements</a></li>
                                 <li><a href="form-advanced.html">Form Advanced</a></li>
                                 <li><a href="form-validation.html">Form Validation</a></li>
@@ -159,9 +159,9 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="javascript: void(0);"><i class="fi-box"></i><span> Icons </span> <span class="menu-arrow"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
+                        <li style="display: none;">
+                            <a href="javascript: void(0);"><i class="fi-box"></i><span> Icons </span> <span class="menu-arrow" style="display: none;"></span></a>
+                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
                                 <li><a href="icons-materialdesign.html">Material Design</a></li>
                                 <li><a href="icons-dripicons.html">Dripicons</a></li>
                                 <li><a href="icons-fontawesome.html">Font awesome</a></li>
@@ -170,9 +170,9 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="javascript: void(0);"><i class="fi-paper"></i> <span> Tables </span> <span class="menu-arrow"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
+                        <li style="display: none;">
+                            <a href="javascript: void(0);"><i class="fi-paper"></i> <span> Tables </span> <span class="menu-arrow" style="display: none;"></span></a>
+                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
                                 <li><a href="tables-basic.html">Basic Tables</a></li>
                                 <li><a href="tables-datatable.html">Data Tables</a></li>
                                 <li><a href="tables-responsive.html">Responsive Table</a></li>
@@ -181,20 +181,20 @@
                             </ul>
                         </li>
 
-                        <li class="menu-title">More</li>
+                        <li style="display: none;" class="menu-title">More</li>
 
-                        <li>
-                            <a href="javascript: void(0);"><i class="fi-location-2"></i> <span> Maps </span> <span class="menu-arrow"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
+                        <li style="display: none;">
+                            <a href="javascript: void(0);"><i class="fi-location-2"></i> <span> Maps </span> <span class="menu-arrow" style="display: none;"></span></a>
+                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
                                 <li><a href="maps-google.html">Google Maps</a></li>
                                 <li><a href="maps-vector.html">Vector Maps</a></li>
                                 <li><a href="maps-mapael.html">Mapael Maps</a></li>
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="javascript: void(0);"><i class="fi-paper-stack"></i><span> Pages </span> <span class="menu-arrow"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false">
+                        <li style="display: none;">
+                            <a href="javascript: void(0);"><i class="fi-paper-stack"></i><span> Pages </span> <span class="menu-arrow" style="display: none;"></span></a>
+                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
                                 <li><a href="page-starter.html">Starter Page</a></li>
                                 <li><a href="page-login.html">Login</a></li>
                                 <li><a href="page-register.html">Register</a></li>
@@ -208,7 +208,7 @@
                             </ul>
                         </li>
 
-                        <li>
+                        <li style="display: none;">
                             <a href="javascript:void(0);"><i class="fi-marquee-plus"></i><span class="badge badge-success float-right">Hot</span> <span> Extra Pages </span></a>
                             <ul class="nav-second-level" aria-expanded="false">
                                 <li><a href="extras-timeline.html">Timeline</a></li>
@@ -225,7 +225,7 @@
                             </ul>
                         </li>
 
-                        <li>
+                        <li style="display: none;">
                             <a href="javascript: void(0);"><i class="fi-share"></i> <span> Multi Level </span> <span class="menu-arrow"></span></a>
                             <ul class="nav-second-level nav" aria-expanded="false">
                                 <li><a href="javascript: void(0);">Level 1.1</a></li>
@@ -408,27 +408,27 @@
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fi-head"></i> <span>My Account</span>
+                                    <i class="fi-head"></i> <span>Mi cuenta</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a style="display: none;" style href="javascript:void(0);" class="dropdown-item notify-item">
                                     <i class="fi-cog"></i> <span>Settings</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a style="display: none;" href="javascript:void(0);" class="dropdown-item notify-item">
                                     <i class="fi-help"></i> <span>Support</span>
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a style="display: none;" href="javascript:void(0);" class="dropdown-item notify-item">
                                     <i class="fi-lock"></i> <span>Lock Screen</span>
                                 </a>
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" onclick="javascript:closeSesion()" class="dropdown-item notify-item">
-                                    <i class="fi-power"></i> <span>Logout</span>
+                                    <i class="fi-power"></i> <span>Cerrar sesión</span>
                                 </a>
 
                             </div>

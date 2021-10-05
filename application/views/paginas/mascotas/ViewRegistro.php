@@ -14,7 +14,7 @@
 
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">especie</label>
+                        <label for="exampleInputPassword1">Especie</label>
                         <select name="cbEspecie" class="form-control" id="cbEspecie">
 
                             <?php foreach ($especies as $especie) : ?>
@@ -80,10 +80,6 @@
         form_data.append('ddtFechanan', $("#ddtFechanan").val());
         form_data.append('txtColor', $("#txtColor").val());
         form_data.append('cboSexo', $("#cboSexo").val());
-
-
-
-
 
         $.ajax({
             url: "<?= base_url("Catalogo/guardarAnimal") ?>",
