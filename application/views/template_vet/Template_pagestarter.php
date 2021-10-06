@@ -36,8 +36,8 @@
                             <span class="logo-large"><i class="mdi mdi-radar"></i> Highdmin</span>
                         </a> -->
                     <!-- Image Logo -->
-                    <a href="index.html" class="logo">
-                        <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/logo_sm.png" alt="" height="26" class="logo-small">
+                    <a href="<?= base_url("welcome/PaginaPrincipal") ?>" class="logo">
+                        <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/Logob.png" alt="" height="26" class="logo-small">
                         <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/Logob.png" alt="" height="22" class="logo-large">
                     </a>
 
@@ -258,7 +258,7 @@
                     <ul class="navigation-menu">
 
                         <li class="has-submenu">
-                            <a href="<?= base_url() ?>"><i class="icon-speedometer"></i>Inicio</a>
+                            <a href="<?= base_url("veterinario/inicio") ?>"><i class="icon-speedometer"></i>Inicio</a>
                         </li>
 
                         <li style="display: none;" class="has-submenu">
@@ -458,7 +458,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    2018 © Highdmin. - Coderthemes.com
+                    Blazar Networks, S.A. de CV© 2021
                 </div>
             </div>
         </div>

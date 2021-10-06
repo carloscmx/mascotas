@@ -10,14 +10,14 @@
                     </a>
                 </h2>
 
-                <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Verifica tu correo</h5>
+                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Verifica tu Correo</h3>
 
                 <form class="" action="#" method="POST" id="frmCorreo">
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
+                        <div class="col-12 text-center">
                             <label for="emailaddress">Correo</label>
-                            <input class="form-control" type="email" id="email" name="email" required="" placeholder="Correo">
+                            <input class="form-control" type="email" id="email" name="email" required="" placeholder="Ingresa tu correo para registrarte">
                         </div>
                     </div>
 
@@ -29,7 +29,7 @@
 
                 <div class="row m-t-50">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">Ya tienes una cuenta? <a href="<?= base_url("login") ?>" class="text-dark m-l-5" name="btnlogin"><b>Iniciar Sesion</b></a></p>
+                        <p class="text-muted">¿Ya tienes una cuenta? Si es así <a href="<?= base_url("login") ?>" class="text-dark m-l-5" name="btnlogin"><b>Inicia Sesión</b></a></p>
                     </div>
                 </div>
 

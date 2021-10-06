@@ -43,10 +43,10 @@ class Vetcontroller extends CI_Controller
 
     public function registroveterinario()
     {
-        $data['especies'] = $this->mc->obtenerEspecies(['activo' => 1])->result();
+
 
         $this->template->set("titulo", "Registro veterinario");
-        $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Registroveterinario", $data);
+        $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Registroveterinario");
     }
 
     public function guardardatosveterinario()
@@ -70,6 +70,8 @@ class Vetcontroller extends CI_Controller
                     $cboExt = $this->input->post("cboExt", true);
                     $txtTel = $this->input->post("txtTel", true);
                     $txtDir = $this->input->post("txtDir", true);
+                    $txtCed = $this->input->post("txtCed", true);
+                    $txtRFC = $this->input->post("txtRFC", true);
 
 
                     $data = [
@@ -79,10 +81,12 @@ class Vetcontroller extends CI_Controller
                         'extension' => $cboExt,
                         'telefono' => $txtTel,
                         'direccion' => $txtDir,
-                        'ubicacionimagen' => $path,
-                        'iduser' => $_SESSION['user_vet']->id
+                        'cedula' => $txtCed,
+                        'rfc' => $txtRFC,
+                        'comprobante' => $path,
+                        'idusuario' => $_SESSION['user_vet']->id
                     ];
-                    $this->mc->veterinariomodelcrear($data);
+                    $this->vm->vetmodelcrear($data);
                     echo json_encode(['status' => 'success', 'message' => 'Exito se ha guardado correctamente']);
                 } else {
                     echo json_encode(['status' => 'error', 'message' => "No se pudo copiar la imagen verifique la ruta de destino {$path}"]);

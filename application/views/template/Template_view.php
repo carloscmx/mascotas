@@ -37,12 +37,12 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="index.html" class="logo">
+                    <a href="<?= base_url("welcome/PaginaPrincipal") ?>" class="logo">
                         <span>
                             <img src="<?= base_url("resources/assets/images/Logob.png") ?>" alt="" height="22">
                         </span>
                         <i>
-                            <img src="<?= base_url("resources/assets/images/logo_sm.png") ?>" alt="" height="28">
+                            <img src="<?= base_url("resources/assets/images/logob.png") ?>" alt="" height="28">
                         </i>
                     </a>
                 </div>
@@ -474,7 +474,7 @@
             </div> <!-- content -->
 
             <footer class="footer">
-                2018 © Highdmin. - Coderthemes.com
+                Blazar Networks, S.A. de CV© 2021
             </footer>
 
         </div>

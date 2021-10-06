@@ -470,7 +470,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    2018 © Highdmin. - Coderthemes.com
+                    Blazar Networks, S.A. de CV© 2021
                 </div>
             </div>
         </div>

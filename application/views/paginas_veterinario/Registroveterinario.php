@@ -1,4 +1,4 @@
-<h3>Registro de veterinario</h3>
+<h3 class="fw-normal mb-3 pb-3" style="text-align:center">Registro de Veterinario</h3>
 
 <div class="row">
     <div class="col-md-12">
@@ -9,8 +9,8 @@
                 <form action="" method="post" id="idcrearveterinario" enctype="multipart/form-data">
 
                     <div class="container">
-                        <div class="row">
-                            <div class="col col-6">
+                        <div class="form-group m-b-20 row">
+                            <div class="col-12 text-center">
                                 <label for="exampleInputEmail1">Nombre(s)</label>
                                 <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nombre del veterinario" name="txtNombrevet" id="txtNombrevet" value="<?= $_SESSION['user_vet']->nombre ?>">
                             </div>
@@ -60,8 +60,26 @@
                     <div class="container">
                         <div class="row">
                             <div class="col col-4">
-                                <label class="form-label" for="customFile">Subir cedulaz</label>
-                                <input type="file" class="form-control" name="imapFoto" id="imapced" />
+                                <label for="exampleInputEmail1">Cedula</label>
+                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Ingresa tu cedula" name="txtDireccion" id="txtCed">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-4">
+                                <label for="exampleInputEmail1">RFC</label>
+                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Ingresa tu RFC" name="txtDireccion" id="txtRFC">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col-4">
+                                <label class="form-label" for="customFile">Subir comprobante</label>
+                                <input type="file" class="form-control" name="imapFoto" id="imapcomp" />
                             </div>
                         </div>
                     </div>
@@ -98,7 +116,7 @@
 <script>
     function crearveterinario() {
         var form_data = new FormData();
-        var file_data = $('#imapced').prop('files')[0];
+        var file_data = $('#imapcomp').prop('files')[0];
         form_data.append('image', file_data);
         form_data.append('txtNombrevet', $("#txtNombrevet").val());
         form_data.append('txtApellidopvet', $("#txtApellidopvet").val());
@@ -106,6 +124,8 @@
         form_data.append('cboExt', $("#cboExt").val());
         form_data.append('txtTel', $("#txtTel").val());
         form_data.append('txtDir', $("#txtDir").val());
+        form_data.append('txtCed', $("#txtCed").val());
+        form_data.append('txtRFC', $("#txtRFC").val());
 
         $.ajax({
             url: "<?= base_url("Controllers_Vet/Vetcontroller/guardardatosveterinario") ?>",

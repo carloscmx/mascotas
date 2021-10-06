@@ -10,22 +10,22 @@
                     </a>
                 </h2>
 
-                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Inicia sesion</h3>
+                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Inicia sesión</h3>
 
                 <form class="" action="#" method="POST" id="idFormLogin">
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
+                        <div class="col-12 text-center">
                             <label for="emailaddress">Correo</label>
-                            <input class="form-control" type="email" id="email" name="email" required="" placeholder="Email">
+                            <input class="form-control" type="email" id="email" name="email" required="" placeholder="Ingresa tu Email">
                         </div>
                     </div>
 
                     <div class="form-group row m-b-20">
-                        <div class="col-12">
+                        <div class="col-12 text-center">
                             <!-- <a href="page-recoverpw.html" class="text-muted float-right"><small>Olvidaste tu contraseña?</small></a> -->
                             <label for="password">Contraseña</label>
-                            <input class="form-control" type="password" required="" id="password" name="password" placeholder="Contraseña">
+                            <input class="form-control" type="password" required="" id="password" name="password" placeholder="Ingresa tu Contraseña">
                         </div>
                     </div>
                     <div class="form-group row m-b-20" style="display: none;">
@@ -48,26 +48,24 @@
 
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:validarusuario()">iniciar sesion</button>
+                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:validarusuario()">Iniciar Sesión</button>
                         </div>
                     </div>
 
                 </form>
                 <div class="row m-t-50">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">Has olvidado tu contrasena? <a href="<?= base_url("login/recuperar") ?>" class="text-dark m-l-5" name=""><b>Reestablecer contrasena</b></a></p>
+                        <p class="text-muted">¿Haz olvidado tu contraseña? <a href="<?= base_url("login/recuperar") ?>" class="text-dark m-l-5" name=""><b>Reestablecer Contraseña</b></a></p>
                     </div>
                 </div>
 
-                <div class="row m-t-50">
+                <div class="row m-t-20">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">No tienes una cuenta? <a href="<?= base_url("registro") ?>" class="text-dark m-l-5" name="btnlogin"><b>Registrate</b></a></p>
+                        <p class="text-muted">¿No tienes una cuenta de Boxni? <a href="<?= base_url("registro") ?>" class="text-dark m-l-5" name="btnlogin"><b>Regístrate Aquí</b></a></p>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 </div>
 

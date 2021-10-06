@@ -1,4 +1,6 @@
-<h3>Bienvenido</h3>
+<h3>
+	<p style="text-align: center;"> Bienvenido</p>
+</h3>
 
 <div class="row">
 	<div class="col-md-10">
@@ -39,9 +41,9 @@ if (empty($mascotas)) {
 				</div>
 				<div class="card-footer">
 					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>">Ver detalles</a>
-					<a href="<?= base_url("cliente/mascotas/actualisarmascotas?detalle={$mascota->idmascota}") ?>">actualisar</a>
-					<a href="<?= base_url("cliente/mascotas/borrarmascota?detalle={$mascota->idmascota}") ?>">eliminar</a>
-				
+					<a href="<?= base_url("cliente/mascotas/actualisarmascotas?detalle={$mascota->idmascota}") ?>">Actualizar</a>
+					<a href="<?= base_url("cliente/mascotas/borrarmascota?detalle={$mascota->idmascota}") ?>">Eliminar</a>
+
 				</div>
 			</div>
 		</div>

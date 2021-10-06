@@ -474,7 +474,7 @@
             </div> <!-- content -->
 
             <footer class="footer">
-                2018 © Highdmin. - Coderthemes.com
+                Blazar Networks, S.A. de CV© 2021
             </footer>
 
         </div>

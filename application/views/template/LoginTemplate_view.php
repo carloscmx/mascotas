@@ -32,8 +32,10 @@
 
         <?= $contenido ?>
 
-        <div class="m-t-40 text-center">
-            <p class="account-copyright">2018 © Highdmin. - Coderthemes.com</p>
+        <div class="row m-t-10">
+            <div class="col-sm-10 text-center">
+                <p class="account-copyright">Blazar Networks, S.A. de CV© 2021</p>
+            </div>
         </div>
 
     </div>

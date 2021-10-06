@@ -10,14 +10,14 @@
                     </a>
                 </h2>
 
-                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Reestablecer contrasena</h3>
+                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Reestablecer Contraseña</h3>
 
                 <form class="" action="#" method="POST" id="idFormLogin">
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
+                        <div class="col-12 text-center">
                             <label for="emailaddress">Correo</label>
-                            <input class="form-control" type="email" id="email" name="email" required="" placeholder="Email">
+                            <input class="form-control" type="email" id="email" name="email" required="" placeholder="Ingresa correo para recuperación de contraseña">
                         </div>
                     </div>
 
@@ -33,7 +33,7 @@
 
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:restablecerUser()">Restablecer</button>
+                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:restablecerUser()">Reestablecer</button>
                         </div>
                     </div>
 
