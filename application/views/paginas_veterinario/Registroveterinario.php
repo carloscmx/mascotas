@@ -43,7 +43,7 @@
                             </div>
                             <div class="col col-4">
                                 <label for="exampleInputEmail1">Teléfono</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Ingresa tu N° telefonico" name="txtTel" id="txtTel">
+                                <input type="text" class="form-control" maxlength="10" aria-describedby="emailHelp" placeholder="Ingresa tu N° Telefónico" name="txtTel" id="txtTel">
                             </div>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <div class="row">
                             <div class="col col-6">
                                 <label for="exampleInputEmail1">Dirección</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Ingresa tu domicilio" name="txtDireccion" id="txtDir">
+                                <input type="text" class="form-control" maxlength="70" aria-describedby="emailHelp" placeholder="Ingresa tu domicilio" name="txtDireccion" id="txtDir">
                             </div>
                         </div>
                     </div>
@@ -60,8 +60,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col col-4">
-                                <label for="exampleInputEmail1">Cedula</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Ingresa tu cedula" name="txtDireccion" id="txtCed">
+                                <label for="exampleInputEmail1">Cédula</label>
+                                <input type="text" class="form-control" maxlength="8" aria-describedby="emailHelp" placeholder="Ingresa tu cédula" name="txtDireccion" id="txtCed">
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         <div class="row">
                             <div class="col col-4">
                                 <label for="exampleInputEmail1">RFC</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Ingresa tu RFC" name="txtDireccion" id="txtRFC">
+                                <input type="text" class="form-control" maxlength="13" aria-describedby="emailHelp" placeholder="Ingresa tu RFC" name="txtDireccion" id="txtRFC">
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col col-4">
-                                <label class="form-label" for="customFile">Subir comprobante</label>
+                                <label class="form-label" for="customFile">Inserta tu Comprobante</label>
                                 <input type="file" class="form-control" name="imapFoto" id="imapcomp" />
                             </div>
                         </div>
@@ -103,7 +103,7 @@
 
 
 <?= modal_simple("modal1", "Exito", "Los datos se han registrado perfectamente") ?>
-<?= modal_simple("modal2", "Error", "Ocurrio un error verifica que todos los campos se encuentren") ?>
+<?= modal_simple("modal2", "Error", "Ocurrio un error verifica que todos los campos se encuentren llenos") ?>
 
 <script>
     $(document).ready(function() {

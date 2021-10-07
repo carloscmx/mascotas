@@ -5,39 +5,39 @@
 
             <div class="card-box p-5">
                 <h2 class="text-uppercase text-center pb-4">
-                    <a href="index.html" class="text-success">
-                        <span><img src="<?= base_url("resources/assets/images/logo.png") ?>" alt="" height="26"></span>
+                    <a href="<?= base_url("welcome/PaginaPrincipal") ?>" class="logo">
+                        <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/Logob.png" alt="" height="26" class="logo-small">
                     </a>
                 </h2>
 
-                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Registro</h3>
+                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Registro</h3>
 
                 <form class="" action="" method="post" id="idFormRegistro">
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
+                        <div class="col-12 text-center">
                             <label for="text">Nombre</label>
-                            <input class="form-control" type="text" name="txtNombre" required="" placeholder="Correo">
+                            <input class="form-control" type="text" name="txtNombre" required="" placeholder=" Inserta tu Nombre(s)">
                         </div>
                     </div>
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
-                            <label for="text">Apellido paterno</label>
-                            <input class="form-control" type="text" name="txtApepat" required="" placeholder="Apellido paterno">
+                        <div class="col-12 text-center">
+                            <label for="text">Apellido Paterno</label>
+                            <input class="form-control" type="text" name="txtApepat" required="" placeholder="Inserta tu Apellido Paterno">
                         </div>
                     </div>
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
-                            <label for="text">Apellido materno</label>
-                            <input class="form-control" type="text" name="txtAmater" required="" placeholder="Apellido materno">
+                        <div class="col-12 text-center">
+                            <label for="text">Apellido Materno</label>
+                            <input class="form-control" type="text" name="txtAmater" required="" placeholder="Inserta tu Apellido Materno">
                         </div>
                     </div>
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
-                            <label for="start">Fecha nacimiento:</label>
+                        <div class="col-12 text-center">
+                            <label for="start">Fecha de Nacimiento</label>
                             <br>
                             <input type="date" id="start" name="dttFechanan" value="2018-07-22">
 
@@ -47,8 +47,8 @@
 
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
-                            <label for="text">Tipo de usuario</label>
+                        <div class="col-12 text-center">
+                            <label for="text">Tipo de Usuario</label>
                             <select name="cboTusario" class="form-control">
                                 <option value="2">Cliente</option>
                                 <option value="3">Veterinario</option>
@@ -58,24 +58,24 @@
                     </div>
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
+                        <div class="col-12 text-center">
                             <label for="text">Contraseña</label>
-                            <input class="form-control" name="txtPassword" id="txtPassword" required="" placeholder="Contraseña" type="password">
+                            <input class="form-control" name="txtPassword" id="txtPassword" maxlength="10" required="" placeholder="Inserta una contraseña a máximo de 10 caracteres" type="password">
                         </div>
                     </div>
 
 
                     <div class="form-group m-b-20 row" style="display: none;">
-                        <div class="col-12">
+                        <div class="col-12 text-center">
                             <label for="text">Contraseña</label>
-                            <input class="form-control" type="text" value="<?= $this->uri->segment(3) ?>" name="txtToken" id="txtToken" required="" placeholder="">
+                            <input class="form-control" type="text" value="<?= $this->uri->segment(3) ?>" name="txtToken" id="txtToken" maxlength="10" required="" placeholder="">
                         </div>
                     </div>
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
+                        <div class="col-12 text-center">
                             <label for="text">Repite contraseña</label>
-                            <input class="form-control" name="txtPassword1" id="txtPassword1" required="" placeholder="Contraseña" type="password">
+                            <input class="form-control" name="txtPassword1" id="txtPassword1" maxlength="10" required="" placeholder="Ingresa de nuevo tu Contraseña" type="password">
                         </div>
                     </div>
                     <div class="form-group row text-center m-t-10">

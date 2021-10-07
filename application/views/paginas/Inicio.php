@@ -1,14 +1,14 @@
 <h3>
-	<p style="text-align: center;"> Bienvenido</p>
+	<p style="text-align: center;"> Bienvenido a Boxni. </p>
 </h3>
 
 <div class="row">
-	<div class="col-md-10">
+	<div class="col-md-9">
 	</div>
-	<div class="col-md-2">
+	<div class="col-md-9">
 
 		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button type="button" class="btn btn-success">
-				Registrar mascota
+				Registrar una Mascota
 			</button></a>
 	</div>
 </div>

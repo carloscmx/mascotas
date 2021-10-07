@@ -1,4 +1,4 @@
-<h3>Registro de mascotas</h3>
+<h3>Registro de Mascotas</h3>
 
 <div class="row">
     <div class="col-md-12">
@@ -10,7 +10,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nombre</label>
-                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nombre" name="txtNombrepet" id="txtNombrepet">
+                        <input type="text" class="form-control" maxlength="15" aria-describedby="emailHelp" placeholder="Ingresa el Nombre de tu Mascota" name="txtNombrepet" id="txtNombrepet">
 
                     </div>
                     <div class="form-group">
@@ -32,11 +32,11 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Color de pelaje</label>
-                        <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Color" name="txtColor" id="txtColor">
+                        <input type="text" class="form-control" maxlength="10" aria-describedby="emailHelp" placeholder="¿De qué color es el pelo de tu Mascota? " name="txtColor" id="txtColor">
 
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Sexo</label>
+                        <label for="exampleInputPassword1">Género</label>
                         <select name="cboSexo" class="form-control" id="cboSexo">
                             <!-- <option value="0">Otro</option -->>
                             <option value="1">Macho</option>
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="customFile">Default file input example</label>
+                        <label class="form-label" for="customFile">Inserta una Imagen o Foto de tu Mascota</label>
                         <input type="file" class="form-control" name="imapFoto" id="imapImg" />
 
                     </div>

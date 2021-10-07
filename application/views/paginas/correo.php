@@ -5,8 +5,8 @@
 
             <div class="card-box p-5">
                 <h2 class="text-uppercase text-center pb-4">
-                    <a href="index.html" class="text-success">
-                        <span><img src="assets/images/logo.png" alt="" height="26"></span>
+                    <a href="<?= base_url("welcome/PaginaPrincipal") ?>" class="logo">
+                        <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/Logob.png" alt="" height="26" class="logo-small">
                     </a>
                 </h2>
 
@@ -17,7 +17,7 @@
                     <div class="form-group m-b-20 row">
                         <div class="col-12 text-center">
                             <label for="emailaddress">Correo</label>
-                            <input class="form-control" type="email" id="email" name="email" required="" placeholder="Ingresa tu correo para registrarte">
+                            <input class="form-control" type="email" maxlength="35" id="email" name="email" required="" placeholder="Ingresa tu correo para registrarte">
                         </div>
                     </div>
 

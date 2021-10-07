@@ -5,25 +5,25 @@
 
             <div class="card-box p-5">
                 <h2 class="text-uppercase text-center pb-4">
-                    <a href="index.html" class="text-success">
-                        <span><img src="assets/images/logo.png" alt="" height="26"></span>
+                    <a href="<?= base_url("welcome/PaginaPrincipal") ?>" class="logo">
+                        <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/Logob.png" alt="" height="26" class="logo-small">
                     </a>
                 </h2>
 
-                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Reestablecer contrasena</h3>
+                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Reestablecer contrasena</h3>
 
                 <form class="" action="#" method="POST" id="idFormLogin">
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
-                            <label for="emailaddress">Escribe tu nueva password</label>
-                            <input class="form-control" type="password" id="password1" name="email" required="" placeholder="Escribe tu nueva contrasena">
+                        <div class="col-12 text-center"">
+                            <label for=" emailaddress">Escribe tu nueva password</label>
+                            <input class="form-control" type="password" id="password1" maxlength="10" name="email" required="" placeholder="Escribe tu nueva contrasena">
                         </div>
                     </div>
                     <div class="form-group m-b-20 row">
-                        <div class="col-12">
-                            <label for="emailaddress">Repite tu password</label>
-                            <input class="form-control" type="password" id="password2" name="email" required="" placeholder="Repite tu contasena">
+                        <div class="col-12 text-center"">
+                            <label for=" emailaddress">Repite tu password</label>
+                            <input class="form-control" type="password" id="password2" maxlength="10" name="email" required="" placeholder="Repite tu contasena">
                         </div>
                     </div>
 

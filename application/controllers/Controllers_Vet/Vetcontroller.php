@@ -36,9 +36,9 @@ class Vetcontroller extends CI_Controller
     public function indexveterinario()
     {
         $this->session->validarSesionVeterinario();
-
+        $data['certificados'] = $this->vm->vetmodeldetalle(['idusuario' => $_SESSION['user_vet']->id]);
         $this->template->set("titulo", "Bienvenido veterinario");
-        $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Inicioveterinario");
+        $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Inicioveterinario", $data);
     }
 
     public function registroveterinario()
@@ -51,8 +51,8 @@ class Vetcontroller extends CI_Controller
 
     public function guardardatosveterinario()
     {
-        $valid_extensions = array('jpeg', 'jpg', 'png'); // valid extensions
-        $path = 'resources/uploads/img/'; // upload directory
+        $valid_extensions = array('jpeg', 'jpg', 'png', 'pdf', 'docx'); // valid extensions
+        $path = 'resources/uploads/documents/'; // upload directory
         if (!empty($_FILES['image'])) {
             $img = $_FILES['image']['name'];
             $tmp = $_FILES['image']['tmp_name'];
