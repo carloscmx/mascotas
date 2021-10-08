@@ -19,8 +19,8 @@
 				×
 			</button>
 			<h4>
-				Alert!
-			</h4> <strong>Warning!</strong> Best check yo self, you're not looking too good. <a href="#" class="alert-link">alert link</a>
+				Alerta!
+			</h4> <strong>El veterinario no cuenta con información registrada</strong> pa<a href="#" class="alert-link">alert link</a>
 		</div>
 	</div>
 </div>

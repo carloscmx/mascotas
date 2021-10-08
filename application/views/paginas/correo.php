@@ -10,7 +10,7 @@
                     </a>
                 </h2>
 
-                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Verifica tu Correo</h3>
+                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Registro de Usuario Nuevo</h3>
 
                 <form class="" action="#" method="POST" id="frmCorreo">
 
@@ -40,9 +40,9 @@
     </div>
 </div>
 
-<?= modal_simple("modal1", "Exito", "Muchas gracias por registrarse recibira un correo electronico para completar su registro") ?>
+<?= modal_simple("modal1", "Éxito", "Muchas gracias por registrarse. A continuación recibirás un mensaje de confirmación para completar tu registro") ?>
 
-<?= modal_simple("modal2", "Error", "Ya se ha registrado este correo electronico anterioirmente.") ?>
+<?= modal_simple("modal2", "Error", "Este correo electrónico ya se ha registrado anteriormente.") ?>
 
 
 

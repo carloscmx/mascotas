@@ -11,19 +11,19 @@
                     <div class="container">
                         <div class="form-group m-b-20 row">
                             <div class="col-12 text-center">
-                                <label for="exampleInputEmail1">Nombre(s)</label>
+                                <label for="exampleInputEmail1">Nombre</label>
                                 <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nombre del veterinario" name="txtNombrevet" id="txtNombrevet" value="<?= $_SESSION['user_vet']->nombre ?>">
                             </div>
                         </div>
                     </div>
 
                     <div class=" container">
-                        <div class="row">
-                            <div class="col col-6">
+                        <div class="form-group m-b-20 row">
+                            <div class="col col-6 text-center">
                                 <label for="exampleInputEmail1">Apellido Paterno</label>
                                 <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Apellido paterno del veterinario" name="txtApellidopvet" id="txtApellidopvet" value="<?= $_SESSION['user_vet']->apellidopat ?>">
                             </div>
-                            <div class="col col-6">
+                            <div class="col col-6 text-center">
                                 <label for="exampleInputEmail1">Apellido Materno</label>
                                 <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Apellido materno del veterinario" name="txtApellidomvet" id="txtApellidomvet" value="<?= $_SESSION['user_vet']->apellidomat ?>">
                             </div>
@@ -32,8 +32,8 @@
 
 
                     <div class="container">
-                        <div class="row">
-                            <div class="col col-4">
+                        <div class="form-group m-b-20 row">
+                            <div class="col col-6 text-center">
                                 <label for="exampleInputPassword1">Extensión</label>
                                 <select name="cboExt" class="form-control" id="cboExt">
                                     <!-- <option value="0">Otro</option -->>
@@ -41,7 +41,7 @@
                                     <option value="2">+1</option>
                                 </select>
                             </div>
-                            <div class="col col-4">
+                            <div class="col col-6 text-center">
                                 <label for="exampleInputEmail1">Teléfono</label>
                                 <input type="text" class="form-control" maxlength="10" aria-describedby="emailHelp" placeholder="Ingresa tu N° Telefónico" name="txtTel" id="txtTel">
                             </div>
@@ -49,8 +49,8 @@
                     </div>
 
                     <div class="container">
-                        <div class="row">
-                            <div class="col col-6">
+                        <div class="form-group m-b-20 row">
+                            <div class="col col-12 text-center">
                                 <label for="exampleInputEmail1">Dirección</label>
                                 <input type="text" class="form-control" maxlength="70" aria-describedby="emailHelp" placeholder="Ingresa tu domicilio" name="txtDireccion" id="txtDir">
                             </div>
@@ -58,17 +58,12 @@
                     </div>
 
                     <div class="container">
-                        <div class="row">
-                            <div class="col col-4">
+                        <div class="form-group m-b-20 row">
+                            <div class="col col-6 text-center">
                                 <label for="exampleInputEmail1">Cédula</label>
                                 <input type="text" class="form-control" maxlength="8" aria-describedby="emailHelp" placeholder="Ingresa tu cédula" name="txtDireccion" id="txtCed">
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col col-4">
+                            <div class="col col-6 text-center">
                                 <label for="exampleInputEmail1">RFC</label>
                                 <input type="text" class="form-control" maxlength="13" aria-describedby="emailHelp" placeholder="Ingresa tu RFC" name="txtDireccion" id="txtRFC">
                             </div>
@@ -76,8 +71,8 @@
                     </div>
 
                     <div class="container">
-                        <div class="row">
-                            <div class="col col-4">
+                        <div class="form-group m-b-20 row">
+                            <div class="col col-8 text-center">
                                 <label class="form-label" for="customFile">Inserta tu Comprobante</label>
                                 <input type="file" class="form-control" name="imapFoto" id="imapcomp" />
                             </div>
@@ -85,7 +80,7 @@
                     </div>
 
                     <div class="container">
-                        <div class="row">
+                        <div class="form-group m-b-20 row">
                             <div class="col col-4">
                                 <button type="submit" class="btn btn-primary" onclick="javascript:crearveterinario()">Registrar</button>
                             </div>

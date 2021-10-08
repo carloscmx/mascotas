@@ -65,7 +65,7 @@
 
                         <li>
                             <a href="<?= base_url() ?>">
-                                <i class="fi-air-play"></i><span class="badge badge-danger badge-pill float-right">7</span> <span> Inicio </span>
+                                <i class="fi-air-play"></i><span class="badge badge-danger badge-pill float-right"></span> <span> Inicio </span>
                             </a>
                         </li>
 

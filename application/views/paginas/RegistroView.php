@@ -99,9 +99,13 @@
 
 </div>
 
-<?= modal_simple("modal1", "Bienvenido", "Muchas gracias por formar parte de boxni") ?>
-
-<?= modal_simple("modal2", "Error", "LLENA TODOS LOS CAMPOS.") ?>
+<?= modal_simple("modal0", "¡SE COMPLETO TU REGISTRO!", "Estamos muy entusiasmados porque ya eres parte de nuestra familia.<br/>
+		<br/>
+        Es momento de comenzar con el registro de tu(s) mascota(s), para eso ingresa a nuestro sitio web o descarga nuestra App -> link.<br/>
+		<br/>
+        Recuerda que en Boxni, podrás encontrar una variedad de servicios para tu mascota como veterinarias, tiendas de alimento, farmacias, spa hoteles y mucho más.") ?>
+<?= modal_simple("modal1", "Bienvenido", "Muchas gracias por registrarte ahora eres parte de Boxni") ?>
+<?= modal_simple("modal2", "Error", "Debes llenar todos los campos correctamente") ?>
 
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -142,6 +146,7 @@
 <script>
     $(document).ready(function() {
 
+        $('#modal0').modal('toggle')
         $("#idFormRegistro").submit(function(event) {
             event.preventDefault();
 

@@ -216,14 +216,29 @@ class Welcome extends CI_Controller
 		$correo = $this->input->post("email", true);
 		$token = $this->utilerias->generateToken();
 		$url = base_url("registro/activaciones/{$token}");
-		$bodyhtml = "<h4>Bienvenido  completa tu registro</h4><br><a target='_blank' href='{$url}'>Confirmar Correo</a>";
+		$urlimg = base_url('resources/boxni/studio/img/logo.png');
+		$bodyhtml = "
+		<div align='center'><img src='{$urlimg}'></div>
+		</br>
+		<h1><div align='center' style='font-family:arial;'>Confirma tu Correo Electrónico</h1><br/>
+		<br/>
+		<h2><div align='center' style='font-family:arial;'>Hola usuarioblazar@gmail.com</h2><br/>
+		<br/>
+		<div align='center' style='font-family:arial;'>Te damos la bienvenida a nuestra página BOXNI. Para continuar, confirma tu email registrando tus datos en el siguiente botón.<br/>
+		<br/>
+		<div align='center' style='font-family:arial;'>VIVE CON NOSOTROS LA SEGURIDAD DE TUS MASCOTAS<br/>
+		<br/>
+		<div align='center' style='font-family:arial;'><a href='{$url}'><button type='button' class='btn btn-outline-primary btn-lg'> Confirmar </button></a><br/>
+		<br/>
+		<div align='center' style='font-family:arial;'>Gracias<br/>
+		Team Boxni</div>";
 
 		if ($this->lg->activacion([
 			'correoregistro' => $correo,
 			'token' => $token,
 			'activo' => 0,
 		])) {
-			$this->correo->enviar_correo("Registro de usuario", $correo, $bodyhtml);
+			$this->correo->enviar_correo("Confirmación de Boxni", $correo, $bodyhtml);
 			echo json_encode(['status' => 'success', 'message' => 'Correo registrado']);
 		} else {
 			echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
