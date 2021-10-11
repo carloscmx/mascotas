@@ -20,7 +20,8 @@ if (empty($mascotas)) {
 	echo "	<div class='row'>
 		<div class='col-md-12'>
 			<p>
-				Muchas gracias por registrarte, ahora puedes agregar a tus mascotas.
+				Muchas gracias por registrarte. Es momento de comenzar con el registro de tu(s) mascota(s), para eso ingresa a nuestro sitio web o descarga nuestra App -> link.<br/>
+				<br/>
 			</p>
 		</div>
 	</div>";

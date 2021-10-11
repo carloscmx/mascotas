@@ -36,14 +36,14 @@ class Vetcontroller extends CI_Controller
     public function indexveterinario()
     {
         $this->session->validarSesionVeterinario();
-        $data['certificados'] = $this->vm->vetmodeldetalle(['idusuario' => $_SESSION['user_vet']->id]);
+        $data['certificados'] = $this->vm->vetmodeldetalle(['idusuario' => $_SESSION['user_vet']->id, 'activo' => 1])->result();
         $this->template->set("titulo", "Bienvenido veterinario");
         $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Inicioveterinario", $data);
     }
 
     public function registroveterinario()
     {
-
+        $data['veterinariosinfo'] = $this->vm->vetmodelobtener(['activovet' => 1])->result();
 
         $this->template->set("titulo", "Registro veterinario");
         $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Registroveterinario");

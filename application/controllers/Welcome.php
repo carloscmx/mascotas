@@ -218,19 +218,34 @@ class Welcome extends CI_Controller
 		$url = base_url("registro/activaciones/{$token}");
 		$urlimg = base_url('resources/boxni/studio/img/logo.png');
 		$bodyhtml = "
+		<style>
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
 		<div align='center'><img src='{$urlimg}'></div>
 		</br>
-		<h1><div align='center' style='font-family:arial;'>Confirma tu Correo Electrónico</h1><br/>
+		<h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Confirmación de correo electrónico</h1><br/>
 		<br/>
-		<h2><div align='center' style='font-family:arial;'>Hola usuarioblazar@gmail.com</h2><br/>
+		<h2><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>HOLA {$correo}</h2><br/>
 		<br/>
-		<div align='center' style='font-family:arial;'>Te damos la bienvenida a nuestra página BOXNI. Para continuar, confirma tu email registrando tus datos en el siguiente botón.<br/>
+		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Te damos la bienvenida a nuestra página BOXNI.
+		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Para continuar, confirma tu email registrando tus datos en el siguiente botón.<br/>
 		<br/>
-		<div align='center' style='font-family:arial;'>VIVE CON NOSOTROS LA SEGURIDAD DE TUS MASCOTAS<br/>
+		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>¡¡¡VIVE CON NOSOTROS LA SEGURIDAD DE TUS MASCOTAS!!!<br/>
 		<br/>
-		<div align='center' style='font-family:arial;'><a href='{$url}'><button type='button' class='btn btn-outline-primary btn-lg'> Confirmar </button></a><br/>
+		<div align='center'><a href='{$url}'><button type='button' class='button'>Confirmar mi cuenta</button></a><br/>
 		<br/>
-		<div align='center' style='font-family:arial;'>Gracias<br/>
+		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Gracias<br/>
 		Team Boxni</div>";
 
 		if ($this->lg->activacion([

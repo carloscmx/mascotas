@@ -68,4 +68,15 @@ class Veterinario_model extends CI_Model
 
         return  $this->db->get();
     }
+
+    function vetmodelobtener($where = NULL)
+    {
+        if ($where != NULL) {
+            $this->db->where($where);
+        }
+        $this->db->select("*");
+        $this->db->from("veterinariosinfo");
+
+        return  $this->db->get();
+    }
 }

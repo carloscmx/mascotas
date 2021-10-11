@@ -6,7 +6,7 @@
 	<div class="col-md-9">
 
 		<a href="<?= base_url("veterinario/registro") ?>"><button type="button" class="btn btn-success">
-				Registrar datos Veterinario
+				Registrar datos de Veterinario
 			</button></a>
 	</div>
 </div>
@@ -20,7 +20,7 @@
 			</button>
 			<h4>
 				Alerta!
-			</h4> <strong>El veterinario no cuenta con información registrada</strong> pa<a href="#" class="alert-link">alert link</a>
+			</h4> <strong>El veterinario no cuenta con ninguna información registrada.</strong> Para agregar información selecciona el botón de<strong> Registrar datos de Veterinario</strong>
 		</div>
 	</div>
 </div>
