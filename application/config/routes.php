@@ -55,10 +55,14 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['cliente/inicio'] = 'welcome/index';
 $route['login'] = 'welcome/login';
+$route['login/recuperar'] = 'welcome/restablecerPassword';
+$route['login/restablecer/user/(:any)'] = 'welcome/restablecerPassword_view';
+
 $route['registro/activaciones/(:any)'] = 'welcome/registro';
 $route['registro'] = 'welcome/correo';
+
+$route['cliente/inicio'] = 'welcome/index';
 $route['cliente/catalogo'] = 'catalogo/index';
 $route['cliente/catalogo/ver'] = 'catalogo/mostrarcatalogo';
 $route['cliente/catalogo/ver/detalles'] = 'catalogo/detallesCatalogo';
@@ -67,8 +71,6 @@ $route['cliente/mascotas/registro'] = 'catalogo/registromascota';
 $route['cliente/mascotas/detalle'] = 'catalogo/detallesCatalogo';
 $route['cliente/mascotas/actualisar'] = 'catalogo/actualisarmascotas';
 
-$route['login/recuperar'] = 'welcome/restablecerPassword';
-$route['login/restablecer/user/(:any)'] = 'welcome/restablecerPassword_view';
-
 $route['veterinario/inicio'] = 'Controllers_Vet/Vetcontroller/indexveterinario';
 $route['veterinario/registro'] = 'Controllers_Vet/Vetcontroller/registroveterinario';
+$route['veterinario/detalle'] = 'Controllers_Vet/Vetcontroller/detallesvet';

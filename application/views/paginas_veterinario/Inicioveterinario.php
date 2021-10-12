@@ -1,4 +1,4 @@
-<h3>Bienvenido Veterinario</h3>
+<h3>Bienvenido a Boxni Veterinario</h3>
 
 <div class="row">
 	<div class="col-md-9">
@@ -11,11 +11,12 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-md-12">
-		<div class="alert alert-success alert-dismissable">
-
-			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+<?php
+if ($certificados->num_rows() == 0) {
+	echo "<div class='row'>
+	<div class='col-md-12'>
+		<div class='alert alert-success alert-dismissable'>
+			<button type='button'class='close'data-dismiss='alert' aria-hidden='true'>
 				×
 			</button>
 			<h4>
@@ -23,20 +24,28 @@
 			</h4> <strong>El veterinario no cuenta con ninguna información registrada.</strong> Para agregar información selecciona el botón de<strong> Registrar datos de Veterinario</strong>
 		</div>
 	</div>
-</div>
+</div>";
+}
+?>
 
 <div class="row">
 	<?php foreach ($certificados->result() as $veterinariosinfo) : ?>
-		<div class="col-md-4 mt-4">
-			<div class="card">
-				<h5 class="card-header">
+		<div class="col-md-12">
+			<div class="list-group">
+				<h5 class="list-group-item list-group-item-action active">
 					ID del Veterinario: <?= $veterinariosinfo->idveterinarioinfo ?>
 				</h5>
-				<div class="card-body">
-					<p class="card-text">
-						Nombre del Veterinario: <?= $veterinariosinfo->nombreveterinario ?>
-					</p>
+				<div class="list-group-item">
+					....
 				</div>
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">
+						Nombre del Veterinario: <?= $veterinariosinfo->nombreveterinario ?>
+					</h4>
+				</div>
+				<div class="list-group-item justify-content-between">
+					... <span class="badge badge-secondary badge-pill"></span>
+				</div> <a href="<?= base_url("veterinario/detalle?detallevet={$veterinariosinfo->idveterinarioinfo}") ?>" class="list-group-item list-group-item-action active justify-content-between">Ver detalles del veterinario <span class="badge badge-light badge-pill"></span></a>
 			</div>
 		</div>
 	<?php endforeach; ?>

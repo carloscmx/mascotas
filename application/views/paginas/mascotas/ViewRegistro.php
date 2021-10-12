@@ -60,8 +60,8 @@
     </div>
 </div>
 
-<?= modal_simple("modal1", "Exito", "Se ha guardado correctamente") ?>
-<?= modal_simple("modal2", "Error", "Ha ocurrido un error verifique sus datos") ?>
+<?= modal_simple("modal1", "Éxito", "Se han guardado los datos de tu mascota correctamente") ?>
+<?= modal_simple("modal2", "Error", "Ha ocurrido un inconveniente, verifique que todos los datos estén llenos correctamente") ?>
 
 <script>
     $(document).ready(function() {

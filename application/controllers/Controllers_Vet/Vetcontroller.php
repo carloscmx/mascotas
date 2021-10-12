@@ -36,7 +36,7 @@ class Vetcontroller extends CI_Controller
     public function indexveterinario()
     {
         $this->session->validarSesionVeterinario();
-        $data['certificados'] = $this->vm->vetmodeldetalle(['idusuario' => $_SESSION['user_vet']->id, 'activo' => 1])->result();
+        $data['certificados'] = $this->vm->vetmodeldetalle(['idusuario' => $_SESSION['user_vet']->id]);
         $this->template->set("titulo", "Bienvenido veterinario");
         $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Inicioveterinario", $data);
     }
@@ -96,6 +96,27 @@ class Vetcontroller extends CI_Controller
             }
         } else {
             echo json_encode(['status' => 'error', 'message' => 'No se ha seleccionado ninguna imagen']);
+        }
+    }
+
+    public function detallesvet()
+    {
+        $home = base_url();
+
+        if (isset($_GET['detallevet'])) {
+            $idveterinarioinfo = $_GET['detallevet'];
+            if ($this->vm->vetmodeldetalle(['idveterinarioinfo' => $idveterinarioinfo, 'idusuario' => $_SESSION['user_vet']->id])->num_rows() > 0) {
+                $detallesvet = $this->vm->vetmodeldetalle(['idveterinarioinfo' => $idveterinarioinfo])->row();
+                $data['veterinariosinfo'] = $detallesvet;
+
+
+                $this->template->set("titulo", "Detalles veterinario");
+                $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Detallesveterinario", $data);
+            } else {
+                show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
+            }
+        } else {
+            show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
         }
     }
 

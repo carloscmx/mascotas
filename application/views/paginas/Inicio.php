@@ -1,6 +1,11 @@
 <h3>
 	<p style="text-align: center;"> Bienvenido a Boxni. </p>
+	<p style="text-align: center;"> Boxni es el primer administrador de mascotas, donde cada persona puede registrar a sus mascotas y dar recomendaciones para ir al veterinario más cercano. </p>
 </h3>
+<h4>
+	<p style="text-align: center;"> Recuerda que puedes ingresar a nuestro sitio web o descargar nuestra App -> link
+</h4>
+
 
 <div class="row">
 	<div class="col-md-9">
@@ -14,22 +19,25 @@
 </div>
 
 
-
 <?php
 if (empty($mascotas)) {
-	echo "	<div class='row'>
-		<div class='col-md-12'>
-			<p>
-				Muchas gracias por registrarte. Es momento de comenzar con el registro de tu(s) mascota(s), para eso ingresa a nuestro sitio web o descarga nuestra App -> link.<br/>
-				<br/>
-			</p>
+	echo "<div class='row'>
+	<div class='col-md-12'>
+		<div class='alert alert-success alert-dismissable'>
+			<button type='button'class='close'data-dismiss='alert' aria-hidden='true'>
+				×
+			</button>
+			<h4>
+				No tienes una mascota registrada 
+			</h4> Es momento de comenzar con el registro de tu(s) mascota(s) , para eso selecciona el Boton <strong> Registrar una Mascota</strong>
 		</div>
-	</div>";
+	</div>
+</div>";
 }
+
 ?>
 <div class="row">
 	<?php foreach ($mascotas as $mascota) : ?>
-
 		<div class="col-md-4 mt-4">
 			<div class="card">
 				<h5 class="card-header">
@@ -41,10 +49,9 @@ if (empty($mascotas)) {
 					</p>
 				</div>
 				<div class="card-footer">
-					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>">Ver detalles</a>
-					<a href="<?= base_url("cliente/mascotas/actualisarmascotas?detalle={$mascota->idmascota}") ?>">Actualizar</a>
-					<a href="<?= base_url("cliente/mascotas/borrarmascota?detalle={$mascota->idmascota}") ?>">Eliminar</a>
-
+					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>">Ver detalles de la mascota</a></p>
+					<a href="<?= base_url("cliente/mascotas/actualisarmascotas?detalle={$mascota->idmascota}") ?>">Actualizar datos</a></p>
+					<a href="<?= base_url("cliente/mascotas/borrarmascota?detalle={$mascota->idmascota}") ?>">Eliminar mascota</a>
 				</div>
 			</div>
 		</div>

@@ -97,8 +97,8 @@
 <script src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/js/jquery.min.js"></script>
 
 
-<?= modal_simple("modal1", "Exito", "Los datos se han registrado perfectamente") ?>
-<?= modal_simple("modal2", "Error", "Ocurrio un error verifica que todos los campos se encuentren llenos") ?>
+<?= modal_simple("modal1", "Éxito", "Tus datos se han registrado perfectamente") ?>
+<?= modal_simple("modal2", "Error", "Ocurrio un inconveniente verifica que todos los campos se encuentren correctamente llenos") ?>
 
 <script>
     $(document).ready(function() {

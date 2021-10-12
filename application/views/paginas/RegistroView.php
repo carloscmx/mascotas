@@ -128,7 +128,7 @@
 
                 setTimeout(function() {
                     window.location.href = $resonseJson.url;
-                }, 7000);
+                }, 6000);
 
             });
 

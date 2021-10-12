@@ -3,7 +3,8 @@
         <div class="col-md-6">
             <div class="card">
                 <h5 class="card-header">
-                    Nombre: <?= $mascota->nombremascota; ?> ID: <?= $mascota->idmascota; ?></h5>
+                    Nombre: <?= $mascota->nombremascota; ?> </p>
+                    ID: <?= $mascota->idmascota; ?></h5>
                 <div class="card-body">
                     <p class="card-text">
                         <center>
@@ -20,8 +21,8 @@
                 <h5 class="card-header"> Reseña</h5>
                 <div class=" card-body">
                     <p class="card-text">
-                    <p>Fecha de nacimiento: <?= $mascota->fechanan; ?></p>
-                    <p>Color de pelaje: <?= $mascota->color; ?></p>
+                    <p><b>Fecha de nacimiento:</b> <?= $mascota->fechanan; ?></p>
+                    <p><b>Color de pelaje:</b> <?= $mascota->color; ?></p>
 
                     <?php
                     $genero = "";
@@ -41,9 +42,9 @@
                     }
                     ?>
 
-                    <p>Sexo: <?= $genero ?></p>
-                    <p>Fecha de registro: <?= $mascota->fecharegistro ?></p>
-                    <p>Especie: <?= $especie->nombreespecie ?></p>
+                    <p><b>Sexo:</b> <?= $genero ?></p>
+                    <p><b>Fecha de registro:</b> <?= $mascota->fecharegistro ?></p>
+                    <p><b>Especie:</b> <?= $especie->nombreespecie ?></p>
                     </p>
                 </div>
 
@@ -57,7 +58,7 @@
         <div class="col-md-12">
             <div class="card">
                 <h5 class="card-header">
-                    Expediente medico
+                    Expediente médico
                 </h5>
                 <div class="card-body">
                     <p class="card-text">

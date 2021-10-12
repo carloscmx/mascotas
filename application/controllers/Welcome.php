@@ -236,7 +236,7 @@ class Welcome extends CI_Controller
 		</br>
 		<h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Confirmación de correo electrónico</h1><br/>
 		<br/>
-		<h2><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>HOLA {$correo}</h2><br/>
+		<h2><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Hola {$correo}</h2><br/>
 		<br/>
 		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Te damos la bienvenida a nuestra página BOXNI.
 		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Para continuar, confirma tu email registrando tus datos en el siguiente botón.<br/>
@@ -253,7 +253,7 @@ class Welcome extends CI_Controller
 			'token' => $token,
 			'activo' => 0,
 		])) {
-			$this->correo->enviar_correo("Confirmación de Boxni", $correo, $bodyhtml);
+			$this->correo->enviar_correo("Confirmación de registro Boxni", $correo, $bodyhtml);
 			echo json_encode(['status' => 'success', 'message' => 'Correo registrado']);
 		} else {
 			echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
