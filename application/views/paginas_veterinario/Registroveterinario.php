@@ -1,5 +1,45 @@
 <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Registro de Veterinario</h3>
 
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyCB5EmY2Lb9-iiYdUpGNrDz5aXi7cdU7Fk"></script>
+
+<!-- main file -->
+<script src="<?= base_url('resources/plugins/gmaps/gmaps.min.js') ?>"></script>
+
+<!--  Init -->
+<script src="<?= base_url('resources/assets/pages/jquery.gmaps.js') ?>"></script>
+
+<script>
+    function iniciarMapa() {
+        var latitud = "19.388672";
+        var longitud = "-99.174023";
+
+        coordenas = {
+            lng: longitud,
+            lat: latitud
+        }
+
+        generarMapa(coordenas);
+    }
+
+    function generarMapa(coordenas) {
+        var mapa = new google.maps.Map(document.getElementById('mapa'), {
+            zoom: 12,
+            center: new google.maps.LatLng(coordenas.lat, coordenas.lng)
+        });
+
+        marcador = new google.maps.Marker({
+            map: mapa,
+            draggable: true,
+            position: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
+        });
+
+        marcador.addListener('dragend', function(event) {
+            document.getElementById("latitud").value = this.getPosition().lat();
+            document.getElementById("longitud").value = this.getPosition().lng();
+        })
+    }
+</script>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -29,7 +69,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="container">
                         <div class="form-group m-b-20 row">
@@ -83,11 +122,57 @@
                         </div>
                     </div>
 
-
-
                     <div class="container">
                         <div class="form-group m-b-20 row">
-                            <div class="col col-4">
+                            <div class="col col-12 text-center">
+                                <label class="form-label" for="customFile">Inserta tu Ubicación</label>
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                                    Mostrar Mapa
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="latitud">Latitud</label>
+                                                <input type="text" id="latitud" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="longitud">Longitud</label>
+                                                <input type="text" id="longitud" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="mapa" style="width: 100%; height: 500px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row m-b-20">
+                        <div class="col-12">
+
+                        </div>
+                    </div>
+
+                    <div class="container">
+                        <div class="form-group row text-center m-t-10">
+                            <div class="col-12">
                                 <button type="submit" class="btn btn-primary" onclick="javascript:crearveterinario()">Registrar</button>
                             </div>
                         </div>
@@ -101,7 +186,6 @@
 </div>
 
 <script src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/js/jquery.min.js"></script>
-
 
 <?= modal_simple("modal1", "Éxito", "Tus datos se han registrado perfectamente") ?>
 <?= modal_simple("modal2", "Error", "Ocurrió un inconveniente. Verifica que todos los campos se encuentren correctamente llenos") ?>
