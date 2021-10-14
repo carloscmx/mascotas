@@ -84,6 +84,7 @@ class Vetcontroller extends CI_Controller
                         'cedula' => $txtCed,
                         'rfc' => $txtRFC,
                         'comprobante' => $path,
+                        'fotovet' => $path,
                         'idusuario' => $_SESSION['user_vet']->id
                     ];
                     $this->vm->vetmodelcrear($data);

@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<?= base_url("resources/assets/images/favicon.ico") ?>">
+    <link href="<?= base_url('resources/boxni/studio/img/favicon.ico') ?>" rel="shortcut icon">
 
     <!-- App css -->
     <link href="<?= base_url("resources/assets/css/bootstrap.min.css") ?>" rel="stylesheet" type="text/css" />

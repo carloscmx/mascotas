@@ -72,12 +72,18 @@
 
                     <div class="container">
                         <div class="form-group m-b-20 row">
-                            <div class="col col-8 text-center">
+                            <div class="col col-6 text-center">
                                 <label class="form-label" for="customFile">Inserta tu Comprobante</label>
-                                <input type="file" class="form-control" name="imapFoto" id="imapcomp" />
+                                <input type="file" class="form-control" name="imapcomp" id="imapcomp" />
+                            </div>
+                            <div class="col col-6 text-center">
+                                <label class="form-label" for="customFile">Inserta tu Foto</label>
+                                <input type="file" class="form-control" name="imapFoto" id="imapfoto" />
                             </div>
                         </div>
                     </div>
+
+
 
                     <div class="container">
                         <div class="form-group m-b-20 row">
@@ -98,7 +104,7 @@
 
 
 <?= modal_simple("modal1", "Éxito", "Tus datos se han registrado perfectamente") ?>
-<?= modal_simple("modal2", "Error", "Ocurrio un inconveniente verifica que todos los campos se encuentren correctamente llenos") ?>
+<?= modal_simple("modal2", "Error", "Ocurrió un inconveniente. Verifica que todos los campos se encuentren correctamente llenos") ?>
 
 <script>
     $(document).ready(function() {
@@ -112,6 +118,7 @@
     function crearveterinario() {
         var form_data = new FormData();
         var file_data = $('#imapcomp').prop('files')[0];
+        var file_data = $('#imapfoto').prop('files')[0];
         form_data.append('image', file_data);
         form_data.append('txtNombrevet', $("#txtNombrevet").val());
         form_data.append('txtApellidopvet', $("#txtApellidopvet").val());

@@ -1,10 +1,12 @@
-<h3>
+<h2>
 	<p style="text-align: center;"> Bienvenido a Boxni. </p>
-	<p style="text-align: center;"> Boxni es el primer administrador de mascotas, donde cada persona puede registrar a sus mascotas y dar recomendaciones para ir al veterinario más cercano. </p>
-</h3>
+</h2>
 <h4>
-	<p style="text-align: center;"> Recuerda que puedes ingresar a nuestro sitio web o descargar nuestra App -> link
+	<p style="text-align: center;"> Boxni es el primer administrador de mascotas, donde cada persona puede registrar a sus mascotas y dar recomendaciones para ir al veterinario más cercano. </p>
 </h4>
+<h5>
+	<p style="text-align: center;"> Recuerda que puedes ingresar a nuestro sitio web o descargar nuestra App -> link
+</h5>
 
 
 <div class="row">
@@ -17,6 +19,10 @@
 			</button></a>
 	</div>
 </div>
+
+<h4>
+	<p style="text-align: center;">Mascotas Registradas:</p>
+</h4>
 
 
 <?php

@@ -33,7 +33,7 @@
                 </dl>
             </div>
             <div class="col-md-4">
-                <img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" class="rounded-circle" />
+                <img alt="Bootstrap Image Preview" src="<?php echo base_url($veterinariosinfo->fotovet); ?>" class="rounded-circle" " style=" width: 250px; height: 200px;" />
             </div>
         </div>
         <div class="row">
@@ -41,15 +41,46 @@
                 <h3 class="text-center text-info">
                     Dirección y Teléfono
                 </h3>
-            </div>
-            <div class="col-md-4">
-                <h3 class="text-info text-center">
-                    Archivos o comprobantes
-                </h3>
+                <dl>
+                    <dt>
+                        Número de Teléfono:
+                    </dt>
+                    <dd>
+                        <?php
+                        $genero = "";
+                        switch ($veterinariosinfo->extension) {
+                            case 0:
+                                $extension = "Otro";
+                                break;
+                            case 1:
+                                $extension = "+1";
+                                break;
+                            case 2:
+                                $extension = "+52";
+                                break;
+                            default:
+                                $extension = "No definido";
+                                break;
+                        }
+                        ?>
+                        <?= $extension ?>
+                        <?= $veterinariosinfo->telefono ?>
+                    </dd>
+                    <dt>
+                        Direccion:
+                    </dt>
+                    <dd>
+                        <?= $veterinariosinfo->direccion ?>
+                    </dd>
             </div>
             <div class="col-md-4">
                 <h3 class="text-info text-center">
                     Ubicación (Google Maps)
+                </h3>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-info text-center">
+                    Archivos o comprobantes
                 </h3>
             </div>
         </div>
