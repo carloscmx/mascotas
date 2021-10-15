@@ -58,7 +58,7 @@
         <div class="col-md-12">
             <div class="card">
                 <h5 class="card-header">
-                    Expediente médico
+                    Expediente Médico
                 </h5>
                 <div class="card-body">
                     <p class="card-text">
@@ -66,7 +66,7 @@
                         <div id="card-716615">
                             <div class="card">
                                 <div class="card-header">
-                                    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-716615" href="#card-element-303795">Collapsible Group Item #1</a>
+                                    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-716615" href="#card-element-303795">Cita #1</a>
                                 </div>
                                 <div id="card-element-303795" class="collapse">
                                     <div class="card-body">
@@ -76,7 +76,7 @@
                             </div>
                             <div class="card">
                                 <div class="card-header">
-                                    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-716615" href="#card-element-997027">Collapsible Group Item #2</a>
+                                    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-716615" href="#card-element-997027">Cita #2</a>
                                 </div>
                                 <div id="card-element-997027" class="collapse">
                                     <div class="card-body">

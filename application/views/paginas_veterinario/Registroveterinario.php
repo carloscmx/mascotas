@@ -1,44 +1,5 @@
 <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Registro de Veterinario</h3>
 
-<script src="https://maps.google.com/maps/api/js?key=AIzaSyCB5EmY2Lb9-iiYdUpGNrDz5aXi7cdU7Fk"></script>
-
-<!-- main file -->
-<script src="<?= base_url('resources/plugins/gmaps/gmaps.min.js') ?>"></script>
-
-<!--  Init -->
-<script src="<?= base_url('resources/assets/pages/jquery.gmaps.js') ?>"></script>
-
-<script>
-    function iniciarMapa() {
-        var latitud = "19.388672";
-        var longitud = "-99.174023";
-
-        coordenas = {
-            lng: longitud,
-            lat: latitud
-        }
-
-        generarMapa(coordenas);
-    }
-
-    function generarMapa(coordenas) {
-        var mapa = new google.maps.Map(document.getElementById('mapa'), {
-            zoom: 12,
-            center: new google.maps.LatLng(coordenas.lat, coordenas.lng)
-        });
-
-        marcador = new google.maps.Marker({
-            map: mapa,
-            draggable: true,
-            position: new google.maps.LatLng(coordenadas.lat, coordenadas.lng)
-        });
-
-        marcador.addListener('dragend', function(event) {
-            document.getElementById("latitud").value = this.getPosition().lat();
-            document.getElementById("longitud").value = this.getPosition().lng();
-        })
-    }
-</script>
 
 <div class="row">
     <div class="col-md-12">
@@ -156,7 +117,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div id="mapa" style="width: 100%; height: 500px;"></div>
+                                            <div id="googleMap" style="width: 100%; height: 400px;"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -184,6 +145,25 @@
         </div>
     </div>
 </div>
+
+<script>
+    function myMap() {
+        var mapProp = {
+            center: new google.maps.LatLng(20.967778, -89.621667),
+            zoom: 10,
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+        var marker = new google.maps.Marker({
+            position: myCenter
+        });
+
+        marker.setMap(map);
+    }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ2cU3epaUT7-N_cZuHp43iVvSBjhRbjA&callback=myMap"></script>
+
 
 <script src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/js/jquery.min.js"></script>
 
