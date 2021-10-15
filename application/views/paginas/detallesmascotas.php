@@ -70,7 +70,7 @@
                                 </div>
                                 <div id="card-element-303795" class="collapse">
                                     <div class="card-body">
-                                        Anim pariatur cliche...
+
                                     </div>
                                 </div>
                             </div>
