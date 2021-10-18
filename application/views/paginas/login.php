@@ -17,7 +17,7 @@
                     <div class="form-group m-b-20 row">
                         <div class="col-12 text-center">
                             <label for="emailaddress">Correo</label>
-                            <input class="form-control" type="email" maxlength="35" id="email" name="email" required="" placeholder="Ingresa tu Email">
+                            <input class="form-control" type="email" maxlength="35" id="email" name="email" required="" placeholder="Ingresa tu correo electrónico">
                         </div>
                     </div>
 
@@ -25,7 +25,7 @@
                         <div class="col-12 text-center">
                             <!-- <a href="page-recoverpw.html" class="text-muted float-right"><small>Olvidaste tu contraseña?</small></a> -->
                             <label for="password">Contraseña</label>
-                            <input class="form-control" type="password" required="" id="password" name="password" placeholder="Ingresa tu Contraseña">
+                            <input class="form-control" type="password" required="" id="password" name="password" placeholder="Ingresa tu contraseña">
                         </div>
                     </div>
                     <div class="form-group row m-b-20" style="display: none;">
@@ -74,9 +74,6 @@
 <?= modal_simple("modal2", "Espere un momento", "Redirigiendo") ?>
 
 
-
-
-
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
 <script>
@@ -90,16 +87,14 @@
             var resultarray = JSON.parse(result);
             if (resultarray.status == "success") {
                 $("#modal2").modal("show");
-
-
                 window.location.href = resultarray.route;
             } else {
                 $("#modal1").modal("show");
             }
-
         });
     }
 </script>
+
 <script>
     $(document).ready(function() {
         $("#idFormLogin").submit(function(event) {

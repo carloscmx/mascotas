@@ -135,9 +135,9 @@ class Welcome extends CI_Controller
 		$this->template->set("titulo", "Iniciar sesion");
 		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/login");
 	}
+
 	public function varificarLogin()
 	{
-
 		$correo = $this->input->post("email", TRUE);
 		$password = $this->input->post("password", TRUE);
 		$result = $this->lg->login([
@@ -147,7 +147,6 @@ class Welcome extends CI_Controller
 		$respuesta = ['status' => 'error', 'message' => 'Usuario no entrado '];
 		if ($result->num_rows() > 0) {
 			$user = $result->row();
-
 
 			switch ($user->tipousarioid) {
 				case 2:
@@ -219,19 +218,19 @@ class Welcome extends CI_Controller
 		$urlimg = base_url('resources/boxni/studio/img/logo.png');
 		$bodyhtml = "
 		<style>
-.button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-</style>
+		.button {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+		</style>
 		<div align='center'><img src='{$urlimg}'></div>
 		</br>
 		<h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Confirmación de correo electrónico</h1><br/>

@@ -29,7 +29,7 @@
 
                 <div class="row m-t-50">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">¿Ya tienes una cuenta? Si es así <a href="<?= base_url("login") ?>" class="text-dark m-l-5" name="btnlogin"><b>Inicia Sesión</b></a></p>
+                        <p class="text-muted">¿Ya tienes una cuenta de Boxni? Si es así <a href="<?= base_url("login") ?>" class="text-dark m-l-5" name="btnlogin"><b>Inicia Sesión</b></a></p>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
 
 <?= modal_simple("modal1", "Éxito", "Muchas gracias por registrarse. A continuación recibirás un mensaje de confirmación para completar tu registro") ?>
 
-<?= modal_simple("modal2", "Error", "Este correo electrónico ya se ha registrado anteriormente.") ?>
+<?= modal_simple("modal2", "Error", "Este correo no se encuentra disponible") ?>
 
 
 
@@ -56,7 +56,6 @@
         });
     });
 </script>
-
 
 
 <script>
@@ -75,14 +74,10 @@
                 $("#frmCorreo").trigger("reset");
                 $("#modal1").modal("show");
                 $("#btnSubmitButtom").prop('disabled', false);
-
             } else {
                 $("#modal2").modal("show");
                 $("#btnSubmitButtom").prop('disabled', false);
-
-
             }
-
         });
     }
 </script>

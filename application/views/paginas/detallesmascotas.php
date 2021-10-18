@@ -70,13 +70,13 @@
                                 </div>
                                 <div id="card-element-303795" class="collapse">
                                     <div class="card-body">
-
+                                        Anim pariatur cliche...
                                     </div>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-header">
-                                    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-716615" href="#card-element-997027">Cita #2</a>
+                                    <a class="card-link collapsed" data-toggle="collapse" data-parent="#card-716615" href="#card-element-997027">Collapsible Group Item #2</a>
                                 </div>
                                 <div id="card-element-997027" class="collapse">
                                     <div class="card-body">
