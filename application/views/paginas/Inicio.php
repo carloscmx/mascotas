@@ -8,20 +8,22 @@
 	<p style="text-align: center;"> Recuerda que puedes ingresar a nuestro sitio web o descargar nuestra App -> link
 </h5>
 
+<br>
+</br>
 
 <div class="row">
 	<div class="col-md-9">
 	</div>
 	<div class="col-md-9">
 
-		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button type="button" class="btn btn-success">
+		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button type="button" class="btn btn-primary">
 				Registrar una Mascota
 			</button></a>
 	</div>
 </div>
 
 <h4>
-	<p style="text-align: center;">Mascotas Registradas:</p>
+	<p style="text-align: center;">Mascotas Registradas: </p>
 </h4>
 
 

@@ -1,4 +1,14 @@
 <div class="row">
+    <div class="col-md-9">
+        <form>
+            <button type="button" onclick="history.back()" class="btn btn-danger">Regresar</button>
+        </form>
+    </div>
+</div>
+
+<br></br>
+
+<div class="row">
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-8">

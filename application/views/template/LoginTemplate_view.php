@@ -31,8 +31,7 @@
 <body class="account-pages">
 
 
-    <div class="accountbg" style="background: url('<?= base_url('resources/assets/images/1.jpg') ?>');background-size: cover;background-position: center;"></div>
-
+    <div class="accountbg" style="background: url('<?= base_url('resources/assets/images/2.jpg') ?>');background-size: cover;background-position: center;"></div>
 
 
 

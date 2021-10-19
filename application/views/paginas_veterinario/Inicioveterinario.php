@@ -5,11 +5,23 @@
 	</div>
 	<div class="col-md-9">
 
-		<a href="<?= base_url("veterinario/registro") ?>"><button type="button" class="btn btn-success">
+		<a href="<?= base_url("veterinario/registro") ?>"><button type="button" class="btn btn-primary">
 				Registrar datos de Veterinario
 			</button></a>
 	</div>
 </div>
+
+<br></br>
+
+<div class="row">
+	<div class="col-md-9">
+		<form>
+			<button type="button" onclick="history.back()" class="btn btn-danger">Regresar</button>
+		</form>
+	</div>
+</div>
+
+<br></br>
 
 <?php
 if ($certificados->num_rows() == 0) {

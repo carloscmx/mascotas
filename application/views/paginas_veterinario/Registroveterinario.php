@@ -1,5 +1,14 @@
 <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Registro de Veterinario</h3>
 
+<div class="row">
+    <div class="col-md-9">
+        <form>
+            <button type="button" onclick="history.back()" class="btn btn-danger">Regresar</button>
+        </form>
+    </div>
+</div>
+
+<br></br>
 
 <div class="row">
     <div class="col-md-12">
@@ -87,7 +96,7 @@
                         <div class="form-group m-b-20 row">
                             <div class="col col-12 text-center">
                                 <label class="form-label" for="customFile">Inserta tu Ubicación</label>
-                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
                                     Mostrar Mapa
                                 </button>
                             </div>
@@ -134,7 +143,7 @@
                     <div class="container">
                         <div class="form-group row text-center m-t-10">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-primary" onclick="javascript:crearveterinario()">Registrar</button>
+                                <button type="submit" class="btn btn-success" onclick="javascript:crearveterinario()">Registrar</button>
                             </div>
                         </div>
                     </div>

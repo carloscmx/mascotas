@@ -1,5 +1,17 @@
 <h3>Registro de Mascotas</h3>
 
+<br></br>
+
+<div class="row">
+    <div class="col-md-9">
+        <form>
+            <button type="button" onclick="history.back()" class="btn btn-danger">Regresar</button>
+        </form>
+    </div>
+</div>
+
+<br></br>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -48,10 +60,12 @@
                     <div class="form-group">
                         <label class="form-label" for="customFile">Inserta una Imagen o Foto de tu Mascota</label>
                         <input type="file" class="form-control" name="imapFoto" id="imapImg" />
-
                     </div>
 
-                    <button type="submit" class="btn btn-primary" onclick="javascript:crearmascotas()">Registrar</button>
+                    <br>
+                    </br>
+
+                    <button type="submit" class="btn btn-success" onclick="javascript:crearmascotas()">Registrar</button>
                 </form>
                 </p>
             </div>

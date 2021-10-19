@@ -42,20 +42,12 @@
 
 <?= modal_simple("modal1", "Éxito", "Muchas gracias por registrarse. A continuación recibirás un mensaje de confirmación para completar tu registro") ?>
 
-<?= modal_simple("modal2", "Error", "Este correo no se encuentra disponible") ?>
+<?= modal_simple("modal2", "Error", "Este correo no es válido") ?>
 
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script>
-    // A $( document ).ready() block.
-    $(document).ready(function() {
-        $("#frmCorreo").submit(function(event) {
-            event.preventDefault();
-        });
-    });
-</script>
 
 
 <script>
@@ -80,4 +72,13 @@
             }
         });
     }
+</script>
+
+<script>
+    // A $( document ).ready() block.
+    $(document).ready(function() {
+        $("#frmCorreo").submit(function(event) {
+            event.preventDefault();
+        });
+    });
 </script>
