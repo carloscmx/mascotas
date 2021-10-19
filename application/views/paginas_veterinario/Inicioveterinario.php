@@ -1,5 +1,7 @@
 <h3>Bienvenido a Boxni Veterinario</h3>
 
+<br></br>
+
 <div class="row">
 	<div class="col-md-9">
 	</div>
@@ -8,16 +10,6 @@
 		<a href="<?= base_url("veterinario/registro") ?>"><button type="button" class="btn btn-primary">
 				Registrar datos de Veterinario
 			</button></a>
-	</div>
-</div>
-
-<br></br>
-
-<div class="row">
-	<div class="col-md-9">
-		<form>
-			<button type="button" onclick="history.back()" class="btn btn-danger">Regresar</button>
-		</form>
 	</div>
 </div>
 
