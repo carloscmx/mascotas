@@ -2,6 +2,7 @@
     <div class="col-md-9">
         <form>
             <button type="button" onclick="history.back()" class="btn btn-danger">Regresar</button>
+            <button type="button" class="btn btn-secondary" onclick="javascript:window.print()">Imprimir</button>
         </form>
     </div>
 </div>

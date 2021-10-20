@@ -124,6 +124,14 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-9"></div>
+                                        <div class="col-md-2">
+                                            <button id="cargarcoordenadas" class="btn btn-primary">Cargar coordenadas</button>
+                                        </div>
+                                    </div>
+                                    <br>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div id="googleMap" style="width: 100%; height: 400px;"></div>
