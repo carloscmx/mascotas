@@ -128,7 +128,7 @@ class Catalogo extends CI_Controller
 		}
 	}
 
-	public function actialisarCatalogo()
+	public function editarmascotas()
 	{
 		$home = base_url();
 
@@ -138,7 +138,7 @@ class Catalogo extends CI_Controller
 				$data['mascota'] = $this->mc->actualisarmascotas(['idmascota' => $idmascota])->row();
 
 				$this->template->set("titulo", "actualisar");
-				$this->template->load("template/Template_view", "contenido", "paginas/actualisar", $data);
+				$this->template->load("template/Template_view", "contenido", "paginas/mascotas/editarmascota", $data);
 			} else {
 				show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
 			}

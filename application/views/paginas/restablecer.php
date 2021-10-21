@@ -10,7 +10,7 @@
                     </a>
                 </h2>
 
-                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Reestablecer Contraseña</h3>
+                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Restablecer Contraseña</h3>
 
                 <form class="" action="#" method="POST" id="idFormLogin">
 
@@ -33,7 +33,7 @@
 
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:restablecerUser()">Reestablecer</button>
+                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:restablecerUser()">Restablecer</button>
                         </div>
                     </div>
 
@@ -47,9 +47,7 @@
 </div>
 
 
-<?= modal_simple("modal1", "Aviso", "Si su correo electronico se encuentra registrado se enviara un correo electronico de para restablecer su cuenta.") ?>
-
-
+<?= modal_simple("modal1", "Aviso", "Se envió un mensaje a tu correo electrónico. Sigue las instrucciones del mensaje para restablecer la contraseña.") ?>
 
 
 

@@ -10,18 +10,18 @@
                     </a>
                 </h2>
 
-                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Reestablecer contrasena</h3>
+                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Restablecer contraseña</h3>
 
                 <form class="" action="#" method="POST" id="idFormLogin">
 
                     <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center"">
-                            <label for=" emailaddress">Escribe tu nueva password</label>
+                        <div class="col-12 text-center">
+                            <label for=" emailaddress">Escribe tu nuevo password</label>
                             <input class="form-control" type="password" id="password1" maxlength="10" name="email" required="" placeholder="Escribe tu nueva contrasena">
                         </div>
                     </div>
                     <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center"">
+                        <div class="col-12 text-center">
                             <label for=" emailaddress">Repite tu password</label>
                             <input class="form-control" type="password" id="password2" maxlength="10" name="email" required="" placeholder="Repite tu contasena">
                         </div>
@@ -55,7 +55,7 @@
 
 <?= modal_simple("modal1", "Aviso", "Si su correo electronico se encuentra registrado se enviara un correo electronico de para restablecer su cuenta.") ?>
 
-<?= modal_simple("modal2", "Error", "Las contrasenas no corresponden.") ?>
+<?= modal_simple("modal2", "Error", "Las contraseñas no corresponden.") ?>
 
 
 

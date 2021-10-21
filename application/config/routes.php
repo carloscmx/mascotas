@@ -69,7 +69,7 @@ $route['cliente/catalogo/ver/detalles'] = 'catalogo/detallesCatalogo';
 
 $route['cliente/mascotas/registro'] = 'catalogo/registromascota';
 $route['cliente/mascotas/detalle'] = 'catalogo/detallesCatalogo';
-$route['cliente/mascotas/actualisar'] = 'catalogo/actualisarmascotas';
+$route['cliente/mascotas/editar'] = 'catalogo/editarmascotas';
 
 $route['veterinario/inicio'] = 'Controllers_Vet/Vetcontroller/indexveterinario';
 $route['veterinario/registro'] = 'Controllers_Vet/Vetcontroller/registroveterinario';

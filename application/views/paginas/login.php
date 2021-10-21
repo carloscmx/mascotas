@@ -55,7 +55,7 @@
                 </form>
                 <div class="row m-t-50">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">¿Haz olvidado tu contraseña? <a href="<?= base_url("login/recuperar") ?>" class="text-dark m-l-5" name=""><b>Reestablecer Contraseña</b></a></p>
+                        <p class="text-muted">¿Haz olvidado tu contraseña? <a href="<?= base_url("login/recuperar") ?>" class="text-dark m-l-5" name=""><b>Restablecer Contraseña</b></a></p>
                     </div>
                 </div>
 

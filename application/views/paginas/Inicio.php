@@ -64,7 +64,7 @@ if (empty($mascotas)) {
 				</div>
 				<div class="card-footer">
 					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>"><button type="button" class="btn btn-info">Ver información</button></a></p>
-					<a href="<?= base_url("cliente/mascotas/actualisarmascotas?detalle={$mascota->idmascota}") ?>"><button type="button" class="btn btn-info">Editar datos</button></a></p>
+					<a href="<?= base_url("cliente/mascotas/editar?detalle={$mascota->idmascota}") ?>"><button type="button" class="btn btn-info">Editar datos</button></a></p>
 					<a href="<?= base_url("cliente/mascotas/borrarmascota?detalle={$mascota->idmascota}") ?>"><button type="button" class="btn btn-info">Eliminar mascota</button></a></p>
 				</div>
 			</div>

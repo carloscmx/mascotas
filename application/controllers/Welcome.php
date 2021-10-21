@@ -94,7 +94,7 @@ class Welcome extends CI_Controller
 
 					break;
 			}
-			$respuesta = ['status' => 'success', 'message' => 'Contrasena Modificada', 'route' => $redirect];
+			$respuesta = ['status' => 'success', 'message' => 'Contraseña Modificada', 'route' => $redirect];
 		}
 
 		echo json_encode($respuesta);
@@ -113,9 +113,37 @@ class Welcome extends CI_Controller
 
 			$token = $this->utilerias->generateToken();
 			$url = base_url("login/restablecer/user/{$token}");
-			$bodyhtml = "<h4>Reestablece tu cuenta</h4><br><a target='_blank' href='{$url}'>Reestablecer cuenta.</a>";
+			$urlimg = base_url('resources/assets/images/logo1.png');
+			$bodyhtml = "
+		<style>
+		.button {
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+		</style>
+		<div align='center'><img src='{$urlimg}'></div>
+		</br>
+		<h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Haz solicitado restablecer tu contraseña</h1><br/>
+		<br/>
+		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>¿No recuerdas tu contraseña?
+		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>No hay problema, nos pasa a todos<br/>
+		<br/>
+		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Para solicitar restablecer tu contraseña solo debes dar click en el botón<br/>
+		<br/>
+		<div align='center'><a href='{$url}'><button type='button' class='button'>Cambiar contraseña</button></a><br/>
+		<br/>
+		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Si no has solicitado una nueva contraseña, infórmanos<br/></div>";
+
 			$this->lg->actualizarUsuarios(['login_reset' => 1, 'login_token_reset' => $token], ['id' => $datos->id]);
-			$this->correo->enviar_correo("Reestablcer cuenta", $correo, $bodyhtml);
+			$this->correo->enviar_correo("Reestablecer cuenta", $correo, $bodyhtml);
 
 
 			//	$_SESSION['user_client'] = $datos;
@@ -215,7 +243,7 @@ class Welcome extends CI_Controller
 		$correo = $this->input->post("email", true);
 		$token = $this->utilerias->generateToken();
 		$url = base_url("registro/activaciones/{$token}");
-		$urlimg = base_url('resources/boxni/studio/img/logo.png');
+		$urlimg = base_url('resources/assets/images/logo1.png');
 		$bodyhtml = "
 		<style>
 		.button {
