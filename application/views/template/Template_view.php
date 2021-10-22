@@ -505,19 +505,73 @@
 
     <script>
         $.LoadingOverlay("show", {
-            image: "",
-            text: "Cargando..."
+            imageAnimation: "pulse",
+            imageColor: "Red",
+            imageResizeFactor: "2",
+            text: "CARGANDO...",
+            textColor: "DodgerBlue"
         });
+        // Hide it after 3 seconds
+        setTimeout(function() {
+            $.LoadingOverlay("hide");
+        }, 4000);
         // A $( document ).ready() block.
         $(document).ready(function() {
             setTimeout(function() {
-                $.LoadingOverlay("text", "Procesando la informacion...");
-            }, 1000);
+                $.LoadingOverlay("text", "Procesando la información...");
+            }, 3000);
             setTimeout(function() {
                 $.LoadingOverlay("hide");
-            }, 2000);
+            }, 4000);
         });
     </script>
+    $.LoadingOverlay("show", {
+    imageColor: "DodgerBlue",
+    imageResizeFactor: "1",
+    text: "Cargando...",
+    textColor: "DodgerBlue",
+    size: "50",
+    });
+    // Hide it after 3 seconds
+    setTimeout(function() {
+    $.LoadingOverlay("hide");
+    }, 3000);
+    // A $( document ).ready() block.
+    $(document).ready(function() {
+    setTimeout(function() {
+    $.LoadingOverlay("text", "Procesando la información...");
+    }, 2000);
+    setTimeout(function() {
+    $.LoadingOverlay("hide");
+    }, 3000);
+    });
+
+    $.LoadingOverlay("show", {
+    image: "",
+    text: "Cargando...",
+    textColor: "DodgerBlue",
+    progress: true,
+    progressColor: "Tomato"
+    });
+    var count = 0;
+    var interval = setInterval(function() {
+    if (count >= 100) {
+    clearInterval(interval);
+    $.LoadingOverlay("hide");
+    return;
+    }
+    count += 10;
+    $.LoadingOverlay("progress", count);
+    }, 300);
+    // A $( document ).ready() block.
+    $(document).ready(function() {
+    setTimeout(function() {
+    $.LoadingOverlay("text", "Procesando información...");
+    }, 2000);
+    setTimeout(function() {
+    $.LoadingOverlay("hide");
+    }, 3000);
+    });
 
     <script>
         function closeSesion() {

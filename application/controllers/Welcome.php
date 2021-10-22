@@ -143,7 +143,7 @@ class Welcome extends CI_Controller
 		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Si no has solicitado una nueva contraseña, infórmanos<br/></div>";
 
 			$this->lg->actualizarUsuarios(['login_reset' => 1, 'login_token_reset' => $token], ['id' => $datos->id]);
-			$this->correo->enviar_correo("Reestablecer cuenta", $correo, $bodyhtml);
+			$this->correo->enviar_correo("Restablecer cuenta", $correo, $bodyhtml);
 
 
 			//	$_SESSION['user_client'] = $datos;
