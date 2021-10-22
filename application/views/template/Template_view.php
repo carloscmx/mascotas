@@ -506,10 +506,10 @@
     <script>
         $.LoadingOverlay("show", {
             imageAnimation: "pulse",
-            imageColor: "Red",
+            imageColor: "Aqua",
             imageResizeFactor: "2",
-            text: "CARGANDO...",
-            textColor: "DodgerBlue"
+            text: "Cargando...",
+            textColor: "DarkSlateBlue"
         });
         // Hide it after 3 seconds
         setTimeout(function() {
@@ -581,7 +581,7 @@
                 beforeSend: function(xhr) {
                     $.LoadingOverlay("show", {
                         image: "",
-                        text: "Cerrando sesion..."
+                        text: "Cerrando sesión..."
                     });
 
                 }
