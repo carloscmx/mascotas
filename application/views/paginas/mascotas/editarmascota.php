@@ -18,25 +18,15 @@
 
             <div class="card-body">
                 <p class="card-text">
-                <form action="" method="post" id="idCrearcatalogo" enctype="multipart/form-data">
+                <form action="actualisar.php" method="post" id="idCrearcatalogo" enctype="multipart/form-data">
+
+                    <input type="hidden" class="form-control" value="<?= $mascota->idmascota; ?>">
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nombre</label>
                         <input type="text" class="form-control" maxlength="15" aria-describedby="emailHelp" placeholder="Ingresa el Nombre de tu Mascota" name="txtNombrepet" id="txtNombrepet" value="<?= $mascota->nombremascota; ?>">
-
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Especie</label>
-                        <select name="cbEspecie" class="form-control" id="cbEspecie" value="<?= $especie->nombreespecie; ?>">
 
-                            <?php foreach ($especies as $especie) : ?>
-                                <option value="<?= $especie->idespecie ?>"><?= $especie->nombreespecie ?></option>
-
-                            <?php endforeach; ?>
-
-
-                        </select>
-                    </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Fecha de nacimiento</label>
                         <input class="form-control" placeholder="edad" name="ddtFechanan" id="ddtFechanan" type="date" value="<?= $mascota->fechanan; ?>">
@@ -57,15 +47,10 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label class="form-label" for="customFile">Inserta una Imagen o Foto de tu Mascota</label>
-                        <input type="file" class="form-control" name="imapFoto" id="imapImg" value="<?= $mascota->ubicacionimagen; ?>" />
-                    </div>
-
                     <br>
                     </br>
 
-                    <button type="submit" class="btn btn-success" onclick="javascript:crearmascotas()">Guardar cambios</button>
+                    <button type="submit" class="btn btn-success" onclick="javascript:actualizarmascota()">Guardar cambios</button>
                 </form>
                 </p>
             </div>

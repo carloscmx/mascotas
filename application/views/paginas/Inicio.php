@@ -64,11 +64,17 @@ if (empty($mascotas)) {
 				</div>
 				<div class="card-footer">
 					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>"><button type="button" class="btn btn-info">Ver información</button></a></p>
-					<a href="<?= base_url("cliente/mascotas/editar?detalle={$mascota->idmascota}") ?>"><button type="button" class="btn btn-info">Editar datos</button></a></p>
-					<a href="<?= base_url("cliente/mascotas/borrarmascota?detalle={$mascota->idmascota}") ?>"><button type="button" class="btn btn-info">Eliminar mascota</button></a></p>
+					<a href="<?= base_url("cliente/mascotas/editar?detalle={$mascota->idmascota}") ?>"><button type="button" class="btn btn-info">Modificar datos de tu mascota</button></a></p>
+					<button type="button" class="btn btn-info" onclick="javascript:eliminarmascota()">Eliminar mascota</button></a></p>
 				</div>
 			</div>
 		</div>
 	<?php endforeach; ?>
 
 </div>
+
+<script>
+	function eliminarmascota() {
+
+	}
+</script>

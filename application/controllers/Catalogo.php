@@ -128,16 +128,19 @@ class Catalogo extends CI_Controller
 		}
 	}
 
-	public function editarmascotas()
+	public function editarmascota()
 	{
 		$home = base_url();
 
 		if (isset($_GET['detalle'])) {
 			$idmascota = $_GET['detalle'];
-			if ($this->mc->actualisarmascotas(['idmascota' => $idmascota, 'iduser' => $_SESSION['user_client']->id, 'activo' => 1])->num_rows() > 0) {
-				$data['mascota'] = $this->mc->actualisarmascotas(['idmascota' => $idmascota])->row();
+			if ($this->mc->detallemascotas(['idmascota' => $idmascota, 'iduser' => $_SESSION['user_client']->id, 'activo' => 1])->num_rows() > 0) {
+				$detallemascota = $this->mc->detallemascotas(['idmascota' => $idmascota])->row();
+				$data['mascota'] = $detallemascota;
+				$data['especie'] = $this->mc->obtenerEspecies(['idespecie' => $detallemascota->idespecie])->row();
 
-				$this->template->set("titulo", "actualisar");
+
+				$this->template->set("titulo", "Modificar");
 				$this->template->load("template/Template_view", "contenido", "paginas/mascotas/editarmascota", $data);
 			} else {
 				show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
@@ -147,7 +150,8 @@ class Catalogo extends CI_Controller
 		}
 	}
 
-	public function borrarCatalogo()
+
+	public function eliminarmascota()
 	{
 		$idmascotas = $this->uri->segment(3);
 		$respuesta = $this->lg->borrarmascota($idmascotas);

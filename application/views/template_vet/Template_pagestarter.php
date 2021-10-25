@@ -480,29 +480,25 @@
 
     <script>
         $.LoadingOverlay("show", {
-            image: "",
-            text: "Cargando..."
+            imageAnimation: "rotate_left",
+            imageColor: "Cyan",
+            imageResizeFactor: "2"
         });
-        // A $( document ).ready() block.
-        $(document).ready(function() {
-            setTimeout(function() {
-                $.LoadingOverlay("text", "Procesando la informacion...");
-            }, 1000);
-            setTimeout(function() {
-                $.LoadingOverlay("hide");
-            }, 2000);
-        });
+        setTimeout(function() {
+            $.LoadingOverlay("hide");
+        }, 2000);
     </script>
 
     <script>
         function closeSesion() {
             $.ajax({
-                url: "<?= base_url("Controllers_Vet/Vetcontroller/logoutvet") ?>",
+                url: "<?= base_url("Welcome/logout") ?>",
                 type: "post",
                 beforeSend: function(xhr) {
                     $.LoadingOverlay("show", {
                         image: "",
-                        text: "Cerrando sesion..."
+                        text: "Cerrando sesión...",
+                        textColor: "Cyan"
                     });
 
                 }

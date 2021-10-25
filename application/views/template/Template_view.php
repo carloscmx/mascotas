@@ -42,7 +42,7 @@
                             <img src="<?= base_url("resources/assets/images/Logob.png") ?>" alt="" height="22">
                         </span>
                         <i>
-                            <img src="<?= base_url("resources/assets/images/logob.png") ?>" alt="" height="28">
+                            <img src="<?= base_url("resources/assets/images/Logob.png") ?>" alt="" height="28">
                         </i>
                     </a>
                 </div>
@@ -505,73 +505,14 @@
 
     <script>
         $.LoadingOverlay("show", {
-            imageAnimation: "pulse",
-            imageColor: "Aqua",
-            imageResizeFactor: "2",
-            text: "Cargando...",
-            textColor: "DarkSlateBlue"
+            imageAnimation: "rotate_left",
+            imageColor: "Cyan",
+            imageResizeFactor: "2"
         });
-        // Hide it after 3 seconds
         setTimeout(function() {
             $.LoadingOverlay("hide");
-        }, 4000);
-        // A $( document ).ready() block.
-        $(document).ready(function() {
-            setTimeout(function() {
-                $.LoadingOverlay("text", "Procesando la información...");
-            }, 3000);
-            setTimeout(function() {
-                $.LoadingOverlay("hide");
-            }, 4000);
-        });
+        }, 2000);
     </script>
-    $.LoadingOverlay("show", {
-    imageColor: "DodgerBlue",
-    imageResizeFactor: "1",
-    text: "Cargando...",
-    textColor: "DodgerBlue",
-    size: "50",
-    });
-    // Hide it after 3 seconds
-    setTimeout(function() {
-    $.LoadingOverlay("hide");
-    }, 3000);
-    // A $( document ).ready() block.
-    $(document).ready(function() {
-    setTimeout(function() {
-    $.LoadingOverlay("text", "Procesando la información...");
-    }, 2000);
-    setTimeout(function() {
-    $.LoadingOverlay("hide");
-    }, 3000);
-    });
-
-    $.LoadingOverlay("show", {
-    image: "",
-    text: "Cargando...",
-    textColor: "DodgerBlue",
-    progress: true,
-    progressColor: "Tomato"
-    });
-    var count = 0;
-    var interval = setInterval(function() {
-    if (count >= 100) {
-    clearInterval(interval);
-    $.LoadingOverlay("hide");
-    return;
-    }
-    count += 10;
-    $.LoadingOverlay("progress", count);
-    }, 300);
-    // A $( document ).ready() block.
-    $(document).ready(function() {
-    setTimeout(function() {
-    $.LoadingOverlay("text", "Procesando información...");
-    }, 2000);
-    setTimeout(function() {
-    $.LoadingOverlay("hide");
-    }, 3000);
-    });
 
     <script>
         function closeSesion() {
@@ -581,7 +522,8 @@
                 beforeSend: function(xhr) {
                     $.LoadingOverlay("show", {
                         image: "",
-                        text: "Cerrando sesión..."
+                        text: "Cerrando sesión...",
+                        textColor: "Cyan"
                     });
 
                 }
