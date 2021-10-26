@@ -20,6 +20,11 @@
 	</div>
 </div>
 
+<form>
+	<input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
+	<input type="submit" value="Buscar" class="btn-search">
+</form>
+
 <br>
 </br>
 
