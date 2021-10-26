@@ -5,10 +5,7 @@
 	<p style="text-align: center;"> Boxni es el primer administrador de mascotas, donde cada persona puede registrar a sus mascotas y dar recomendaciones para ir al veterinario más cercano. </p>
 </h4>
 <h5>
-	<p style="text-align: center;"> Recuerda que puedes ingresar desde nuestro sitio web
-		<a href="https://boxni.mx/">www.boxni.com.mx</a>
-
-	<p style="text-align: center;">O también puedes descargar nuestra
+	<p style="text-align: center;">Recuerda que puedes descargar nuestra
 		<a href="<?= base_url('resources/assets/docs/BoxniApp_beta.apk') ?>" download="Boxni">App</a>
 </h5>
 
@@ -17,17 +14,18 @@
 
 <div class="row">
 	<div class="col-md-9">
-	</div>
-	<div class="col-md-9">
-		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button type="button" class="btn btn-primary">
-				Registrar una Mascota
+		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button type="button" class="btn btn-outline-primary btn-rounded">
+				Registrar una Mascota Nueva
 			</button></a>
 	</div>
 </div>
 
-<h4>
+<br>
+</br>
+
+<h3>
 	<p style="text-align: center;">Tus Mascotas Registradas: </p>
-</h4>
+</h3>
 
 
 <?php
@@ -52,20 +50,19 @@ if (empty($mascotas)) {
 		<div class="col-md-4 mt-4">
 			<div class="card">
 				<h5 class="card-header" style="text-align: center;">
-					ID: <?= $mascota->idmascota ?>
+					Nombre: <?= $mascota->nombremascota ?>
 				</h5>
 				<div class="card-body">
 					<h5 class="card-text" style="text-align: center;">
-						Nombre: <?= $mascota->nombremascota ?>
 						<br>
 						</br>
-						<img class="img-fluid" alt="Responsive image" src="<?php echo base_url($mascota->ubicacionimagen); ?>"></br>
+						<img class="rounded-circle" alt="Responsive image" src="<?php echo base_url($mascota->ubicacionimagen); ?>" style=" width: 250px; height: 200px;"></br>
 					</h5>
 				</div>
 				<div class="card-footer">
-					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>"><button type="button" class="btn btn-info">Ver información</button></a></p>
-					<a href="<?= base_url("cliente/mascotas/editar?detalle={$mascota->idmascota}") ?>"><button type="button" class="btn btn-info">Modificar datos de tu mascota</button></a></p>
-					<button type="button" class="btn btn-info" onclick="javascript:eliminarmascota()">Eliminar mascota</button></a></p>
+					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>" class="btn btn-outline-info btn-rounded btn-purple mr-2 mt-2">Ver información</button></a></p>
+					<a href="<?= base_url("cliente/mascotas/editar?detalle={$mascota->idmascota}") ?>" class="btn btn-outline-warning btn-rounded btn-purple mr-2 mt-2">Modificar datos</button></a></p>
+					<a button type="button" class="btn btn-outline-danger btn-rounded btn-purple mr-2 mt-2" onclick="javascript:eliminarmascota()">Eliminar mascota</button></a></p>
 				</div>
 			</div>
 		</div>

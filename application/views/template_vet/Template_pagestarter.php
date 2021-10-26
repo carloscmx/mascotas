@@ -37,8 +37,9 @@
                         </a> -->
                     <!-- Image Logo -->
                     <a href="<?= base_url("welcome/PaginaPrincipal") ?>" class="logo">
-                        <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/Logob.png" alt="" height="26" class="logo-small">
-                        <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/Logob.png" alt="" height="22" class="logo-large">
+                        <span>
+                            <img src="<?= base_url("resources/boxni/studio/img/logo.png") ?>" alt="" height="45">
+                        </span>
                     </a>
 
                 </div>

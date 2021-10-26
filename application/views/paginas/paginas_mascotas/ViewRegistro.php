@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-9">
         <form>
-            <button type="button" onclick="history.back()" class="btn btn-danger">Regresar</button>
+            <button type="button" onclick="history.back()" class="btn btn-outline-danger btn-rounded">Regresar</button>
         </form>
     </div>
 </div>
@@ -65,7 +65,7 @@
                     <br>
                     </br>
 
-                    <button type="submit" class="btn btn-success" onclick="javascript:crearmascotas()">Registrar</button>
+                    <button type="submit" class="btn btn-outline-success btn-rounded" onclick="javascript:crearmascotas()">Registrar</button>
                 </form>
                 </p>
             </div>

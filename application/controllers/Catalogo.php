@@ -45,7 +45,7 @@ class Catalogo extends CI_Controller
 		$data['especies'] = $this->mc->obtenerEspecies(['activo' => 1])->result();
 
 		$this->template->set("titulo", "Registro mascotas");
-		$this->template->load("template/Template_view", "contenido", "paginas/mascotas/ViewRegistro", $data);
+		$this->template->load("template/Template_view", "contenido", "paginas/paginas_mascotas/ViewRegistro", $data);
 	}
 
 
@@ -119,7 +119,7 @@ class Catalogo extends CI_Controller
 
 
 				$this->template->set("titulo", "Detalles");
-				$this->template->load("template/Template_view", "contenido", "paginas/detallesmascotas", $data);
+				$this->template->load("template/Template_view", "contenido", "paginas/paginas_mascotas/detallesmascotas", $data);
 			} else {
 				show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
 			}
@@ -141,7 +141,7 @@ class Catalogo extends CI_Controller
 
 
 				$this->template->set("titulo", "Modificar");
-				$this->template->load("template/Template_view", "contenido", "paginas/mascotas/editarmascota", $data);
+				$this->template->load("template/Template_view", "contenido", "paginas/paginas_mascotas/editarmascota", $data);
 			} else {
 				show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
 			}

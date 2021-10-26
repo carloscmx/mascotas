@@ -38,7 +38,7 @@ class Vetcontroller extends CI_Controller
         $this->session->validarSesionVeterinario();
         $data['certificados'] = $this->vm->vetmodeldetalle(['idusuario' => $_SESSION['user_vet']->id]);
         $this->template->set("titulo", "Bienvenido veterinario");
-        $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Inicioveterinario", $data);
+        $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas/paginas_veterinario/Inicioveterinario", $data);
     }
 
     public function registroveterinario()
@@ -46,7 +46,7 @@ class Vetcontroller extends CI_Controller
         $data['veterinariosinfo'] = $this->vm->vetmodelobtener(['activovet' => 1])->result();
 
         $this->template->set("titulo", "Registro veterinario");
-        $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Registroveterinario");
+        $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas/paginas_veterinario/Registroveterinario");
     }
 
     public function guardardatosveterinario()
@@ -112,7 +112,7 @@ class Vetcontroller extends CI_Controller
 
 
                 $this->template->set("titulo", "Detalles veterinario");
-                $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas_veterinario/Detallesveterinario", $data);
+                $this->template->load("template_vet/Template_pagestarter", "contenido", "paginas/paginas_veterinario/Detallesveterinario", $data);
             } else {
                 show_error("Sin permiso", 403, "Ha ocurrido un error, <a href='{$home}'>Regresar</a>");
             }

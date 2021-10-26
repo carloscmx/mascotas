@@ -7,7 +7,7 @@
 	</div>
 	<div class="col-md-9">
 
-		<a href="<?= base_url("veterinario/registro") ?>"><button type="button" class="btn btn-primary">
+		<a href="<?= base_url("veterinario/registro") ?>"><button type="button" class="btn btn-outline-primary btn-rounded">
 				Registrar datos de Veterinario
 			</button></a>
 	</div>

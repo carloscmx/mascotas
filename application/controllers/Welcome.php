@@ -155,7 +155,7 @@ class Welcome extends CI_Controller
 		$data['mascotas'] = $this->mc->detallemascotas(['iduser' => $_SESSION['user_client']->id, 'activo' => 1])->result();
 
 		$this->template->set("titulo", "Bienvenido cliente");
-		$this->template->load("template/Template_view", "contenido", "paginas/Inicio", $data);
+		$this->template->load("template/Template_view", "contenido", "paginas/paginas_mascotas/Iniciomascotas", $data);
 	}
 
 	public function login()

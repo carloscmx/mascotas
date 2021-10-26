@@ -39,10 +39,10 @@
                 <div class="topbar-left">
                     <a href="<?= base_url("welcome/PaginaPrincipal") ?>" class="logo">
                         <span>
-                            <img src="<?= base_url("resources/assets/images/Logob.png") ?>" alt="" height="22">
+                            <img src="<?= base_url("resources/boxni/studio/img/logo.png") ?>" alt="" height="45">
                         </span>
                         <i>
-                            <img src="<?= base_url("resources/assets/images/Logob.png") ?>" alt="" height="28">
+                            <img src="<?= base_url("resources/boxni/studio/img/logo.png") ?>" alt="" height="45">
                         </i>
                     </a>
                 </div>

@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-9">
         <form>
-            <button type="button" onclick="history.back()" class="btn btn-danger">Regresar</button>
-            <button type="button" class="btn btn-secondary" onclick="javascript:window.print()">Imprimir</button>
+            <button type="button" onclick="history.back()" class="btn btn-outline-danger btn-rounded">Regresar</button>
+            <button type="button" class="btn btn-outline-dark btn-rounded" onclick="javascript:window.print()">Imprimir</button>
         </form>
     </div>
 </div>
@@ -44,7 +44,7 @@
                 </dl>
             </div>
             <div class="col-md-4">
-                <img alt="Bootstrap Image Preview" src="<?php echo base_url($veterinariosinfo->fotovet); ?>" class="rounded-circle" " style=" width: 250px; height: 200px;" />
+                <img alt="Bootstrap Image Preview" src="<?php echo base_url($veterinariosinfo->fotovet); ?>" class="rounded-right" style=" width: 250px; height: 200px;" />
             </div>
         </div>
         <div class="row">

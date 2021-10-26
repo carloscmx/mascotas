@@ -6,7 +6,9 @@
             <div class="card-box p-5">
                 <h2 class="text-uppercase text-center pb-4">
                     <a href="<?= base_url("welcome/PaginaPrincipal") ?>" class="logo">
-                        <img src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/images/Logob.png" alt="" height="26" class="logo-small">
+                        <span>
+                            <img src="<?= base_url("resources/boxni/studio/img/logo.png") ?>" alt="" height="45">
+                        </span>
                     </a>
                 </h2>
 
