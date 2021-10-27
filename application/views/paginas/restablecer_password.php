@@ -41,7 +41,7 @@
 
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:restablecerUser()">Restablecer</button>
+                            <button class="btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:restablecerUser()">Restablecer</button>
                         </div>
                     </div>
 

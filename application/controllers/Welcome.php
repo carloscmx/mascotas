@@ -45,7 +45,7 @@ class Welcome extends CI_Controller
 	public function restablecerPassword()
 	{
 		# code...
-		$this->template->set("titulo", "Reestabler Password");
+		$this->template->set("titulo", "Restablecer Password");
 		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/restablecer");
 	}
 	public function restablecerPassword_view()
@@ -57,7 +57,7 @@ class Welcome extends CI_Controller
 		]);
 		if ($result->num_rows() > 0) {
 			# code...
-			$this->template->set("titulo", "Reestabler Password");
+			$this->template->set("titulo", "Restablecerr Password");
 			$this->template->load("template/LoginTemplate_view", "contenido", "paginas/restablecer_password");
 			//	$_SESSION['user_client'] = $datos;
 		} else {

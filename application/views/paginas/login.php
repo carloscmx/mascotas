@@ -12,7 +12,7 @@
                     </a>
                 </h2>
 
-                <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Inicia sesión</h3>
+                <h2 class="fw-normal mb-3 pb-3" style="text-align:center">Inicia sesión</h2>
 
                 <form class="" action="#" method="POST" id="idFormLogin">
 
@@ -50,20 +50,23 @@
 
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:validarusuario()">Iniciar Sesión</button>
+                            <button class="btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:validarusuario()">Iniciar Sesión</button>
                         </div>
                     </div>
 
                 </form>
                 <div class="row m-t-50">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">¿Haz olvidado tu contraseña? <a href="<?= base_url("login/recuperar") ?>" class="text-dark m-l-5" name=""><b>Restablecer Contraseña</b></a></p>
+                        <p class="text-muted">¿Haz olvidado cual es tu contraseña? <a href="<?= base_url("login/recuperar") ?>" class="text-dark m-l-5" name=""><b>Restablecer Contraseña</b></a></p>
                     </div>
                 </div>
 
+                <p>
+                </p>
+
                 <div class="row m-t-20">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">¿No tienes una cuenta de Boxni? <a href="<?= base_url("registro") ?>" class="text-dark m-l-5" name="btnlogin"><b>Regístrate Aquí</b></a></p>
+                        <p class="text-muted">¿No dispones de una cuenta de Boxni? <a href="<?= base_url("registro") ?>" class="text-dark m-l-5" name="btnlogin"><b>Regístrate Aquí</b></a></p>
                     </div>
                 </div>
             </div>

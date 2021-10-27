@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-9">
         <form>
-            <button type="button" onclick="history.back()" class="btn btn-outline-danger btn-rounded">Regresar</button>
-            <button type="button" class="btn btn-outline-dark btn-rounded" onclick="javascript:window.print()">Imprimir</button>
+            <button type="button" onclick="history.back()" class="btn-sm btn-outline-danger btn-rounded">Regresar</button>
+            <button type="button" class="btn-sm btn-outline-dark btn-rounded" onclick="javascript:window.print()">Imprimir</button>
         </form>
     </div>
 </div>

@@ -23,8 +23,15 @@
                         </div>
                     </div>
 
+
+                    <div class="form-group row m-b-20">
+                        <div class="col-12">
+                        </div>
+                    </div>
+
+
                     <div class="form-group  text-center m-t-10">
-                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit" onclick="javascript:enviarparemetrosregistro()" id="btnSubmitButtom">Registrar</button>
+                        <button class="btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:enviarparemetrosregistro()" id="btnSubmitButtom">Registrar</button>
                     </div>
 
                 </form>

@@ -14,13 +14,18 @@
 
 <div class="row">
 	<div class="col-md-9">
-		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button type="button" class="btn btn-outline-primary btn-rounded">
+		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button type="button" class="btn-lg btn-outline-primary btn-rounded">
 				Registrar una Mascota Nueva
 			</button></a>
 	</div>
 </div>
 
-<form>
+<div class="form-group row m-b-20">
+	<div class="col-12">
+	</div>
+</div>
+
+<form action="buscar.php" method="get" class="form_search">
 	<input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
 	<input type="submit" value="Buscar" class="btn-search">
 </form>
@@ -64,7 +69,7 @@ if (empty($mascotas)) {
 						<img class="rounded-circle" alt="Responsive image" src="<?php echo base_url($mascota->ubicacionimagen); ?>" style=" width: 250px; height: 200px;"></br>
 					</h5>
 				</div>
-				<div class="card-footer">
+				<div class="card-footer" style="text-align: center;">
 					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>" class="btn btn-outline-info btn-rounded btn-purple mr-2 mt-2">Ver información</button></a></p>
 					<a href="<?= base_url("cliente/mascotas/editar?detalle={$mascota->idmascota}") ?>" class="btn btn-outline-warning btn-rounded btn-purple mr-2 mt-2">Modificar datos</button></a></p>
 					<a button type="button" class="btn btn-outline-danger btn-rounded btn-purple mr-2 mt-2" onclick="javascript:eliminarmascota()">Eliminar mascota</button></a></p>

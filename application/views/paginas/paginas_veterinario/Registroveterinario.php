@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-9">
         <form>
-            <button type="button" onclick="history.back()" class="btn btn-outline-danger btn-rounded">Regresar</button>
+            <button type="button" onclick="history.back()" class="btn-sm btn-outline-danger btn-rounded">Regresar</button>
         </form>
     </div>
 </div>
@@ -96,7 +96,7 @@
                         <div class="form-group m-b-20 row">
                             <div class="col col-12 text-center">
                                 <label class="form-label" for="customFile">Inserta tu Ubicación</label>
-                                <button type="button" class="btn btn-outline-warning btn-rounded" data-toggle="modal" data-target="#myModal">
+                                <button type="button" class="btn-sm btn-outline-warning btn-rounded" data-toggle="modal" data-target="#myModal">
                                     Mostrar Mapa
                                 </button>
                             </div>
@@ -128,7 +128,7 @@
                                     <div class="row">
                                         <div class="col-md-9"></div>
                                         <div class="col-md-2">
-                                            <button id="cargarcoordenadas" class="btn btn-outline-primary btn-rounded">Cargar coordenadas</button>
+                                            <button id="cargarcoordenadas" class="btn-sm btn-outline-primary btn-rounded">Cargar coordenadas</button>
                                         </div>
                                     </div>
                                     <br>
@@ -151,7 +151,7 @@
                     <div class="container">
                         <div class="form-group row text-center m-t-10">
                             <div class="col-12">
-                                <button type="submit" class="btn btn-outline-success btn-rounded" onclick="javascript:crearveterinario()">Registrar</button>
+                                <button type="submit" class="btn-lg btn-outline-success btn-rounded" onclick="javascript:crearveterinario()">Registrar</button>
                             </div>
                         </div>
                     </div>

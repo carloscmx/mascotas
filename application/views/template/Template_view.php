@@ -37,27 +37,22 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="<?= base_url("welcome/PaginaPrincipal") ?>" class="logo">
-                        <span>
-                            <img src="<?= base_url("resources/boxni/studio/img/logo.png") ?>" alt="" height="45">
-                        </span>
-                        <i>
-                            <img src="<?= base_url("resources/boxni/studio/img/logo.png") ?>" alt="" height="45">
-                        </i>
-                    </a>
+                    <span>
+                        <img src="<?= base_url("resources/boxni/studio/img/logo.png") ?>" alt="" height="45">
+                    </span>
                 </div>
 
                 <!-- User box -->
-                <div class="user-box">
-                    <div class="user-img">
-                        <img src="<?= base_url("resources/assets/images/users/avatar-1.jpg") ?>" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
+                <div class="user-box" style="text-align: center;">
+                    <div class="user-img" style="text-align: center;">
+                        <img src="<?= base_url("resources/assets/images/users/avatar-1.png") ?>" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid" style="text-align: center;">
                     </div>
                     <h5><a href="#"><?= "{$_SESSION['user_client']->nombre} {$_SESSION['user_client']->apellidopat}" ?></a> </h5>
                     <p class="text-muted" style="display: none;"> Admin Head</p>
                 </div>
 
                 <!--- Sidemenu -->
-                <div id="sidebar-menu">
+                <div id="sidebar-menu" style="text-align: center;">
 
                     <ul class="metismenu" id="side-menu">
 
@@ -67,6 +62,16 @@
                             <a href="<?= base_url() ?>">
                                 <i class="fi-air-play"></i><span class="badge badge-danger badge-pill float-right"></span> <span> Inicio </span>
                             </a>
+                        </li>
+
+                        <li>
+                            <a href="<?= base_url("cliente/citas") ?>">
+                                <i class="fi-paper-stack"></i><span class="badge badge-danger badge-pill float-right"></span> <span> Citas </span></a>
+                        </li>
+
+                        <li>
+                            <a href="<?= base_url("cliente/productos") ?>">
+                                <i class="fi-briefcase"></i><span class="badge badge-danger badge-pill float-right"></span> <span> Productos </span></a>
                         </li>
 
                         <li style="display: none;">
@@ -99,27 +104,6 @@
                                 <li><a href="layouts-small-menu.html">Small Menu</a></li>
                                 <li><a href="layouts-dark-lefbar.html">Dark Leftbar</a></li>
                                 <li><a href="layouts-center-logo.html">Center Logo</a></li>
-                            </ul>
-                        </li>
-
-                        <li style="display: none;">
-                            <a href="javascript: void(0);"><i class="fi-briefcase"></i> <span> UI Elements </span> <span class="menu-arrow" style="display: none;"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
-                                <li><a href="ui-typography.html">Typography</a></li>
-                                <li><a href="ui-cards.html">Cards</a></li>
-                                <li><a href="ui-buttons.html">Buttons</a></li>
-                                <li><a href="ui-modals.html">Modals</a></li>
-                                <li><a href="ui-spinners.html">Spinners</a></li>
-                                <li><a href="ui-ribbons.html">Ribbons</a></li>
-                                <li><a href="ui-tooltips-popovers.html">Tooltips & Popover</a></li>
-                                <li><a href="ui-checkbox-radio.html">Checkboxs-Radios</a></li>
-                                <li><a href="ui-tabs.html">Tabs</a></li>
-                                <li><a href="ui-progressbars.html">Progress Bars</a></li>
-                                <li><a href="ui-notifications.html">Notification</a></li>
-                                <li><a href="ui-grid.html">Grid</a></li>
-                                <li><a href="ui-sweet-alert.html">Sweet Alert</a></li>
-                                <li><a href="ui-bootstrap.html">Bootstrap UI</a></li>
-                                <li><a href="ui-range-slider.html">Range Slider</a></li>
                             </ul>
                         </li>
 
@@ -189,22 +173,6 @@
                                 <li><a href="maps-google.html">Google Maps</a></li>
                                 <li><a href="maps-vector.html">Vector Maps</a></li>
                                 <li><a href="maps-mapael.html">Mapael Maps</a></li>
-                            </ul>
-                        </li>
-
-                        <li style="display: none;">
-                            <a href="javascript: void(0);"><i class="fi-paper-stack"></i><span> Pages </span> <span class="menu-arrow" style="display: none;"></span></a>
-                            <ul class="nav-second-level" aria-expanded="false" style="display: none;">
-                                <li><a href="page-starter.html">Starter Page</a></li>
-                                <li><a href="page-login.html">Login</a></li>
-                                <li><a href="page-register.html">Register</a></li>
-                                <li><a href="page-logout.html">Logout</a></li>
-                                <li><a href="page-recoverpw.html">Recover Password</a></li>
-                                <li><a href="page-lock-screen.html">Lock Screen</a></li>
-                                <li><a href="page-confirm-mail.html">Confirm Mail</a></li>
-                                <li><a href="page-404.html">Error 404</a></li>
-                                <li><a href="page-404-alt.html">Error 404-alt</a></li>
-                                <li><a href="page-500.html">Error 500</a></li>
                             </ul>
                         </li>
 

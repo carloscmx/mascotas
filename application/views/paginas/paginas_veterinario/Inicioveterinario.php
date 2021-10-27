@@ -7,7 +7,7 @@
 	</div>
 	<div class="col-md-9">
 
-		<a href="<?= base_url("veterinario/registro") ?>"><button type="button" class="btn btn-outline-primary btn-rounded">
+		<a href="<?= base_url("veterinario/registro") ?>"><button type="button" class="btn-lg btn-outline-primary btn-rounded">
 				Registrar datos de Veterinario
 			</button></a>
 	</div>
@@ -49,7 +49,7 @@ if ($certificados->num_rows() == 0) {
 				</div>
 				<div class="list-group-item justify-content-between">
 					... <span class="badge badge-secondary badge-pill"></span>
-				</div> <a href="<?= base_url("veterinario/detalle?detallevet={$veterinariosinfo->idveterinarioinfo}") ?>" class="list-group-item list-group-item-action active justify-content-between">Ver detalles del veterinario <span class="badge badge-light badge-pill"></span></a>
+				</div> <a href="<?= base_url("veterinario/detalle?detallevet={$veterinariosinfo->idveterinarioinfo}") ?>" class="list-group-item list-group-item-action active justify-content-between">Mi información <span class="badge badge-light badge-pill"></span></a>
 			</div>
 		</div>
 	<?php endforeach; ?>
