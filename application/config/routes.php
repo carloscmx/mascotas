@@ -73,6 +73,7 @@ $route['cliente/mascotas/editar'] = 'catalogo/editarmascota';
 $route['cliente/mascotas/eliminar'] = 'catalogo/eliminarmascota';
 
 $route['cliente/citas'] = 'Controllers_Cita/Citacontroller/indexcita';
+$route['cliente/citas/registro'] = 'Controllers_Cita/Citacontroller/registrocita';
 
 $route['cliente/productos'] = 'Controllers_Producto/Productocontroller/indexproducto';
 

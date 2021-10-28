@@ -472,6 +472,12 @@
     <script src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/js/bootstrap.bundle.min.js"></script>
     <script src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/js/waves.js"></script>
     <script src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/js/jquery.slimscroll.js"></script>
+    <!-- Sweet Alert css -->
+    <link href="<?= base_url('resources') ?>/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Modal-Effect -->
+    <script src="<?= base_url('resources') ?>/plugins/custombox/js/custombox.min.js"></script>
+    <script src="<?= base_url('resources') ?>/plugins/custombox/js/legacy.min.js"></script>
 
     <!-- App js -->
     <script src="<?= base_url() ?>Highdmin/Admin/HTML/horizontal/assets/js/jquery.core.js"></script>

@@ -31,6 +31,8 @@ class Catalogo extends CI_Controller
 		$this->load->library('upload');
 		$this->load->library('session');
 		$this->load->helper('modals');
+		$this->load->helper('modalb');
+
 
 
 		$this->session->validarSesionCliente();

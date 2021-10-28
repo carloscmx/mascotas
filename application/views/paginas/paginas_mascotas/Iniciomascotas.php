@@ -17,6 +17,9 @@
 		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button type="button" class="btn-lg btn-outline-primary btn-rounded">
 				Registrar una Mascota Nueva
 			</button></a>
+		<input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
+		<input type="submit" value="Buscar" class="btn-search">
+		<?= modal_button("modalid", "Rastaaclick") ?>
 	</div>
 </div>
 
@@ -24,11 +27,6 @@
 	<div class="col-12">
 	</div>
 </div>
-
-<form action="buscar.php" method="get" class="form_search">
-	<input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
-	<input type="submit" value="Buscar" class="btn-search">
-</form>
 
 <br>
 </br>
@@ -56,7 +54,8 @@ if (empty($mascotas)) {
 
 ?>
 <div class="row">
-	<?php foreach ($mascotas as $mascota) : ?>
+	<?php foreach ($mascotas as $mascota) : $datos = json_encode(["idmascota" => $mascota->idmascota])  ?>
+
 		<div class="col-md-4 mt-4">
 			<div class="card">
 				<h5 class="card-header" style="text-align: center;">
@@ -72,7 +71,7 @@ if (empty($mascotas)) {
 				<div class="card-footer" style="text-align: center;">
 					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>" class="btn btn-outline-info btn-rounded btn-purple mr-2 mt-2">Ver información</button></a></p>
 					<a href="<?= base_url("cliente/mascotas/editar?detalle={$mascota->idmascota}") ?>" class="btn btn-outline-warning btn-rounded btn-purple mr-2 mt-2">Modificar datos</button></a></p>
-					<a button type="button" class="btn btn-outline-danger btn-rounded btn-purple mr-2 mt-2" onclick="javascript:eliminarmascota()">Eliminar mascota</button></a></p>
+					<a button type="button" class="btn btn-outline-danger btn-rounded btn-purple mr-2 mt-2" onclick='javascript:alertamascota(<?= $datos ?>)'>Eliminar mascota</button></a></p>
 				</div>
 			</div>
 		</div>
@@ -80,8 +79,15 @@ if (empty($mascotas)) {
 
 </div>
 
+<?= delete_confirm("alertamascota", "eliminarmascota", true) ?>
 <script>
-	function eliminarmascota() {
+	function eliminarmascota(params) {
+		console.log(params);
+		<?= delete_confirm_message() ?>
 
 	}
 </script>
+
+
+
+<de <?= modal_standar("modalid", "Razzztaa", "Te mojasteee") ?>
