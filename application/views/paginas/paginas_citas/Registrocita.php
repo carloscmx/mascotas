@@ -62,7 +62,7 @@
     });
 </script>
 <script>
-    function crearmascotas() {
+    function crearcita() {
         var form_data = new FormData();
         var file_data = $('#imapImg').prop('files')[0];
         form_data.append('image', file_data);
@@ -90,7 +90,7 @@
 
                 // window.location.href = "<?= base_url("Controllers_Cita/Citacontroller/indexcita") ?>";
             } else {
-                $("#modal2").modal("show");
+                <?= question_message() ?>
             }
 
         });

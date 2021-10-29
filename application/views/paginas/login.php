@@ -94,7 +94,7 @@
                 $("#modal2").modal("show");
                 window.location.href = resultarray.route;
             } else {
-                $("#modal1").modal("show");
+                <?= error_message() ?>
             }
         });
     }

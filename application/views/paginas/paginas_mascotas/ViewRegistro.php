@@ -65,8 +65,6 @@
                     <br>
                     </br>
 
-                    <?= modal_button("modalid", "Registrar") ?>
-
                     <button type="submit" class="btn-lg btn-outline-success btn-rounded" onclick="javascript:crearmascotas()">Registrar</button>
                 </form>
                 </p>
@@ -76,10 +74,10 @@
     </div>
 </div>
 
+
 <?= modal_simple("modal1", "Éxito", "Se han guardado los datos de tu mascota correctamente") ?>
 <?= modal_simple("modal2", "Error", "Ha ocurrido un inconveniente, verifique que todos los datos estén llenos correctamente") ?>
-<?= modal_standar("modalid1", "Éxito", "Se han guardado los datos de tu mascota correctamente") ?>
-<?= modal_standar("modalid", "Error", "Verifica que todos los datos estén llenos correctamente") ?>
+
 
 <script>
     $(document).ready(function() {
@@ -110,14 +108,14 @@
         }).done(function(result) {
             var resultarray = JSON.parse(result);
             if (resultarray.status == "success") {
-                $("#modal1").modal("show");
+                <?= success_message5() ?>
 
                 $('#idCrearcatalogo').trigger("reset");
 
 
                 // window.location.href = "<?= base_url("Catalogo/index") ?>";
             } else {
-                $("#modal2").modal("show");
+                <?= question_message() ?>
             }
 
         });

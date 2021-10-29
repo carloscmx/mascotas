@@ -221,11 +221,11 @@
         }).done(function(result) {
             var resultarray = JSON.parse(result);
             if (resultarray.status == "success") {
-                $("#modal1").modal("show");
+                <?= success_message6() ?>
                 $('#idcrearveterinario').trigger("reset");
                 // window.location.href = "<?= base_url("Controllers_Vet/Vetcontroller/indexveterinario") ?>";
             } else {
-                $("#modal2").modal("show");
+                <?= question_message() ?>
             }
         });
     }

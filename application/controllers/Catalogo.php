@@ -32,6 +32,7 @@ class Catalogo extends CI_Controller
 		$this->load->library('session');
 		$this->load->helper('modals');
 		$this->load->helper('modalb');
+		$this->load->helper('alertb');
 
 
 

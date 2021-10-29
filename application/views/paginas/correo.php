@@ -73,10 +73,10 @@
             resultobj = JSON.parse(result);
             if (resultobj.status == "success") {
                 $("#frmCorreo").trigger("reset");
-                $("#modal1").modal("show");
+                <?= sucess_message2() ?>
                 $("#btnSubmitButtom").prop('disabled', false);
             } else {
-                $("#modal2").modal("show");
+                <?= error_message2() ?>
                 $("#btnSubmitButtom").prop('disabled', false);
             }
         });

@@ -60,7 +60,7 @@
             data: $paramts,
             type: "post",
         }).done(function(result) {
-            $("#modal1").modal("show");
+            <?= sucess_message() ?>
 
 
         });

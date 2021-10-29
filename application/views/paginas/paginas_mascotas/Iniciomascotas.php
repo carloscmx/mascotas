@@ -19,7 +19,6 @@
 			</button></a>
 		<input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
 		<input type="submit" value="Buscar" class="btn-search">
-		<?= modal_button("modalid", "Rastaaclick") ?>
 	</div>
 </div>
 
@@ -84,10 +83,5 @@ if (empty($mascotas)) {
 	function eliminarmascota(params) {
 		console.log(params);
 		<?= delete_confirm_message() ?>
-
 	}
 </script>
-
-
-
-<de <?= modal_standar("modalid", "Razzztaa", "Te mojasteee") ?>

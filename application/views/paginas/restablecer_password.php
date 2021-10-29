@@ -80,7 +80,7 @@
                 contentType: false
             }).done(function(result) {
                 $array = JSON.parse(result);
-                alert($.trim($array.message));
+                <?= success_message4() ?>
 
                 window.location.href = $array.route;
 

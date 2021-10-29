@@ -17,6 +17,7 @@
 
     <!-- Sweet Alert css -->
     <link href="<?= base_url('resources') ?>/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+
     <!-- App css -->
     <link href="<?= base_url("resources/assets/css/bootstrap.min.css") ?>" rel="stylesheet" type="text/css" />
     <link href="<?= base_url("resources/assets/css/icons.css") ?>" rel="stylesheet" type="text/css" />

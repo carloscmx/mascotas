@@ -126,7 +126,7 @@
                 }
             }).done(function(response) {
                 $resonseJson = JSON.parse(response);
-                $("#modal0").modal("show");
+                <?= success_message3() ?>
 
                 setTimeout(function() {
                     window.location.href = $resonseJson.url;
@@ -135,7 +135,7 @@
             });
 
         } else {
-            $("#modal2").modal("show");
+            <?= error_message3() ?>
             $("#btnSubmitButtom").prop('disabled', false);
 
         }
@@ -146,7 +146,7 @@
 <script>
     $(document).ready(function() {
 
-        $('#modal1').modal('toggle')
+        <?= basic_message() ?>
         $("#idFormRegistro").submit(function(event) {
             event.preventDefault();
 

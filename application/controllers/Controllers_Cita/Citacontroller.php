@@ -24,10 +24,12 @@ class Citacontroller extends CI_Controller
         parent::__construct();
         $this->load->model("Login_model", "lg");
         $this->load->library('Correo');
-        $this->load->helper('modals');
         $this->load->library('session');
         $this->load->model("Catalogo_model", "mc");
         $this->load->model("models_veterinario/Veterinario_model", "vm");
+        $this->load->helper('modals');
+        $this->load->helper('modalb');
+        $this->load->helper('alertb');
 
 
 
