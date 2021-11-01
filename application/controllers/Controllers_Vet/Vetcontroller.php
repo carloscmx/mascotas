@@ -71,9 +71,8 @@ class Vetcontroller extends CI_Controller
                     $txtApellidomvet = $this->input->post("txtApellidomvet", true);
                     $cboExt = $this->input->post("cboExt", true);
                     $txtTel = $this->input->post("txtTel", true);
-                    $txtDir = $this->input->post("txtDir", true);
-                    $txtCed = $this->input->post("txtCed", true);
-                    $txtRFC = $this->input->post("txtRFC", true);
+                    $txtDescripvet = $this->input->post("txtDescripvet", true);
+                    $txtHorariovet = $this->input->post("txtHorariovet", true);
 
 
                     $data = [
@@ -82,10 +81,10 @@ class Vetcontroller extends CI_Controller
                         'apellidomvet' => $txtApellidomvet,
                         'extension' => $cboExt,
                         'telefono' => $txtTel,
-                        'direccion' => $txtDir,
-                        'cedula' => $txtCed,
-                        'rfc' => $txtRFC,
-                        'comprobante' => $path,
+                        'descripcionvet' => $txtDescripvet,
+                        'horariovet' => $txtHorariovet,
+                        'cedula' => $path,
+                        'rfc' => $path,
                         'fotovet' => $path,
                         'idusuario' => $_SESSION['user_vet']->id
                     ];

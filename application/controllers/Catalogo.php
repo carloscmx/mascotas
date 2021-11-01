@@ -153,7 +153,6 @@ class Catalogo extends CI_Controller
 		}
 	}
 
-
 	public function eliminarmascota()
 	{
 		$idmascotas = $this->uri->segment(3);
@@ -163,6 +162,12 @@ class Catalogo extends CI_Controller
 		} else {
 			show_error("No se pudo procesar esta peticion.", 403, "Ha ocurrido un error.");
 		}
+	}
+
+	public function ajustescliente()
+	{
+		$this->template->set("titulo", "Ajustes de cuenta");
+		$this->template->load("template/Template_view", "contenido", "paginas/paginas_mascotas/ajustescliente");
 	}
 }
 

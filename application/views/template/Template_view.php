@@ -381,8 +381,8 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fi-head"></i> <span>Mi cuenta</span>
+                                <a href="<?= base_url("catalogo/ajustescliente") ?>" class="dropdown-item notify-item">
+                                    <i class="fi-cog"></i> <span>Ajustes de cuenta</span>
                                 </a>
 
                                 <!-- item-->

@@ -19,6 +19,15 @@ if (!function_exists('basic_message')) {
   }
 }
 
+if (!function_exists('basic_message2')) {
+
+  function basic_message2(): string
+  {
+    return "swal(
+      'Espere un momento..... Redirigiendo');";
+  }
+}
+
 if (!function_exists('success_message')) {
 
   function sucess_message(): string

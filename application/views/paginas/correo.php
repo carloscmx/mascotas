@@ -51,7 +51,7 @@
 
 <?= modal_simple("modal1", "Éxito", "Muchas gracias por registrarse. A continuación recibirás un mensaje de confirmación para completar tu registro") ?>
 
-<?= modal_simple("modal2", "Error", "Este correo no es válido") ?>
+<?= modal_simple("modal2", "Error", "Este correo ya se encuentra registrado o no se encuentra válido") ?>
 
 
 

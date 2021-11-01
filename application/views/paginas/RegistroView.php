@@ -23,6 +23,7 @@
                         </div>
                     </div>
 
+
                     <div class="form-group m-b-20 row">
                         <div class="col-12 text-center">
                             <label for="text">Apellido Paterno</label>
@@ -42,9 +43,7 @@
                             <label for="start">Fecha de Nacimiento</label>
                             <br>
                             <input type="date" id="start" name="dttFechanan" value="2018-07-22">
-
                         </div>
-
                     </div>
 
 

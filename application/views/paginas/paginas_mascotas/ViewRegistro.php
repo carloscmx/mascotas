@@ -26,12 +26,11 @@
 
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Especie</label>
+                        <label for="exampleInputPassword1">Tipo</label>
                         <select name="cbEspecie" class="form-control" id="cbEspecie">
 
                             <?php foreach ($especies as $especie) : ?>
                                 <option value="<?= $especie->idespecie ?>"><?= $especie->nombreespecie ?></option>
-
                             <?php endforeach; ?>
 
 

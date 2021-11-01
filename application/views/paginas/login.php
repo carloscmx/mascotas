@@ -55,9 +55,11 @@
                     </div>
 
                 </form>
+
                 <div class="row m-t-50">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">¿Haz olvidado cual es tu contraseña? <a href="<?= base_url("login/recuperar") ?>" class="text-dark m-l-5" name=""><b>Restablecer Contraseña</b></a></p>
+                        <p class="text-muted">¿Haz olvidado cual es tu contraseña?</p>
+                        <a href="<?= base_url("login/recuperar") ?>" class="text-dark m-l-5" name=""><b>Restablecer Contraseña</b></a>
                     </div>
                 </div>
 
@@ -66,7 +68,8 @@
 
                 <div class="row m-t-20">
                     <div class="col-sm-12 text-center">
-                        <p class="text-muted">¿No dispones de una cuenta de Boxni? <a href="<?= base_url("registro") ?>" class="text-dark m-l-5" name="btnlogin"><b>Regístrate Aquí</b></a></p>
+                        <p class="text-muted">¿No dispones de una cuenta de Boxni?</p>
+                        <a href="<?= base_url("registro") ?>" class="text-dark m-l-5" name="btnlogin"><b>Regístrate Aquí</b></a>
                     </div>
                 </div>
             </div>
@@ -91,7 +94,7 @@
         }).done(function(result) {
             var resultarray = JSON.parse(result);
             if (resultarray.status == "success") {
-                $("#modal2").modal("show");
+                <?= basic_message2() ?>
                 window.location.href = resultarray.route;
             } else {
                 <?= error_message() ?>

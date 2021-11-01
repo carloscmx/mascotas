@@ -331,6 +331,7 @@ class Welcome extends CI_Controller
 			echo json_encode(['status' => 'error', 'message' => 'Ha ocurrido un error']);
 		}
 	}
+
 	public function logout()
 	{
 		session_destroy();

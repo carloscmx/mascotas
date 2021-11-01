@@ -18,33 +18,41 @@
                 <p class="card-text">
                 <form action="" method="post" id="idcrearveterinario" enctype="multipart/form-data">
 
-                    <div class="container">
-                        <div class="form-group m-b-20 row">
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
                             <div class="col-12 text-center">
                                 <label for="exampleInputEmail1">Nombre</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nombre del veterinario" name="txtNombrevet" id="txtNombrevet" value="<?= $_SESSION['user_vet']->nombre ?>">
+                                <input type="text" style="text-align:center;" class="form-control" aria-describedby="emailHelp" placeholder="Nombre del veterinario" name="txtNombrevet" id="txtNombrevet" value="<?= $_SESSION['user_vet']->nombre ?>">
                             </div>
                         </div>
+                        <div class="col-md-4">
+                        </div>
                     </div>
+
+                    <br></br>
 
                     <div class=" container">
                         <div class="form-group m-b-20 row">
                             <div class="col col-6 text-center">
                                 <label for="exampleInputEmail1">Apellido Paterno</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Apellido paterno del veterinario" name="txtApellidopvet" id="txtApellidopvet" value="<?= $_SESSION['user_vet']->apellidopat ?>">
+                                <input type="text" style="text-align:center;" class="form-control" aria-describedby="emailHelp" placeholder="Apellido paterno del veterinario" name="txtApellidopvet" id="txtApellidopvet" value="<?= $_SESSION['user_vet']->apellidopat ?>">
                             </div>
                             <div class="col col-6 text-center">
                                 <label for="exampleInputEmail1">Apellido Materno</label>
-                                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Apellido materno del veterinario" name="txtApellidomvet" id="txtApellidomvet" value="<?= $_SESSION['user_vet']->apellidomat ?>">
+                                <input type="text" style="text-align:center;" class="form-control" aria-describedby="emailHelp" placeholder="Apellido materno del veterinario" name="txtApellidomvet" id="txtApellidomvet" value="<?= $_SESSION['user_vet']->apellidomat ?>">
                             </div>
                         </div>
                     </div>
+
+                    <br></br>
 
                     <div class="container">
                         <div class="form-group m-b-20 row">
                             <div class="col col-6 text-center">
                                 <label for="exampleInputPassword1">Extensión</label>
-                                <select name="cboExt" class="form-control" id="cboExt">
+                                <select name="cboExt" class="form-control" style="text-align:center;" id="cboExt">
                                     <!-- <option value="0">Otro</option -->>
                                     <option value="1">+52</option>
                                     <option value="2">+1</option>
@@ -52,45 +60,65 @@
                             </div>
                             <div class="col col-6 text-center">
                                 <label for="exampleInputEmail1">Teléfono</label>
-                                <input type="text" class="form-control" maxlength="10" aria-describedby="emailHelp" placeholder="Ingresa tu N° Telefónico" name="txtTel" id="txtTel">
+                                <input type="text" style="text-align:center;" class="form-control" maxlength="10" aria-describedby="emailHelp" placeholder="Ingresa tu N° Telefónico" name="txtTel" id="txtTel">
                             </div>
                         </div>
                     </div>
 
-                    <div class="container">
-                        <div class="form-group m-b-20 row">
-                            <div class="col col-12 text-center">
-                                <label for="exampleInputEmail1">Dirección</label>
-                                <input type="text" class="form-control" maxlength="70" aria-describedby="emailHelp" placeholder="Ingresa tu domicilio" name="txtDireccion" id="txtDir">
+                    <br></br>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-12 text-center">
+                                <label for="exampleInputEmail1">Descripción</label>
+                                <input type="text" style="height: 200px; text-align:center;" class="form-control" aria-describedby="emailHelp" placeholder="Escribe tu información o cuéntanos un poco más sobre ti" name="txtDescripvet" id="txtDescripvet">
                             </div>
+                        </div>
+                        <div class="col-md-4">
                         </div>
                     </div>
 
-                    <div class="container">
-                        <div class="form-group m-b-20 row">
-                            <div class="col col-6 text-center">
-                                <label for="exampleInputEmail1">Cédula</label>
-                                <input type="text" class="form-control" maxlength="8" aria-describedby="emailHelp" placeholder="Ingresa tu cédula" name="txtDireccion" id="txtCed">
-                            </div>
-                            <div class="col col-6 text-center">
-                                <label for="exampleInputEmail1">RFC</label>
-                                <input type="text" class="form-control" maxlength="13" aria-describedby="emailHelp" placeholder="Ingresa tu RFC" name="txtDireccion" id="txtRFC">
+                    <br></br>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-12 text-center">
+                                <label class="form-label" for="customFile">Cédula</label>
+                                <input type="file" class="form-control" name="imapCed" id="imapCed">
                             </div>
                         </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="form-group m-b-20 row">
-                            <div class="col col-6 text-center">
-                                <label class="form-label" for="customFile">Inserta tu Comprobante</label>
-                                <input type="file" class="form-control" name="imapcomp" id="imapcomp" />
+                        <div class="col-md-4">
+                            <div class="col-12 text-center">
+                                <label class="form-label" for="customFile">RFC</label>
+                                <input type="file" class="form-control" name="imapRFC" id="imapRFC">
                             </div>
-                            <div class="col col-6 text-center">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-12 text-center">
                                 <label class="form-label" for="customFile">Inserta tu Foto</label>
-                                <input type="file" class="form-control" name="imapFoto" id="imapfoto" />
+                                <input type="file" class="form-control" name="imapFoto" id="imapFoto" />
                             </div>
                         </div>
                     </div>
+
+                    <br></br>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col col-12 text-center">
+                                <label class="form-label" for="customFile">Horario de Atención</label>
+                                <input type="time" style="text-align:center;" class="form-control" aria-describedby="emailHelp" placeholder="Horario de" name="txtHorariovet" id="txtHorariovet">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                    </div>
+
+                    <br></br>
 
                     <div class="container">
                         <div class="form-group m-b-20 row">
@@ -142,11 +170,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row m-b-20">
-                        <div class="col-12">
-
-                        </div>
-                    </div>
+                    <br></br>
 
                     <div class="container">
                         <div class="form-group row text-center m-t-10">
@@ -198,17 +222,17 @@
 <script>
     function crearveterinario() {
         var form_data = new FormData();
-        var file_data = $('#imapcomp').prop('files')[0];
-        var file_data = $('#imapfoto').prop('files')[0];
+        var file_data = $('#imapCed').prop('files')[0];
+        var file_data = $('#imapRFC').prop('files')[0];
+        var file_data = $('#imapFoto').prop('files')[0];
         form_data.append('image', file_data);
         form_data.append('txtNombrevet', $("#txtNombrevet").val());
         form_data.append('txtApellidopvet', $("#txtApellidopvet").val());
         form_data.append('txtApellidomvet', $("#txtApellidomvet").val());
         form_data.append('cboExt', $("#cboExt").val());
-        form_data.append('txtTel', $("#txtTel").val());
-        form_data.append('txtDir', $("#txtDir").val());
-        form_data.append('txtCed', $("#txtCed").val());
-        form_data.append('txtRFC', $("#txtRFC").val());
+        form_data.append('txtTel', $("#txtTel").val())
+        form_data.append('txtDescripvet', $("#txtDescripvet").val());
+        form_data.append('txtHorariovet', $("#txtHorariovet").val());
 
         $.ajax({
             url: "<?= base_url("Controllers_Vet/Vetcontroller/guardardatosveterinario") ?>",
