@@ -89,6 +89,17 @@ class Catalogo_model extends CI_Model
     return  $this->db->get();
   }
 
+  function obtenerRazas($where = NULL)
+  {
+    if ($where != NULL) {
+      $this->db->where($where);
+    }
+    $this->db->select("*");
+    $this->db->from("razas");
+
+    return  $this->db->get();
+  }
+
 
 
 

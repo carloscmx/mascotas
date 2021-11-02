@@ -23,19 +23,25 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nombre</label>
                         <input type="text" class="form-control" maxlength="15" aria-describedby="emailHelp" placeholder="Ingresa el Nombre de tu Mascota" name="txtNombrepet" id="txtNombrepet">
-
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Tipo</label>
-                        <select name="cbEspecie" class="form-control" id="cbEspecie">
 
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Tipo de Mascota</label>
+                        <select name="cbEspecie" class="form-control" id="cbEspecie">
+                            <option value="">Selecccionar tipo de mascota</option>
                             <?php foreach ($especies as $especie) : ?>
                                 <option value="<?= $especie->idespecie ?>"><?= $especie->nombreespecie ?></option>
                             <?php endforeach; ?>
+                        </select>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Raza</label>
+                        <select name="cbRaza" class="form-control" id="cbRaza">
 
                         </select>
                     </div>
+
                     <div class="form-group">
                         <label for="exampleInputPassword1">Fecha de nacimiento</label>
                         <input class="form-control" placeholder="edad" name="ddtFechanan" id="ddtFechanan" type="date">
@@ -92,6 +98,7 @@
         form_data.append('image', file_data);
         form_data.append('txtNombrepet', $("#txtNombrepet").val());
         form_data.append('cbEspecie', $("#cbEspecie").val());
+        form_data.append('cbRaza', $("#cbRaza").val());
         form_data.append('ddtFechanan', $("#ddtFechanan").val());
         form_data.append('txtColor', $("#txtColor").val());
         form_data.append('cboSexo', $("#cboSexo").val());
@@ -119,4 +126,24 @@
 
         });
     }
+
+    $("#cbEspecie").change(function(e) {
+        e.preventDefault();
+        let select = $("#cbRaza");
+        $.ajax({
+            type: "post",
+            url: "<?= base_url("Catalogo/razaxespecie") ?>",
+            data: {
+                id_especie: $(this).val()
+            },
+            dataType: "json",
+            success: function(response) {
+                select.find("option").remove();
+                $(response).each(function(i, v) {
+                    select.append(`<option value="${v.idraza}">${v.nombreraza}</option>`);
+                });
+
+            }
+        });
+    });
 </script>

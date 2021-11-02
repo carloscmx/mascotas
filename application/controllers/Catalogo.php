@@ -46,6 +46,7 @@ class Catalogo extends CI_Controller
 	public function registromascota()
 	{
 		$data['especies'] = $this->mc->obtenerEspecies(['activo' => 1])->result();
+		$data['razas'] = $this->mc->obtenerRazas()->result();
 
 		$this->template->set("titulo", "Registro mascotas");
 		$this->template->load("template/Template_view", "contenido", "paginas/paginas_mascotas/ViewRegistro", $data);
@@ -69,6 +70,7 @@ class Catalogo extends CI_Controller
 				if (move_uploaded_file($tmp, $path)) {
 					$txtNombrepet = $this->input->post("txtNombrepet", true);
 					$cbEspecie = $this->input->post("cbEspecie", true);
+					$cbRaza = $this->input->post("cbRaza", true);
 					$ddtFechanan = $this->input->post("ddtFechanan", true);
 					$txtColor = $this->input->post("txtColor", true);
 					$cboSexo = $this->input->post("cboSexo", true);
@@ -77,6 +79,7 @@ class Catalogo extends CI_Controller
 					$data = [
 						'nombremascota' => $txtNombrepet,
 						'idespecie' => $cbEspecie,
+						'idraza' => $cbRaza,
 						'fechanan' => date("Y-m-d", strtotime($ddtFechanan)),
 						'color' => $txtColor,
 						'genero' => $cboSexo,
@@ -143,6 +146,7 @@ class Catalogo extends CI_Controller
 				$data['especie'] = $this->mc->obtenerEspecies(['idespecie' => $detallemascota->idespecie])->row();
 
 
+
 				$this->template->set("titulo", "Modificar");
 				$this->template->load("template/Template_view", "contenido", "paginas/paginas_mascotas/editarmascota", $data);
 			} else {
@@ -168,6 +172,15 @@ class Catalogo extends CI_Controller
 	{
 		$this->template->set("titulo", "Ajustes de cuenta");
 		$this->template->load("template/Template_view", "contenido", "paginas/paginas_mascotas/ajustescliente");
+	}
+
+	public function razaxespecie()
+	{
+		$id = ($_POST['id_especie']);
+		$where = ["idespecie" => $id];
+
+		$get = $this->mc->obtenerRazas($where);
+		echo json_encode($get->result_array());
 	}
 }
 
