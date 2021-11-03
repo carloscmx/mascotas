@@ -121,58 +121,6 @@
                     <br></br>
 
                     <div class="container">
-                        <div class="form-group m-b-20 row">
-                            <div class="col col-12 text-center">
-                                <label class="form-label" for="customFile">Inserta tu Ubicación</label>
-                                <button type="button" class="btn-sm btn-outline-warning btn-rounded" data-toggle="modal" data-target="#myModal">
-                                    Mostrar Mapa
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="latitud">Latitud</label>
-                                                <input type="text" id="latitud" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="longitud">Longitud</label>
-                                                <input type="text" id="longitud" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-9"></div>
-                                        <div class="col-md-2">
-                                            <button id="cargarcoordenadas" class="btn-sm btn-outline-primary btn-rounded">Cargar coordenadas</button>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div id="googleMap" style="width: 100%; height: 400px;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <br></br>
-
-                    <div class="container">
                         <div class="form-group row text-center m-t-10">
                             <div class="col-12">
                                 <button type="submit" class="btn-lg btn-outline-success btn-rounded" onclick="javascript:crearveterinario()">Registrar</button>

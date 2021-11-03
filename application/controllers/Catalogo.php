@@ -122,7 +122,7 @@ class Catalogo extends CI_Controller
 				$detallemascota = $this->mc->detallemascotas(['idmascota' => $idmascota])->row();
 				$data['mascota'] = $detallemascota;
 				$data['especie'] = $this->mc->obtenerEspecies(['idespecie' => $detallemascota->idespecie])->row();
-
+				$data['raza'] = $this->mc->obtenerRazas(['idraza' => $detallemascota->idraza])->row();
 
 				$this->template->set("titulo", "Detalles");
 				$this->template->load("template/Template_view", "contenido", "paginas/paginas_mascotas/detallesmascotas", $data);

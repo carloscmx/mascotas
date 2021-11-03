@@ -48,8 +48,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Color de pelaje</label>
-                        <input type="text" class="form-control" maxlength="10" aria-describedby="emailHelp" placeholder="¿De qué color es el pelo de tu Mascota? " name="txtColor" id="txtColor">
+                        <label for="exampleInputEmail1">Color de pelo</label>
+                        <input type="text" class="form-control" maxlength="25" aria-describedby="emailHelp" placeholder="¿De qué color es el pelaje de tu mascota? " name="txtColor" id="txtColor">
 
                     </div>
                     <div class="form-group">
