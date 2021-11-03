@@ -52,8 +52,8 @@ class Catalogo_model extends CI_Model
   function borrarmascota($idmascota)
   {
     $this->db->where('id', $idmascota);
-    $this->db->set('activo', '0');
-    return $this->db->update('mascotas');
+    $this->db->set('activo', '1');
+    return $this->db->delete('mascotas');
   }
 
   function detallemascotas($where = NULL)

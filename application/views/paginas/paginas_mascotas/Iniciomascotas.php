@@ -17,18 +17,16 @@
 		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button type="button" class="btn-lg btn-outline-primary btn-rounded">
 				Registrar una Mascota Nueva
 			</button></a>
-		<input type="text" name="busqueda" id="busqueda" placeholder="Buscar">
-		<input type="submit" value="Buscar" class="btn-search">
-	</div>
-</div>
-
-<div class="form-group row m-b-20">
-	<div class="col-12">
 	</div>
 </div>
 
 <br>
 </br>
+
+<form action="" method="get">
+	<input type="text" name="busqueda"> <br>
+	<input type="submit" name="enviar" value="Buscar">
+</form>
 
 <h3>
 	<p style="text-align: center;">Tus Mascotas Registradas: </p>
@@ -69,7 +67,9 @@ if (empty($mascotas)) {
 				</div>
 				<div class="card-footer" style="text-align: center;">
 					<a href="<?= base_url("cliente/mascotas/detalle?detalle={$mascota->idmascota}") ?>" class="btn btn-outline-info btn-rounded btn-purple mr-2 mt-2">Ver información</button></a></p>
+
 					<a href="<?= base_url("cliente/mascotas/editar?detalle={$mascota->idmascota}") ?>" class="btn btn-outline-warning btn-rounded btn-purple mr-2 mt-2">Modificar datos</button></a></p>
+
 					<a button type="button" class="btn btn-outline-danger btn-rounded btn-purple mr-2 mt-2" onclick='javascript:alertamascota(<?= $datos ?>)'>Eliminar mascota</button></a></p>
 				</div>
 			</div>

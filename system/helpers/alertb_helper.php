@@ -159,8 +159,8 @@ if (!function_exists('delete_confirm')) {
     $dom = "
       function {$nombrefuncion}(parameters){
         swal({
-            title: 'Estas seguro?',
-            text: 'Esta accion no podra deshacerse',
+            title: '¿Estás seguro de eliminar esta mascota?',
+            text: 'Esta acción no podrá deshacerse',
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
