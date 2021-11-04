@@ -24,7 +24,6 @@
     <link href="<?= base_url("resources/assets/css/metismenu.min.css") ?>" rel="stylesheet" type="text/css" />
     <link href="<?= base_url("resources/assets/css/style.css") ?>" rel="stylesheet" type="text/css" />
 
-    <link href="<?= base_url("resources/plugins/fullcalendar/css/fullcalendar.min.css") ?>" rel="stylesheet" type="text/css" />
 
     <script src="<?= base_url("resources/assets/js/modernizr.min.js") ?>"></script>
 
@@ -483,8 +482,6 @@
     <script src="<?= base_url("resources/assets/js/jquery.core.js") ?>"></script>
     <script src="<?= base_url("resources/assets/js/jquery.app.js") ?>"></script>
     <script src="<?= base_url("resources/plugins/block.js") ?>"></script>
-
-    <script src="<?= base_url("resources/plugins/fullcalendar/js/fullcalendar.min.js") ?>"></script>
 
 
 

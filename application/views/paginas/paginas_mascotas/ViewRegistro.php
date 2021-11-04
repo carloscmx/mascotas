@@ -44,7 +44,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Fecha de nacimiento</label>
-                        <input class="form-control" placeholder="edad" name="ddtFechanan" id="ddtFechanan" type="date">
+                        <input type="date" class="form-control" placeholder="edad" name="ddtFechanan" id="ddtFechanan">
                     </div>
 
                     <div class="form-group">

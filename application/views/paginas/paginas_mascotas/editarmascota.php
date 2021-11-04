@@ -24,7 +24,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Nombre</label>
-                        <input type="text" class="form-control" maxlength="15" aria-describedby="emailHelp" placeholder="Ingresa el Nombre de tu Mascota" name="txtNombrepet" id="txtNombrepet" value="<?= $mascota->nombremascota; ?>">
+                        <input type="text" style="width: 150px;" class="form-control" maxlength="15" aria-describedby="emailHelp" placeholder="Ingresa el Nombre de tu Mascota" name="txtNombrepet" id="txtNombrepet" value="<?= $mascota->nombremascota; ?>">
                     </div>
 
                     <div class="form-group">
