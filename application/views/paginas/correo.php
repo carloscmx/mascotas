@@ -31,7 +31,7 @@
 
 
                     <div class="form-group  text-center m-t-10">
-                        <button class="btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:enviarparemetrosregistro()" id="btnSubmitButtom">Registrar</button>
+                        <button class="btn btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:enviarparemetrosregistro()" id="btnSubmitButtom">Registrar</button>
                     </div>
 
                 </form>

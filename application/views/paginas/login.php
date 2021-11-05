@@ -50,7 +50,7 @@
 
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:validarusuario()">Iniciar Sesión</button>
+                            <button class="btn btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:validarusuario()">Iniciar Sesión</button>
                         </div>
                     </div>
 
