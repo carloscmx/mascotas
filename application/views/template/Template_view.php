@@ -12,6 +12,14 @@
     <!-- App favicon -->
     <link href="<?= base_url('resources/boxni/studio/img/favicon.ico') ?>" rel="shortcut icon">
 
+    <!-- Plugins css-->
+    <link href="<?= base_url('resources') ?>/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="<?= base_url('resources') ?>/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="<?= base_url('resources') ?>/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="<?= base_url('resources') ?>/plugins/switchery/switchery.min.css" />
+
+    <link href="<?= base_url('resources') ?>/plugins/custombox/css/custombox.min.css" rel="stylesheet">
+
     <!-- Custom box css -->
     <link href="<?= base_url('resources') ?>/plugins/custombox/css/custombox.min.css" rel="stylesheet">
 
@@ -469,6 +477,9 @@
     <script src="<?= base_url("resources/assets/js/metisMenu.min.js") ?>"></script>
     <script src="<?= base_url("resources/assets/js/waves.js") ?>"></script>
     <script src="<?= base_url("resources/assets/js/jquery.slimscroll.js") ?>"></script>
+    <script src="<?= base_url("resources/plugins/select2/js/select2.min.js") ?>">
+        type = "text/javascript"
+    </script>
 
     <!-- Sweet Alert Js  -->
     <script src="<?= base_url('resources') ?>/plugins/sweet-alert/sweetalert2.min.js"></script>

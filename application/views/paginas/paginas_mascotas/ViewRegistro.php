@@ -14,71 +14,106 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="card">
-
-            <div class="card-body">
-                <p class="card-text">
-                <form action="" method="post" id="idCrearcatalogo" enctype="multipart/form-data">
-
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Nombre</label>
-                        <input type="text" class="form-control" maxlength="15" aria-describedby="emailHelp" placeholder="Ingresa el Nombre de tu Mascota" name="txtNombrepet" id="txtNombrepet">
+        <div class="card-box">
+            <form action="" method="post" id="idCrearcatalogo" enctype="multipart/form-data">
+                <div class="row m-b-30">
+                    <div class="col-sm-12">
+                        <form>
+                            <div class="form-row align-items-center">
+                                <div class="col-auto">
+                                    <label for="exampleInputEmail1">Nombre</label>
+                                    <input type="text" class="form-control" maxlength="15" aria-describedby="emailHelp" placeholder="Ingresa el nombre de tu mascota" name="txtNombrepet" id="txtNombrepet">
+                                </div>
+                            </div>
+                        </form>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Tipo de Mascota</label>
-                        <select name="cbEspecie" class="form-control" id="cbEspecie">
-                            <option value="">Selecccionar tipo de mascota</option>
-                            <?php foreach ($especies as $especie) : ?>
-                                <option value="<?= $especie->idespecie ?>"><?= $especie->nombreespecie ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                <div class="row row m-b-30">
+                    <div class="col-sm-12">
+                        <form>
+                            <div class="form-row align-items-center">
+                                <div class="col-auto">
+                                    <label for="exampleInputPassword1">Tipo de Mascota</label>
+                                    <select class="form-control select2" name="cbEspecie" id="cbEspecie">
+                                        <option value="">Selecccionar tipo de mascota</option>
+                                        <?php foreach ($especies as $especie) : ?>
+                                            <option value="<?= $especie->idespecie ?>"><?= $especie->nombreespecie ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="col-auto">
+                                    <label for="exampleInputPassword1">Raza</label>
+                                    <select class="form-control select2" name="cbRaza" name="cbRaza" id="cbRaza">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Raza</label>
-                        <select name="cbRaza" class="form-control" id="cbRaza">
-
-                        </select>
+                <div class="row row m-b-30">
+                    <div class="col-sm-12">
+                        <form>
+                            <div class="form-row align-items-center">
+                                <div class="col-auto">
+                                    <label for="exampleInputPassword1">Fecha de nacimiento</label>
+                                    <input type="date" class="form-control" placeholder="edad" name="ddtFechanan" id="ddtFechanan">
+                                </div>
+                            </div>
+                        </form>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" placeholder="edad" name="ddtFechanan" id="ddtFechanan">
+                <div class="row row m-b-30">
+                    <div class="col-sm-12">
+                        <form>
+                            <div class="form-row align-items-center">
+                                <div class="col-auto">
+                                    <label for="exampleInputEmail1">Color de pelo</label>
+                                    <input type="text" class="form-control" maxlength="25" aria-describedby="emailHelp" placeholder="¿De qué color es el pelaje de tu mascota? " name="txtColor" id="txtColor">
+                                </div>
+                            </div>
+                        </form>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Color de pelo</label>
-                        <input type="text" class="form-control" maxlength="25" aria-describedby="emailHelp" placeholder="¿De qué color es el pelaje de tu mascota? " name="txtColor" id="txtColor">
+                <div class="row row m-b-30">
+                    <div class="col-sm-12">
+                        <form>
+                            <div class="form-row align-items-center">
+                                <div class="col-auto">
+                                    <label for="exampleInputPassword1">Género</label>
+                                    <select name="cboSexo" class="form-control" id="cboSexo">
+                                        <!-- <option value="0">Otro</option -->>
+                                        <option value="1">Macho</option>
+                                        <option value="2">Hembra</option>
 
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Género</label>
-                        <select name="cboSexo" class="form-control" id="cboSexo">
-                            <!-- <option value="0">Otro</option -->>
-                            <option value="1">Macho</option>
-                            <option value="2">Hembra</option>
+                </div>
 
-                        </select>
+                <div class="row row m-b-30">
+                    <div class="col-sm-12">
+                        <form>
+                            <div class="form-row align-items-center">
+                                <div class="col-auto">
+                                    <label class="form-label" for="customFile">Inserta una Imagen o Foto de tu Mascota</label>
+                                    <input type="file" class="form-control" name="imapFoto" id="imapImg" />
+                                </div>
+                            </div>
+                        </form>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="customFile">Inserta una Imagen o Foto de tu Mascota</label>
-                        <input type="file" class="form-control" name="imapFoto" id="imapImg" />
-                    </div>
-
-                    <br>
-                    </br>
-
-                    <button type="submit" class="btn-lg btn-outline-success btn-rounded" onclick="javascript:crearmascotas()">Registrar</button>
-                </form>
-                </p>
-            </div>
-
+                </div>
+                <button type="submit" class="btn-lg btn-outline-success btn-rounded" onclick="javascript:crearmascotas()">Registrar</button>
+            </form>
         </div>
     </div>
 </div>
-
 
 <?= modal_simple("modal1", "Éxito", "Se han guardado los datos de tu mascota correctamente") ?>
 <?= modal_simple("modal2", "Error", "Ha ocurrido un inconveniente, verifique que todos los datos estén llenos correctamente") ?>
