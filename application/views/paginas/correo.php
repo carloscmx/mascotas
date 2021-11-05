@@ -79,6 +79,10 @@
                 <?= error_message2() ?>
                 $("#btnSubmitButtom").prop('disabled', false);
             }
+        }).fail(function(jqXHR) {
+            console.log(jqXHR);
+            <?= error_message2() ?>
+            $("#btnSubmitButtom").prop('disabled', false);
         });
     }
 </script>

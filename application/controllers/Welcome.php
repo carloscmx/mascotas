@@ -244,50 +244,67 @@ class Welcome extends CI_Controller
 
 	public function recibirparametrosregistrocorreo()
 	{
-		$correo = $this->input->post("email", true);
-		$token = $this->utilerias->generateToken();
-		$url = base_url("registro/activaciones/{$token}");
-		$urlimg = base_url('resources/assets/images/logo1.png');
-		$bodyhtml = "
-		<style>
-		.button {
-			background-color: #4CAF50;
-			border: none;
-			color: white;
-			padding: 15px 32px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 4px 2px;
-			cursor: pointer;
-		}
-		</style>
-		<div align='center'><img src='{$urlimg}'></div>
-		</br>
-		<h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Confirmación de correo electrónico</h1><br/>
-		<br/>
-		<h2><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Hola {$correo}</h2><br/>
-		<br/>
-		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Te damos la bienvenida a nuestra página BOXNI.
-		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Para continuar, confirma tu email registrando tus datos en el siguiente botón.<br/>
-		<br/>
-		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>¡¡¡VIVE CON NOSOTROS LA SEGURIDAD DE TUS MASCOTAS!!!<br/>
-		<br/>
-		<div align='center'><a href='{$url}'><button type='button' class='button'>Confirmar mi cuenta</button></a><br/>
-		<br/>
-		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Gracias<br/>
-		Team Boxni</div>";
+		if ($this->input->is_ajax_request()) {
 
-		if ($this->lg->activacion([
-			'correoregistro' => $correo,
-			'token' => $token,
-			'activo' => 0,
-		])) {
-			$this->correo->enviar_correo("Confirmación de registro Boxni", $correo, $bodyhtml);
-			echo json_encode(['status' => 'success', 'message' => 'Correo registrado']);
+			$this->form_validation->set_rules('email', 'Correo', 'required|valid_email|is_unique[activacion.correoregistro]');
+
+			if ($this->form_validation->run()) {
+
+				$correo = $this->input->post("email", true);
+				$token = $this->utilerias->generateToken();
+				$url = base_url("registro/activaciones/{$token}");
+				$urlimg = base_url('resources/assets/images/logo1.png');
+				$bodyhtml = "
+			<style>
+			.button {
+				background-color: #4CAF50;
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+			}
+			</style>
+			<div align='center'><img src='{$urlimg}'></div>
+			</br>
+			<h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Confirmación de correo electrónico</h1><br/>
+			<br/>
+			<h2><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Hola {$correo}</h2><br/>
+			<br/>
+			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Te damos la bienvenida a nuestra página BOXNI.
+			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Para continuar, confirma tu email registrando tus datos en el siguiente botón.<br/>
+			<br/>
+			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>¡¡¡VIVE CON NOSOTROS LA SEGURIDAD DE TUS MASCOTAS!!!<br/>
+			<br/>
+			<div align='center'><a href='{$url}'><button type='button' class='button'>Confirmar mi cuenta</button></a><br/>
+			<br/>
+			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Gracias<br/>
+			Team Boxni</div>";
+
+				if ($this->lg->activacion([
+					'correoregistro' => $correo,
+					'token' => $token,
+					'activo' => 0,
+				])) {
+					$this->correo->enviar_correo("Confirmación de registro Boxni", $correo, $bodyhtml);
+					echo json_encode(['status' => 'success', 'message' => 'Correo registrado']);
+				} else {
+					echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
+				}
+			} else {
+				$this->output->set_status_header(400)->set_content_type('application/json')->set_output(json_encode([
+					'status' => false,
+					'message' => [
+						'correo' => form_error('email')
+					]
+				]));
+			}
 		} else {
-			echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
+			show_404();
 		}
 	}
 
