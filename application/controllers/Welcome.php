@@ -27,16 +27,12 @@ class Welcome extends CI_Controller
 		$this->load->helper('modals');
 		$this->load->helper('modalb');
 		$this->load->helper('alertb');
-
-
 		$this->load->library('session');
 		$this->load->model("Catalogo_model", "mc");
 		$this->load->model("models_veterinario/Veterinario_model", "vm");
-
-
-
 		$this->load->library('Utilerias');
 	}
+
 	public function PaginaPrincipal()
 	{
 		if (isset($_SESSION['user_client'])) {
@@ -46,12 +42,13 @@ class Welcome extends CI_Controller
 			$this->load->view("landing");
 		}
 	}
+
 	public function restablecerPassword()
 	{
-		# code...
 		$this->template->set("titulo", "Restablecer Password");
 		$this->template->load("template/LoginTemplate_view", "contenido", "paginas/restablecer");
 	}
+
 	public function restablecerPassword_view()
 	{
 		$token = $this->uri->segment(4);
@@ -60,97 +57,124 @@ class Welcome extends CI_Controller
 			'login_reset' => 1
 		]);
 		if ($result->num_rows() > 0) {
-			# code...
-			$this->template->set("titulo", "Restablecerr Password");
+			$this->template->set("titulo", "Restablecer Password");
 			$this->template->load("template/LoginTemplate_view", "contenido", "paginas/restablecer_password");
 			//	$_SESSION['user_client'] = $datos;
 		} else {
 			show_error("No se ha podido procesar esta peticion, o ha expirado este enlace.", 403, "Ha ocurrido un error.");
 		}
 	}
+
 	public function updatePassword()
 	{
-		$mesaje = ['status' => 'error', 'message' => 'Ha ocurrido un error', 'title' => 'Ha ocurrido un error.'];
-		$password = $this->input->post("password");
-		$token = $this->input->post("token");
-		$result = $this->lg->login([
-			'login_token_reset' => $token,
-			'login_reset' => 1
-		]);
-		if ($result->num_rows() > 0) {
-			$datos = $result->row();
-			$this->lg->actualizarUsuarios(['login_reset' => 0, 'login_token_reset' => "", "contrasena" => sha1($password)], ['id' => $datos->id]);
-			$mesaje = ['status' => 'success', 'message' => 'Contrasena Modificada', 'title' => 'Cuenta recuperada.'];
-			$user = $datos;
+		if ($this->input->is_ajax_request()) {
 
+			$this->form_validation->set_rules('password', 'Correo', 'required');
 
-			switch ($user->tipousarioid) {
-				case 2:
-					$redirect = base_url("cliente/inicio");
+			if ($this->form_validation->run()) {
 
-					$_SESSION['user_client'] = $user;
+				$mesaje = ['status' => 'error', 'message' => 'Ha ocurrido un error', 'title' => 'Ha ocurrido un error.'];
+				$password = $this->input->post("password");
+				$token = $this->input->post("token");
+				$result = $this->lg->login([
+					'login_token_reset' => $token,
+					'login_reset' => 1
+				]);
+				$respuesta = ['status' => 'error', 'message' => 'Usuario no entrado '];
+				if ($result->num_rows() > 0) {
+					$datos = $result->row();
+					$this->lg->actualizarUsuarios(['login_reset' => 0, 'login_token_reset' => "", "contrasena" => sha1($password)], ['id' => $datos->id]);
+					$mesaje = ['status' => 'success', 'message' => 'Contrasena Modificada', 'title' => 'Cuenta recuperada.'];
+					$user = $datos;
 
-					break;
-				case 3:
-					$redirect = base_url("veterinario/inicio");
+					switch ($user->tipousarioid) {
+						case 2:
+							$redirect = base_url("cliente/inicio");
 
-					$_SESSION['user_vet'] = $user;
+							$_SESSION['user_client'] = $user;
 
-					break;
+							break;
+						case 3:
+							$redirect = base_url("veterinario/inicio");
+
+							$_SESSION['user_vet'] = $user;
+
+							break;
+					}
+					$respuesta = ['status' => 'success', 'message' => 'Contraseña Modificada', 'route' => $redirect];
+				}
+				echo json_encode($respuesta);
+			} else {
+				$this->output->set_status_header(400)->set_content_type('application/json')->set_output(json_encode([
+					'status' => false,
+					'message' => [
+						'correo' => form_error('password')
+					]
+				]));
 			}
-			$respuesta = ['status' => 'success', 'message' => 'Contraseña Modificada', 'route' => $redirect];
+		} else {
+			show_404();
 		}
-
-		echo json_encode($respuesta);
 	}
 
 	public function restablecerPasswordEmail()
 	{
-		$correo = $this->input->post("email", TRUE);
-		$result = $this->lg->login([
-			'correo' => $correo
-		]);
-		if ($result->num_rows() > 0) {
-			$datos = $result->row();
+		if ($this->input->is_ajax_request()) {
 
+			$this->form_validation->set_rules('email', 'Correo', 'required|valid_email');
 
+			if ($this->form_validation->run()) {
+				$correo = $this->input->post("email", TRUE);
+				$result = $this->lg->login(['correo' => $correo]);
+				if ($result->num_rows() > 0) {
+					$datos = $result->row();
+					$token = $this->utilerias->generateToken();
+					$url = base_url("login/restablecer/user/{$token}");
+					$urlimg = base_url('resources/assets/images/logo1.png');
+					$bodyhtml = "
+			<style>
+			.button {
+				background-color: #4CAF50;
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				margin: 4px 2px;
+				cursor: pointer;
+			}
+			</style>
+			<div align='center'><img src='{$urlimg}'></div>
+			</br>
+			<h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Haz solicitado restablecer tu contraseña</h1><br/>
+			<br/>
+			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>¿No recuerdas tu contraseña?
+			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>No hay problema, nos pasa a todos<br/>
+			<br/>
+			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Para solicitar restablecer tu contraseña solo debes dar click en el botón<br/>
+			<br/>
+			<div align='center'><a href='{$url}'><button type='button' class='button'>Cambiar contraseña</button></a><br/>
+			<br/>
+			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Si no has solicitado una nueva contraseña, infórmanos<br/></div>";
 
-			$token = $this->utilerias->generateToken();
-			$url = base_url("login/restablecer/user/{$token}");
-			$urlimg = base_url('resources/assets/images/logo1.png');
-			$bodyhtml = "
-		<style>
-		.button {
-			background-color: #4CAF50;
-			border: none;
-			color: white;
-			padding: 15px 32px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 4px 2px;
-			cursor: pointer;
-		}
-		</style>
-		<div align='center'><img src='{$urlimg}'></div>
-		</br>
-		<h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Haz solicitado restablecer tu contraseña</h1><br/>
-		<br/>
-		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>¿No recuerdas tu contraseña?
-		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>No hay problema, nos pasa a todos<br/>
-		<br/>
-		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Para solicitar restablecer tu contraseña solo debes dar click en el botón<br/>
-		<br/>
-		<div align='center'><a href='{$url}'><button type='button' class='button'>Cambiar contraseña</button></a><br/>
-		<br/>
-		<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Si no has solicitado una nueva contraseña, infórmanos<br/></div>";
-
-			$this->lg->actualizarUsuarios(['login_reset' => 1, 'login_token_reset' => $token], ['id' => $datos->id]);
-			$this->correo->enviar_correo("Restablecer cuenta", $correo, $bodyhtml);
-
-
-			//	$_SESSION['user_client'] = $datos;
+					$this->lg->actualizarUsuarios(['login_reset' => 1, 'login_token_reset' => $token], ['id' => $datos->id]);
+					$this->correo->enviar_correo("Restablecer cuenta", $correo, $bodyhtml);
+					echo json_encode(['status' => 'success', 'message' => 'Correo registrado']);
+				} else {
+					echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
+				}
+			} else {
+				$this->output->set_status_header(400)->set_content_type('application/json')->set_output(json_encode([
+					'status' => false,
+					'message' => [
+						'correo' => form_error('email')
+					]
+				]));
+			}
+		} else {
+			show_404();
 		}
 	}
 	public function index()
@@ -246,7 +270,7 @@ class Welcome extends CI_Controller
 	{
 		if ($this->input->is_ajax_request()) {
 
-			$this->form_validation->set_rules('email', 'Correo', 'required|valid_email|is_unique[activacion.correoregistro]');
+			$this->form_validation->set_rules('email', 'Correo', 'required|valid_email');
 
 			if ($this->form_validation->run()) {
 

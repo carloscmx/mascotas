@@ -41,7 +41,7 @@
 
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:restablecerUser()">Restablecer</button>
+                            <button class="btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:restablecerUser()" id="btnRestButton">Restablecer</button>
                         </div>
                     </div>
 
@@ -80,14 +80,19 @@
                 contentType: false
             }).done(function(result) {
                 $array = JSON.parse(result);
-                <?= success_message4() ?>
-
-                window.location.href = $array.route;
-
+                if ($array.status == "success") {
+                    <?= success_message4() ?>
+                    window.location.href = $array.route;
+                } else {
+                    <?= error_message() ?>
+                }
+            }).fail(function(jqXHR) {
+                console.log(jqXHR);
+                <?= error_message2() ?>
+                $("#btnRestButton").prop('disabled', false);
             });
-
         } else {
-            alert("Las credenciales no son iguales.");
+            <?= error_message2() ?>
         }
 
 

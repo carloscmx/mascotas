@@ -32,7 +32,7 @@
 
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:restablecerUser()">Restablecer</button>
+                            <button class="btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:restablecerUser()" id="btnRestButtom">Restablecer</button>
                         </div>
                     </div>
 
@@ -59,13 +59,27 @@
             url: "<?= base_url("Welcome/restablecerPasswordEmail") ?>",
             data: $paramts,
             type: "post",
+            beforeSend: function(xhr) {
+                $("#btnRestButtom").prop('disabled', true);
+            }
         }).done(function(result) {
-            <?= sucess_message() ?>
-
-
+            resultobj = JSON.parse(result);
+            if (resultobj.status == "success") {
+                $("#idFormLogin").trigger("reset");
+                <?= sucess_message() ?>
+                $("#btnRestButtom").prop('disabled', false);
+            } else {
+                <?= error_message2() ?>
+                $("#btnRestButtom").prop('disabled', false);
+            }
+        }).fail(function(jqXHR) {
+            console.log(jqXHR);
+            <?= error_message2() ?>
+            $("#btnRestButtom").prop('disabled', false);
         });
     }
 </script>
+
 <script>
     $(document).ready(function() {
         $("#idFormLogin").submit(function(event) {
