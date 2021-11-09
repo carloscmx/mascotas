@@ -16,31 +16,51 @@
 
                 <form class="" action="#" method="POST" id="frmCorreo">
 
-                    <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center">
-                            <label for="emailaddress">Correo</label>
-                            <input class="form-control" type="email" maxlength="35" id="email" name="email" required="" placeholder="Ingresa tu correo para registrarte">
+                    <div class="form-row">
+                        <div class="form-group col-12">
+                            <label for="my-input">Nombre(s)</label>
+                            <input id="txtNombre" class="form-control" type="text" name="txtNombre">
                         </div>
+
+                        <div class="form-group col-lg-6 col-sm-12">
+                            <label for="my-input">Apellido Paterno</label>
+                            <input id="txtApepat" class="form-control" type="text" name="txtApepat">
+                        </div>
+
+                        <div class="form-group col-lg-6 col-sm-12">
+                            <label for="my-input">Apellido Materno</label>
+                            <input id="txtApemat" class="form-control" type="text" name="txtApemat">
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label for="my-input">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" placeholder="edad" name="ddtFechanan" id="ddtFechanan">
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label for="my-input">Correo</label>
+                            <input id="email" class="form-control" type="text" name="email">
+                        </div>
+
+                        <div class="form-group col-12">
+                            <label for="my-input">Tipo de Usuario</label>
+                            <select name="cboTusuario" class="form-control">
+                                <option value="2">Cliente</option>
+                                <option value="3">Veterinario</option>
+                            </select>
+                        </div>
+
                     </div>
 
-
-                    <div class="form-group row m-b-20">
-                        <div class="col-12">
-                        </div>
-                    </div>
-
-
-                    <div class="form-group  text-center m-t-10">
+                    <div class="form-group col-12">
                         <button class="btn btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:enviarparemetrosregistro()" id="btnSubmitButtom">Registrar</button>
                     </div>
 
-                </form>
-
-                <div class="row m-t-50">
-                    <div class="col-sm-12 text-center">
-                        <p class="text-muted">¿Ya tienes una cuenta de Boxni? Si es así <a href="<?= base_url("login") ?>" class="text-dark m-l-5" name="btnlogin"><b>Inicia Sesión</b></a></p>
+                    <div class="row m-t-50">
+                        <div class="col-sm-12 text-center">
+                            <p class="text-muted">¿Ya tienes una cuenta de Boxni? Si es así <a href="<?= base_url("login") ?>" class="text-dark m-l-5" name="btnlogin"><b>Inicia Sesión</b></a></p>
+                        </div>
                     </div>
-                </div>
 
 
             </div>
@@ -70,18 +90,30 @@
                 $("#btnSubmitButtom").prop('disabled', true);
             }
         }).done(function(result) {
-            resultobj = JSON.parse(result);
-            if (resultobj.status == "success") {
-                $("#frmCorreo").trigger("reset");
-                <?= sucess_message2() ?>
-                $("#btnSubmitButtom").prop('disabled', false);
-            } else {
-                <?= error_message2() ?>
-                $("#btnSubmitButtom").prop('disabled', false);
-            }
+            resultobj = result;
+            $("#frmCorreo").trigger("reset");
+            <?= sucess_message2() ?>
+            $("#btnSubmitButtom").prop('disabled', false);
         }).fail(function(jqXHR) {
-            console.log(jqXHR);
-            <?= error_message2() ?>
+            data = jqXHR.responseJSON.message;
+            if (data["correo"] != "") {
+                <?= errorToast('${data["correo"]}') ?>
+            }
+            if (data["Nombre"] != "") {
+                <?= errorToast('${data["Nombre"]}') ?>
+            }
+            if (data["Apellidopat"] != "") {
+                <?= errorToast('${data["Apellidopat"]}') ?>
+            }
+            if (data["Apellidomat"] != "") {
+                <?= errorToast('${data["Apellidomat"]}') ?>
+            }
+            if (data["Fechanacimiento"] != "") {
+                <?= errorToast('${data["Fechanacimiento"]}') ?>
+            }
+            if (data["Tipousuario"] != "") {
+                <?= errorToast('${data["Tipousuario"]}') ?>
+            }
             $("#btnSubmitButtom").prop('disabled', false);
         });
     }

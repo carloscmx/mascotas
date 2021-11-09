@@ -14,76 +14,24 @@
 
                 <h3 class="fw-normal mb-3 pb-3" style="text-align:center">Registro</h3>
 
-                <form class="" action="" method="post" id="idFormRegistro">
+                <form id="idFormRegistro">
 
-                    <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center">
-                            <label for="text">Nombre</label>
-                            <input class="form-control" type="text" name="txtNombre" required="" placeholder=" Inserta tu Nombre(s)">
-                        </div>
-                    </div>
+                    <input type="hidden" name="token" value="<?= $_GET['token'] ?>">
+                    <input type="hidden" name="email" value="<?= $_GET['mail'] ?>">
 
-
-                    <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center">
-                            <label for="text">Apellido Paterno</label>
-                            <input class="form-control" type="text" name="txtApepat" required="" placeholder="Inserta tu Apellido Paterno">
-                        </div>
-                    </div>
-
-                    <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center">
-                            <label for="text">Apellido Materno</label>
-                            <input class="form-control" type="text" name="txtAmater" required="" placeholder="Inserta tu Apellido Materno">
-                        </div>
-                    </div>
-
-                    <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center">
-                            <label for="start">Fecha de Nacimiento</label>
-                            <br>
-                            <input type="date" id="start" name="dttFechanan" value="2018-07-22">
-                        </div>
-                    </div>
-
-
-                    <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center">
-                            <label for="text">Tipo de Usuario</label>
-                            <select name="cboTusario" class="form-control">
-                                <option value="2">Cliente</option>
-                                <option value="3">Veterinario</option>
-                            </select>
-
-                        </div>
-                    </div>
-
-                    <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center">
+                    <div class="form-row">
+                        <div class="form-group col-12">
                             <label for="text">Contraseña</label>
-                            <input class="form-control" name="txtPassword" id="txtPassword" maxlength="10" required="" placeholder="Inserta una contraseña a máximo de 10 caracteres" type="password">
+                            <input class="form-control" name="password" id="txtPassword" maxlength="10" required="" placeholder="Inserta una contraseña a máximo de 10 caracteres" type="password">
                         </div>
-                    </div>
 
-
-                    <div class="form-group m-b-20 row" style="display: none;">
-                        <div class="col-12 text-center">
-                            <label for="text">Contraseña</label>
-                            <input class="form-control" type="text" value="<?= $this->uri->segment(3) ?>" name="txtToken" id="txtToken" maxlength="10" required="" placeholder="">
-                        </div>
-                    </div>
-
-                    <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center">
+                        <div class="form-group col-12">
                             <label for="text">Repite contraseña</label>
                             <input class="form-control" name="txtPassword1" id="txtPassword1" maxlength="10" required="" placeholder="Ingresa de nuevo tu Contraseña" type="password">
                         </div>
-                    </div>
-                    <div class="form-group row text-center m-t-10">
-                        <div class="col-12">
-                            <button class="btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:enviarparemetrosregistro()" id="btnSubmitButtom">Registrar
-                            </button>
-                        </div>
+                        <button class="btn btn-lg btn-outline-info btn-rounded" type="submit" id="btnSubmitButtom">Registrar
+                        </button>
+
                     </div>
 
 
@@ -111,44 +59,45 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js" integrity="sha512-XZEy8UQ9rngkxQVugAdOuBRDmJ5N4vCuNXCh8KlniZgDKTvf7zl75QBtaVG1lEhMFe2a2DuA22nZYY+qsI2/xA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/localization/messages_es.min.js" integrity="sha512-Ou4GV0BYVfilQlKiSHUNrsoL1nznkcZ0ljccGeWYSaK2CaVzof2XaZ5VEm5/yE/2hkzjxZngQHVwNUiIRE8yLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
-<script>
-    function enviarparemetrosregistro() {
-        if ($("#txtPassword").val() === $("#txtPassword1").val() && $("#txtPassword").val().length > 6) {
-            $paramts = $("#idFormRegistro").serialize();
-            $.ajax({
-                url: "<?= base_url("Welcome/registroFinal") ?>",
-                data: $paramts,
-                type: "post",
-                beforeSend: function(xhr) {
-                    $("#btnSubmitButtom").prop('disabled', true);
-                }
-            }).done(function(response) {
-                $resonseJson = JSON.parse(response);
-                <?= success_message3() ?>
-
-                setTimeout(function() {
-                    window.location.href = $resonseJson.url;
-                }, 6000);
-
-            });
-
-        } else {
-            <?= error_message3() ?>
-            $("#btnSubmitButtom").prop('disabled', false);
-
-        }
-
-    }
-</script>
-
 <script>
     $(document).ready(function() {
 
         <?= basic_message() ?>
-        $("#idFormRegistro").submit(function(event) {
-            event.preventDefault();
-
+        $("#idFormRegistro").submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('Welcome/registroFinal') ?>",
+                data: $(this).serialize(),
+                dataType: "json",
+                beforeSend: function() {
+                    $("#btnSubmitButtom").prop('disabled', true);
+                },
+                success: function(response) {
+                    <?= success_message3() ?>
+                    window.location.href = "<? base_url('login') ?>";
+                },
+                error: function(jqXHR) {
+                    $("#btnSubmitButtom").prop('disabled', false);
+                    let data = jqXHR.responseJSON;
+                    if (jqXHR.status == 500) {
+                        <?= errorToast('${data.message}') ?>
+                    } else {
+                        if (data.message['correo'] != '') {
+                            <?= errorToast('${data.message["correo"]}') ?>
+                        }
+                        if (data.message['token'] != '') {
+                            <?= errorToast('${data.message["token"]}') ?>
+                        }
+                        if (data.message['contraseña'] != '') {
+                            <?= errorToast('${data.message["contraseña"]}') ?>
+                        }
+                        if (data.message['confirmacion'] != '') {
+                            <?= errorToast('${data.message["confirmacion"]}') ?>
+                        }
+                    }
+                }
+            });
         });
     });
 </script>

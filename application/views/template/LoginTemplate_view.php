@@ -18,6 +18,8 @@
     <!-- Sweet Alert css -->
     <link href="<?= base_url('resources') ?>/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 
+    <link href="<?= base_url('resources') ?>/plugins/jquery-toastr/jquery.toast.min.css" rel="stylesheet" type="text/css" />
+
     <!-- App css -->
     <link href="<?= base_url('resources/assets/css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" />
     <link href="<?= base_url('resources/assets/css/icons.css') ?>" rel="stylesheet" type="text/css" />
@@ -62,6 +64,8 @@
     <!-- Sweet Alert Js  -->
     <script src="<?= base_url('resources') ?>/plugins/sweet-alert/sweetalert2.min.js"></script>
     <script src="<?= base_url("resources") ?>/assets/pages/jquery.sweet-alert.init.js"></script>
+
+    <script src="<?= base_url("resources") ?>/plugins/jquery-toastr/jquery.toast.min.js"></script>
 
     <!-- App js -->
     <script src="<?= base_url('resources/assets/js/jquery.core.js') ?>"></script>

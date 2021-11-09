@@ -57,12 +57,14 @@ class Login_model extends CI_Model
 
     $this->db->update("usuarios", $data);
   }
-  public function actualizarregistro($data, $where)
+  public function actualizarregistro($table, $set, $where)
   {
-    $this->db->where($where);
-
-
-    $this->db->update("activacion", $data);
+    $this->db->update($table, $set, $where);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public function activacion($data)
@@ -100,6 +102,38 @@ class Login_model extends CI_Model
     }
     return $result;
   }
+
+  public function selectExistentMail($mail)
+  {
+    $rows = $this->db->get_where('usuarios', ['correo' => $mail])->num_rows();
+    if ($rows > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function authTokenRegistro($token, $correo)
+  {
+    $rows = $this->db->get_where('usuarios', ['login_token_reset' => $token, 'correo' => $correo])->num_rows();
+    if ($rows > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  public function getTipoUsuarioRegistro($correo)
+  {
+    $get = $this->db->select('tipousarioid AS tipo')->from('usuarios')->where('correo', $correo)->get();
+    if ($get->num_rows() > 0) {
+      $tipoUsuario = $get->row();
+      return $tipoUsuario->tipo;
+    } else {
+      return false;
+    }
+  }
+
 
 
 

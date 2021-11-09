@@ -235,13 +235,28 @@ class Welcome extends CI_Controller
 
 	public function registro()
 	{
-		$token = $this->uri->segment(3);
-		$respuesta = $this->lg->validartoken($token);
-		if ($respuesta['action']) {
-			$this->template->set("titulo", "registro");
-			$this->template->load("template/LoginTemplate_view", "contenido", "paginas/RegistroView");
+		$token = $_GET['token'];
+		$correo = $_GET['mail'];
+		if ($this->lg->authTokenRegistro($token, $correo)) {
+
+			$resp = $this->lg->getTipoUsuarioRegistro($correo);
+			if ($resp != false) {
+
+				switch ($resp) {
+					case 2:
+						$this->template->set("titulo", "registro");
+						$this->template->load("template/LoginTemplate_view", "contenido", "paginas/RegistroView");
+						break;
+
+					default:
+						show_404();
+						break;
+				}
+			} else {
+				show_404();
+			}
 		} else {
-			show_error("No se pudo procesar esta peticion.", 403, "Ha ocurrido un error.");
+			show_404();
 		}
 	}
 	public function recibirparametrosregistro()
@@ -270,60 +285,88 @@ class Welcome extends CI_Controller
 	{
 		if ($this->input->is_ajax_request()) {
 
-			$this->form_validation->set_rules('email', 'Correo', 'required|valid_email');
+			$this->form_validation->set_rules('txtNombre', 'Nombre', 'required');
+			$this->form_validation->set_rules('txtApepat', 'Apellido pat', 'required');
+			$this->form_validation->set_rules('txtApemat', 'Apellido mat', 'required');
+			$this->form_validation->set_rules('ddtFechanan', 'Fecha nacimiento', 'required');
+			$this->form_validation->set_rules('email', 'Correo', 'required|valid_email|callback_validExistentMail');
+			$this->form_validation->set_rules('cboTusuario', 'Tipo usuario', 'required');
 
 			if ($this->form_validation->run()) {
 
+				$txtNombre = $this->input->post("txtNombre", true);
+				$txtApepat = $this->input->post("txtApepat", true);
+				$txtApemat = $this->input->post("txtApemat", true);
+				$dttFechanan = $this->input->post("dttFechanan", true);
+				$cboTusuario = $this->input->post("cboTusuario", true);
 				$correo = $this->input->post("email", true);
 				$token = $this->utilerias->generateToken();
-				$url = base_url("registro/activaciones/{$token}");
+				$url = base_url("registro/activaciones?token=$token&mail=$correo");
 				$urlimg = base_url('resources/assets/images/logo1.png');
 				$bodyhtml = "
-			<style>
-			.button {
-				background-color: #4CAF50;
-				border: none;
-				color: white;
-				padding: 15px 32px;
-				text-align: center;
-				text-decoration: none;
-				display: inline-block;
-				font-size: 16px;
-				margin: 4px 2px;
-				cursor: pointer;
-			}
-			</style>
-			<div align='center'><img src='{$urlimg}'></div>
-			</br>
-			<h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Confirmación de correo electrónico</h1><br/>
-			<br/>
-			<h2><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Hola {$correo}</h2><br/>
-			<br/>
-			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Te damos la bienvenida a nuestra página BOXNI.
-			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Para continuar, confirma tu email registrando tus datos en el siguiente botón.<br/>
-			<br/>
-			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>¡¡¡VIVE CON NOSOTROS LA SEGURIDAD DE TUS MASCOTAS!!!<br/>
-			<br/>
-			<div align='center'><a href='{$url}'><button type='button' class='button'>Confirmar mi cuenta</button></a><br/>
-			<br/>
-			<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Gracias<br/>
-			Team Boxni</div>";
+				<style>
+				.button {
+					background-color: #4CAF50;
+					border: none;
+					color: white;
+					padding: 15px 32px;
+					text-align: center;
+					text-decoration: none;
+					display: inline-block;
+					font-size: 16px;
+					margin: 4px 2px;
+					cursor: pointer;
+				}
+				</style>
+				<div align='center'><img src='{$urlimg}'></div>
+				</br>
+				<h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Confirmación de correo electrónico</h1><br/>
+				<br/>
+				<h2><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Hola {$correo}</h2><br/>
+				<br/>
+				<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Te damos la bienvenida a nuestra página BOXNI.
+				<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Para continuar, confirma tu email registrando tus datos en el siguiente botón.<br/>
+				<br/>
+				<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>¡¡¡VIVE CON NOSOTROS LA SEGURIDAD DE TUS MASCOTAS!!!<br/>
+				<br/>
+				<div align='center'><a href='{$url}'><button type='button' class='button'>Confirmar mi cuenta</button></a><br/>
+				<br/>
+				<div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Gracias<br/>
+				Team Boxni</div>";
 
-				if ($this->lg->activacion([
-					'correoregistro' => $correo,
-					'token' => $token,
-					'activo' => 0,
-				])) {
-					$this->correo->enviar_correo("Confirmación de registro Boxni", $correo, $bodyhtml);
+				if ($this->correo->enviar_correo("Confirmación de registro Boxni", $correo, $bodyhtml)) {
 					echo json_encode(['status' => 'success', 'message' => 'Correo registrado']);
 				} else {
 					echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
+				}
+				$data = ['nombre' => $txtNombre, 'activo' => 0, 'tipousarioid' => $cboTusuario, 'apellidopat' => $txtApepat, 'apellidomat' => $txtApemat, 'correo' => $correo, 'fechanan' => $dttFechanan, 'login_token_reset' => $token];
+
+				$idusuario = $this->lg->insertarUsuarios($data);
+
+				$user = $this->lg->login(['id' => $idusuario])->row();
+
+				switch ($cboTusuario) {
+					case 2:
+						$_SESSION['user_client'] = $user;
+						echo	json_encode(['url' => base_url("cliente/inicio")]);
+
+						break;
+					case 3:
+						$_SESSION['user_vet'] = $user;
+						echo	json_encode(['url' => base_url("veterinario/inicio")]);
+
+						break;
 				}
 			} else {
 				$this->output->set_status_header(400)->set_content_type('application/json')->set_output(json_encode([
 					'status' => false,
 					'message' => [
-						'correo' => form_error('email')
+						'Nombre' => form_error('txtNombre'),
+						'Apellidopat' => form_error('txtApepat'),
+						'Apellidomat' => form_error('txtApemat'),
+						'Fechanacimiento' => form_error('ddtFechanan'),
+						'correo' => form_error('email'),
+						'Tipousuario' => form_error('cboTusuario')
 					]
 				]));
 			}
@@ -335,46 +378,84 @@ class Welcome extends CI_Controller
 
 	public function registroFinal()
 	{
+		if ($this->input->is_ajax_request()) {
 
-		$token = $this->input->post("txtToken");
+			$this->form_validation->set_rules('token', 'Contraseña', 'required|callback_validartoken');
+			$this->form_validation->set_rules('email', 'Contraseña', 'required');
+			$this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[5]');
+			$this->form_validation->set_rules('txtPassword1', 'Confirmar contraseña', 'required|matches[password]');
 
-		$respuesta = $this->lg->validartoken($token);
-		if ($respuesta['action']) {
-			$txtNombre = $this->input->post("txtNombre", true);
-			$txtApepat = $this->input->post("txtApepat", true);
-			$txtAmater = $this->input->post("txtAmater", true);
-			$dttFechanan = $this->input->post("dttFechanan", true);
-			$txtPassword = $this->input->post("txtPassword", true);
-			$tusuario = $this->input->post("cboTusario", true);
+			if ($this->form_validation->run()) {
+				$token = $this->input->post("token", true);
+				$correo = $this->input->post("email", true);
+				$txtPassword = $this->input->post("password", true);
 
 
-			$data = ['nombre' => $txtNombre, 'contrasena' => sha1($txtPassword), 'activo' => 1, 'tipousarioid' => $tusuario, 'apellidopat' => $txtApepat, 'apellidomat' => $txtAmater, 'correo' => $respuesta['correo'], 'fechanan' => $dttFechanan];
-			$idusuario = $this->lg->insertarUsuarios($data);
-			$this->lg->actualizarregistro([
-				'activo' => 1,
-			], ['idregistro' => $respuesta['idactivacion']]);
 
-			$user = $this->lg->login(['id' => $idusuario])->row();
+				$set = [
+					'contrasena' => sha1($txtPassword),
+					'activo' => 1,
+					'login_token_reset' => null
+				];
 
-			switch ($tusuario) {
-				case 2:
-					$_SESSION['user_client'] = $user;
-					echo	json_encode(['url' => base_url("cliente/inicio")]);
+				$where = [
+					'login_token_reset' => $token,
+					'correo' => $correo
+				];
 
-					break;
-				case 3:
-					$_SESSION['user_vet'] = $user;
-					echo	json_encode(['url' => base_url("veterinario/inicio")]);
 
-					break;
+				if ($this->lg->actualizarregistro('usuarios', $set, $where)) {
+					$this->varificarLogin();
+					/* $this->output->set_status_header(200)->set_content_type('application/json')->set_output(json_encode([
+						'status' => true,
+						'message' => 'Registro finalizado'
+					])); */
+				} else {
+					$this->output->set_status_header(500)->set_content_type('application/json')->set_output(json_encode([
+						'status' => false,
+						'message' => 'Algo salió mal'
+					]));
+				}
+			} else {
+				$this->output->set_status_header(400)->set_content_type('application/json')->set_output(json_encode([
+					'status' => false,
+					'message' => [
+						'correo' => form_error('correo'),
+						'token' => form_error('token'),
+						'contraseña' => form_error('password'),
+						'confirmacion' => form_error('txtPassword1'),
+					]
+				]));
 			}
 		} else {
-			echo json_encode(['status' => 'error', 'message' => 'Ha ocurrido un error']);
+			show_404();
 		}
 	}
 
 	public function logout()
 	{
 		session_destroy();
+	}
+
+	public function validExistentMail($str)
+	{
+		$resp = $this->lg->selectExistentMail($str);
+		if ($resp) {
+			$this->form_validation->set_message('validExistentMail', 'El {field} no está disponible');
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public function validarToken($token)
+	{
+		$correo = $this->input->post('email', true);
+		if ($this->lg->authTokenRegistro($token, $correo)) {
+			return true;
+		} else {
+			$this->form_validation->set_message('validarToken', 'El {field} no es valido');
+			return false;
+		}
 	}
 }

@@ -59,7 +59,7 @@ $route['login'] = 'welcome/login';
 $route['login/recuperar'] = 'welcome/restablecerPassword';
 $route['login/restablecer/user/(:any)'] = 'welcome/restablecerPassword_view';
 
-$route['registro/activaciones/(:any)'] = 'welcome/registro';
+$route['registro/activaciones'] = 'welcome/registro';
 $route['registro'] = 'welcome/correo';
 
 $route['cliente/inicio'] = 'welcome/index';
