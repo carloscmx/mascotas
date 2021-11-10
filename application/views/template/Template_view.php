@@ -410,9 +410,9 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" onclick="javascript:closeSesion()" class="dropdown-item notify-item">
+                                <button id="session" onclick="javascript:Mascotas.postMessage('true')" class="dropdown-item notify-item">
                                     <i class="fi-power"></i> <span>Cerrar sesión</span>
-                                </a>
+                                </button>
 
                             </div>
                         </li>
@@ -509,11 +509,8 @@
     </script>
 
     <script>
-        function logOutNative() {
-            logOutNative.postMessage('true');
-        }
-
-        function closeSesion() {
+        $("#session").click(function(e) {
+            e.preventDefault();
             $.ajax({
                 url: "<?= base_url("Welcome/logout") ?>",
                 type: "post",
@@ -526,11 +523,8 @@
 
                 }
             }).done(function() {
-                logOutNative();
                 setTimeout(function() {
                     window.location.href = "<?= base_url() ?>";
-
-
                 }, 2000);
 
             }).fail(function() {
@@ -539,7 +533,7 @@
 
 
             });
-        }
+        });
     </script>
 </body>
 
