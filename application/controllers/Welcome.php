@@ -437,6 +437,7 @@ class Welcome extends CI_Controller
 		session_destroy();
 	}
 
+<<<<<<< HEAD
 	public function validExistentMail($str)
 	{
 		$resp = $this->lg->selectExistentMail($str);
@@ -456,6 +457,25 @@ class Welcome extends CI_Controller
 		} else {
 			$this->form_validation->set_message('validarToken', 'El {field} no es valido');
 			return false;
+=======
+	public function loginAPI()
+	{
+		$correo = $_GET['email'];
+		$password = $_GET['key'];
+
+		if (isset($_SESSION['user_client'])) {
+			redirect(base_url('cliente/inicio'));
+		} else {
+
+			$where = [
+				'correo' => $correo,
+				'contrasena' => sha1($password)
+			];
+			$get = $this->lg->login($where);
+			$userData = $get->row();
+			$_SESSION['user_client'] = $userData;
+			redirect(base_url('cliente/inicio'));
+>>>>>>> 911ec078dabdfa610f6fc90897e0c9a59dfd886d
 		}
 	}
 }
