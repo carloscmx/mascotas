@@ -16,36 +16,29 @@
 
                 <form class="" action="#" method="POST" id="idFormLogin">
 
-                    <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center">
+                    <div class="form-row">
+                        <div class="form-group col-12">
                             <label for="emailaddress">Correo</label>
                             <input class="form-control" type="email" maxlength="35" id="email" name="email" required="" placeholder="Ingresa tu correo electrónico">
                         </div>
-                    </div>
 
-                    <div class="form-group row m-b-20">
-                        <div class="col-12 text-center">
+                        <div class="form-group col-12">
                             <!-- <a href="page-recoverpw.html" class="text-muted float-right"><small>Olvidaste tu contraseña?</small></a> -->
                             <label for="password">Contraseña</label>
                             <input class="form-control" type="password" required="" id="password" name="password" placeholder="Ingresa tu contraseña">
                         </div>
-                    </div>
-                    <div class="form-group row m-b-20" style="display: none;">
-                        <div class="col-12">
-                            <?php
-                            if (isset($_GET['route'])) {
-                                $url = $_GET['route'];
-                                echo "<input type='text' name='route' value='{$url}'>";
-                            }
-                            ?>
+
+                        <div class="form-group col-12">
+                            <div class="col-12">
+                                <?php
+                                if (isset($_GET['route'])) {
+                                    $url = $_GET['route'];
+                                    echo "<input type='text' name='route' value='{$url}'>";
+                                }
+                                ?>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group row m-b-20">
-                        <div class="col-12">
-
-
-                        </div>
                     </div>
 
                     <div class="form-group row text-center m-t-10">
@@ -91,6 +84,9 @@
             url: "<?= base_url("Welcome/varificarLogin") ?>",
             data: $paramts,
             type: "post",
+            beforeSend: function(xhr) {
+                $("#btnRestButtom").prop('disabled', true);
+            }
         }).done(function(result) {
             var resultarray = JSON.parse(result);
             if (resultarray.status == "success") {
@@ -99,6 +95,15 @@
             } else {
                 <?= error_message() ?>
             }
+        }).fail(function(jqXHR) {
+            data = jqXHR.responseJSON.message;
+            if (data["email"] != "") {
+                <?= errorToast('${data["email"]}') ?>
+            }
+            if (data["password"] != "") {
+                <?= errorToast('${data["password"]}') ?>
+            }
+            $("#btnRestButtom").prop('disabled', false);
         });
     }
 </script>

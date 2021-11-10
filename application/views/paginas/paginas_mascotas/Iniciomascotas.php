@@ -14,7 +14,7 @@
 
 <div class="row">
 	<div class="col-md-9">
-		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button type="button" class="btn-lg btn-outline-primary btn-rounded">
+		<a href="<?= base_url("cliente/mascotas/registro") ?>"><button class="btn btn-lg btn-outline-info btn-rounded" type="submit">
 				Registrar una Mascota Nueva
 			</button></a>
 	</div>
@@ -22,11 +22,6 @@
 
 <br>
 </br>
-
-<form action="" method="get">
-	<input type="text" name="busqueda"> <br>
-	<input type="submit" name="enviar" value="Buscar">
-</form>
 
 <h3>
 	<p style="text-align: center;">Tus Mascotas Registradas: </p>

@@ -53,51 +53,81 @@ class Vetcontroller extends CI_Controller
 
     public function guardardatosveterinario()
     {
-        $valid_extensions = array('jpeg', 'jpg', 'png', 'pdf', 'docx'); // valid extensions
-        $path = 'resources/uploads/documents/'; // upload directory
-        if (!empty($_FILES['image'])) {
-            $img = $_FILES['image']['name'];
-            $tmp = $_FILES['image']['tmp_name'];
-            // get uploaded file's extension
-            $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
-            // can upload same image using rand function
-            $final_image = rand(1000, 1000000) . $img;
-            // check's valid format
-            if (in_array($ext, $valid_extensions)) {
-                $path = $path . strtolower($final_image);
-                if (move_uploaded_file($tmp, $path)) {
-                    $txtNombrevet = $this->input->post("txtNombrevet", true);
-                    $txtApellidopvet = $this->input->post("txtApellidopvet", true);
-                    $txtApellidomvet = $this->input->post("txtApellidomvet", true);
-                    $cboExt = $this->input->post("cboExt", true);
-                    $txtTel = $this->input->post("txtTel", true);
-                    $txtDescripvet = $this->input->post("txtDescripvet", true);
-                    $txtHorariovet = $this->input->post("txtHorariovet", true);
+
+        if ($this->input->is_ajax_request()) {
+
+            $this->form_validation->set_rules('txtNombrevet', 'Nombrevet', 'required');
+            $this->form_validation->set_rules('txtApellidopvet', 'Apellidopvet', 'required');
+            $this->form_validation->set_rules('txtApellidomvet', 'Apellidomvet', 'required');
+            $this->form_validation->set_rules('cboExt', 'Extvet', 'required');
+            $this->form_validation->set_rules('txtTel', 'Telvet', 'required');
+            $this->form_validation->set_rules('txtDescripvet', 'Descripvet', 'required');
+            $this->form_validation->set_rules('txtHorariovet', 'Horariovet', 'required');
+
+            if ($this->form_validation->run()) {
+
+                $valid_extensions = array('jpeg', 'jpg', 'png', 'pdf', 'docx'); // valid extensions
+                $path = 'resources/uploads/documents/'; // upload directory
+                if (!empty($_FILES['image'])) {
+                    $img = $_FILES['image']['name'];
+                    $tmp = $_FILES['image']['tmp_name'];
+                    // get uploaded file's extension
+                    $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
+                    // can upload same image using rand function
+                    $final_image = rand(1000, 1000000) . $img;
+                    // check's valid format
+                    if (in_array($ext, $valid_extensions)) {
+                        $path = $path . strtolower($final_image);
+                        if (move_uploaded_file($tmp, $path)) {
+                            $txtNombrevet = $this->input->post("txtNombrevet", true);
+                            $txtApellidopvet = $this->input->post("txtApellidopvet", true);
+                            $txtApellidomvet = $this->input->post("txtApellidomvet", true);
+                            $cboExt = $this->input->post("cboExt", true);
+                            $txtTel = $this->input->post("txtTel", true);
+                            $txtDescripvet = $this->input->post("txtDescripvet", true);
+                            $txtHorariovet = $this->input->post("txtHorariovet", true);
 
 
-                    $data = [
-                        'nombreveterinario' => $txtNombrevet,
-                        'apellidopvet' => $txtApellidopvet,
-                        'apellidomvet' => $txtApellidomvet,
-                        'extension' => $cboExt,
-                        'telefono' => $txtTel,
-                        'descripcionvet' => $txtDescripvet,
-                        'horariovet' => $txtHorariovet,
-                        'cedula' => $path,
-                        'rfc' => $path,
-                        'fotovet' => $path,
-                        'idusuario' => $_SESSION['user_vet']->id
-                    ];
-                    $this->vm->vetmodelcrear($data);
-                    echo json_encode(['status' => 'success', 'message' => 'Exito se ha guardado correctamente']);
+                            $data = [
+                                'nombreveterinario' => $txtNombrevet,
+                                'apellidopvet' => $txtApellidopvet,
+                                'apellidomvet' => $txtApellidomvet,
+                                'extension' => $cboExt,
+                                'telefono' => $txtTel,
+                                'descripcionvet' => $txtDescripvet,
+                                'horariovet' => $txtHorariovet,
+                                'cedula' => $path,
+                                'rfc' => $path,
+                                'fotovet' => $path,
+                                'idusuario' => $_SESSION['user_vet']->id
+                            ];
+                            $this->vm->vetmodelcrear($data);
+                            echo json_encode(['status' => 'success', 'message' => 'Exito se ha guardado correctamente']);
+                        } else {
+                            echo json_encode(['status' => 'error', 'message' => "No se pudo copiar la imagen verifique la ruta de destino {$path}"]);
+                        }
+                    } else {
+                        echo json_encode(['status' => 'error', 'message' => 'Extension invalida del archivo']);
+                    }
                 } else {
-                    echo json_encode(['status' => 'error', 'message' => "No se pudo copiar la imagen verifique la ruta de destino {$path}"]);
+                    echo json_encode(['status' => 'error', 'message' => 'No se ha seleccionado ninguna imagen']);
                 }
             } else {
-                echo json_encode(['status' => 'error', 'message' => 'Extension invalida del archivo']);
+                $this->output->set_status_header(400)->set_content_type('application/json')->set_output(json_encode([
+                    'status' => false,
+                    'message' => [
+                        'Nombrevet' => form_error('txtNombrevet'),
+                        'Aellidopvet' => form_error('txtApellidopvet'),
+                        'Apellidomvet' => form_error('txtApellidomvet'),
+                        'Extvet' => form_error('cboExt'),
+                        'Telvet' => form_error('txtTel'),
+                        'Descripvet' => form_error('txtDescripvet'),
+                        'Horariovet' => form_error('txtHorariovet')
+                    ]
+                ]));
             }
         } else {
-            echo json_encode(['status' => 'error', 'message' => 'No se ha seleccionado ninguna imagen']);
+            show_404();
         }
     }
 

@@ -15,7 +15,7 @@ if (!function_exists('basic_message')) {
   function basic_message(): string
   {
     return "swal(
-      'Ya casi eres parte de Boxni. Registra tus datos personales para finalizar');";
+      'Ya casi eres parte de Boxni. Registra una contraseña para finalizar');";
   }
 }
 

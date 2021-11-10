@@ -79,23 +79,19 @@
                 processData: false,
                 contentType: false
             }).done(function(result) {
-                $array = JSON.parse(result);
-                if ($array.status == "success") {
-                    <?= success_message4() ?>
-                    window.location.href = $array.route;
-                } else {
-                    <?= error_message() ?>
-                }
+                resultobj = result;
+                $("#idFormLogin").trigger("reset");
+                <?= sucess_message() ?>
+                window.location = "<?php echo base_url('login') ?>"
+                $("#btnRestButton").prop('disabled', false);
             }).fail(function(jqXHR) {
-                console.log(jqXHR);
-                <?= error_message2() ?>
+                data = jqXHR.responseJSON.message;
+                if (data["contra"] != "") {
+                    <?= errorToast('${data["contra"]}') ?>
+                }
                 $("#btnRestButton").prop('disabled', false);
             });
-        } else {
-            <?= error_message2() ?>
         }
-
-
     }
 </script>
 <script>

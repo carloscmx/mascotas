@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-md-9">
         <form>
-            <button type="button" onclick="history.back()" class="btn-sm btn-outline-danger btn-rounded">Regresar</button>
+            <button type="button" onclick="history.back()" class="btn btn-lg btn-outline-info btn-rounded">Regresar</button>
         </form>
     </div>
 </div>
@@ -78,7 +78,7 @@
                     <div class="container">
                         <div class="form-group row text-center m-t-10">
                             <div class="col-12">
-                                <button type="submit" class="btn-lg btn-outline-success btn-rounded" onclick="javascript:crearveterinario()">Registrar</button>
+                                <button type="submit" class="btn btn-lg btn-outline-info btn-rounded" onclick="javascript:crearveterinario()">Registrar</button>
                             </div>
                         </div>
                     </div>

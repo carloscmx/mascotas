@@ -16,24 +16,15 @@
 
                 <form class="" action="#" method="POST" id="idFormLogin">
 
-                    <div class="form-group m-b-20 row">
-                        <div class="col-12 text-center">
+                    <div class="form-row">
+                        <div class="form-group col-12">
                             <label for="emailaddress">Correo</label>
                             <input class="form-control" type="email" id="email" name="email" required="" placeholder="Ingresa correo para recuperación de contraseña">
                         </div>
                     </div>
 
-
-                    <div class="form-group row m-b-20">
-                        <div class="col-12">
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row text-center m-t-10">
-                        <div class="col-12">
-                            <button class="btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:restablecerUser()" id="btnRestButtom">Restablecer</button>
-                        </div>
+                    <div class="form-group col-12">
+                        <button class="btn btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:restablecerUser()" id="btnRestButtom">Restablecer</button>
                     </div>
 
                 </form>
@@ -63,18 +54,15 @@
                 $("#btnRestButtom").prop('disabled', true);
             }
         }).done(function(result) {
-            resultobj = JSON.parse(result);
-            if (resultobj.status == "success") {
-                $("#idFormLogin").trigger("reset");
-                <?= sucess_message() ?>
-                $("#btnRestButtom").prop('disabled', false);
-            } else {
-                <?= error_message2() ?>
-                $("#btnRestButtom").prop('disabled', false);
-            }
+            resultobj = result;
+            $("#idFormLogin").trigger("reset");
+            <?= sucess_message() ?>
+            $("#btnRestButtom").prop('disabled', false);
         }).fail(function(jqXHR) {
-            console.log(jqXHR);
-            <?= error_message2() ?>
+            data = jqXHR.responseJSON.message;
+            if (data["correo"] != "") {
+                <?= errorToast('${data["correo"]}') ?>
+            }
             $("#btnRestButtom").prop('disabled', false);
         });
     }

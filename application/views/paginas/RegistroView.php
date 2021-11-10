@@ -75,7 +75,7 @@
                 },
                 success: function(response) {
                     <?= success_message3() ?>
-                    window.location.href = "<? base_url('login') ?>";
+                    window.location = "<?php echo base_url('Welcome/PaginaPrincipal') ?>";
                 },
                 error: function(jqXHR) {
                     $("#btnSubmitButtom").prop('disabled', false);

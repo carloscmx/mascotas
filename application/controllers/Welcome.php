@@ -69,7 +69,7 @@ class Welcome extends CI_Controller
 	{
 		if ($this->input->is_ajax_request()) {
 
-			$this->form_validation->set_rules('password', 'Correo', 'required');
+			$this->form_validation->set_rules('password', 'Contraseña', 'required');
 
 			if ($this->form_validation->run()) {
 
@@ -108,7 +108,7 @@ class Welcome extends CI_Controller
 				$this->output->set_status_header(400)->set_content_type('application/json')->set_output(json_encode([
 					'status' => false,
 					'message' => [
-						'correo' => form_error('password')
+						'contra' => form_error('password'),
 					]
 				]));
 			}
@@ -194,42 +194,61 @@ class Welcome extends CI_Controller
 
 	public function varificarLogin()
 	{
-		$correo = $this->input->post("email", TRUE);
-		$password = $this->input->post("password", TRUE);
-		$result = $this->lg->login([
-			'correo' => $correo,
-			'contrasena' => sha1($password)
-		]);
-		$respuesta = ['status' => 'error', 'message' => 'Usuario no entrado '];
-		if ($result->num_rows() > 0) {
-			$user = $result->row();
 
-			switch ($user->tipousarioid) {
-				case 2:
-					$redirect = base_url("cliente/inicio");
-					if (isset($_POST['route'])) {
-						if ($this->utilerias->is_base64_encoded($_POST['route'])) {
-							$redirect = base64_decode($_POST['route']);
-						}
+		if ($this->input->is_ajax_request()) {
+
+
+			$this->form_validation->set_rules('email', 'Correo', 'required');
+			$this->form_validation->set_rules('password', 'Contrasena', 'required');
+
+			if ($this->form_validation->run()) {
+				$correo = $this->input->post("email", TRUE);
+				$password = $this->input->post("password", TRUE);
+				$result = $this->lg->login([
+					'correo' => $correo,
+					'contrasena' => sha1($password)
+				]);
+				$respuesta = ['status' => 'error', 'message' => 'Usuario no entrado '];
+				if ($result->num_rows() > 0) {
+					$user = $result->row();
+
+					switch ($user->tipousarioid) {
+						case 2:
+							$redirect = base_url("cliente/inicio");
+							if (isset($_POST['route'])) {
+								if ($this->utilerias->is_base64_encoded($_POST['route'])) {
+									$redirect = base64_decode($_POST['route']);
+								}
+							}
+							$_SESSION['user_client'] = $user;
+
+							break;
+						case 3:
+							$redirect = base_url("veterinario/inicio");
+							if (isset($_POST['route'])) {
+								if ($this->utilerias->is_base64_encoded($_POST['route'])) {
+									$redirect = base64_decode($_POST['route']);
+								}
+							}
+							$_SESSION['user_vet'] = $user;
+
+							break;
 					}
-					$_SESSION['user_client'] = $user;
-
-					break;
-				case 3:
-					$redirect = base_url("veterinario/inicio");
-					if (isset($_POST['route'])) {
-						if ($this->utilerias->is_base64_encoded($_POST['route'])) {
-							$redirect = base64_decode($_POST['route']);
-						}
-					}
-					$_SESSION['user_vet'] = $user;
-
-					break;
+					$respuesta = ['status' => 'success', 'message' => 'Iniciando sesion.', 'route' => $redirect];
+				}
+				echo json_encode($respuesta);
+			} else {
+				$this->output->set_status_header(400)->set_content_type('application/json')->set_output(json_encode([
+					'status' => false,
+					'message' => [
+						'email' => form_error('email'),
+						'password' => form_error('password')
+					]
+				]));
 			}
-			$respuesta = ['status' => 'success', 'message' => 'Iniciando sesion.', 'route' => $redirect];
+		} else {
+			show_404();
 		}
-		echo json_encode($respuesta);
-		//	var_dump($respuesta);
 	}
 
 
@@ -286,11 +305,11 @@ class Welcome extends CI_Controller
 		if ($this->input->is_ajax_request()) {
 
 			$this->form_validation->set_rules('txtNombre', 'Nombre', 'required');
-			$this->form_validation->set_rules('txtApepat', 'Apellido pat', 'required');
-			$this->form_validation->set_rules('txtApemat', 'Apellido mat', 'required');
-			$this->form_validation->set_rules('ddtFechanan', 'Fecha nacimiento', 'required');
+			$this->form_validation->set_rules('txtApepat', 'Apellidopat', 'required');
+			$this->form_validation->set_rules('txtApemat', 'Apellidomat', 'required');
+			$this->form_validation->set_rules('ddtFechanan', 'Fechanacimiento', 'required');
 			$this->form_validation->set_rules('email', 'Correo', 'required|valid_email|callback_validExistentMail');
-			$this->form_validation->set_rules('cboTusuario', 'Tipo usuario', 'required');
+			$this->form_validation->set_rules('cboTusuario', 'Tipousuario', 'required');
 
 			if ($this->form_validation->run()) {
 
@@ -339,7 +358,16 @@ class Welcome extends CI_Controller
 				} else {
 					echo json_encode(['status' => 'error', 'message' => 'El correo ya se ha registrado']);
 				}
-				$data = ['nombre' => $txtNombre, 'activo' => 0, 'tipousarioid' => $cboTusuario, 'apellidopat' => $txtApepat, 'apellidomat' => $txtApemat, 'correo' => $correo, 'fechanan' => $dttFechanan, 'login_token_reset' => $token];
+				$data = [
+					'nombre' => $txtNombre,
+					'activo' => 0,
+					'tipousarioid' => $cboTusuario,
+					'apellidopat' => $txtApepat,
+					'apellidomat' => $txtApemat,
+					'correo' => $correo,
+					'fechanan' => $dttFechanan,
+					'login_token_reset' => $token
+				];
 
 				$idusuario = $this->lg->insertarUsuarios($data);
 
@@ -380,8 +408,8 @@ class Welcome extends CI_Controller
 	{
 		if ($this->input->is_ajax_request()) {
 
-			$this->form_validation->set_rules('token', 'Contraseña', 'required|callback_validartoken');
-			$this->form_validation->set_rules('email', 'Contraseña', 'required');
+			$this->form_validation->set_rules('token', 'Token', 'required|callback_validartoken');
+			$this->form_validation->set_rules('email', 'Correo', 'required|valid_email');
 			$this->form_validation->set_rules('password', 'Contraseña', 'required|min_length[5]');
 			$this->form_validation->set_rules('txtPassword1', 'Confirmar contraseña', 'required|matches[password]');
 
@@ -405,11 +433,29 @@ class Welcome extends CI_Controller
 
 
 				if ($this->lg->actualizarregistro('usuarios', $set, $where)) {
-					$this->varificarLogin();
-					/* $this->output->set_status_header(200)->set_content_type('application/json')->set_output(json_encode([
-						'status' => true,
-						'message' => 'Registro finalizado'
-					])); */
+
+					/* PROCESO DE LOGIN */
+					$result = $this->lg->login([
+						'correo' => $correo,
+						'contrasena' => sha1($txtPassword)
+					]);
+
+					if ($result->num_rows() > 0) {
+
+						$user = $result->row();
+
+						$_SESSION['user_client'] = $user;
+
+						$this->output->set_status_header(200)->set_content_type('application/json')->set_output(json_encode([
+							'status' => true,
+							'message' => 'Registro finalizado'
+						]));
+					} else {
+						$this->output->set_status_header(401)->set_content_type('application/json')->set_output(json_encode([
+							'status' => false,
+							'message' => 'Credenciales invalidas'
+						]));
+					}
 				} else {
 					$this->output->set_status_header(500)->set_content_type('application/json')->set_output(json_encode([
 						'status' => false,
@@ -420,7 +466,7 @@ class Welcome extends CI_Controller
 				$this->output->set_status_header(400)->set_content_type('application/json')->set_output(json_encode([
 					'status' => false,
 					'message' => [
-						'correo' => form_error('correo'),
+						'correo' => form_error('email'),
 						'token' => form_error('token'),
 						'contraseña' => form_error('password'),
 						'confirmacion' => form_error('txtPassword1'),
@@ -448,13 +494,13 @@ class Welcome extends CI_Controller
 		}
 	}
 
-	public function validarToken($token)
+	public function validartoken($token)
 	{
 		$correo = $this->input->post('email', true);
 		if ($this->lg->authTokenRegistro($token, $correo)) {
 			return true;
 		} else {
-			$this->form_validation->set_message('validarToken', 'El {field} no es valido');
+			$this->form_validation->set_message('validartoken', 'El {field} no es valido');
 			return false;
 		}
 	}
