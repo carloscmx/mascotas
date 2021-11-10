@@ -353,4 +353,24 @@ class Welcome extends CI_Controller
 	{
 		session_destroy();
 	}
+
+	public function loginAPI()
+	{
+		$correo = $_GET['email'];
+		$password = $_GET['key'];
+
+		if (isset($_SESSION['user_client'])) {
+			redirect(base_url('cliente/inicio'));
+		} else {
+
+			$where = [
+				'correo' => $correo,
+				'contrasena' => sha1($password)
+			];
+			$get = $this->lg->login($where);
+			$userData = $get->row();
+			$_SESSION['user_client'] = $userData;
+			redirect(base_url('cliente/inicio'));
+		}
+	}
 }
