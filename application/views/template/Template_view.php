@@ -509,6 +509,10 @@
     </script>
 
     <script>
+        function logOutNative() {
+            logOutNative.postMessage('true');
+        }
+
         function closeSesion() {
             $.ajax({
                 url: "<?= base_url("Welcome/logout") ?>",
@@ -522,7 +526,7 @@
 
                 }
             }).done(function() {
-
+                logOutNative();
                 setTimeout(function() {
                     window.location.href = "<?= base_url() ?>";
 
