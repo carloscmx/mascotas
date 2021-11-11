@@ -148,7 +148,7 @@
             if (resultarray.status == "success") {
                 <?= success_message6() ?>
                 $('#idcrearveterinario').trigger("reset");
-                // window.location.href = "<?= base_url("Controllers_Vet/Vetcontroller/indexveterinario") ?>";
+                // window.location.href = "<?= base_url("Sesion/indexveterinario") ?>";
             } else {
                 <?= question_message() ?>
             }

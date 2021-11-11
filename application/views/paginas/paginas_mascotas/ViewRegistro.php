@@ -114,15 +114,6 @@
             } else {
                 <?= question_message() ?>
             }
-        }).fail(function(jqXHR) {
-            data = jqXHR.responseJSON.message;
-            if (data["Nombrepet"] != "") {
-                <?= errorToast('${data["Nombrepet"]}') ?>
-            }
-            if (data["Color"] != "") {
-                <?= errorToast('${data["Color"]}') ?>
-            }
-            $("#btnRestButtom").prop('disabled', false);
         });
     }
 

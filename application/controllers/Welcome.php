@@ -27,20 +27,9 @@ class Welcome extends CI_Controller
 		$this->load->helper('modals');
 		$this->load->helper('modalb');
 		$this->load->helper('alertb');
-		$this->load->library('session');
 		$this->load->model("Catalogo_model", "mc");
 		$this->load->model("models_veterinario/Veterinario_model", "vm");
 		$this->load->library('Utilerias');
-	}
-
-	public function PaginaPrincipal()
-	{
-		if (isset($_SESSION['user_client'])) {
-			$url = base_url("cliente/inicio");
-			header("Location: $url");
-		} else {
-			$this->load->view("landing");
-		}
 	}
 
 	public function restablecerPassword()
@@ -177,14 +166,6 @@ class Welcome extends CI_Controller
 			show_404();
 		}
 	}
-	public function index()
-	{
-		$this->session->validarSesionCliente();
-		$data['mascotas'] = $this->mc->detallemascotas(['iduser' => $_SESSION['user_client']->id, 'activo' => 1])->result();
-
-		$this->template->set("titulo", "Bienvenido cliente");
-		$this->template->load("template/Template_view", "contenido", "paginas/paginas_mascotas/Iniciomascotas", $data);
-	}
 
 	public function login()
 	{
@@ -198,7 +179,7 @@ class Welcome extends CI_Controller
 		if ($this->input->is_ajax_request()) {
 
 
-			$this->form_validation->set_rules('email', 'Correo', 'required');
+			$this->form_validation->set_rules('email', 'Correo', 'required|valid_email');
 			$this->form_validation->set_rules('password', 'Contrasena', 'required');
 
 			if ($this->form_validation->run()) {

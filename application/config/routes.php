@@ -50,7 +50,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome/PaginaPrincipal';
+$route['default_controller'] = 'Sesion/PaginaPrincipal';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -62,7 +62,7 @@ $route['login/restablecer/user/(:any)'] = 'welcome/restablecerPassword_view';
 $route['registro/activaciones'] = 'welcome/registro';
 $route['registro'] = 'welcome/correo';
 
-$route['cliente/inicio'] = 'welcome/index';
+$route['cliente/inicio'] = 'Sesion/index';
 $route['cliente/catalogo'] = 'catalogo/index';
 $route['cliente/catalogo/ver'] = 'catalogo/mostrarcatalogo';
 $route['cliente/catalogo/ver/detalles'] = 'catalogo/detallesCatalogo';
@@ -79,6 +79,6 @@ $route['cliente/citas/registro'] = 'Controllers_Cita/Citacontroller/registrocita
 
 $route['cliente/productos'] = 'Controllers_Producto/Productocontroller/indexproducto';
 
-$route['veterinario/inicio'] = 'Controllers_Vet/Vetcontroller/indexveterinario';
+$route['veterinario/inicio'] = 'Sesion/indexveterinario';
 $route['veterinario/registro'] = 'Controllers_Vet/Vetcontroller/registroveterinario';
 $route['veterinario/detalle'] = 'Controllers_Vet/Vetcontroller/detallesvet';

@@ -26,6 +26,8 @@
     <!-- Sweet Alert css -->
     <link href="<?= base_url('resources') ?>/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 
+    <link href="<?= base_url('resources') ?>/plugins/jquery-toastr/jquery.toast.min.css" rel="stylesheet" type="text/css" />
+
     <!-- App css -->
     <link href="<?= base_url("resources/assets/css/bootstrap.min.css") ?>" rel="stylesheet" type="text/css" />
     <link href="<?= base_url("resources/assets/css/icons.css") ?>" rel="stylesheet" type="text/css" />
@@ -79,12 +81,12 @@
                             </a>
                         </li>
 
-                        <li>
+                        <li style="display: none;">
                             <a href="<?= base_url("cliente/citas") ?>">
                                 <i class="fi-paper-stack"></i><span class="badge badge-danger badge-pill float-right"></span> <span> Citas </span></a>
                         </li>
 
-                        <li>
+                        <li style="display: none;">
                             <a href="<?= base_url("cliente/productos") ?>">
                                 <i class="fi-briefcase"></i><span class="badge badge-danger badge-pill float-right"></span> <span> Productos </span></a>
                         </li>
@@ -390,7 +392,7 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="<?= base_url("catalogo/ajustescliente") ?>" class="dropdown-item notify-item">
+                                <a style="display: none;" href="<?= base_url("catalogo/ajustescliente") ?>" class="dropdown-item notify-item">
                                     <i class="fi-cog"></i> <span>Ajustes de cuenta</span>
                                 </a>
 
@@ -484,6 +486,8 @@
     <!-- Sweet Alert Js  -->
     <script src="<?= base_url('resources') ?>/plugins/sweet-alert/sweetalert2.min.js"></script>
     <script src="<?= base_url("resources") ?>/assets/pages/jquery.sweet-alert.init.js"></script>
+
+    <script src="<?= base_url("resources") ?>/plugins/jquery-toastr/jquery.toast.min.js"></script>
 
     <!-- Modal-Effect -->
     <script src="<?= base_url('resources') ?>/plugins/custombox/js/custombox.min.js"></script>

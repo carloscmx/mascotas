@@ -40,17 +40,12 @@ if ($certificados->num_rows() == 0) {
 					ID del Veterinario: <?= $veterinariosinfo->idveterinarioinfo ?>
 				</h5>
 				<div class="list-group-item">
-					....
-				</div>
-				<div class="list-group-item">
 					<h4 class="list-group-item-heading">
 						Nombre del Veterinario: <?= $veterinariosinfo->nombreveterinario ?>
 					</h4>
 				</div>
-				<div class="list-group-item justify-content-between">
-					... <span class="badge badge-secondary badge-pill"></span>
-				</div> <a href="<?= base_url("veterinario/detalle?detallevet={$veterinariosinfo->idveterinarioinfo}") ?>" class="list-group-item list-group-item-action active justify-content-between">Mi información <span class="badge badge-light badge-pill"></span></a>
-			</div>
+			</div> <a href="<?= base_url("veterinario/detalle?detallevet={$veterinariosinfo->idveterinarioinfo}") ?>" class="list-group-item list-group-item-action active justify-content-between">Mi información <span class="badge badge-light badge-pill"></span></a>
 		</div>
-	<?php endforeach; ?>
+</div>
+<?php endforeach; ?>
 </div>
