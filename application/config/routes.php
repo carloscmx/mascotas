@@ -83,4 +83,6 @@ $route['veterinario/inicio'] = 'Controllers_Vet/Vetcontroller/indexveterinario';
 $route['veterinario/registro'] = 'Controllers_Vet/Vetcontroller/registroveterinario';
 $route['veterinario/detalle'] = 'Controllers_Vet/Vetcontroller/detallesvet';
 $route['API/Autenticacion'] = 'app_services/Autenticacion_controller/loginAut';
+$route['API/Registro'] = 'app_services/Autenticacion_controller/register';
+$route['API/Codeconfirm'] = 'app_services/Autenticacion_controller/codeConfirm';
 $route['API/Login'] = 'Welcome/loginAPI';

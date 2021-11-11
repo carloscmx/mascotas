@@ -101,6 +101,32 @@ class Login_model extends CI_Model
     return $result;
   }
 
+  public function generarCodigoVerificacion()
+  {
+    $codigoRandom = mt_rand(1000, 9999);
+
+    $rowsQuery = $this->db->get_where('usuarios', ['login_token_reset' => $codigoRandom])->num_rows();
+    if ($rowsQuery > 0) {
+      $this->generarCodigoVerificacion();
+    } else {
+      return $codigoRandom;
+    }
+  }
+
+  public function validarCodigo($codigo, $idUsuario)
+  {
+    $where = [
+      'login_token_reset' => $codigo,
+      'id' => $idUsuario
+    ];
+    $get = $this->db->get_where('usuarios', $where)->num_rows();
+    if ($get > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
 
 
