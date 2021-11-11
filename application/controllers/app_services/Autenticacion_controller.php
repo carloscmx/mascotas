@@ -99,7 +99,7 @@ class Autenticacion_controller extends RestController
       $nombre = $this->input->post('nombre', true);
       $pap = $this->input->post('pap', true);
       $sap = $this->input->post('sap', true);
-      $nac = strtotime($this->input->post('nac', true));
+      $nac = $this->input->post('nac', true);
       $correo = $this->input->post('correo', true);
       $password = $this->input->post('password', true);
 
@@ -184,6 +184,21 @@ class Autenticacion_controller extends RestController
     $this->form_validation->set_rules('id', 'Usuario', 'required');
 
     if ($this->form_validation->run()) {
+      $codigo = $this->input->post('code', true);
+      $id = $this->input->post('id', true);
+
+      $resp = $this->lg->validarCodigo($codigo, $id);
+      if ($resp) {
+        $this->response([
+          'status' => true,
+          'message' => 'Registro finalizado'
+        ], RestController::HTTP_OK);
+      } else {
+        $this->response([
+          'status' => false,
+          'message' => 'Código inválido'
+        ], RestController::HTTP_UNAUTHORIZED);
+      }
     } else {
       $this->response([
         'status' => false,
