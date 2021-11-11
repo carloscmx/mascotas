@@ -127,6 +127,16 @@ class Login_model extends CI_Model
     }
   }
 
+  public function update($table, $set, $where)
+  {
+    $this->db->update($table, $set, $where);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
 
 

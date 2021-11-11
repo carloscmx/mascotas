@@ -89,7 +89,7 @@ class Autenticacion_controller extends RestController
     $this->form_validation->set_rules('pap', 'Primer apellido', 'required');
     $this->form_validation->set_rules('sap', 'Segundo apellido', 'required');
     $this->form_validation->set_rules('nac', 'Fecha de nacimiento', 'required');
-    $this->form_validation->set_rules('correo', 'Correo', 'required');
+    $this->form_validation->set_rules('correo', 'Correo', 'required|is_unique[usuarios.correo]');
     $this->form_validation->set_rules('password', 'Contraseña', 'required');
     $this->form_validation->set_rules('confirm', 'Confirmación de contraseña', 'required|matches[password]');
 
@@ -189,10 +189,19 @@ class Autenticacion_controller extends RestController
 
       $resp = $this->lg->validarCodigo($codigo, $id);
       if ($resp) {
-        $this->response([
-          'status' => true,
-          'message' => 'Registro finalizado'
-        ], RestController::HTTP_OK);
+
+        $set = [
+          'activo' => 1,
+        ];
+        $where = ['id' => $id];
+
+        $update = $this->lg->update('usuarios', $set, $where);
+        if ($update) {
+          $this->response([
+            'status' => true,
+            'message' => 'Registro finalizado'
+          ], RestController::HTTP_OK);
+        }
       } else {
         $this->response([
           'status' => false,
