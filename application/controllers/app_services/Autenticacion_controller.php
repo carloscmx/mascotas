@@ -109,12 +109,12 @@ class Autenticacion_controller extends RestController
         'correo' => $correo,
         'contrasena' => sha1($password),
         'activo' => 0,
-        'tipousuarioid' => 2,
+        'tipousarioid' => 2,
         'nombre' => $nombre,
         'apellidopat' => $pap,
         'apellidomat' => $sap,
         'fecharegistro' => date('Y-m-d H:i:s'),
-        'fechanan' => date('Y-m-d', $nac),
+        'fechanan' => date('Y-m-d', strtotime($nac)),
         'login_token_reset' => $codVerificacion
       ];
 
