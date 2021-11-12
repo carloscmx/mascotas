@@ -101,14 +101,23 @@ if (!function_exists('success_message6')) {
 }
 
 if (!function_exists('error_message')) {
-
-  function error_message(): string
+  /**
+   * Test
+   *
+   * This test helpers
+   *
+   * @param   ...
+   * @return  ...
+   */
+  function error_message($mensaje, $titulo = 'Error'): string
   {
-    return "swal(
-      '¡Ha ocurrido un error!',
-      'Ingresa tu correo o contraseña correctamente',
-      'error'
-    );";
+    $script =
+      'swal(
+      icon: "error",
+      title: `' . $titulo . '`,
+      text: `' . $mensaje . '`, 
+    );';
+    return $script;
   }
 }
 

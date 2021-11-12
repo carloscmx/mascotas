@@ -61,7 +61,7 @@
                             <p class="text-muted">¿Ya tienes una cuenta de Boxni? Si es así <a href="<?= base_url("login") ?>" class="text-dark m-l-5" name="btnlogin"><b>Inicia Sesión</b></a></p>
                         </div>
                     </div>
-
+                </form>
 
             </div>
         </div>

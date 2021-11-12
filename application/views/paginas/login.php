@@ -92,8 +92,6 @@
             if (resultarray.status == "success") {
                 <?= basic_message2() ?>
                 window.location.href = resultarray.route;
-            } else {
-                <?= error_message() ?>
             }
         }).fail(function(jqXHR) {
             data = jqXHR.responseJSON.message;
