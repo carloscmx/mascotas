@@ -50,7 +50,7 @@
 
                     <div class="form-group row text-center m-t-10">
                         <div class="col-12">
-                            <button class="btn btn-lg btn-outline-info btn-rounded" type="submit" onclick="javascript:validarusuario()">Iniciar Sesión</button>
+                            <button class="btn btn-lg btn-outline-info btn-rounded" type="submit">Iniciar Sesión</button>
                         </div>
                     </div>
 
@@ -104,9 +104,28 @@
 </script>
 
 <script>
-    $(document).ready(function() {
-        $("#idFormLogin").submit(function(event) {
-            event.preventDefault();
+    $(document).ready(function() {});
+    $("#idFormLogin").submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "<?= base_url('Welcome/varificarLogin') ?>",
+            data: $(this).serialize(),
+            dataType: "json",
+            beforeSend: function() {
+
+            },
+            success: function(response) {
+                <?= basic_message2() ?>
+                if (mailHandler) {
+                    mailHandler.postMessage($("#").val());
+                }
+                window.location.href = response['route'];
+            },
+            error: function(jqXHR) {
+                console.log(jqXHR.responseJSON);
+                <?= error_message() ?>
+            }
         });
     });
 </script>

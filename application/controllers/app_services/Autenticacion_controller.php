@@ -140,7 +140,7 @@ class Autenticacion_controller extends RestController
             </style>
             <div align='center'><img src='{$urlimg}'></div>
             </br>
-            <h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Haz solicitado restablecer tu contraseña</h1><br/>
+            <h1><div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Confirmar cuenta</h1><br/>
             <br/>
             <div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Bienvenido
             <div align='center' style='font-family: Lato, Helvetica, sans-serif;'>Nos da gusto que que seas miembro de la familia Boxni<br/>
@@ -157,6 +157,7 @@ class Autenticacion_controller extends RestController
 
           $this->response(['status' => true, 'message' => $id], RestController::HTTP_OK);
         } else {
+          $this->lg->delete('usuarios', ["id" => $id]);
           $this->response(['status' => false, 'message' => 'Algo salió mal al enviar el correo'], RestController::HTTP_INTERNAL_ERROR);
         }
       } else {
@@ -192,6 +193,7 @@ class Autenticacion_controller extends RestController
 
         $set = [
           'activo' => 1,
+          'login_token_reset' => null
         ];
         $where = ['id' => $id];
 
@@ -201,6 +203,11 @@ class Autenticacion_controller extends RestController
             'status' => true,
             'message' => 'Registro finalizado'
           ], RestController::HTTP_OK);
+        } else {
+          $this->response([
+            'status' => false,
+            'message' => 'Algo salió mal al validar la información, solicite el reenvío de su código'
+          ], RestController::HTTP_UNAUTHORIZED);
         }
       } else {
         $this->response([

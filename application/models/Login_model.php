@@ -137,6 +137,16 @@ class Login_model extends CI_Model
     }
   }
 
+  public function delete($table, $where)
+  {
+    $this->db->delete($table, $where);
+    if ($this->db->affected_rows() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
 
 
